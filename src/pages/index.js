@@ -6,8 +6,28 @@ import SEO from "../components/seo"
 
 export const pageQuery = graphql`
   query {
-    wordpressPage(template: { eq: "homepage" }) {
+    wordpressPage(wordpress_id: { eq: 22754 }) {
       title
+      locale
+      acf {
+        poster_sections {
+          poster_lists {
+            artists {
+              title {
+                rendered
+              }
+            }
+          }
+        }
+      }
+      translations {
+        en {
+          url
+        }
+        nb {
+          url
+        }
+      }
     }
     allWordpressPost(
       sort: { fields: [date], order: DESC }
@@ -34,10 +54,15 @@ export const pageQuery = graphql`
 class IndexPage extends Component {
   render() {
     const { data } = this.props
+    const { wordpressPage } = data
     return (
-      <Layout>
+      <Layout
+        locale={wordpressPage.locale}
+        translations={wordpressPage.translations}
+      >
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>Welcome to the Gatsby demo</h1>
+        <h1>{wordpressPage.title}</h1>
+        <pre>{JSON.stringify(wordpressPage, null, 2)}</pre>
         <p>
           There are {data.allWordpressPost.totalCount} posts in total.{" "}
           <Link to="/posts">See all</Link>
