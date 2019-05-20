@@ -6,7 +6,6 @@ const LanguageSwitch = ({ translations }) => {
   if (!translations) {
     return null
   }
-  console.log(translations)
   return (
     <ul className="LanguageSwitch">
       {Object.keys(translations).map(key => {
