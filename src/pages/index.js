@@ -1,12 +1,20 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import { resolvePostTypeLink } from "../utils/locale"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export const pageQuery = graphql`
   query {
-    allWordpressPost(sort: { fields: [date], order: DESC }, limit: 10) {
+    wordpressPage(template: { eq: "homepage" }) {
+      title
+    }
+    allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: 10
+      filter: { locale: { eq: "nb" } }
+    ) {
       totalCount
       edges {
         node {
@@ -15,6 +23,8 @@ export const pageQuery = graphql`
           excerpt
           slug
           date(formatString: "Do MMMM")
+          type
+          locale
         }
       }
     }
@@ -22,10 +32,6 @@ export const pageQuery = graphql`
 `
 
 class IndexPage extends Component {
-  componentDidMount() {
-    console.log("i mounted", window)
-  }
-
   render() {
     const { data } = this.props
     return (
@@ -38,7 +44,7 @@ class IndexPage extends Component {
         </p>
         {data.allWordpressPost.edges.map(({ node }) => (
           <div key={node.id}>
-            <Link to={"/" + node.slug}>
+            <Link to={resolvePostTypeLink(node)}>
               <h4>
                 <span dangerouslySetInnerHTML={{ __html: node.title }} /> -{" "}
                 {node.date}

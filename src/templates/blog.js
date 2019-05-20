@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "gatsby-link"
 import Layout from "../components/layout"
+import { resolvePostTypeLink } from "../utils/locale"
 
 const NavLink = props => {
   if (!props.test) {
@@ -27,7 +28,7 @@ const IndexPage = ({ pageContext }) => {
       {group.map(({ node }) => (
         <div key={node.id} className="blogListing">
           <div className="date">{node.date}</div>
-          <Link className="blogUrl" to={"/" + node.slug}>
+          <Link className="blogUrl" to={resolvePostTypeLink(node)}>
             <h3
               style={{ marginBottom: 0 }}
               dangerouslySetInnerHTML={{ __html: node.title }}

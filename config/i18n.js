@@ -1,0 +1,26 @@
+module.exports = {
+  nb: {
+    default: true,
+    path: "no",
+    locale: "nb-no",
+    htmlLang: "nb",
+    ogLang: "nb_NO",
+    dateFormat: "DD.MM.YYYY",
+    siteTitle: "Øya",
+    siteDescription: `Øya`,
+    siteHeadline: "Øya",
+    languageTitle: "NO",
+  },
+  en: {
+    default: false,
+    path: "en",
+    locale: "en-us",
+    htmlLang: "en",
+    ogLang: "en_US",
+    dateFormat: "DD/MM/YYYY",
+    siteTitle: "Øya",
+    siteDescription: `Øya`,
+    siteHeadline: "Øya",
+    languageTitle: "EN",
+  },
+}

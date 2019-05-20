@@ -3,8 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-
 const createPaginatedPages = require("gatsby-paginate")
+const locales = require("./config/i18n")
+const getLocalizedSlug = (path, node) =>
+  locales[node.locale].default
+    ? `${path}${node.slug}`
+    : `/${locales[node.locale].path}${path}${node.slug}`
 
 const path = require("path")
 exports.createPages = ({ graphql, actions }) => {
@@ -16,6 +20,9 @@ exports.createPages = ({ graphql, actions }) => {
         allWordpressPost {
           edges {
             node {
+              link
+              locale
+              type
               id
               slug
               title
@@ -35,21 +42,33 @@ exports.createPages = ({ graphql, actions }) => {
 
       const postEdges = result.data.allWordpressPost.edges
 
-      createPaginatedPages({
-        edges: postEdges,
-        createPage: createPage,
-        pageTemplate: "src/templates/index.js",
-        pageLength: 10, // This is optional and defaults to 10 if not used
-        pathPrefix: "posts", // This is optional and defaults to an empty string if not used
-        context: {}, // This is optional and defaults to an empty object if not used
+      /**
+       * Create blog index for each language
+       */
+      Object.keys(locales).map(locale => {
+        const postEdgesLang = postEdges.filter(
+          item => item.node.locale === locale
+        )
+        createPaginatedPages({
+          edges: postEdgesLang,
+          createPage: createPage,
+          pageTemplate: "src/templates/blog.js",
+          pageLength: 10, // This is optional and defaults to 10 if not used
+          pathPrefix: locales[locale].default ? `nyheter` : `${locale}/news`, // This is optional and defaults to an empty string if not used
+          context: {
+            locale,
+          }, // This is optional and defaults to an empty object if not used
+        })
       })
 
       postEdges.forEach(edge => {
+        // slug = getLocalizedSlug("/posts/", edge.node)
         createPage({
-          path: `/${edge.node.slug}`,
+          path: `${edge.node.link}`,
           component: path.resolve(`./src/templates/post.js`),
           context: {
             id: edge.node.id,
+            locale: edge.node.locale,
           },
         })
       })
@@ -64,11 +83,14 @@ exports.createPages = ({ graphql, actions }) => {
         allWordpressPage {
           edges {
             node {
+              link
               id
               slug
               title
               date
               excerpt
+              locale
+              template
             }
           }
         }
@@ -83,11 +105,16 @@ exports.createPages = ({ graphql, actions }) => {
 
       const pageEdges = result.data.allWordpressPage.edges
       pageEdges.forEach(edge => {
+        if (edge.node.slug === "forside") {
+          edge.node.slug = getLocalizedSlug("/", edge.node)
+        }
+        // slug = getLocalizedSlug("/", edge.node)
         createPage({
-          path: `/${edge.node.slug}`,
+          path: `${edge.node.link}`,
           component: path.resolve(`./src/templates/page.js`),
           context: {
             id: edge.node.id,
+            locale: edge.node.locale,
           },
         })
       })

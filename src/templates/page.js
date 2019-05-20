@@ -2,10 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const page = data.wordpressPage
+  const { locale } = pageContext
   return (
-    <Layout>
+    <Layout locale={locale} translations={page.translations}>
       <div>
         <p>Page:</p>
         <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
@@ -20,6 +21,17 @@ export const pageQuery = graphql`
     wordpressPage(id: { eq: $id }) {
       title
       content
+      wordpress_id
+      locale
+      slug
+      translations {
+        nb {
+          url
+        }
+        en {
+          url
+        }
+      }
     }
   }
 `
