@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-import { resolvePostTypeLink } from "../utils/locale"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -25,6 +24,7 @@ export const pageQuery = graphql`
           date(formatString: "Do MMMM")
           type
           locale
+          link
         }
       }
     }
@@ -44,7 +44,7 @@ class IndexPage extends Component {
         </p>
         {data.allWordpressPost.edges.map(({ node }) => (
           <div key={node.id}>
-            <Link to={resolvePostTypeLink(node)}>
+            <Link to={node.link}>
               <h4>
                 <span dangerouslySetInnerHTML={{ __html: node.title }} /> -{" "}
                 {node.date}
