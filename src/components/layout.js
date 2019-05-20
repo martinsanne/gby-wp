@@ -1,10 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import LanguageSwitch from "../components/LanguageSwitch"
-
-import Header from "./header"
-import "./layout.css"
 
 /**
  * React intl setup
@@ -23,10 +20,27 @@ const Layout = ({ children, locale, translations }) => {
   return (
     <StaticQuery
       query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
+        {
+          wordpressHeyMenus {
+            menus {
+              en {
+                primary {
+                  items {
+                    url
+                    wordpress_id
+                    title
+                  }
+                }
+              }
+              nb {
+                primary {
+                  items {
+                    url
+                    wordpress_id
+                    title
+                  }
+                }
+              }
             }
           }
         }
@@ -34,7 +48,23 @@ const Layout = ({ children, locale, translations }) => {
       render={data => (
         <IntlProvider messages={intlTranslations[locale]} locale={locale}>
           <>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            {data.wordpressHeyMenus &&
+              data.wordpressHeyMenus.menus &&
+              data.wordpressHeyMenus.menus[locale] &&
+              data.wordpressHeyMenus.menus[locale].primary && (
+                <ul>
+                  {data.wordpressHeyMenus.menus[locale].primary.items.map(
+                    item => {
+                      return (
+                        <li key={item.wordpress_id}>
+                          <Link to={item.url}>{item.title}</Link>
+                        </li>
+                      )
+                    }
+                  )}
+                </ul>
+              )}
+
             <div
               style={{
                 margin: `0 auto`,

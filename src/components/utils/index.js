@@ -1,3 +1,4 @@
+import React from "react"
 // import ScrollToTop from './ScrollToTop'
 // import SEOHeaders from './SEOHeaders'
 import Html from "./Html"
@@ -18,11 +19,13 @@ import Html from "./Html"
 // import Marquee from './Marquee'
 // import PageVisibilitySensor from './PageVisibilitySensor'
 import Doodle from "./Doodle"
-// import Icon from './Icon'
+import Icon from "./Icon"
 // import QuickLink from './QuickLink'
 // import CheckRenderTimes from './CheckRenderTimes'
 // import MarqueeString from './MarqueeString'
 import Mouse from "./Mouse"
+
+const FeaturedImage = () => <span>FeaturedImage</span>
 
 export {
   // ScrollToTop,
@@ -32,7 +35,7 @@ export {
   // Toggle,
   // Modal,
   // Badge,
-  // FeaturedImage,
+  FeaturedImage,
   // FeaturedImageAspect,
   // VimeoWrapper,
   // Section,
@@ -46,7 +49,7 @@ export {
   // Marquee,
   // PageVisibilitySensor,
   Doodle,
-  // Icon,
+  Icon,
   // QuickLink,
   // CheckRenderTimes,
   // MarqueeString,

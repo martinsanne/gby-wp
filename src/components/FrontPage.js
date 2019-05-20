@@ -2,18 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Section from "./Section"
 import Artists from "./Artists"
+import Hero7 from "./Hero7"
 
 export default ({ page }) => {
-  const headliners = page.acf.artists.filter(artist => artist.acf.headliner)
-  const artists = page.acf.artists.filter(artist => !artist.acf.headliner)
-
+  const acf = page.acf
+  const headliners = acf.artists.filter(artist => artist.acf.headliner)
+  const artists = acf.artists.filter(artist => !artist.acf.headliner)
   return (
     <div>
-      <p>FrontPage:</p>
-      <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
-      <div dangerouslySetInnerHTML={{ __html: page.content }} />
+      {acf.hero.headliners && acf.hero.headliners.length > 0 && (
+        <Hero7 hero={acf.hero} />
+      )}
       <div className="container">
-        {page.acf && page.acf.artists && (
+        {acf.artists && (
           <Section>
             {headliners && headliners.length > 0 && (
               <Artists artists={headliners} expandable />
@@ -32,6 +33,13 @@ export default ({ page }) => {
 export const query = graphql`
   fragment AcfFrontPageArtists on wordpress__PAGE {
     acf {
+      hero {
+        headliners {
+          title {
+            rendered
+          }
+        }
+      }
       artists {
         wordpress_id
         status
