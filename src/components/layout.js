@@ -21,69 +21,61 @@ const Layout = ({ children, locale, translations }) => {
     <StaticQuery
       query={graphql`
         {
-          wordpressHeyMenus {
-            menus {
-              en {
-                primary {
-                  items {
-                    url
-                    wordpress_id
-                    title
-                  }
-                }
-              }
-              nb {
-                primary {
-                  items {
-                    url
-                    wordpress_id
-                    title
-                  }
+          allWordpressHeyMenus {
+            edges {
+              node {
+                location
+                locale
+                items {
+                  url
+                  wordpress_id
+                  title
                 }
               }
             }
           }
         }
       `}
-      render={data => (
-        <IntlProvider messages={intlTranslations[locale]} locale={locale}>
-          <>
-            {data.wordpressHeyMenus &&
-              data.wordpressHeyMenus.menus &&
-              data.wordpressHeyMenus.menus[locale] &&
-              data.wordpressHeyMenus.menus[locale].primary && (
+      render={data => {
+        const menus = data.allWordpressHeyMenus.edges
+        const primaryMenu = menus.filter(item => {
+          return item.node.locale === locale && item.node.location === "primary"
+        })
+
+        return (
+          <IntlProvider messages={intlTranslations[locale]} locale={locale}>
+            <>
+              {primaryMenu && primaryMenu[0] && primaryMenu[0].node && (
                 <ul>
-                  {data.wordpressHeyMenus.menus[locale].primary.items.map(
-                    item => {
-                      return (
-                        <li key={item.wordpress_id}>
-                          <Link to={item.url}>{item.title}</Link>
-                        </li>
-                      )
-                    }
-                  )}
+                  {primaryMenu[0].node.items.map(item => {
+                    return (
+                      <li key={item.wordpress_id}>
+                        <Link to={item.url}>{item.title}</Link>
+                      </li>
+                    )
+                  })}
                 </ul>
               )}
-
-            <div
-              style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `0px 1.0875rem 1.45rem`,
-                paddingTop: 0,
-              }}
-            >
-              <LanguageSwitch translations={translations} />
-              <main>{children}</main>
-              <footer>
-                © {new Date().getFullYear()}, Built with{" "}
-                <a href="https://www.gatsbyjs.org">Gatsby</a> |{" "}
-                <a href="/about">About Us</a>
-              </footer>
-            </div>
-          </>
-        </IntlProvider>
-      )}
+              <div
+                style={{
+                  margin: `0 auto`,
+                  maxWidth: 960,
+                  padding: `0px 1.0875rem 1.45rem`,
+                  paddingTop: 0,
+                }}
+              >
+                <LanguageSwitch translations={translations} />
+                <main>{children}</main>
+                <footer>
+                  © {new Date().getFullYear()}, Built with{" "}
+                  <a href="https://www.gatsbyjs.org">Gatsby</a> |{" "}
+                  <a href="/about">About Us</a>
+                </footer>
+              </div>
+            </>
+          </IntlProvider>
+        )
+      }}
     />
   )
 }
