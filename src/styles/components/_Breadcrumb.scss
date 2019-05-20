@@ -1,0 +1,30 @@
+.Breadcrumb {
+  @include container;
+  display: flex;
+  justify-content: center;
+  @include spacing('xs', 'padding-bottom');
+  @extend small;
+
+  @include bp(md) {
+    justify-content: center;
+  }
+
+  &__item {
+    display: flex;
+    &:after {
+      content: '↦';
+      @include spacing('xs', ('padding-left', 'padding-right'));
+    }
+
+    &:last-of-type {
+      &:after {
+        content: '';
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+    @extend small;
+  }
+}

@@ -1,5 +1,6 @@
 module.exports = {
   nb: {
+    url: "/",
     default: true,
     path: "no",
     locale: "nb-no",
@@ -12,6 +13,7 @@ module.exports = {
     languageTitle: "NO",
   },
   en: {
+    url: "/en/",
     default: false,
     path: "en",
     locale: "en-us",

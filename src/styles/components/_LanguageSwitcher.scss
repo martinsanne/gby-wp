@@ -1,0 +1,22 @@
+.LanguageSwitcher {
+  // display: flex;
+  // // justify-content: flex-end;
+
+  &--dark {
+    .LanguageSwitcher__item,
+    .LanguageSwitcher__divider {
+      color: white;
+    }
+  }
+
+  &__item {
+    font-family: $f-serif;
+    &--is-active {
+      border-bottom: $border;
+    }
+  }
+  &__divider {
+    display: inline-block;
+    padding: 0 0.3em;
+  }
+}

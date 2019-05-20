@@ -1,0 +1,52 @@
+$spacing: (
+  sm: (
+    md: 22,
+    lg: 60,
+    section: 80
+  ),
+  md: (
+    md: 22,
+    lg: 60,
+    section: 140
+  )
+) !default;
+
+@function spacing($size, $breakpoint) {
+  $sizes: map-get($spacing, $breakpoint);
+  $spacing: map-get($sizes, $size);
+  @return rem-calc($spacing);
+}
+
+@mixin spacing($size, $props) {
+  @each $bp, $sizes in $spacing {
+    @include bp($bp) {
+      $spacing: map-get($sizes, $size);
+      @each $prop in $props {
+        #{$prop}: rem-calc($spacing);
+      }
+    }
+  }
+}
+
+@mixin negative-spacing($size, $props) {
+  @each $bp, $sizes in $spacing {
+    @include bp($bp) {
+      $spacing: map-get($sizes, $size);
+      @each $prop in $props {
+        #{$prop}: rem-calc(-$spacing);
+      }
+    }
+  }
+}
+
+/*
+
+Usage:
+
+// With generated breakpoints
+@include spacing($size:small, $props:('margin-top','margin-bottom'));
+
+// As a property value
+margin-top: spacing($size:small, $breakpoint:small);
+
+*/

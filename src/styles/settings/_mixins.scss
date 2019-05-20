@@ -1,0 +1,107 @@
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+  @if $fallback {
+    font-size: $fallback;
+  }
+  font-size: $responsive;
+}
+
+@mixin showQueries {
+  &:after {
+    position: fixed;
+    background: white;
+    z-index: 9999999;
+    @include spacing('md', ('left', 'bottom'));
+    background: white;
+    padding: 0.5em;
+    border-radius: 50%;
+  }
+  @each $bp, $val in $breakpoints {
+    @include bp($bp) {
+      &:after {
+        content: '#{$bp}';
+      }
+    }
+  }
+}
+
+@mixin content-width($size) {
+  @each $bp, $widths in $content-width {
+    @if $bp == sm {
+      max-width: 100%;
+    } @else {
+      @include bp($bp) {
+        $width: map-get($widths, $size);
+        max-width: rem-calc($width);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@mixin container {
+  @include content-width('image');
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: spacing('sm', 'sm');
+  padding-right: spacing('sm', 'sm');
+
+  @include bp(md) {
+    padding-left: spacing('sm', 'md');
+    padding-right: spacing('sm', 'md');
+  }
+
+  @include bp(lg) {
+    padding-left: spacing('md', 'lg');
+    padding-right: spacing('md', 'lg');
+  }
+}
+
+// Font mixins
+
+@mixin italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+@mixin expanded {
+  font-stretch: expanded;
+  font-weight: 400;
+}
+
+@mixin bold-expanded {
+  font-stretch: expanded;
+  font-weight: 700;
+}
+
+@mixin headerHeight {
+  padding-top: rem-calc(44);
+
+  @include bp(md) {
+    padding-top: rem-calc(44);
+  }
+
+  @include bp(lg) {
+    padding-top: rem-calc(96);
+  }
+}
+
+@mixin is-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    @content;
+  }
+}

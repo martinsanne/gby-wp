@@ -1,0 +1,51 @@
+.Marquee {
+  --width: 0px;
+  width: 100%;
+  overflow-x: hidden;
+  @extend h2;
+  will-change: transform;
+
+  &--is-paused {
+    .Marquee__list,
+    .Marquee__list[style] {
+      animation-play-state: paused !important;
+    }
+  }
+
+  // &:hover {
+  //   .Marquee__list,
+  //   .Marquee__list[style] {
+  //     animation-play-state: paused !important;
+  //   }
+  // }
+
+  &__list {
+    --duration: 30s;
+    display: flex;
+    white-space: nowrap;
+    @include spacing('xs', ('padding-top', 'padding-bottom'));
+  }
+
+  &__item {
+    &:after {
+      content: '\2022';
+      @include spacing('xs', ('padding-left', 'padding-right'));
+    }
+
+    &:last-of-type {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  // @keyframes move {
+  //   from {
+  //     transform: translateX(0);
+  //   }
+  //   to {
+  //     transform: translateX(var(--width));
+  //     transform: translateX(-2000px);
+  //   }
+  // }
+}

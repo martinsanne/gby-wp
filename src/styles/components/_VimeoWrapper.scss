@@ -1,0 +1,8 @@
+.VimeoWrapper {
+  &--hidden {
+    opacity: 0;
+  }
+  iframe {
+    filter: grayscale(1);
+  }
+}

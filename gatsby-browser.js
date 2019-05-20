@@ -6,6 +6,12 @@
 
 // You can delete this file if you're not using it
 
+require("./src/styles/app.scss")
+
+require("lazysizes/plugins/respimg/ls.respimg")
+require("lazysizes/plugins/bgset/ls.bgset")
+require("lazysizes")
+
 exports.onServiceWorkerUpdateFound = () => {
   const answer = window.confirm(
     `This application has been updated. ` +

@@ -1,0 +1,40 @@
+.Post {
+  @include container;
+
+  &__header {
+    text-align: center;
+    @include spacing('lg', 'margin-bottom');
+  }
+
+  &__title {
+    max-width: rem-calc(1200);
+    margin-left: auto;
+    margin-right: auto;
+    @include spacing('sm', 'padding-bottom');
+  }
+
+  &__date {
+    // @include spacing('sm', 'margin-bottom');
+    text-align: center;
+  }
+
+  &__lead {
+    line-height: 1.35;
+    @include font-size(h3);
+    @include spacing('sm', 'margin-top');
+    @include content-width('text');
+  }
+
+  &__featured-image {
+    display: block;
+    @include spacing('lg', 'margin-bottom');
+    @include content-width('image');
+    text-align: center;
+  }
+
+  &__content {
+    @include content-width('text');
+    @include spacing('section', 'margin-bottom');
+    @extend .editor;
+  }
+}

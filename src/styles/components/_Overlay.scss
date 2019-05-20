@@ -1,0 +1,47 @@
+.Overlay {
+  --overlay: none;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+
+  &:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay);
+    mix-blend-mode: screen;
+  }
+
+  &--hoverable {
+    &:after,
+    div[role='img'],
+    img {
+      transition: $trans;
+    }
+
+    &:hover {
+      &:after {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  iframe {
+    transform: scale(1.2);
+  }
+
+  div[role='img'],
+  img {
+    transition: transform $trans;
+    filter: grayscale(1);
+    // transform: scale(1.02);
+
+    // @include bp(md) {
+    //   transform: scale(1.07) translateZ(0);
+    // }
+  }
+}

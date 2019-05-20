@@ -1,0 +1,47 @@
+.PartnerSection {
+  @include spacing('section', 'margin-bottom');
+
+  &--main {
+    .PartnerSection {
+      &__image {
+        max-width: rem-calc(500);
+      }
+    }
+  }
+
+  &__heading {
+    @include spacing('md', 'margin-bottom');
+  }
+
+  &__item {
+    @include spacing('sm', ('padding-top', 'padding-bottom'));
+    border-top: 1px solid #000;
+
+    @include bp(lg) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include spacing('xs', 'margin-bottom');
+  }
+
+  &__image,
+  &__card {
+    width: 100%;
+  }
+
+  &__image {
+    margin: 0 auto;
+  }
+
+  &__card {
+    @include content-width(text);
+  }
+
+  &__image {
+    max-width: rem-calc(300);
+  }
+}

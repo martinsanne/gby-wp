@@ -1,0 +1,11 @@
+.NewsletterSignup {
+  @include content-width(text);
+  text-align: center;
+
+  &__title {
+    @include spacing('sm', 'margin-bottom');
+  }
+  &__desc {
+    @include spacing('sm', 'margin-bottom');
+  }
+}

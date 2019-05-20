@@ -1,0 +1,6 @@
+.FeaturedImage {
+  &__caption {
+    @include spacing('xs', 'padding-top');
+    @extend .small;
+  }
+}

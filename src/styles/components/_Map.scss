@@ -1,0 +1,369 @@
+.Map {
+  @include headerHeight;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+
+  &__logo {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 200px;
+    z-index: 1;
+    @include spacing('xs', padding);
+  }
+
+  .MapFilter {
+    position: fixed;
+    width: calc(100% - 100px);
+    top: 0;
+    left: 0;
+    background: white;
+    margin-left: 100px;
+
+    @include bp(md) {
+      border-top: 1px solid black;
+      width: calc(100% - 150px);
+      margin-left: 150px;
+    }
+
+    &__mobile {
+      width: 100%;
+      @include bp(md) {
+        display: none;
+      }
+      .MapFilter__item {
+        width: 100%;
+        display: none;
+      }
+
+      &--is-open {
+        .MapFilter__item {
+          display: block;
+        }
+      }
+    }
+
+    &__desktop {
+      display: none;
+      @include bp(md) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+      }
+    }
+
+    &__toggle {
+      width: 100%;
+      @include spacing('sm', padding);
+      border: 1px solid black;
+      flex-grow: 1;
+    }
+
+    &__item {
+      position: relative;
+      margin-left: -1px;
+      margin-top: -1px;
+      border: 1px solid black;
+      flex-grow: 1;
+      border-right-width: 0;
+      @include spacing('sm', padding);
+      flex-basis: 50%;
+
+      &:last-of-type {
+        border-right: 1px solid black;
+      }
+
+      &--remove {
+        background: $c-main;
+      }
+
+      @include bp(xl) {
+        flex-basis: auto;
+      }
+
+      &:hover {
+        color: $c-secondary;
+      }
+
+      &--is-selected {
+        background: black;
+        color: white;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .Marker[style] {
+    position: relative;
+    font-family: $f-sans;
+    @include font-size('small');
+    overflow: visible !important;
+  }
+
+  .Marker {
+    font-family: $f-sans;
+    &__name {
+      display: none;
+      color: white;
+      text-shadow: 0 0 2px black;
+      white-space: nowrap;
+      @include spacing('sm', margin-top);
+      margin-left: -50%;
+      font-family: $f-sans;
+
+      &--is-visible {
+        display: block;
+      }
+    }
+  }
+  // .Marker {
+  //   position: relative;
+  //   // width: 30px;
+  //   // height: 30px;
+  //   // animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  //   // display: none;
+  //   // position: relative;
+  //   font-family: 'Swiss 721 Extended';
+  //   // transform: translate3d(0, 0, 0);
+  //   // backface-visibility: hidden;
+
+  //   &--is-visible {
+  //     display: block;
+  //   }
+  //   &--is-clickable {
+  //     img {
+  //       // animation: pulsate-fwd 1s ease-in-out infinite both;
+  //     }
+  //     // &:after {
+  //     //   content: '';
+  //     //   position: absolute;
+  //     //   top: 0;
+  //     //   left: 0;
+  //     //   border: 1px solid white;
+  //     //   border-radius: 50%;
+  //     //   width: 120%;
+  //     //   height: 120%;
+  //     //   z-index: -1;
+  //     //   animation: pulsate-fwd 1s ease-in-out infinite both;
+  //     // }
+  //   }
+  //   &--show-text {
+  //     .Marker__name {
+  //       display: block;
+  //     }
+  //   }
+
+  //   &__name {
+  //     position: relative;
+  //     top: 50%;
+  //     left: calc(100% + #{$spacing--small});
+  //     transform: translateY(-50%);
+  //     font-size: 11px;
+  //     color: white;
+  //     text-shadow: 0 0 2px black;
+  //     white-space: nowrap;
+  //     font-family: 'Swiss 721 Extended';
+  //     // display: none;
+  //   }
+
+  //   @for $i from 1 through 80 {
+  //     .Marker:nth-of-type(#{$i}) {
+  //       animation-delay: $i * 0.1s;
+  //     }
+  //   }
+
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
+
+  .MapModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+      background: white;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: enter 0.15s 0.15s ease both;
+
+      @include bp(md) {
+        width: 60vw;
+        height: 80vh;
+      }
+
+      @include bp(lg) {
+        width: 50vw;
+        height: 70vh;
+      }
+    }
+
+    &__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      animation: fade-to-black 0.15s ease both;
+    }
+
+    &__header {
+      display: block;
+      @include spacing('sm', padding);
+      background: $c-main;
+    }
+
+    &__content {
+      position: relative;
+      @include spacing('md', padding);
+      flex-grow: 1;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none; // Safari and Chrome
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      display: block;
+    }
+
+    &__title {
+      display: inline-block;
+    }
+
+    &__icon {
+      width: 30px;
+      @include spacing('md', margin-right);
+    }
+
+    &__button {
+      width: 50%;
+
+      &--close {
+        width: auto;
+        float: right;
+        border: none;
+        @include spacing('md', (padding-top, padding-left));
+        margin-top: 7px;
+      }
+    }
+  }
+
+  @keyframes fade-to-black {
+    from {
+      background: rgba(black, 0.1);
+    }
+    to {
+      background: rgba(black, 0.9);
+    }
+  }
+
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Styling for editor
+  .Modal__content {
+    img {
+      width: 100%;
+    }
+    h2 {
+      @include spacing('md', margin-bottom);
+    }
+    p {
+      @include spacing('md', margin-bottom);
+    }
+    img {
+      @include spacing('lg', (margin-bottom, margin-top));
+    }
+    ul {
+      @include spacing('md', margin-bottom);
+    }
+  }
+
+  /* ----------------------------------------------
+ * Generated by Animista on 2018-5-16 22:22:38
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+  /**
+ * ----------------------------------------
+ * animation pulsate-fwd
+ * ----------------------------------------
+ */
+  @keyframes pulsate-fwd {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* ----------------------------------------------
+ * Generated by Animista on 2018-5-16 22:25:54
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+  /**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+  @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

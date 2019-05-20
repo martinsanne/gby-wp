@@ -1,0 +1,78 @@
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; // remove space above/below images
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+  border-radius: 0;
+  background: none;
+  color: currentColor;
+  font-size: inherit;
+  border: none;
+  padding: 0;
+  vertical-align: baseline;
+  font-family: $f-sans;
+  line-height: 1.35;
+  &:disabled {
+    cursor: default;
+  }
+}
+
+figure {
+  position: relative;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background: none;
+  font-family: $f-sans;
+  @include font-size(body);
+}
+
+input {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+hr {
+  height: $s-border__width;
+  width: 100%;
+  background: $c-border;
+  border: none;
+}
+
+select {
+  font-family: $f-sans;
+  font-stretch: expanded;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+summary {
+  cursor: pointer;
+}

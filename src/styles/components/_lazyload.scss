@@ -1,0 +1,8 @@
+.lazyload,
+.lazyloading {
+  opacity: 0;
+  transition: opacity $trans;
+}
+.lazyloaded {
+  opacity: 1;
+}

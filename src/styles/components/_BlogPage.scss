@@ -1,0 +1,21 @@
+.BlogPage {
+  @extend .container;
+  @include spacing('section', 'margin-bottom');
+
+  &__header {
+    text-align: center;
+    @include spacing(md, (padding-bottom, padding-top));
+  }
+  &__nav {
+    @include spacing(sm, margin-top);
+  }
+  &__noresult {
+    background: $c-alert;
+    text-align: center;
+    @include spacing(md, (padding-bottom, padding-top));
+  }
+
+  &__action {
+    text-align: center;
+  }
+}

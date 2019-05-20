@@ -1,0 +1,144 @@
+.Loader {
+  width: 100%;
+  height: 60vh;
+  text-align: center;
+  padding: 1rem;
+
+  .Loader__gif {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: rem-calc(100);
+
+    @include bp(md) {
+      max-width: rem-calc(150);
+    }
+  }
+
+  // // Use gif for IE
+  // @media screen and (-ms-high-contrast: active),
+  //   screen and (-ms-high-contrast: none) {
+  //   .Loader__gif {
+  //     display: block;
+  //   }
+  //   .Loader__svg {
+  //     display: none;
+  //   }
+  // }
+
+  // // Use gif for Safari
+  // @media not all and (min-resolution: 0.001dpcm) {
+  //   .Loader__gif {
+  //     display: block;
+  //   }
+  //   .Loader__svg {
+  //     display: none;
+  //   }
+  // }
+
+  // &__content {
+  //   filter: url('#goo');
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   right: 0;
+
+  //   .Logo__blob {
+  //     position: absolute;
+  //     background: $c-text;
+  //     left: 50%;
+  //     top: 50%;
+  //     text-align: center;
+  //     color: white;
+  //     font-size: rem-calc(40);
+  //     width: 100px;
+  //     height: 100px;
+  //     line-height: 100px;
+  //     border-radius: 100%;
+  //     margin-top: -50px;
+  //     margin-left: -50px;
+  //     animation: blob-right-bottom-anim cubic-bezier(0.77, 0, 0.175, 1) 4s
+  //       infinite;
+  //     &:first-child {
+  //       width: 50px;
+  //       height: 50px;
+  //       margin-top: -25px;
+  //       margin-left: -25px;
+  //       line-height: 50px;
+  //       font-size: 14px;
+  //     }
+  //     &:nth-child(2) {
+  //       animation-name: blob-left-bottom-anim;
+  //     }
+  //     &:nth-child(3) {
+  //       animation-name: blob-right-top-anim;
+  //     }
+  //     &:nth-child(4) {
+  //       animation-name: blob-left-top-anim;
+  //     }
+  //   }
+
+  //   $dist-x: 50px;
+  //   $dist-y: 50px;
+  //   @keyframes blob-left-top-anim {
+  //     0% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //     33% {
+  //       transform: scale(0.9) translate(-$dist-x, 0);
+  //     }
+  //     62% {
+  //       transform: scale(0.7) translate(-$dist-x, -$dist-y);
+  //     }
+  //     94% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //   }
+
+  //   @keyframes blob-right-top-anim {
+  //     0% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //     33% {
+  //       transform: scale(0.9) translate($dist-x, 0);
+  //     }
+  //     64% {
+  //       transform: scale(0.7) translate($dist-x, -$dist-y);
+  //     }
+  //     96% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //   }
+  //   @keyframes blob-left-bottom-anim {
+  //     0% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //     33% {
+  //       transform: scale(0.9) translate(-$dist-x, 0);
+  //     }
+  //     66% {
+  //       transform: scale(0.7) translate(-$dist-x, $dist-y);
+  //     }
+  //     98% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //   }
+
+  //   @keyframes blob-right-bottom-anim {
+  //     0% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //     33% {
+  //       transform: scale(0.9) translate($dist-x, 0);
+  //     }
+  //     68% {
+  //       transform: scale(0.7) translate($dist-x, $dist-y);
+  //     }
+  //     100% {
+  //       transform: scale(1) translate(0, 0);
+  //     }
+  //   }
+  // }
+}

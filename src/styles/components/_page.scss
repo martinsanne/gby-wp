@@ -1,0 +1,33 @@
+.Page {
+  @include container;
+
+  &__header {
+    text-align: center;
+    @include spacing('lg', 'margin-bottom');
+  }
+
+  &__title {
+    max-width: rem-calc(1200);
+    margin-left: auto;
+    margin-right: auto;
+    @include spacing('xs', 'padding-top');
+    @include spacing('sm', 'padding-bottom');
+  }
+
+  &__lead {
+    @include content-width('text');
+  }
+
+  &__featured-image {
+    display: block;
+    @include spacing('lg', 'margin-bottom');
+    @include content-width('image');
+    text-align: center;
+  }
+
+  &__content {
+    @include spacing('section', 'margin-bottom');
+    @include content-width('text');
+    @extend .editor;
+  }
+}

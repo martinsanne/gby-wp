@@ -1,0 +1,8 @@
+.App {
+  @include headerHeight;
+  @include spacing('md', 'margin-top');
+
+  &__routes {
+    min-height: 100vh;
+  }
+}

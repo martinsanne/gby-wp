@@ -1,0 +1,52 @@
+// Typography
+$typography: (
+  sm: (
+    h1: 22,
+    h2: 60,
+    h3: 60,
+    body: 24,
+    small: 12,
+    lead: 60
+  ),
+  md: (
+    h1: 22,
+    h2: 60,
+    h3: 60,
+    body: 28,
+    small: 12,
+    lead: 60
+  ),
+  lg: (
+    h1: 22,
+    h2: 60,
+    h3: 60,
+    body: 60,
+    small: 14,
+    lead: 60
+  )
+) !default;
+
+@function font-size($size, $breakpoint) {
+  $sizes: map-get($typography, $breakpoint);
+  @return map-get($sizes, $size);
+}
+
+@mixin font-size($size) {
+  @each $bp, $sizes in $typography {
+    @include bp($bp) {
+      $font-size: map-get($sizes, $size);
+      font-size: rem-calc($font-size);
+    }
+  }
+}
+/*
+
+Usage:
+
+// With generated breakpoints
+@include font-size($size:small, $props:('margin-top','margin-bottom'));
+
+// As a property value
+margin-top: font-size($size:small, $breakpoint:small);
+
+*/

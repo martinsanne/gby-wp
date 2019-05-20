@@ -1,0 +1,154 @@
+.Hero {
+  @include spacing('lg', 'margin-bottom');
+
+  &--is-hovering {
+    .Hero__media .VimeoWrapper iframe {
+      filter: blur(20px) grayscale(1);
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-left: -40%;
+
+    @include bp(md) {
+      width: 100%;
+      margin-left: -10%;
+    }
+
+    iframe {
+      transform: scale(1.16);
+    }
+  }
+
+  &__marquee {
+    position: relative;
+    z-index: 1;
+    background: white;
+  }
+
+  &__headliners {
+    width: 50%;
+    z-index: 1;
+  }
+
+  &__artist {
+    &:hover {
+      .Hero__name {
+        transform: translateX(0.25em);
+        color: $blue;
+      }
+    }
+  }
+
+  &__name {
+    $min: font-size(h1, sm);
+    display: inline-block;
+    position: relative;
+    @include responsive-font(5vw, 40px);
+    cursor: pointer;
+    transition: transform $trans, color $trans;
+    white-space: nowrap;
+  }
+
+  &__country {
+    font-family: 'Traulha';
+    font-size: rem-calc(20);
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    animation: fade-in 0.3s linear both;
+    mix-blend-mode: difference;
+    filter: grayscale(1);
+    will-change: mix-blend-mode;
+    transform: translateZ(0);
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.8;
+    }
+  }
+}
+
+.Hero2 {
+  position: relative;
+  overflow: hidden;
+  height: 36vh;
+
+  &__content {
+    canvas {
+      background: transparent;
+    }
+  }
+
+  &__logo {
+    // position: absolute;
+    // top: 0;
+    width: 100%;
+    // mix-blend-mode: darken;
+
+    path {
+      // stroke: black;
+      // stroke-width: 0.5px;
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    iframe {
+      transform: scale(1.6) !important;
+    }
+  }
+}
+
+.Hero3 {
+  margin: 0 auto;
+
+  &__link {
+    display: block;
+    transition: transform $trans;
+  }
+
+  .cell {
+    display: block;
+    text-align: center;
+    position: relative;
+
+    &:hover {
+      .Hero3__link {
+        transform: translateY(-50px);
+        z-index: 1;
+      }
+    }
+    h2 {
+      position: absolute;
+      @extend .h1;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      transform: translateY(-50%);
+    }
+  }
+}

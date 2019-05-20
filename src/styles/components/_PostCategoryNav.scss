@@ -1,0 +1,21 @@
+.PostCategoryNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  &__item {
+    margin: 0 10px;
+  }
+  &__link {
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    &--active {
+      border-bottom: 2px solid black;
+    }
+  }
+  select {
+    vertical-align: middle;
+    padding: 0 0 5px 0;
+  }
+}

@@ -1,0 +1,48 @@
+.Doodle {
+  position: relative;
+  max-width: 100%;
+
+  &--is-relative {
+    display: inline-block;
+    .Doodle__item {
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  &--onDark {
+    .Doodle__img {
+      // filter: invert(1);
+    }
+
+    // @include is-ie {
+    //   .Doodle__item {
+    //     display: none;
+    //   }
+    // }
+  }
+
+  &__item {
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    max-width: rem-calc(100);
+    max-height: rem-calc(30);
+
+    @include bp(md) {
+      max-width: rem-calc(150);
+      max-height: rem-calc(70);
+    }
+  }
+
+  &__img {
+    display: block;
+    max-width: rem-calc(100);
+    max-height: rem-calc(30);
+
+    @include bp(md) {
+      max-width: rem-calc(150);
+      max-height: rem-calc(70);
+    }
+  }
+}

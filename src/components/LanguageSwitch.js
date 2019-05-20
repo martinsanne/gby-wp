@@ -2,16 +2,26 @@ import React from "react"
 import locales from "../../config/i18n"
 import { Link } from "gatsby"
 
+// const defaultTranslations = () => {
+//   return Object.keys(locales).map(item => {
+
+//   })
+// }
+
 const LanguageSwitch = ({ translations }) => {
   if (!translations) {
-    return null
+    translations = locales
   }
   return (
     <ul className="LanguageSwitch">
       {Object.keys(translations).map(key => {
-        const item = translations[key]
+        let item = translations[key]
         if (!item) {
-          return null
+          if (locales[key]) {
+            item = locales[key]
+          } else {
+            return null
+          }
         }
         return (
           <li className="LanguageSwitch__item" key={`lang-switch-item-${key}`}>

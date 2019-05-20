@@ -1,0 +1,14 @@
+.ErrorBoundary {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__button {
+    display: block;
+    @include spacing('lg', 'margin-top');
+    margin: 0 auto;
+    @include font-size(h3);
+  }
+}

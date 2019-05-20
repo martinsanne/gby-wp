@@ -1,0 +1,28 @@
+.Article {
+  &__header {
+    @include spacing('md', ('margin-top', 'margin-bottom'));
+  }
+
+  &__date {
+    text-align: center;
+  }
+
+  &__heading {
+    text-align: center;
+    @include spacing('xs', 'margin-top');
+  }
+
+  &__excerpt {
+    @include spacing('xs', 'margin-top');
+    @include content-width('text');
+    @include font-size('h3');
+  }
+
+  &__image {
+    @include spacing('lg', 'margin-bottom');
+  }
+
+  &__content {
+    @include spacing('lg', 'margin-bottom');
+  }
+}

@@ -1,0 +1,16 @@
+.Partners {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: rem-calc(40);
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      // Equal width children
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 1rem;
+    }
+  }
+}

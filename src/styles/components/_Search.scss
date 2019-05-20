@@ -1,0 +1,51 @@
+.Search {
+  min-height: 60vh;
+
+  &__header {
+    @include spacing('md', 'margin-bottom');
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    @include spacing('md', 'margin-bottom');
+    @include bp(lg) {
+      @include content-width('text');
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &__input {
+    padding-right: rem-calc(10);
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: rem-calc(5);
+  }
+
+  &__submit {
+    margin-left: -1px;
+
+    &:hover,
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+
+  &__no-hits {
+    text-align: center;
+  }
+
+  &__title {
+    @include spacing('xs', 'margin-bottom');
+  }
+}

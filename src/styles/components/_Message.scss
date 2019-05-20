@@ -1,0 +1,11 @@
+.Message {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: $pink;
+  @include spacing(xs, 'padding');
+  &--notice {
+    color: $white;
+    background: $blue;
+  }
+}

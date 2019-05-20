@@ -1,0 +1,37 @@
+.Gallery {
+  @include bp(lg) {
+    position: relative;
+    display: flex;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      border-bottom: 3px solid white;
+      width: 100%;
+    }
+  }
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: stretch;
+
+    @include bp(lg) {
+      width: 50%;
+    }
+  }
+
+  &__main {
+    width: 100%;
+    @include bp(lg) {
+      width: 50%;
+    }
+  }
+
+  &__item {
+    width: 50%;
+  }
+}

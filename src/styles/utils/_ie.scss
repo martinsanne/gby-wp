@@ -1,0 +1,11 @@
+@media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+  /* IE10+ specific styles go here */
+
+  .Hero__logo {
+    width: 100%;
+    padding-bottom: 27.71%;
+    height: 1px;
+    overflow: visible;
+  }
+}

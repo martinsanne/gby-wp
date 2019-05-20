@@ -1,0 +1,41 @@
+.SearchResults {
+  @include bp(lg) {
+    @include content-width('text');
+  }
+
+  &__item {
+    border-top: 1px solid #000;
+  }
+  &__link {
+    @include spacing(sm, (padding-top, padding-bottom));
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__content {
+    display: inline-block;
+    padding-left: 0;
+    width: 100%;
+
+    @include bp(lg) {
+      width: calc(100% - #{rem-calc(200)});
+      padding-left: spacing('md', 'lg');
+    }
+  }
+
+  &__title {
+    @include spacing('xs', 'margin-bottom');
+  }
+
+  &__media {
+    display: none;
+    @include bp(lg) {
+      display: block;
+      width: rem-calc(200);
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+}

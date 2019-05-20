@@ -1,0 +1,24 @@
+.Badge {
+  position: absolute;
+  left: calc(50%);
+  top: calc(20% - 0.7em);
+  height: 0.7em;
+  min-height: rem-calc(40);
+  pointer-events: none;
+  font-family: $f-serif;
+  font-size: rem-calc(20);
+  transform: rotate(-10deg);
+
+  &--small {
+    height: 0.3em;
+    min-height: rem-calc(30);
+  }
+
+  text {
+    text-anchor: middle;
+  }
+
+  path {
+    fill: transparent;
+  }
+}

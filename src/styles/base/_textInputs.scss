@@ -1,0 +1,32 @@
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel'],
+textarea {
+  @include font-size(body);
+  @include spacing('sm', ('padding-left', 'padding-right'));
+  @include spacing('xs', ('padding-top', 'padding-bottom'));
+
+  appearance: none;
+  border: none;
+  color: $c-text;
+  font-family: $f-sans;
+  border: $border;
+  width: 100%;
+
+  &::placeholder {
+    color: $dark-gray;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    // transform: translateY(-3px);
+    box-shadow: 0 6px 0 -3px $c-text;
+  }
+}
+
+textarea {
+  height: auto;
+  min-height: 100px;
+}

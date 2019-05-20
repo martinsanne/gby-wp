@@ -1,0 +1,18 @@
+.Logo {
+  &--horizontal {
+    display: inline-block;
+
+    .Logo__svg {
+      max-width: rem-calc(60);
+      max-height: rem-calc(25);
+      @include bp(md) {
+        max-width: rem-calc(100);
+        max-height: rem-calc(40);
+      }
+    }
+  }
+
+  &__svg {
+    transition: $trans--fast;
+  }
+}

@@ -1,0 +1,30 @@
+.GreenCopper {
+  @extend .container;
+  position: relative;
+  min-height: 50vh;
+  font-family: $f-sans !important;
+
+  #goevent-web .gc-single-component gc-single-schedule > ul .gc-date > * {
+    font-weight: normal;
+  }
+
+  // Update border-width on artist card button
+  #goevent-web gc-thumbnail .gc-title-wrapper .gc-title {
+    border-width: 2px;
+  }
+
+  // Hide greencopper menu
+  #goevent-web gc-main-menu > .gc-main-menu {
+    // display: none;
+  }
+
+  // Prevent day buttons on program to be on top of modal menu
+  #goevent-web .gc-schedule-component .gc-day {
+    z-index: 1;
+  }
+
+  // remove bold type from sub menu (Etter Arena | Etter tidspunkt)
+  #goevent-web #gc__ .gc__general-colors-primAccent__border-color {
+    font-weight: normal !important;
+  }
+}

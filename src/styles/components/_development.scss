@@ -1,0 +1,7 @@
+// Used for helping in dev
+// This class is set via environment variables process.env.NODE_ENV
+// add class="%NODE_ENV%" to body in index.html
+
+.development {
+  @include showQueries;
+}

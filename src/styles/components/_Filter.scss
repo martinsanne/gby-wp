@@ -1,0 +1,22 @@
+.Filter {
+  display: flex;
+  justify-content: center;
+  @include spacing('sm', ('margin-top', 'margin-bottom'));
+
+  &__categories {
+    display: flex;
+  }
+
+  &__button {
+    @include spacing('xs', 'padding');
+    @include expanded;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--is-active {
+      @include bold-expanded;
+    }
+  }
+}

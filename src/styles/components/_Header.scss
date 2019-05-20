@@ -1,0 +1,88 @@
+.Header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: white;
+
+  &--dark {
+    background: black;
+    // transition: $trans;
+    .Logo__svg {
+      fill: white;
+    }
+    .LanguageSwitcher {
+      color: black;
+    }
+  }
+
+  &__top {
+    @include spacing('xs', 'margin-top');
+    @include content-width('image');
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: spacing('sm', 'sm');
+    padding-right: spacing('sm', 'sm');
+
+    @include bp(md) {
+      align-items: center;
+      padding-left: spacing('sm', 'md');
+      padding-right: spacing('sm', 'md');
+    }
+
+    @include bp(lg) {
+      padding-left: spacing('md', 'lg');
+      padding-right: spacing('md', 'lg');
+    }
+    @include bp(xl) {
+      align-items: baseline;
+    }
+  }
+
+  &__lang,
+  &__logo {
+    @include bp(md) {
+      width: rem-calc(100);
+    }
+  }
+
+  &__logo {
+    align-self: flex-end;
+  }
+
+  &__lang {
+    text-align: right;
+    display: none;
+
+    @include bp(lg) {
+      display: block;
+    }
+  }
+
+  &__buy {
+    position: fixed;
+    z-index: 9;
+    white-space: nowrap;
+    top: 80%;
+    right: 200px;
+    display: inline-block;
+    background: white;
+    width: auto;
+    color: black;
+    transition: background-color $trans--fast;
+    border: $border;
+    border-radius: 50%;
+    padding: 1em;
+    transform: rotate(-15deg);
+
+    @include bp(md) {
+      top: 30%;
+      right: 10%;
+    }
+  }
+}

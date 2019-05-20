@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
       /**
        * Create blog index for each language
        */
+      /*
       Object.keys(locales).map(locale => {
         const postEdgesLang = postEdges.filter(
           item => item.node.locale === locale
@@ -59,7 +60,7 @@ exports.createPages = ({ graphql, actions }) => {
             locale,
           }, // This is optional and defaults to an empty object if not used
         })
-      })
+      })*/
 
       postEdges.forEach(edge => {
         // slug = getLocalizedSlug("/posts/", edge.node)
@@ -105,8 +106,9 @@ exports.createPages = ({ graphql, actions }) => {
 
       const pageEdges = result.data.allWordpressPage.edges
       pageEdges.forEach(edge => {
-        if (edge.node.slug === "forside") {
-          edge.node.slug = getLocalizedSlug("/", edge.node)
+        if (edge.node.template === "homepage") {
+          edge.node.slug = ""
+          edge.node.link = getLocalizedSlug("/", edge.node)
         }
         // slug = getLocalizedSlug("/", edge.node)
         createPage({

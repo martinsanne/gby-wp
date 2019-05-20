@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -61,7 +61,6 @@ class IndexPage extends Component {
         translations={wordpressPage.translations}
       >
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>{wordpressPage.title}</h1>
         {wordpressPage.acf.poster_sections &&
           wordpressPage.acf.poster_sections.map(section => {
             return (

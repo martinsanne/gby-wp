@@ -16,7 +16,7 @@ const IndexPage = ({ pageContext }) => {
     index - 1 === 1 ? "/posts/" : "/posts/" + (index - 1).toString()
   const nextUrl = "/posts/" + (index + 1).toString()
   return (
-    <Layout>
+    <Layout locale={pageContext.additionalContext.locale}>
       <h4>Page {index + "/" + pageCount}</h4>
       <div className="previousLink">
         <NavLink test={first} url={previousUrl} text="Go to Previous Page" />

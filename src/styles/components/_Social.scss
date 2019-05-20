@@ -1,0 +1,41 @@
+.Social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: spacing('md', 'sm');
+
+  @include bp(md) {
+    justify-content: flex-start;
+  }
+
+  &__item {
+    display: inline-block;
+    @include spacing('xs', 'margin-right');
+
+    &:hover {
+      .Social__icon {
+        path,
+        circle {
+          fill: $c-main;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    width: rem-calc(20);
+    height: rem-calc(20);
+
+    path,
+    circle {
+      transition: $trans--fast;
+    }
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    max-width: 25px;
+    margin-right: 1rem;
+  }
+}

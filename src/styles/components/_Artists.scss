@@ -1,0 +1,159 @@
+.Artists {
+  $gutter: 0.75em;
+  @include spacing('lg', 'padding-top');
+
+  &--show {
+    .Artists__wrapper {
+      &:after {
+        opacity: 0;
+      }
+    }
+    .Artists__button {
+      padding-top: rem-calc(28);
+    }
+  }
+
+  &--expandable {
+    // .Artists__wrapper {
+    //   max-height: 500px; // This value is also set in Artists.js
+    //   overflow: hidden;
+    //   transition: max-height 1s ease;
+    //   @include spacing('lg', 'padding');
+    //   @include negative-spacing('lg', ('margin-right', 'margin-left'));
+
+    //   &:after {
+    //     content: '';
+    //     pointer-events: none;
+    //     display: inline-block;
+    //     position: absolute;
+    //     height: 0.4em;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     background: linear-gradient(transparent, white);
+    //     background: white;
+
+    //     @include bp(md) {
+    //       height: 0.5em;
+    //     }
+    //   }
+    // }
+  }
+
+  &__wrapper {
+    position: relative;
+    @include font-size(h2);
+
+    @include bp(md) {
+      margin-top: rem-calc(20);
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align-last: left;
+
+    @include bp(md) {
+      text-align: center;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    position: relative;
+    margin-right: $gutter;
+    line-height: 1.25;
+    padding-top: 0.125em;
+    padding-bottom: 0.125em;
+
+    @include bp(md) {
+      padding-left: 0.125em;
+      padding-right: 0.125em;
+      white-space: nowrap;
+      width: auto;
+    }
+
+    &--hero-headliner {
+      @include font-size(h1);
+      line-height: 1.05;
+    }
+
+    &--headliner {
+      @include font-size(h2);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    line-height: 1;
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+    &:focus {
+      color: $c-main;
+      text-decoration: underline;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: inline-block;
+    @include font-size(h3);
+    text-align: center;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__divider {
+    position: absolute;
+    right: -$gutter;
+    width: $gutter;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__name,
+  &__country {
+    transition: $trans--fast;
+  }
+
+  &__name {
+    display: inline-block;
+  }
+
+  &__country {
+    @extend body;
+    font-family: $f-serif;
+  }
+
+  &__image {
+    display: none;
+    @include bp(md) {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      max-width: rem-calc(200);
+      max-height: rem-calc(200);
+      animation: image-enter $trans both;
+    }
+  }
+
+  @keyframes image-enter {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
