@@ -62,7 +62,23 @@ class IndexPage extends Component {
       >
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <h1>{wordpressPage.title}</h1>
-        <pre>{JSON.stringify(wordpressPage, null, 2)}</pre>
+        {wordpressPage.acf.poster_sections &&
+          wordpressPage.acf.poster_sections.map(section => {
+            return (
+              <section>
+                {section.poster_lists.map(row => {
+                  return (
+                    <ul>
+                      {row.artists.map(artist => {
+                        return <li>{artist.title.rendered}</li>
+                      })}
+                    </ul>
+                  )
+                })}
+              </section>
+            )
+          })}
+        {/* <pre>{JSON.stringify(wordpressPage, null, 2)}</pre> */}
         <p>
           There are {data.allWordpressPost.totalCount} posts in total.{" "}
           <Link to="/posts">See all</Link>
