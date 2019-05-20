@@ -27,7 +27,7 @@ const IndexPage = ({ pageContext }) => {
       {group.map(({ node }) => (
         <div key={node.id} className="blogListing">
           <div className="date">{node.date}</div>
-          <Link className="blogUrl" to={"/" + node.slug}>
+          <Link className="blogUrl" to={node.link}>
             <h3
               style={{ marginBottom: 0 }}
               dangerouslySetInnerHTML={{ __html: node.title }}
