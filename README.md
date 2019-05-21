@@ -21,3 +21,6 @@
 [-] News article sorting and loading articles per language (pass locale to query)
 [-] Netlify lambda (newsletter form)
 [-] Sitemap + robots
+[-] Blacklist unused endpoints
+[-] Run images static
+[-] Add polyfills

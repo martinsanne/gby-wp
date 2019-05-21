@@ -1,17 +1,12 @@
-import React, { Component, Fragment } from "react"
-import Parser from "html-react-parser"
-
+import React from "react"
 const stripHTMLTags = str => str.replace(/<[^>]*>/g, "")
 
-export default class Html extends Component {
-  static defaultProps = {
-    el: "span",
+const Html = props => {
+  let { stripTags, content } = props
+  if (stripTags) {
+    content = stripHTMLTags(content)
   }
-  render() {
-    let { stripTags, content } = this.props
-    if (stripTags) {
-      content = stripHTMLTags(content)
-    }
-    return <Fragment>{Parser(content)}</Fragment>
-  }
+  return <div dangerouslySetInnerHTML={{ __html: content }} />
 }
+
+export default Html

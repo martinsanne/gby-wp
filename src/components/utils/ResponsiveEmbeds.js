@@ -2,6 +2,7 @@ import React, { Component, createRef } from "react"
 
 export default class ResponsiveEmbeds extends Component {
   container = createRef()
+
   componentDidMount = () => {
     this.makeEmbedsResponsive()
   }

@@ -13,6 +13,7 @@ export default class NewsletterSignup extends Component {
     submitting: false,
     success: false,
     error: false,
+    isTrident: false,
   }
 
   componentDidMount = () => {
@@ -20,6 +21,12 @@ export default class NewsletterSignup extends Component {
       this.setFocusTimer = setTimeout(() => {
         this.mainInput.current.focus()
       }, 300)
+    }
+
+    if (window && window.navigator.userAgent.includes("Trident/")) {
+      this.setState({
+        isTrident: true,
+      })
     }
   }
 
@@ -77,7 +84,7 @@ export default class NewsletterSignup extends Component {
 
   render() {
     const { onDark } = this.props
-    const { consent, email, success, submitting } = this.state
+    const { consent, email, success, submitting, isTrident } = this.state
     if (success) {
       return (
         <div className="NewsletterSignup NewsletterSignup--success">
@@ -93,7 +100,7 @@ export default class NewsletterSignup extends Component {
         <h3 className="NewsletterSignup__title">
           <FormattedMessage {...messages.title} />
         </h3>
-        {!window.navigator.userAgent.includes("Trident/") ? (
+        {!isTrident ? (
           <details className="NewsletterSignup__desc">
             <summary>
               <FormattedMessage {...messages.read} />

@@ -5,8 +5,8 @@ import Post from "../components/Post"
 import { SEOHeaders } from "../components/utils"
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    allWordpressPost(limit: 10, filter: { locale: { eq: "nb" } }) {
+  query($id: String!, $locale: String!) {
+    allWordpressPost(limit: 10, filter: { locale: { eq: $locale } }) {
       edges {
         node {
           title

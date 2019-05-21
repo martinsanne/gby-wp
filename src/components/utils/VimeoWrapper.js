@@ -28,9 +28,11 @@ export default class VimeoWrapper extends Component {
       }
     }
   }
+
   handleLoad = () => {
     this.makeEmbedsResponsive()
   }
+
   render() {
     const { video, className, loop, autoplay } = this.props
     const { loaded } = this.state

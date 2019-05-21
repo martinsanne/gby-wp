@@ -64,6 +64,11 @@ exports.createPages = ({ graphql, actions }) => {
 
       postEdges.forEach(edge => {
         // slug = getLocalizedSlug("/posts/", edge.node)
+        if (!edge.node.locale) {
+          console.log("LOCALE MISSING fro POST", edge.node)
+          edge.node.locale = "nb"
+        }
+
         createPage({
           path: `${edge.node.link}`,
           component: path.resolve(`./src/templates/post.js`),
@@ -109,6 +114,11 @@ exports.createPages = ({ graphql, actions }) => {
         if (edge.node.template === "homepage") {
           edge.node.slug = ""
           edge.node.link = getLocalizedSlug("/", edge.node)
+        }
+
+        if (!edge.node.locale) {
+          console.log("LOCALE MISSING for PAGE", edge.node)
+          edge.node.locale = "nb"
         }
         // slug = getLocalizedSlug("/", edge.node)
         createPage({

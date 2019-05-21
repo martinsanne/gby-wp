@@ -7,9 +7,9 @@ export default class SEOHeaders extends Component {
     const { data } = this.props
     return (
       <Helmet>
-        {window.location.hostname.includes("staging") && (
+        {/* {window && window.location.hostname.includes("staging") && (
           <meta name="robots" CONTENT="noindex, nofollow" />
-        )}
+        )} */}
         {data.seo_head && Parser(data.seo_head)}
       </Helmet>
     )
