@@ -22,7 +22,6 @@ export default class Mouse extends Component {
   }
 
   render() {
-    console.log(this.state)
     return this.props.children(this.state)
   }
 }

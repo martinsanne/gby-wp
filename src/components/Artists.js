@@ -88,7 +88,6 @@ export default class Artists extends Component {
     const style = {}
     // const { showArtists, transition, maxHeight } = this.state
     // const style = expandable ? { maxHeight, transition } : {}
-    console.log(currentArtist)
     return (
       <Doodle>
         <div

@@ -25,7 +25,6 @@ export default ({ page }) => {
           </Section>
         )}
       </div>
-      <pre>{JSON.stringify(page, null, 2)}</pre>
     </div>
   )
 }

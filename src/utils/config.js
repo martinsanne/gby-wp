@@ -6,14 +6,15 @@ export const themeColors = [
   "#ffe349",
 ]
 
-/*
 export const pictureOverlayColors = {
-  orange: '#E98453',
-  green: '#00A378',
-  blue: '#0079C2',
-  pink: '#D45278',
-  red: '#EC6358'
+  orange: "#E98453",
+  green: "#00A378",
+  blue: "#0079C2",
+  pink: "#D45278",
+  red: "#EC6358",
 }
+
+/*
 
 export const defaultLang = 'nb' // YES! It's "nb" and not "no"
 export const languages = {

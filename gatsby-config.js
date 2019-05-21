@@ -15,6 +15,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-portal`,
     // {
     //   resolve: `gatsby-plugin-intl`,
     //   options: {
@@ -135,7 +136,7 @@ module.exports = {
           "/hey/v1/custom",
           "/hey/v1/loggedin",
           "/yoast/**",
-          "**/settings",
+          // "**/settings",
           "**/users/**",
           "**/tags",
           "**/categories",

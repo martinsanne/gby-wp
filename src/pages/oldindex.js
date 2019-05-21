@@ -77,7 +77,6 @@ class IndexPage extends Component {
               </section>
             )
           })}
-        {/* <pre>{JSON.stringify(wordpressPage, null, 2)}</pre> */}
         <p>
           There are {data.allWordpressPost.totalCount} posts in total.{" "}
           <Link to="/posts">See all</Link>
