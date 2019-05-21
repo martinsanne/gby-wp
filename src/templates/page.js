@@ -10,6 +10,7 @@ import Page from "../components/Page"
 import GreenCopper from "../components/GreenCopper"
 import PartnerPageContainer from "../components/PartnerPageContainer"
 import GalleryPageContainer from "../components/GalleryPageContainer"
+import BlogPageContainer from "../components/BlogPageContainer"
 
 const pageTemplates = {
   homepage: FrontPage,
@@ -17,6 +18,7 @@ const pageTemplates = {
   default: Page,
   partners: PartnerPageContainer,
   gallery: GalleryPageContainer,
+  blog: BlogPageContainer,
 }
 
 const resolvePageTemplate = name => {
@@ -29,6 +31,16 @@ const resolvePageTemplate = name => {
 export default ({ data, pageContext }) => {
   const page = data.wordpressPage
   const { locale } = pageContext
+
+  const pageForPost = data.allWordpressHeySettings.edges.filter(item => {
+    return item.node.locale === locale
+  })[0].node.page_for_posts
+
+  // console.log(pageForPost)
+  if (pageForPost.wordpress_id === page.wordpress_id) {
+    page.template = "blog"
+  }
+
   const MyTmpl = resolvePageTemplate(page.template)
   return (
     <Layout locale={locale} translations={page.translations}>
@@ -39,6 +51,16 @@ export default ({ data, pageContext }) => {
 
 export const pageQuery = graphql`
   query($id: String!) {
+    allWordpressHeySettings {
+      edges {
+        node {
+          locale
+          page_for_posts {
+            wordpress_id
+          }
+        }
+      }
+    }
     wordpressPage(id: { eq: $id }) {
       template
       title

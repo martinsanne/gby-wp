@@ -13,7 +13,7 @@ import Overlay from "./Overlay"
 import VisuallyHidden from "./VisuallyHidden"
 // import Loader from './Loader'
 import { AppConsumer, AppProvider } from "./AppContext"
-// import PostDate from './PostDate'
+import PostDate from "./PostDate"
 import ResponsiveEmbeds from "./ResponsiveEmbeds"
 // import Marquee from './Marquee'
 import PageVisibilitySensor from "./PageVisibilitySensor"
@@ -41,7 +41,7 @@ export {
   // Loader,
   AppConsumer,
   AppProvider,
-  // PostDate,
+  PostDate,
   ResponsiveEmbeds,
   // Marquee,
   PageVisibilitySensor,

@@ -136,7 +136,7 @@ module.exports = {
           "/hey/v1/custom",
           "/hey/v1/loggedin",
           "/yoast/**",
-          // "**/settings",
+          "/wp/v2/settings",
           "**/users/**",
           "**/tags",
           "**/categories",
