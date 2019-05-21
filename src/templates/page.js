@@ -8,11 +8,15 @@ import Layout from "../components/layout"
 import FrontPage from "../components/FrontPage"
 import Page from "../components/Page"
 import GreenCopper from "../components/GreenCopper"
+import PartnerPageContainer from "../components/PartnerPageContainer"
+import GalleryPageContainer from "../components/GalleryPageContainer"
 
 const pageTemplates = {
   homepage: FrontPage,
   greencopper: GreenCopper,
   default: Page,
+  partners: PartnerPageContainer,
+  gallery: GalleryPageContainer,
 }
 
 const resolvePageTemplate = name => {
@@ -43,6 +47,42 @@ export const pageQuery = graphql`
       locale
       slug
       ...AcfFrontPageArtists
+      featured_image {
+        wordpress_id
+        title
+        url
+        alt
+        description
+        caption
+        name
+        mime_type
+        subtype
+        width
+        height
+        sizes {
+          thumbnail
+          thumbnail_width
+          thumbnail_height
+          medium
+          medium_width
+          medium_height
+          medium_large
+          medium_large_width
+          medium_large_height
+          large
+          large_width
+          large_height
+          small
+          small_width
+          small_height
+          medium_small
+          medium_small_width
+          medium_small_height
+          xlarge
+          xlarge_width
+          xlarge_height
+        }
+      }
       translations {
         nb {
           url

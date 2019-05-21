@@ -55,10 +55,10 @@ export const acfImageToSrcArray = (image, maxSize = 99999) => {
   // const aspect = height/width
   // Remove sizes if multiple of same size
   const sizesFiltered = Object.keys(sizes).reduce((build, key) => {
-    if (key.indexOf("-width") !== -1) {
+    if (key.indexOf("_width") !== -1) {
       const value = sizes[key]
       if (value <= maxSize) {
-        const width = key.replace("-width", "")
+        const width = key.replace("_width", "")
         build[value] = sizes[width]
       }
     }

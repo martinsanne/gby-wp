@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.6.0",
     "classcat": "^3.2.5",
     "gatsby": "^2.5.5",
     "gatsby-image": "^2.1.0",
