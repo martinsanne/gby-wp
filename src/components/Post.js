@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Html, FeaturedImage, PostDate, ResponsiveEmbeds } from "./utils"
 import NewsCard from "./NewsCard"
 
