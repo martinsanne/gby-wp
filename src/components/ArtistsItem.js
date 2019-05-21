@@ -29,21 +29,22 @@ export default class ArtistsItem extends Component {
 
   handleMouseEnter = e => {
     this.setHoverColor(e)
-    // if (!this.props.setHeroArtist) {
-    //   this.props.setCurrentArtist(this.props.artist)
-    // }
-    // if (this.props.setHeroArtist) {
-    //   this.props.setHeroArtist(this.props.artist)
-    // }
+    if (this.props.artist) {
+      if (!this.props.setHeroArtist) {
+        this.props.setCurrentArtist(this.props.artist)
+      }
+      if (this.props.setHeroArtist) {
+        this.props.setHeroArtist(this.props.artist)
+      }
+    }
   }
 
   handleMouseLeave = e => {
     this.removeHoverColor(e)
     // if (!this.props.setHeroArtist) {
-    //   this.props.setCurrentArtist(null)
-    // }
-    // if (this.props.setHeroArtist) {
-    //   this.props.setHeroArtist(null)
+    //   this.props.setCurrentArtist(false)
+    // } else {
+    //   this.props.setHeroArtist(false)
     // }
   }
 

@@ -11,11 +11,13 @@ export function randomIntFromRange(min, max) {
 
 export default class Hero6 extends Component {
   wrapper = createRef()
+
   state = {
     images: [],
     currentArtist: null,
     columns: 1,
   }
+
   componentDidMount = () => {
     this.setState({
       images: this.props.hero.headliners,
@@ -23,10 +25,12 @@ export default class Hero6 extends Component {
     this.setColumns()
     window.addEventListener("resize", this.handleResize)
   }
+
   handleResize = throttle(e => {
     clearInterval(this.interval)
     this.setColumns()
   }, 500)
+
   setColumns = () => {
     let columns
 
@@ -47,6 +51,7 @@ export default class Hero6 extends Component {
       () => this.startInterval()
     )
   }
+
   startInterval = () => {
     this.interval = setInterval(() => {
       if (this.state.images) {
@@ -66,6 +71,7 @@ export default class Hero6 extends Component {
     window.removeEventListener("resize", this.handleResize)
     clearInterval(this.interval)
   }
+
   render() {
     const { images } = this.state
     return (

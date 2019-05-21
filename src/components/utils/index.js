@@ -1,4 +1,3 @@
-import React from "react"
 // import ScrollToTop from './ScrollToTop'
 // import SEOHeaders from './SEOHeaders'
 import Html from "./Html"
@@ -6,7 +5,7 @@ import Html from "./Html"
 // import Portal from './Portal'
 // import Modal from './Modal'
 // import Badge from './Badge'
-// import FeaturedImage from './FeaturedImage'
+import FeaturedImage from "./FeaturedImage"
 // import FeaturedImageAspect from './FeaturedImageAspect'
 // import VimeoWrapper from './VimeoWrapper'
 // import Section from './Section'
@@ -24,8 +23,6 @@ import Icon from "./Icon"
 // import CheckRenderTimes from './CheckRenderTimes'
 // import MarqueeString from './MarqueeString'
 import Mouse from "./Mouse"
-
-const FeaturedImage = () => <span>FeaturedImage</span>
 
 export {
   // ScrollToTop,

@@ -9,6 +9,7 @@ const initMaxHeight = "300px"
 
 export default class Artists extends Component {
   list = createRef()
+
   state = {
     showArtists: false,
     maxHeight: initMaxHeight,
@@ -17,43 +18,54 @@ export default class Artists extends Component {
   }
 
   componentDidMount = () => {
-    // this.addDots(this.list)
-    // window.addEventListener("resize", this.addDots)
+    this.addDots(this.list)
+    window.addEventListener("resize", this.addDots)
   }
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevProps !== this.props) {
-      // this.addDots(this.list)
+      this.addDots(this.list)
     }
   }
 
   componentWillUnmount = () => {
-    // window.removeEventListener("resize", this.addDots)
+    window.removeEventListener("resize", this.addDots)
   }
 
-  // addDots = () => {
-  //   const items = [...this.list.current.querySelectorAll("li")]
-  //   items.map((item, i) => {
-  //     // Remove existing dividers
-  //     if (item.querySelector(".Artists__divider"))
-  //       item.removeChild(item.querySelector(".Artists__divider"))
+  addDots = () => {
+    if (this.list && this.list.current) {
+      // Remove all existing dividers
+      const dividers = this.list.current.getElementsByClassName(
+        "Artists__divider"
+      )
+      if (dividers) {
+        while (dividers[0]) {
+          dividers[0].parentNode.removeChild(dividers[0])
+        }
+      }
 
-  //     const nextItem = items[i + 1]
-  //     // Check if they're on the same line
-  //     if (
-  //       nextItem &&
-  //       item.getBoundingClientRect().top ===
-  //         nextItem.getBoundingClientRect().top
-  //     ) {
-  //       // add divider if they're on the same line
-  //       const bullet = document.createElement("span")
-  //       bullet.classList.add("Artists__divider")
-  //       bullet.innerHTML = "&bull;"
-  //       item.appendChild(bullet)
-  //     }
-  //     return null
-  //   })
-  // }
+      const items = this.list.current.querySelectorAll("li")
+      Object.keys(items).map(i => {
+        i = parseFloat(i)
+        const item = items[i]
+
+        // Check if current and next list item are on the same line
+        const nextItem = items[i + 1]
+        if (
+          nextItem &&
+          item.getBoundingClientRect().top ===
+            nextItem.getBoundingClientRect().top
+        ) {
+          // add divider if they're on the same line
+          const bullet = document.createElement("span")
+          bullet.classList.add("Artists__divider")
+          bullet.innerHTML = "&bull;"
+          item.appendChild(bullet)
+        }
+        return null
+      })
+    }
+  }
 
   handleClick = () => {
     const height = this.list.current.getBoundingClientRect().height
@@ -76,6 +88,7 @@ export default class Artists extends Component {
     const style = {}
     // const { showArtists, transition, maxHeight } = this.state
     // const style = expandable ? { maxHeight, transition } : {}
+    console.log(currentArtist)
     return (
       <Doodle>
         <div

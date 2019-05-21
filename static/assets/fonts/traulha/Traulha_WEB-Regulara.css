@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Traulha WEB_Regulara';
+    src:    url('Traulha_WEB-Regulara.eot');
+    src:    url('Traulha_WEB-Regulara.eot?#iefix') format('embedded-opentype'),
+            url('Traulha_WEB-Regulara.woff') format('woff'),
+            url('Traulha_WEB-Regulara.woff2') format('woff2');
+}

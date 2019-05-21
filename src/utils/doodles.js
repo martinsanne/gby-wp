@@ -4,64 +4,7 @@ const getPath = () => {
     colors[Math.floor(Math.random() * colors.length)]
   }/`
 }
-// const doodles = {
-//   blubb: [
-//     path + 'blubb_1.png',
-//     path + 'blubb_2.png',
-//     path + 'blubb_3.png',
-//     path + 'blubb_4.png',
-//     path + 'blubb_5.png',
-//     path + 'blubb_6.png',
-//     path + 'blubb_7.png',
-//     path + 'blubb_8.png'
-//   ],
-//   bolgestrek: [
-//     path + 'bolgestrek_1.png',
-//     path + 'bolgestrek_2.png',
-//     path + 'bolgestrek_3.png'
-//   ],
-//   bump: [
-//     path + 'bump_1.png',
-//     path + 'bump_2.png',
-//     path + 'bump_3.png',
-//     path + 'bump_4.png'
-//   ],
-//   highlights: [
-//     path + 'highlights_1.png',
-//     path + 'highlights_2.png',
-//     path + 'highlights_3.png'
-//   ],
-//   kluss: [path + 'kluss_1.png', path + 'kluss_2.png', path + 'kluss_3.png'],
-//   prikkprikkprikk: [path + 'prikkprikkprikk_1.png'],
-//   radar: [
-//     path + 'radar_1.png',
-//     path + 'radar_2.png',
-//     path + 'radar_3.png',
-//     path + 'radar_4.png'
-//   ],
-//   sirkel: [
-//     path + 'sirkel_1.png',
-//     path + 'sirkel_2.png',
-//     path + 'sirkel_3.png',
-//     path + 'sirkel_4.png',
-//     path + 'sirkel_5.png',
-//     path + 'sirkel_6.png',
-//     path + 'sirkel_7.png'
-//   ],
-//   stjerne: [
-//     path + 'stjerne_1.png',
-//     path + 'stjerne_2.png',
-//     path + 'stjerne_3.png',
-//     path + 'stjerne_4.png'
-//   ],
-//   strek: [path + 'strek_1.png', path + 'strek_2.png'],
-//   streker: [
-//     path + 'streker_1.png',
-//     path + 'streker_2.png',
-//     path + 'streker_3.png'
-//   ],
-//   ellipses: [path + 'tre_smaa_sirklel-prikker.png']
-// }
+
 const doodles = {
   blubb: [
     "blubb_1.png",

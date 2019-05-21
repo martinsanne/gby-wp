@@ -8,6 +8,7 @@
 
 require("./src/styles/app.scss")
 
+require("lazysizes/plugins/aspectratio/ls.aspectratio")
 require("lazysizes/plugins/respimg/ls.respimg")
 require("lazysizes/plugins/bgset/ls.bgset")
 require("lazysizes")
