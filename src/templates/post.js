@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import Post from "../components/Post"
+import { SEOHeaders } from "../components/utils"
 
 export const pageQuery = graphql`
   query($id: String!) {
@@ -134,6 +135,7 @@ export default ({ data, pageContext, translations, ...rest }) => {
   const { locale } = pageContext
   return (
     <Layout translations={translations} locale={locale}>
+      <SEOHeaders data={post} />
       <Post post={post} posts={posts} />
       {/* <div>
         <p>Post:</p>

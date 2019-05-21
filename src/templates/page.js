@@ -11,6 +11,7 @@ import GreenCopper from "../components/GreenCopper"
 import PartnerPageContainer from "../components/PartnerPageContainer"
 import GalleryPageContainer from "../components/GalleryPageContainer"
 import BlogPageContainer from "../components/BlogPageContainer"
+import { SEOHeaders } from "../components/utils"
 
 const pageTemplates = {
   homepage: FrontPage,
@@ -44,6 +45,7 @@ export default ({ data, pageContext }) => {
   const MyTmpl = resolvePageTemplate(page.template)
   return (
     <Layout locale={locale} translations={page.translations}>
+      <SEOHeaders data={page} />
       <MyTmpl page={page} />
     </Layout>
   )

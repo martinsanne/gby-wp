@@ -1,5 +1,5 @@
 // import ScrollToTop from './ScrollToTop'
-// import SEOHeaders from './SEOHeaders'
+import SEOHeaders from "./SEOHeaders"
 import Html from "./Html"
 import Toggle from "./Toggle"
 import Portal from "./Portal"
@@ -26,29 +26,29 @@ import Mouse from "./Mouse"
 
 export {
   // ScrollToTop,
-  // SEOHeaders,
+  SEOHeaders,
+  // Badge,
+  // Loader,
+  // Marquee,
+  // QuickLink,
+  // CheckRenderTimes,
   Html,
   Portal,
   Toggle,
   Modal,
-  // Badge,
   FeaturedImage,
   FeaturedImageAspect,
   VimeoWrapper,
   Section,
   Overlay,
   VisuallyHidden,
-  // Loader,
   AppConsumer,
   AppProvider,
   PostDate,
   ResponsiveEmbeds,
-  // Marquee,
   PageVisibilitySensor,
   Doodle,
   Icon,
-  // QuickLink,
-  // CheckRenderTimes,
   MarqueeString,
   Mouse,
 }
