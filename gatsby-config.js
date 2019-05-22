@@ -54,7 +54,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "oya.test",
+        baseUrl: "oya.test", // 155538-www.web.tornado-node.net
         // The protocol. This can be http or https.
         protocol: "http",
         // Indicates whether the site is hosted on wordpress.com.
@@ -135,8 +135,11 @@ module.exports = {
           "/hey/v1/search",
           "/hey/v1/custom",
           "/hey/v1/loggedin",
-          "/yoast/**",
           "/wp/v2/settings",
+          "/wp/v2/blocks",
+          "/wp/v2/types",
+          "/wp/v2/statuses",
+          "/wp/v2/taxonomies",
           "**/users/**",
           "**/tags",
           "**/categories",
@@ -144,6 +147,8 @@ module.exports = {
           "**/media",
           "**/themes",
           "**/search",
+          "/yoast/**",
+          // "/acf/**",
         ],
         // use a custom normalizer which is applied after the built-in ones.
         // normalizer: function({ entities }) {
