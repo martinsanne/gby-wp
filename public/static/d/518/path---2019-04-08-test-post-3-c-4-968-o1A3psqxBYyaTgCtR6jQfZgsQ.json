@@ -1,1 +1,0 @@
-{"errors":[{"message":"Variable \"$locale\" of non-null type \"String!\" must not be null.","locations":[{"line":3,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"id":"17c3b560-b55c-5605-b05a-1e595ba576b9","locale":null}}
