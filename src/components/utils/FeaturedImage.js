@@ -19,9 +19,7 @@ export default class FeaturedImage extends Component {
       title,
     } = this.props
     const aspect = height / width
-    const srcset = this.props.url
-      ? this.props.url
-      : acfImageToSrcset(this.props, maxWidth)
+    const srcset = acfImageToSrcset(this.props, maxWidth)
 
     if (!srcset) {
       console.warn("Could not generate srcset.")

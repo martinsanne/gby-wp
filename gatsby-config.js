@@ -1,3 +1,5 @@
+var striptags = require("striptags")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -55,13 +57,23 @@ module.exports = {
             title: node => node.title,
             link: node => node.link,
             locale: node => node.locale,
-            content: node => node.content,
+            content: node => {
+              return striptags(node.content)
+            },
+            featured_image: node => {
+              return node.featured_image
+            },
           },
           wordpress__PAGE: {
             title: node => node.title,
             link: node => node.link,
             locale: node => node.locale,
-            content: node => node.content,
+            content: node => {
+              return striptags(node.content)
+            },
+            featured_image: node => {
+              return node.featured_image
+            },
           },
           // wordpress__wp_partner: {
           //   title: node => node.title,

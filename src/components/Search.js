@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { Index } from "elasticlunr"
+import { Html, FeaturedImage } from "./utils"
 
 // Search component
 export default class Search extends Component {
@@ -12,20 +13,6 @@ export default class Search extends Component {
     }
   }
 
-  render() {
-    return (
-      <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
-          {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={page.link}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
   getOrCreateIndex = () =>
     this.index
       ? this.index
@@ -39,9 +26,30 @@ export default class Search extends Component {
       query,
       // Query the index with search string to get an [] of IDs
       results: this.index
-        .search(query, {})
+        .search(query, { expand: true })
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" value={this.state.query} onChange={this.search} />
+        <ul>
+          {this.state.results.map(page => (
+            <li key={page.id}>
+              <Link to={page.link}>
+                <Html content={page.title} />
+              </Link>
+              {/* <Html content={page.content} /> */}
+              {page.featured_image && (
+                <FeaturedImage {...page.featured_image} maxWidth={400} />
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
   }
 }
