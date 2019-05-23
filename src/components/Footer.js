@@ -11,18 +11,19 @@ import NewsletterSignup from "./NewsletterSignup"
 import FooterCredits from "./FooterCredits"
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    {
-      wordpressHeySettings {
-        wp_page_for_privacy_policy {
-          link
-          post_title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   {
+  //     wordpressHeySettings {
+  //       wp_page_for_privacy_policy { breaks build if missing!
+  //         link
+  //         post_title
+  //       }
+  //     }
+  //   }
+  // `)
+  //
 
-  const settings = data.wordpressHeySettings
+  // const settings = data.wordpressHeySettings
 
   return (
     <footer className="Footer">
@@ -52,7 +53,7 @@ const Footer = () => {
             <div className="Footer__content">
               <div className="Footer__item">
                 <Social />
-                <ul className="Footer__privacy">
+                {/* <ul className="Footer__privacy">
                   {settings && settings.wp_page_for_privacy_policy && (
                     <li>
                       <Link to={settings.wp_page_for_privacy_policy.link}>
@@ -64,7 +65,7 @@ const Footer = () => {
                       </Link>
                     </li>
                   )}
-                </ul>
+                </ul> */}
                 <FooterCredits />
               </div>
               <Downloads className="Footer__item" />
