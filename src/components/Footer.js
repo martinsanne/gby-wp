@@ -1,10 +1,10 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+// import { Link, useStaticQuery, graphql } from "gatsby"
 import { FormattedMessage } from "react-intl"
 
 import Partners from "./Partners"
 import FestivalInfoMarquee from "./FestivalInfoMarquee"
-import { Doodle, Html, Icon } from "./utils"
+import { Doodle, Icon } from "./utils"
 import Social from "./Social"
 import Downloads from "./Downloads"
 import NewsletterSignup from "./NewsletterSignup"

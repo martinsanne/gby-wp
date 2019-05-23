@@ -65,8 +65,8 @@ exports.createPages = ({ graphql, actions }) => {
       postEdges.forEach(edge => {
         // slug = getLocalizedSlug("/posts/", edge.node)
         if (!edge.node.locale) {
-          console.log("LOCALE MISSING fro POST", edge.node)
-          edge.node.locale = "nb"
+          console.log("Locale missing - not generating node", edge.node.link)
+          return false
         }
 
         createPage({
@@ -117,8 +117,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         if (!edge.node.locale) {
-          console.log("LOCALE MISSING for PAGE", edge.node)
-          edge.node.locale = "nb"
+          console.log("Locale missing - not generating node", edge.node.link)
+          return false
         }
         // slug = getLocalizedSlug("/", edge.node)
         createPage({
