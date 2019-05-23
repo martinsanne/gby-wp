@@ -43,6 +43,34 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields` values
+          wordpress__POST: {
+            title: node => node.title,
+            link: node => node.link,
+            locale: node => node.locale,
+            content: node => node.content,
+          },
+          wordpress__PAGE: {
+            title: node => node.title,
+            link: node => node.link,
+            locale: node => node.locale,
+            content: node => node.content,
+          },
+          // wordpress__wp_partner: {
+          //   title: node => node.title,
+          //   link: node => node.link,
+          //   filter: () => 'document',
+          // },
+        },
+      },
+    },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from Wordpress.

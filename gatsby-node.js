@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const createPaginatedPages = require("gatsby-paginate")
+// const createPaginatedPages = require("gatsby-paginate")
 const locales = require("./config/i18n")
 const getLocalizedSlug = (path, node) =>
   locales[node.locale].default

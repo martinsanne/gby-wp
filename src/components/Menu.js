@@ -28,6 +28,13 @@ const MenuItem = ({ item, child, closeMenu }) => {
   )
 }
 
+const locales = require("../../config/i18n")
+const getLocalizedUrl = (slug, locale) => {
+  return locales[locale].default
+    ? `/${slug}/`
+    : `/${locales[locale].path}/${slug}`
+}
+
 const Menu = () => {
   const data = useStaticQuery(graphql`
     {
@@ -95,7 +102,7 @@ const Menu = () => {
               <li className="Menu__item Menu__search">
                 <Link
                   className="Menu__link"
-                  to={"/"}
+                  to={getLocalizedUrl("search", locale)}
                   activeClassName="Menu__link--is-active"
                   onClick={actions.closeMenu}
                 >
