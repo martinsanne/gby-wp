@@ -1,12 +1,13 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
+import Search from "../components/Search"
 
-const Search = data => {
+const SearchPage = data => {
   return (
     <Layout
-      locale={"en"}
-      translations={{ nb: { url: "/en/" }, en: { url: "/en/search/" } }}
+      locale="en"
+      translations={{ nb: { url: "/search/" }, en: { url: "/en/search/" } }}
     >
       <StaticQuery
         query={graphql`
@@ -18,8 +19,7 @@ const Search = data => {
         `}
         render={data => (
           <header>
-            This page contains too much data
-            {/* <pre>{JSON.stringify(data.siteSearchIndex.index, null, 2)}</pre> */}
+            <Search searchIndex={data.siteSearchIndex.index} />
           </header>
         )}
       />
@@ -27,4 +27,4 @@ const Search = data => {
   )
 }
 
-export default Search
+export default SearchPage
