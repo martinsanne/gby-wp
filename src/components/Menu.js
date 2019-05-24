@@ -1,11 +1,11 @@
 import React from "react"
 import cc from "classcat"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { FormattedMessage } from "react-intl"
 import { listToTree } from "../utils/functions"
 import NavMenuLink from "./NavMenuLink"
 import MenuModal from "./MenuModal"
-import { AppConsumer, Portal, VisuallyHidden } from "./utils"
+import { AppConsumer, Portal, VisuallyHidden, StaticPageLink } from "./utils"
 
 const MenuItem = ({ item, child, closeMenu }) => {
   return (
@@ -26,13 +26,6 @@ const MenuItem = ({ item, child, closeMenu }) => {
       </NavMenuLink>
     </li>
   )
-}
-
-const locales = require("../../config/i18n")
-const getLocalizedUrl = (slug, locale) => {
-  return locales[locale].default
-    ? `/${slug}/`
-    : `/${locales[locale].path}/${slug}`
 }
 
 const Menu = () => {
@@ -100,16 +93,18 @@ const Menu = () => {
                 </li>
               )}
               <li className="Menu__item Menu__search">
-                <Link
-                  className="Menu__link"
-                  to={getLocalizedUrl("search", locale)}
-                  activeClassName="Menu__link--is-active"
-                  onClick={actions.closeMenu}
-                >
-                  <FormattedMessage id="search.title" defaultMessage={`Søk`}>
-                    {text => text}
-                  </FormattedMessage>
-                </Link>
+                <FormattedMessage id="search.title" defaultMessage={`Søk`}>
+                  {text => (
+                    <StaticPageLink
+                      pageType="search"
+                      className="Menu__link"
+                      activeClassName="Menu__link--is-active"
+                      onClick={actions.closeMenu}
+                    >
+                      {text}
+                    </StaticPageLink>
+                  )}
+                </FormattedMessage>
               </li>
             </ul>
             {menu && menu.children && state.showMenu && (

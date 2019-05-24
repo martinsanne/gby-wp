@@ -13,22 +13,24 @@ export default class Search extends Component {
     }
   }
 
-  getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+  getIndex = () => {
+    // Create an elastic lunr index and hydrate with graphql query results
+    // Cache the index object to prevent Index.load on every call
+    return this.index ? this.index : Index.load(this.props.searchIndex)
+  }
 
   search = evt => {
     const query = evt.target.value
-    this.index = this.getOrCreateIndex()
+    this.index = this.getIndex()
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
       results: this.index
         .search(query, { expand: true })
         // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+        .map(({ ref }) => this.index.documentStore.getDoc(ref))
+        // Make sure we show items for the current locale only
+        .filter(item => item.locale === this.props.locale),
     })
   }
 
@@ -42,7 +44,6 @@ export default class Search extends Component {
               <Link to={page.link}>
                 <Html content={page.title} />
               </Link>
-              {/* <Html content={page.content} /> */}
               {page.featured_image && (
                 <FeaturedImage {...page.featured_image} maxWidth={400} />
               )}

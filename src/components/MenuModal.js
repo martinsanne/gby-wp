@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { FormattedMessage } from "react-intl"
-import { AppConsumer, Doodle } from "./utils"
+import { AppConsumer, Doodle, StaticPageLink } from "./utils"
 import LanguageSwitcher from "./LanguageSwitcher"
 
 export default class MenuModal extends Component {
@@ -21,7 +21,7 @@ export default class MenuModal extends Component {
                     <div className="MenuModal__lang MenuModal__link">
                       <LanguageSwitcher />
                     </div>
-                    <Link
+                    {/* <Link
                       className="MenuModal__link MenuModal__link--parent"
                       to={"/"}
                       onClick={() => Appactions.closeMenu()}
@@ -33,7 +33,20 @@ export default class MenuModal extends Component {
                       >
                         {text => text}
                       </FormattedMessage>
-                    </Link>
+                    </Link> */}
+                    <FormattedMessage id="search.title" defaultMessage={`Søk`}>
+                      {text => (
+                        <StaticPageLink
+                          tabIndex={this.props.tabIndex}
+                          pageType="search"
+                          className="MenuModal__link MenuModal__link--parent"
+                          activeClassName="Menu__link--is-active"
+                          onClick={() => Appactions.closeMenu()}
+                        >
+                          {text}
+                        </StaticPageLink>
+                      )}
+                    </FormattedMessage>
                     {parentItems &&
                       parentItems.map(item => (
                         <Link

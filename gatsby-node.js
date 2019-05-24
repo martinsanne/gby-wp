@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 // const createPaginatedPages = require("gatsby-paginate")
+const { staticPages } = require("./config/site")
 const locales = require("./config/i18n")
 const getLocalizedSlug = (path, node) =>
   locales[node.locale].default
@@ -135,5 +136,33 @@ exports.createPages = ({ graphql, actions }) => {
     }) // query.then
   }) // createWpPages
 
-  return Promise.all([createWpPosts, createWpPages])
+  /**
+   * Generate static pages
+   */
+  const createStaticPages = new Promise((resolve, reject) => {
+    // Iterate through all static pages
+    Object.keys(staticPages).map(slug => {
+      // Main page settings
+      const page = staticPages[slug]
+      const { translations } = page
+      // Generate page for each translation
+      Object.keys(translations).map(locale => {
+        // Get translated item
+        const item = translations[locale]
+        // Generate page for item
+        createPage({
+          path: `${item.url}`,
+          component: path.resolve(`./src/templates/${page.template}.js`),
+          context: {
+            locale,
+            translations,
+          },
+        })
+      })
+    })
+
+    resolve()
+  })
+
+  return Promise.all([createWpPosts, createWpPages, createStaticPages])
 } // createPages

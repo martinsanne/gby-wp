@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import cc from "classcat"
 import { AppConsumer } from "./utils"
 
-const LanguageSwitcher = ({ translations, locale }) => {
+const LanguageSwitcher = () => {
   return (
     <AppConsumer>
       {({ state }) => {

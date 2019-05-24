@@ -21,10 +21,12 @@ import Doodle from "./Doodle"
 import Icon from "./Icon"
 // import QuickLink from './QuickLink'
 // import CheckRenderTimes from './CheckRenderTimes'
+import StaticPageLink from "./StaticPageLink"
 import MarqueeString from "./MarqueeString"
 import Mouse from "./Mouse"
 
 export {
+  StaticPageLink,
   // ScrollToTop,
   SEOHeaders,
   // Badge,
