@@ -8,7 +8,9 @@ export default ({ data, pageContext }) => {
   const { locale, translations } = pageContext
   return (
     <Layout locale={locale} translations={translations}>
-      <Search locale={locale} searchIndex={data.siteSearchIndex.index} />
+      <article className="Page">
+        <Search locale={locale} searchIndex={data.siteSearchIndex.index} />
+      </article>
     </Layout>
   )
 }
