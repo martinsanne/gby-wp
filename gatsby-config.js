@@ -49,7 +49,7 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`],
+        fields: [`title`, `excerpt`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
@@ -63,6 +63,9 @@ module.exports = {
             featured_image: node => {
               return node.featured_image
             },
+            excerpt: node => {
+              return striptags(node.excerpt)
+            },
           },
           wordpress__PAGE: {
             title: node => node.title,
@@ -73,6 +76,9 @@ module.exports = {
             },
             featured_image: node => {
               return node.featured_image
+            },
+            excerpt: node => {
+              return striptags(node.excerpt)
             },
           },
           // wordpress__wp_partner: {

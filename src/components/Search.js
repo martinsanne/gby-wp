@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { Index } from "elasticlunr"
-import { Html, FeaturedImage, Overlay, FeaturedImageAspect } from "./utils"
+import { Html, Overlay, FeaturedImageAspect } from "./utils"
 import { FormattedMessage } from "react-intl"
 
 // Search component
@@ -55,15 +55,18 @@ export default class Search extends Component {
       results: this.index
         .search(query, { expand: true })
         // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref))
+        .map(({ ref, score }) => {
+          return this.index.documentStore.getDoc(ref)
+        })
         // Make sure we show items for the current locale only
         .filter(item => item.locale === this.props.locale),
     })
   }
 
   render() {
-    const { results, query } = this.state
+    let { results, query } = this.state
     const resultTotal = results.length
+    results = results.slice(0, 20)
     return (
       <div className="Search">
         <header className="Search__header">
@@ -107,6 +110,11 @@ export default class Search extends Component {
                         <Html content={this.getExcerpt(page.content, query)} />
                       </div>
                     )}
+                    {/* {page.excerpt && (
+                      <div className="SearchResults__excerpt">
+                        <Html content={this.getExcerpt(page.excerpt, query)} />
+                      </div>
+                    )} */}
                   </div>
                   {page.featured_image && (
                     <div className="SearchResults__media">
