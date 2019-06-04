@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import TemplateResolver from "../../components/TemplateResolver"
 import Layout from "../../components/layout"
+import parse from "url-parse"
 
 const normalizePageData = page => {
   const newData = { ...page }
@@ -17,36 +18,56 @@ export default class Preview extends Component {
     data: null,
     loading: true,
     error: false,
+    locale: false,
   }
 
   componentDidMount() {
-    const postId = 24017
-    const postType = "posts"
-    fetch(
-      `https://155538-www.web.tornado-node.net/wp-json/wp/v2/${postType}/${postId}/revisions`,
-      {
-        method: "get",
-        credentials: "include",
+    const { query } = parse(this.props.location.search, true)
+
+    if (query.id && query.type && query.lang) {
+      this.setState({ locale: query.lang })
+
+      const endpoints = {
+        page: "pages",
+        post: "posts",
       }
-    )
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          data,
-          loading: false,
+
+      const endpoint = endpoints[query.type]
+
+      fetch(
+        `https://155538-www.web.tornado-node.net/wp-json/wp/v2/${endpoint}/${
+          query.id
+        }/revisions`,
+        {
+          method: "get",
+          credentials: "include",
+        }
+      )
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            data,
+            loading: false,
+          })
         })
-      })
-      .catch(error => {
-        console.warn(error)
-        this.setState({
-          loading: false,
-          error: "You must be logged in to see this page.",
+        .catch(error => {
+          console.warn(error)
+          this.setState({
+            loading: false,
+            error: "You must be logged in to see this page.",
+          })
         })
+    } else {
+      this.setState({
+        loading: false,
+        error:
+          "Expected query string with the following parameters ?id={}&type={}&lang={}",
       })
+    }
   }
 
   render() {
-    const { data, loading, error } = this.state
+    const { data, loading, error, locale } = this.state
     if (loading) {
       return <div>Loading preview</div>
     }
@@ -55,13 +76,13 @@ export default class Preview extends Component {
     }
     const page = normalizePageData(data[0])
     return (
-      <Layout locale={"nb"}>
+      <Layout locale={locale}>
         <div className="Preview">
           <p className="Preview__disclaimer">
             This is a preview. Some things might not work entirely as expected.
           </p>
           <div className="Preview__content">
-            <TemplateResolver page={page} locale={"nb"} />
+            <TemplateResolver page={page} locale={locale} />
           </div>
         </div>
       </Layout>
