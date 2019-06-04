@@ -5,48 +5,16 @@ import Layout from "../components/layout"
 /**
  * Page templates
  */
-import FrontPage from "../components/FrontPage"
-import Page from "../components/Page"
-import GreenCopper from "../components/GreenCopper"
-import PartnerPageContainer from "../components/PartnerPageContainer"
-import GalleryPageContainer from "../components/GalleryPageContainer"
-import BlogPageContainer from "../components/BlogPageContainer"
 import { SEOHeaders } from "../components/utils"
-
-const pageTemplates = {
-  homepage: FrontPage,
-  greencopper: GreenCopper,
-  default: Page,
-  partners: PartnerPageContainer,
-  gallery: GalleryPageContainer,
-  blog: BlogPageContainer,
-}
-
-const resolvePageTemplate = name => {
-  if (pageTemplates[name]) {
-    return pageTemplates[name]
-  }
-  return pageTemplates.default
-}
+import TemplateResolver from "../components/TemplateResolver"
 
 export default ({ data, pageContext }) => {
   const page = data.wordpressPage
   const { locale } = pageContext
-
-  const pageForPost = data.allWordpressHeySettings.edges.filter(item => {
-    return item.node.locale === locale
-  })[0].node.page_for_posts
-
-  // console.log(pageForPost)
-  if (pageForPost.wordpress_id === page.wordpress_id) {
-    page.template = "blog"
-  }
-
-  const MyTmpl = resolvePageTemplate(page.template)
   return (
     <Layout locale={locale} translations={page.translations}>
       <SEOHeaders data={page} />
-      <MyTmpl page={page} />
+      <TemplateResolver page={page} locale={locale} />
     </Layout>
   )
 }

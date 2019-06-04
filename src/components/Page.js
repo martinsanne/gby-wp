@@ -3,6 +3,7 @@ import { FeaturedImage, Html, ResponsiveEmbeds } from "./utils"
 
 const Page = ({ page }) => {
   const { title, content, featured_image } = page
+  console.log("deadeade", page)
   return (
     <article className="Page">
       {title && (

@@ -7,8 +7,12 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    "gatsby-plugin-extract-schema",
+    `gatsby-plugin-extract-schema`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/_preview/*`] },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
