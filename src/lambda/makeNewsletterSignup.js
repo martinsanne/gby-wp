@@ -17,6 +17,7 @@ export function handler(event, context, callback) {
       if (!error && body) {
         // Will return body with redirect back to oyafestivalen.no
         // Usually code 302, but let's not check that in case of change
+        console.log("Newsletter signup success")
         callback(null, {
           statusCode: 200,
           body: JSON.stringify({
@@ -25,7 +26,7 @@ export function handler(event, context, callback) {
           }),
         })
       } else {
-        callback("Oh no! The newsletter signup failed.")
+        callback("Newsletter signup failed")
       }
     }
   )
