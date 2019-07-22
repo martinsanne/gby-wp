@@ -1,26 +1,29 @@
-import React, { Component } from "react"
-import { FormattedMessage } from "react-intl"
-import messages from "./Modal.messages"
-import Portal from "./Portal"
+import React from "react"
+import { Html } from "../utils"
 
-export default class Modal extends Component {
-  render() {
-    return (
-      <Portal>
-        <div className="Modal">
-          <div className="Modal__background" onClick={this.props.close} />
-          <div className="Modal__container">
-            <div className="Modal__content">
-              <div className="Modal__header">
-                <button className="Modal__close" onClick={this.props.close}>
-                  <FormattedMessage {...messages.close} />
-                </button>
-              </div>
-              <div className="Modal__body">{this.props.children}</div>
-            </div>
-          </div>
+const Modal = props => {
+  const { content, closeModal } = props
+  return (
+    <div className="MapModal">
+      <div className="MapModal__backdrop" onClick={closeModal} />
+      <div className="MapModal__container">
+        <header className="MapModal__header">
+          <h2 className="MapModal__title">
+            <span>{content.title.rendered}</span>
+          </h2>
+          <button
+            className="MapModal__button MapModal__button--close"
+            onClick={closeModal}
+          >
+            Lukk
+          </button>
+        </header>
+        <div className="MapModal__content">
+          <Html content={content.content.rendered} />
         </div>
-      </Portal>
-    )
-  }
+      </div>
+    </div>
+  )
 }
+
+export default Modal

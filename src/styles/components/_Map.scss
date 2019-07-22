@@ -227,7 +227,8 @@
     }
 
     &__header {
-      display: block;
+      display: flex;
+      justify-content: space-between;
       @include spacing('sm', padding);
       background: $c-main;
     }
@@ -263,9 +264,7 @@
 
       &--close {
         width: auto;
-        float: right;
         border: none;
-        @include spacing('md', (padding-top, padding-left));
         margin-top: 7px;
       }
     }
