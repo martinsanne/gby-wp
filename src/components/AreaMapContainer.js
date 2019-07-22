@@ -20,13 +20,15 @@ class AreaMapContainer extends Component {
     currentKey: "",
   }
   componentDidMount() {
-    getData().then(data => {
-      this.setState({
-        markers: data.markers,
-        layers: data.layers,
-        currentMarkers: data.markers,
+    getData()
+      .then(data => {
+        this.setState({
+          markers: data.markers,
+          layers: data.layers,
+          currentMarkers: data.markers,
+        })
       })
-    })
+      .catch(err => console.warn(err))
     this.loadCoords()
   }
   loadCoords = () => {
@@ -46,7 +48,7 @@ class AreaMapContainer extends Component {
   }
   handleClick = current => {
     if (current.modal) {
-      document.querySelector("body").classList.add("oh")
+      // document.querySelector("body").classList.add("oh")
       this.setState({
         currentSelected: current,
       })
@@ -91,7 +93,7 @@ class AreaMapContainer extends Component {
     }
   }
   closeModal = () => {
-    document.querySelector("body").classList.remove("oh")
+    // document.querySelector("body").classList.remove("oh")
     this.setState({
       currentSelected: null,
     })

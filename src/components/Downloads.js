@@ -8,7 +8,7 @@ const Downloads = () => {
       {({ state }) => {
         const { options } = state
 
-        if (!options.options) {
+        if (!options || !options.options) {
           return null
         }
 

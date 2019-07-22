@@ -223,6 +223,9 @@ module.exports = {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {
         features: [
+          `Array.prototype.includes`,
+          `Array.prototype.forEach`,
+          `Array.prototype.reduce`,
           `Array.prototype.filter`,
           `Array.prototype.map`,
           `fetch`,
