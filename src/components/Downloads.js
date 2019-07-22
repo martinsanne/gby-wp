@@ -7,7 +7,13 @@ const Downloads = () => {
     <AppConsumer>
       {({ state }) => {
         const { options } = state
+
+        if (!options.options) {
+          return null
+        }
+
         const settings = options.options
+
         return (
           <div className="Downloads">
             <span>
