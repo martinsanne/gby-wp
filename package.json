@@ -18,6 +18,7 @@
     "gatsby-plugin-manifest": "^2.2.3",
     "gatsby-plugin-netlify-functions": "0.0.3",
     "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-polyfill-io": "^1.1.0",
     "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sass": "^2.0.11",

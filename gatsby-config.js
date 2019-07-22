@@ -219,6 +219,17 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     "gatsby-plugin-offline",
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [
+          `Array.prototype.filter`,
+          `Array.prototype.map`,
+          `fetch`,
+          `requestAnimationFrame`,
+        ],
+      },
+    },
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
