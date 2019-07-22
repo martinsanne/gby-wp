@@ -20,6 +20,8 @@
 [-] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
 [-] Change permalink structure to /posts/
 
+[-] Global home url based on language (on main logo ie)
+[-] Dates on posts must show actual date if more than X days ago
 [-] SEOHeaders not working
 [-] Canonical urls
 [-] Add google analytics (and other trackers from todays site)
