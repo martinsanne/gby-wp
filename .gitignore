@@ -69,4 +69,4 @@ yarn-error.log
 .yarn-integrity
 
 # Production
-/built-lambda
+/functions

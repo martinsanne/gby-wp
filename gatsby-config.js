@@ -44,7 +44,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-functions`,
       options: {
         functionsSrc: `${__dirname}/src/lambda`,
-        functionsOutput: `${__dirname}/built-lambda`,
+        functionsOutput: `${__dirname}/functions`,
       },
     },
     {
