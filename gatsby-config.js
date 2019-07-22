@@ -44,7 +44,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-functions`,
       options: {
         functionsSrc: `${__dirname}/src/lambda`,
-        functionsOutput: `${__dirname}/lambda`,
+        functionsOutput: `${__dirname}/built-lambda`,
       },
     },
     {
@@ -238,11 +238,11 @@ module.exports = {
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
-      "/.netlify/lambda/",
+      "/.netlify/functions/",
       proxy({
-        target: "http://localhost:9000",
+        target: "http://localhost:9000/",
         pathRewrite: {
-          "/.netlify/lambda/": "",
+          "^/\\.netlify/functions": "",
         },
       })
     )

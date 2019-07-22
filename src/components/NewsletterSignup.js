@@ -45,7 +45,7 @@ export default class NewsletterSignup extends Component {
       success: false,
     })
     // Validate email first!
-    fetch("/.netlify/lambda/makeNewsletterSignup", {
+    fetch("/.netlify/functions/makeNewsletterSignup", {
       method: "POST",
       body: JSON.stringify(this.state),
     })
