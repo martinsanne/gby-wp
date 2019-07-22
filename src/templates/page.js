@@ -11,16 +11,75 @@ import TemplateResolver from "../components/TemplateResolver"
 export default ({ data, pageContext }) => {
   const page = data.wordpressPage
   const { locale } = pageContext
+  const latestPosts = data.allWordpressPost.edges.map(item => item.node)
   return (
     <Layout locale={locale} translations={page.translations}>
       <SEOHeaders data={page} />
-      <TemplateResolver page={page} locale={locale} />
+      <TemplateResolver page={page} locale={locale} latestPosts={latestPosts} />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query($id: String!, $locale: String!) {
+    allWordpressPost(limit: 24, filter: { locale: { eq: $locale } }) {
+      edges {
+        node {
+          title
+          link
+          wordpress_id
+          excerpt
+          date
+          featured_image {
+            title
+            filename
+            filesize
+            url
+            link
+            alt
+            author
+            description
+            caption
+            name
+            status
+            uploaded_to
+            date
+            modified
+            menu_order
+            mime_type
+            type
+            subtype
+            icon
+            width
+            height
+            sizes {
+              thumbnail
+              thumbnail_width
+              thumbnail_height
+              medium
+              medium_width
+              medium_height
+              medium_large
+              medium_large_width
+              medium_large_height
+              large
+              large_width
+              large_height
+              small
+              small_width
+              small_height
+              medium_small
+              medium_small_width
+              medium_small_height
+              xlarge
+              xlarge_width
+              xlarge_height
+            }
+          }
+        }
+      }
+    }
+
     allWordpressHeySettings {
       edges {
         node {

@@ -27,9 +27,9 @@ const resolvePageTemplate = name => {
   return pageTemplates.default
 }
 
-export default ({ page, locale }) => {
+export default ({ page, locale, latestPosts }) => {
   const data = useStaticQuery(graphql`
-    {
+    query {
       allWordpressHeySettings {
         edges {
           node {
@@ -55,5 +55,5 @@ export default ({ page, locale }) => {
   }
 
   const MyTmpl = resolvePageTemplate(page.template)
-  return <MyTmpl page={page} />
+  return <MyTmpl latestPosts={latestPosts} page={page} />
 }

@@ -1,14 +1,19 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+
 import Section from "./Section"
 import Artists from "./Artists"
 import Hero7 from "./Hero7"
 import ArtistsToggle from "./ArtistsToggle"
+import NewsCard from "./NewsCard"
 
-export default ({ page }) => {
+export default props => {
+  const { page } = props
   const acf = page.acf
   const headliners = acf.artists.filter(artist => artist.acf.headliner)
   const artists = acf.artists.filter(artist => !artist.acf.headliner)
+  // const { posts, gallery, acf, title } = page
+  const posts = props.latestPosts.slice(0, 6)
   return (
     <div>
       {acf.hero.headliners && acf.hero.headliners.length > 0 && (
@@ -28,6 +33,31 @@ export default ({ page }) => {
           </Section>
         )}
       </div>
+      <div className="container">
+        {posts && acf && acf.news && (
+          <Section
+            title={acf.news.title || ""}
+            desc={acf.news.description || ""}
+          >
+            <div className="NewsCards NewsCards--frontpage">
+              {posts.map((post, i) => (
+                <NewsCard
+                  key={`NewsCard-${post.wordpress_id}`}
+                  post={post}
+                  i={i}
+                />
+              ))}
+            </div>
+            <div className="Section__action">
+              {acf.news.link && (
+                <Link className="button" to={acf.news.link.url}>
+                  {acf.news.link.title}
+                </Link>
+              )}
+            </div>
+          </Section>
+        )}
+      </div>
     </div>
   )
 }
@@ -35,6 +65,15 @@ export default ({ page }) => {
 export const query = graphql`
   fragment AcfFrontPageArtists on wordpress__PAGE {
     acf {
+      news {
+        title
+        description
+        link {
+          title
+          url
+          target
+        }
+      }
       hero {
         headliners {
           wordpress_id

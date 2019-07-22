@@ -1,71 +1,76 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+// import { useStaticQuery, graphql } from "gatsby"
 import BlogPage from "./BlogPage"
 
 const BlogPageContainer = ({ page, ...props }) => {
-  const data = useStaticQuery(graphql`
-    {
-      allWordpressPost(limit: 20, filter: { locale: { eq: "nb" } }) {
-        edges {
-          node {
-            title
-            link
-            wordpress_id
-            excerpt
-            date
-            featured_image {
-              title
-              filename
-              filesize
-              url
-              link
-              alt
-              author
-              description
-              caption
-              name
-              status
-              uploaded_to
-              date
-              modified
-              menu_order
-              mime_type
-              type
-              subtype
-              icon
-              width
-              height
-              sizes {
-                thumbnail
-                thumbnail_width
-                thumbnail_height
-                medium
-                medium_width
-                medium_height
-                medium_large
-                medium_large_width
-                medium_large_height
-                large
-                large_width
-                large_height
-                small
-                small_width
-                small_height
-                medium_small
-                medium_small_width
-                medium_small_height
-                xlarge
-                xlarge_width
-                xlarge_height
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   {
+  //     allWordpressPost(limit: 24, filter: { locale: { eq: "nb" } }) {
+  //       edges {
+  //         node {
+  //           title
+  //           link
+  //           wordpress_id
+  //           excerpt
+  //           date
+  //           featured_image {
+  //             title
+  //             filename
+  //             filesize
+  //             url
+  //             link
+  //             alt
+  //             author
+  //             description
+  //             caption
+  //             name
+  //             status
+  //             uploaded_to
+  //             date
+  //             modified
+  //             menu_order
+  //             mime_type
+  //             type
+  //             subtype
+  //             icon
+  //             width
+  //             height
+  //             sizes {
+  //               thumbnail
+  //               thumbnail_width
+  //               thumbnail_height
+  //               medium
+  //               medium_width
+  //               medium_height
+  //               medium_large
+  //               medium_large_width
+  //               medium_large_height
+  //               large
+  //               large_width
+  //               large_height
+  //               small
+  //               small_width
+  //               small_height
+  //               medium_small
+  //               medium_small_width
+  //               medium_small_height
+  //               xlarge
+  //               xlarge_width
+  //               xlarge_height
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  const posts = data.allWordpressPost.edges.map(item => item.node)
+  // let posts = data.allWordpressPost.edges.map(item => item.node)
+  // if (props.latestPosts) {
+  //   posts = props.latestPosts
+  // }
+
+  const posts = props.latestPosts
 
   return <BlogPage {...props} posts={posts} page={page} />
 }
