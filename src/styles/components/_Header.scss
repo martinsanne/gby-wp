@@ -18,30 +18,30 @@
   }
 
   &__top {
-    @include spacing('xs', 'margin-top');
-    @include content-width('image');
+    @include spacing("xs", ("margin-top", "padding-bottom"));
+    @include content-width("image");
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     // align-items: flex-start;
     margin-left: auto;
     margin-right: auto;
-    padding-left: spacing('sm', 'sm');
-    padding-right: spacing('sm', 'sm');
+    padding-left: spacing("sm", "sm");
+    padding-right: spacing("sm", "sm");
 
     @include bp(md) {
       align-items: center;
-      padding-left: spacing('sm', 'md');
-      padding-right: spacing('sm', 'md');
+      padding-left: spacing("sm", "md");
+      padding-right: spacing("sm", "md");
     }
 
     @include bp(lg) {
-      padding-left: spacing('md', 'lg');
-      padding-right: spacing('md', 'lg');
+      padding-left: spacing("md", "lg");
+      padding-right: spacing("md", "lg");
     }
-    @include bp(xl) {
-      align-items: baseline;
-    }
+    // @include bp(xl) {
+    //   align-items: baseline;
+    // }
   }
 
   &__lang,
@@ -51,9 +51,9 @@
     }
   }
 
-  &__logo {
-    align-self: flex-end;
-  }
+  // &__logo {
+  //   align-self: flex-end;
+  // }
 
   &__lang {
     text-align: right;

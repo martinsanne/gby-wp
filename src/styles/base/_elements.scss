@@ -13,6 +13,10 @@ img {
   vertical-align: middle; // remove space above/below images
 }
 
+svg {
+  vertical-align: middle;
+}
+
 button {
   cursor: pointer;
   appearance: none;
@@ -50,7 +54,7 @@ input {
   border-radius: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 

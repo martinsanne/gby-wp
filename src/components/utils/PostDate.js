@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { FormattedRelative, FormattedDate } from "react-intl"
 import cc from "classcat"
+import { daysFromNow } from "../../utils/date"
 
 export default class PostDate extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class PostDate extends Component {
     /**
      * Use full date if more than 5 days ago
      */
-    const isMorethanFiveDays = true //daysFromNow(date, 5)
+    const isMorethanFiveDays = daysFromNow(date, 5)
 
     return (
       <time

@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "oyafestivalen",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Øyafestivalen 2019",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Heydays <studio@heydays.no>",
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@u-wave/react-vimeo": "^0.6.0",
@@ -14,6 +14,8 @@
     "gatsby-paginate": "^1.1.0",
     "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-extract-schema": "0.0.5",
+    "gatsby-plugin-facebook-pixel": "^1.0.3",
+    "gatsby-plugin-google-analytics": "^2.1.4",
     "gatsby-plugin-intl": "^0.1.7",
     "gatsby-plugin-manifest": "^2.2.3",
     "gatsby-plugin-netlify-functions": "0.0.3",
