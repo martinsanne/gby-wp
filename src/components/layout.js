@@ -14,13 +14,18 @@ import Footer from "./Footer"
 
 addLocaleData([...en, ...nb])
 
-const Layout = ({ children, locale, translations }) => {
+const Layout = ({ children, locale, translations, options, settings }) => {
   if (!locale) {
     locale = "nb"
   }
   return (
     <IntlProvider messages={intlTranslations[locale]} locale={locale}>
-      <AppProvider translations={translations} locale={locale}>
+      <AppProvider
+        translations={translations}
+        locale={locale}
+        options={options}
+        settings={settings}
+      >
         <div className="App">
           <div className="App__routes">
             <Header />

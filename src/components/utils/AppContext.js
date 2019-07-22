@@ -7,14 +7,9 @@ export class AppProvider extends Component {
     showMenu: false,
     locale: this.props.locale,
     translations: this.props.translations,
+    options: this.props.options,
+    settings: this.props.settings,
   }
-
-  // constructor() {
-  //   super()
-  //   this.setState({
-
-  //   })
-  // }
 
   toggleMenu = () => {
     this.setState(

@@ -1,34 +1,21 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { FormattedMessage } from "react-intl"
 import { AppConsumer } from "./utils"
 
 const Downloads = () => {
-  const data = useStaticQuery(graphql`
-    {
-      allWordpressHeyAcfoptions {
-        edges {
-          node {
-            locale
-            options {
-              url_app_download_android
-              url_app_download_ios
-            }
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <AppConsumer>
       {({ state }) => {
-        const { locale } = state
-        const settings = data.allWordpressHeyAcfoptions.edges.filter(item => {
-          return item.node.locale === locale
-        })[0].node.options
+        const { options } = state
+        const settings = options.options
         return (
           <div className="Downloads">
-            <span>Last ned appen</span>
+            <span>
+              <FormattedMessage
+                id="downloads.title"
+                defaultMessage="Last ned appen"
+              />
+            </span>
             <br />
             <a
               target="_blank"
