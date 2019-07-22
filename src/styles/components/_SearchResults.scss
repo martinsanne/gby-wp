@@ -27,6 +27,10 @@
     @include spacing('xs', 'margin-bottom');
   }
 
+  &__excerpt {
+    word-break: break-all;
+  }
+
   &__media {
     display: none;
     @include bp(lg) {
