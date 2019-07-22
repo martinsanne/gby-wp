@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Section from "./Section"
 import Artists from "./Artists"
 import Hero7 from "./Hero7"
+import ArtistsToggle from "./ArtistsToggle"
 
 export default ({ page }) => {
   const acf = page.acf
@@ -16,12 +17,14 @@ export default ({ page }) => {
       <div className="container">
         {acf.artists && (
           <Section>
-            {headliners && headliners.length > 0 && (
-              <Artists artists={headliners} expandable />
-            )}
-            {artists && artists.length > 0 && (
-              <Artists artists={artists} expandable />
-            )}
+            <ArtistsToggle>
+              <>
+                {headliners && headliners.length > 0 && (
+                  <Artists artists={headliners} />
+                )}
+                {artists && artists.length > 0 && <Artists artists={artists} />}
+              </>
+            </ArtistsToggle>
           </Section>
         )}
       </div>
@@ -34,8 +37,15 @@ export const query = graphql`
     acf {
       hero {
         headliners {
+          wordpress_id
+          status
           title {
             rendered
+          }
+          acf {
+            country_code
+            greencopper_url
+            headliner
           }
           featured_image {
             wordpress_id
@@ -118,8 +128,9 @@ export const query = graphql`
           }
         }
         acf {
-          headliner
+          country_code
           greencopper_url
+          headliner
         }
       }
     }

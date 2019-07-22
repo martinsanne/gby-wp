@@ -1,8 +1,8 @@
 {
   "404.button": "Go back to the front page",
   "404.title": "Hmm, we could not find that page (404)",
-  "artists.hideButton": "See less",
-  "artists.showButton": "See more",
+  "artists.hideButton": "See less artists",
+  "artists.showButton": "See all artists",
   "badges.new": "New",
   "blog.allYears": "All years",
   "blog.allpostsloaded": "All posts loaded",

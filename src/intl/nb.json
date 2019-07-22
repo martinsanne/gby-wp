@@ -1,8 +1,8 @@
 {
   "404.button": "Gå tilbake til forsiden",
   "404.title": "Hmm, den siden fant vi ikke (404)",
-  "artists.hideButton": "Se mindre",
-  "artists.showButton": "Se flere",
+  "artists.hideButton": "Se færre artister",
+  "artists.showButton": "Se alle artister",
   "badges.new": "Ny",
   "blog.allYears": "Alle år",
   "blog.allpostsloaded": "Alle innlegg lastet",

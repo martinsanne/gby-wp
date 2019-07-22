@@ -13,33 +13,6 @@
     }
   }
 
-  &--expandable {
-    // .Artists__wrapper {
-    //   max-height: 500px; // This value is also set in Artists.js
-    //   overflow: hidden;
-    //   transition: max-height 1s ease;
-    //   @include spacing('lg', 'padding');
-    //   @include negative-spacing('lg', ('margin-right', 'margin-left'));
-
-    //   &:after {
-    //     content: '';
-    //     pointer-events: none;
-    //     display: inline-block;
-    //     position: absolute;
-    //     height: 0.4em;
-    //     bottom: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     background: linear-gradient(transparent, white);
-    //     background: white;
-
-    //     @include bp(md) {
-    //       height: 0.5em;
-    //     }
-    //   }
-    // }
-  }
-
   &__wrapper {
     position: relative;
     @include font-size(h2);
@@ -65,8 +38,8 @@
     position: relative;
     margin-right: $gutter;
     line-height: 1.25;
-    padding-top: 0.125em;
-    padding-bottom: 0.125em;
+    padding-top: 0.135em;
+    padding-bottom: 0.135em;
 
     @include bp(md) {
       padding-left: 0.125em;
@@ -78,6 +51,8 @@
     &--hero-headliner {
       @include font-size(h1);
       line-height: 1.05;
+      padding-top: 0.125em;
+      padding-bottom: 0.125em;
     }
 
     &--headliner {
@@ -125,6 +100,11 @@
 
   &__name {
     display: inline-block;
+    line-height: 1.25;
+
+    @include bp(md) {
+      line-height: 0;
+    }
   }
 
   &__country {
@@ -137,6 +117,7 @@
     @include bp(md) {
       display: block;
       position: fixed;
+      z-index: 9999;
       top: 0;
       left: 0;
       pointer-events: none;

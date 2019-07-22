@@ -1,7 +1,6 @@
 import React, { Component, createRef } from "react"
 import cc from "classcat"
 
-import { FormattedMessage } from "react-intl"
 import ArtistsItem from "./ArtistsItem"
 import { Doodle, Mouse } from "./utils"
 
@@ -9,19 +8,18 @@ const initMaxHeight = "300px"
 
 export default class Artists extends Component {
   list = createRef()
-
   state = {
     showArtists: false,
     maxHeight: initMaxHeight,
     transition: 0,
     currentArtist: null,
   }
-
   componentDidMount = () => {
-    this.addDots(this.list)
+    setTimeout(() => {
+      this.addDots(this.list)
+    }, 200)
     window.addEventListener("resize", this.addDots)
   }
-
   componentDidUpdate = (prevProps, prevState) => {
     if (prevProps !== this.props) {
       this.addDots(this.list)
@@ -31,42 +29,29 @@ export default class Artists extends Component {
   componentWillUnmount = () => {
     window.removeEventListener("resize", this.addDots)
   }
-
   addDots = () => {
-    if (this.list && this.list.current) {
-      // Remove all existing dividers
-      const dividers = this.list.current.getElementsByClassName(
-        "Artists__divider"
-      )
-      if (dividers) {
-        while (dividers[0]) {
-          dividers[0].parentNode.removeChild(dividers[0])
-        }
+    const items = [...this.list.current.querySelectorAll("li")]
+    items.map((item, i) => {
+      // Remove existing dividers
+      if (item.querySelector(".Artists__divider"))
+        item.removeChild(item.querySelector(".Artists__divider"))
+
+      const nextItem = items[i + 1]
+      // Check if they're on the same line
+      if (
+        nextItem &&
+        item.getBoundingClientRect().top ===
+          nextItem.getBoundingClientRect().top
+      ) {
+        // add divider if they're on the same line
+        const bullet = document.createElement("span")
+        bullet.classList.add("Artists__divider")
+        bullet.innerHTML = "&bull;"
+        item.appendChild(bullet)
       }
-
-      const items = this.list.current.querySelectorAll("li")
-      Object.keys(items).map(i => {
-        i = parseFloat(i)
-        const item = items[i]
-
-        // Check if current and next list item are on the same line
-        const nextItem = items[i + 1]
-        if (
-          nextItem &&
-          item.getBoundingClientRect().top ===
-            nextItem.getBoundingClientRect().top
-        ) {
-          // add divider if they're on the same line
-          const bullet = document.createElement("span")
-          bullet.classList.add("Artists__divider")
-          bullet.innerHTML = "&bull;"
-          item.appendChild(bullet)
-        }
-        return null
-      })
-    }
+      return null
+    })
   }
-
   handleClick = () => {
     const height = this.list.current.getBoundingClientRect().height
     this.setState(prevState => ({
@@ -75,7 +60,6 @@ export default class Artists extends Component {
       transition: `${height / 3000}s ease`,
     }))
   }
-
   setCurrentArtist = currentArtist => {
     this.setState({
       currentArtist,
@@ -83,18 +67,15 @@ export default class Artists extends Component {
   }
 
   render() {
-    const { artists, expandable } = this.props
+    const { artists } = this.props
     const { showArtists, currentArtist } = this.state
     const style = {}
-    // const { showArtists, transition, maxHeight } = this.state
-    // const style = expandable ? { maxHeight, transition } : {}
     return (
       <Doodle>
         <div
           className={cc({
             Artists: true,
             "Artists--show": showArtists,
-            "Artists--expandable": expandable,
           })}
         >
           <div className="Artists__wrapper" style={style}>
@@ -111,21 +92,6 @@ export default class Artists extends Component {
                 ))}
             </ul>
           </div>
-          {expandable && false && (
-            <button className="Artists__button" onClick={this.handleClick}>
-              {showArtists ? (
-                <FormattedMessage
-                  id="artists.hideButton"
-                  defaultMessage="Se mindre"
-                />
-              ) : (
-                <FormattedMessage
-                  id="artists.showButton"
-                  defaultMessage="Se flere"
-                />
-              )}
-            </button>
-          )}
           <Mouse>
             {({ x, y }) =>
               currentArtist &&

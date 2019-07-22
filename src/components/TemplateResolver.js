@@ -54,8 +54,6 @@ export default ({ page, locale }) => {
     }
   }
 
-  console.log(page)
-
   const MyTmpl = resolvePageTemplate(page.template)
   return <MyTmpl page={page} />
 }
