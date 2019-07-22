@@ -34,5 +34,6 @@
   "search.searching": "Searching for \"{queryString}\"",
   "search.submit": "Search",
   "search.title": "Search",
-  "string.newsletter": "Newsletter"
+  "string.newsletter": "Newsletter",
+  "downloads.title": "Download the app"
 }

@@ -11,20 +11,6 @@ import NewsletterSignup from "./NewsletterSignup"
 import FooterCredits from "./FooterCredits"
 
 const Footer = () => {
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     wordpressHeySettings {
-  //       wp_page_for_privacy_policy { breaks build if missing!
-  //         link
-  //         post_title
-  //       }
-  //     }
-  //   }
-  // `)
-  //
-
-  // const settings = data.wordpressHeySettings
-
   return (
     <footer className="Footer">
       <Partners className="Footer__partners" />

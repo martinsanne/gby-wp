@@ -34,5 +34,6 @@
   "search.searching": "Søker etter \"{queryString}\"",
   "search.submit": "Søk",
   "search.title": "Søk",
-  "string.newsletter": "Nyhetsbrev"
+  "string.newsletter": "Nyhetsbrev",
+  "downloads.title": "Last ned appen"
 }
