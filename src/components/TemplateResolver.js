@@ -10,6 +10,7 @@ import GreenCopper from "../components/GreenCopper"
 import PartnerPageContainer from "../components/PartnerPageContainer"
 import GalleryPageContainer from "../components/GalleryPageContainer"
 import BlogPageContainer from "../components/BlogPageContainer"
+import AreaMapContainer from "../components/AreaMapContainer"
 
 const pageTemplates = {
   homepage: FrontPage,
@@ -17,6 +18,7 @@ const pageTemplates = {
   partners: PartnerPageContainer,
   gallery: GalleryPageContainer,
   blog: BlogPageContainer,
+  map: AreaMapContainer,
   default: Page,
 }
 

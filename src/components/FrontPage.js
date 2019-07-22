@@ -138,6 +138,7 @@ const galleryQuery = graphql`
         }
         gallery {
           image {
+            wordpress_id
             title
             filename
             filesize

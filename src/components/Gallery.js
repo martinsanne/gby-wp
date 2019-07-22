@@ -20,24 +20,26 @@ const Gallery = props => {
           </div>
           <div className="Gallery__list">
             {gallery.acf.gallery &&
-              gallery.acf.gallery.slice(0, 4).map(item => (
-                <div
-                  key={`GalleryItem-${item.video || item.image.wordpress_id}`}
-                  className="Gallery__item"
-                >
-                  <Overlay hoverable>
-                    {item.video ? (
-                      <VimeoWrapper video={item.video} loop />
-                    ) : (
-                      <FeaturedImageAspect
-                        {...item.image}
-                        className="aspect-sm--landscape"
-                        maxWidth={1000}
-                      />
-                    )}
-                  </Overlay>
-                </div>
-              ))}
+              gallery.acf.gallery.slice(0, 4).map(item => {
+                return (
+                  <div
+                    key={`GalleryItem-${item.video || item.image.wordpress_id}`}
+                    className="Gallery__item"
+                  >
+                    <Overlay hoverable>
+                      {item.video ? (
+                        <VimeoWrapper video={item.video} loop />
+                      ) : (
+                        <FeaturedImageAspect
+                          {...item.image}
+                          className="aspect-sm--landscape"
+                          maxWidth={1000}
+                        />
+                      )}
+                    </Overlay>
+                  </div>
+                )
+              })}
           </div>
         </>
       )}
