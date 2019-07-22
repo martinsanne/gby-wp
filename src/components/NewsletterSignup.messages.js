@@ -5,9 +5,18 @@ export default defineMessages({
     id: "newsletter.submitting",
     defaultMessage: "Submitting",
   },
+  successTitle: {
+    id: "newsletter.successTitle",
+    defaultMessage: "Skjemaet ble sendt",
+  },
   success: {
     id: "newsletter.success",
     defaultMessage: "Thank you! Form was sent.",
+  },
+  error: {
+    id: "newsletter.error",
+    defaultMessage:
+      "Something went wrong. Please control your email address and try again!",
   },
   title: {
     id: "newsletter.title",

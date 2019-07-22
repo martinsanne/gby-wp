@@ -45,7 +45,7 @@ export default class NewsletterSignup extends Component {
       success: false,
     })
     // Validate email first!
-    fetch("/.netlify/functions/makeNewsletterSignup", {
+    fetch("/.netlify/lambda/makeNewsletterSignup", {
       method: "POST",
       body: JSON.stringify(this.state),
     })
@@ -60,10 +60,9 @@ export default class NewsletterSignup extends Component {
       })
       .catch(err => {
         this.setState({
-          submitting: true,
+          submitting: false,
           error: true,
         })
-        console.log("newsletter err", err)
       })
   }
 
@@ -84,11 +83,13 @@ export default class NewsletterSignup extends Component {
 
   render() {
     const { onDark } = this.props
-    const { consent, email, success, submitting, isTrident } = this.state
+    const { consent, email, success, submitting, isTrident, error } = this.state
     if (success) {
       return (
         <div className="NewsletterSignup NewsletterSignup--success">
-          <h3>Skjemaet ble sendt</h3>
+          <h3>
+            <FormattedMessage {...messages.successTitle} />
+          </h3>
           <p>
             <FormattedMessage {...messages.success} />
           </p>
@@ -155,6 +156,11 @@ export default class NewsletterSignup extends Component {
           {submitting && (
             <div className="Form__submitting">
               <FormattedMessage {...messages.sending} />
+            </div>
+          )}
+          {!submitting && error && (
+            <div className="Form__submitting">
+              <FormattedMessage {...messages.error} />
             </div>
           )}
         </form>

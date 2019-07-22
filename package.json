@@ -16,11 +16,13 @@
     "gatsby-plugin-extract-schema": "0.0.5",
     "gatsby-plugin-intl": "^0.1.7",
     "gatsby-plugin-manifest": "^2.2.3",
+    "gatsby-plugin-netlify-functions": "0.0.3",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.2.8",
+    "gatsby-plugin-sitemap": "^2.2.3",
     "gatsby-source-filesystem": "^2.1.5",
     "gatsby-source-wordpress": "^3.1.10",
     "gatsby-transformer-sharp": "^2.2.4",
@@ -43,6 +45,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^0.19.1",
+    "npm-run-all": "^4.1.5",
+    "netlify-lambda": "^1.5.0",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -50,13 +55,16 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "run-p build:**",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",

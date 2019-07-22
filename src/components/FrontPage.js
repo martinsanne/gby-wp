@@ -76,7 +76,6 @@ export default props => {
             query={galleryQuery}
             render={data => {
               const gallery = data.wordpressWpGallery
-              console.log("gallery", gallery)
               return (
                 <Section
                   title={acf.gallery.title || ""}
