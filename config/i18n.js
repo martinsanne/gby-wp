@@ -10,7 +10,7 @@ module.exports = {
     siteTitle: "Øya",
     siteDescription: `Øya`,
     siteHeadline: "Øya",
-    languageTitle: "NO",
+    languageTitle: "No",
   },
   en: {
     url: "/en/",
@@ -23,6 +23,6 @@ module.exports = {
     siteTitle: "Øya",
     siteDescription: `Øya`,
     siteHeadline: "Øya",
-    languageTitle: "EN",
+    languageTitle: "En",
   },
 }

@@ -17,6 +17,8 @@
 [-] Implement latest changes to Gatsby configured CMS
 [-] Activate new CMS in prod
 [-] Add build hook to WordPress
+[-] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
+[-] Change permalink structure to /posts/
 
 [-] SEOHeaders not working
 [-] Canonical urls
