@@ -7,10 +7,13 @@ export default class SEOHeaders extends Component {
     const { data } = this.props
     return (
       <Helmet>
-        {/* {window && window.location.hostname.includes("staging") && (
-          <meta name="robots" CONTENT="noindex, nofollow" />
-        )} */}
-        {data.seo_head && Parser(data.seo_head)}
+        {data.seo_head &&
+          Parser(data.seo_head).filter(domNode => {
+            return (
+              domNode.type &&
+              (domNode.type === "meta" || domNode.type === "title")
+            )
+          })}
       </Helmet>
     )
   }

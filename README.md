@@ -17,6 +17,7 @@
 - [-] Add build hook to WordPress
 - [-] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
 - [-] Change permalink structure to /posts/
+- [-] Canonical is wrong for translatet pages. Slash is removed from url (https://gbyoya.netlify.com)
 
 - [-] Global home url based on language (on main logo ie)
 - [-] SEOHeaders not working

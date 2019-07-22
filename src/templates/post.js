@@ -106,6 +106,7 @@ export const pageQuery = graphql`
     }
 
     wordpressPost(id: { eq: $id }) {
+      seo_head
       wordpress_id
       title
       excerpt
