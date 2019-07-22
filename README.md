@@ -12,19 +12,20 @@
 
 # TODO
 
-- [-] Implement latest changes to Gatsby configured CMS
+- [-] Implement latest changes to Gatsby configured CMS (rss feed images)
 - [-] Activate new CMS in prod
 - [-] Add build hook to WordPress
 - [-] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
-- [-] Change permalink structure to /posts/
-- [-] Canonical is wrong for translatet pages. Slash is removed from url (https://gbyoya.netlify.com)
+- [-] Replace potentially wrong urls (tornado-node, netlify etc)
 
 - [-] Global home url based on language (on main logo ie)
-- [-] SEOHeaders not working
-- [-] Canonical urls
 - [-] News article sorting and loading articles per language
 - [-] Add polyfills
 
+- [x] SEOHeaders not working
+- [x] Change permalink structure to /posts/
+- [x] Canonical urls
+- [x] Canonical is wrong for translatet pages
 - [x] Add google analytics (and other trackers from todays site)
 - [x] Netlify lambda (newsletter form)
 - [x] Dates on posts must show actual date if more than X days ago
