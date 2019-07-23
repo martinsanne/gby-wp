@@ -19,7 +19,7 @@ const Page = ({ page }) => {
           showCaption={true}
         />
       )}
-      <div className="Page__content">
+      <div className="Page__content editor">
         <ResponsiveEmbeds>
           <Html content={content} />
         </ResponsiveEmbeds>

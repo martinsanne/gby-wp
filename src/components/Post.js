@@ -31,7 +31,7 @@ const Post = ({ post, posts }) => {
           showCaption={true}
         />
       )}
-      <div className="Post__content">
+      <div className="Post__content editor">
         <ResponsiveEmbeds>
           <Html content={content} />
         </ResponsiveEmbeds>

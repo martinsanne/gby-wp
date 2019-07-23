@@ -1,27 +1,21 @@
 .editor {
-  h1 {
-    display: none;
-    &:after {
-      content: 'Du skal ikke bruke denne typen overskrift (h1) i dette feltet';
+
+  ul {
+    list-style: disc;
+    padding-left: 1em;
+    li {
+      margin: 5px 0;
     }
   }
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  details,
-  blockquote {
-    // @include content-width('text');
+  p, ul {
+    @include spacing('sm', ('margin-bottom','margin-top'));
   }
-  p {
-    @include spacing('sm', 'margin-bottom');
-  }
+
   a {
     text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

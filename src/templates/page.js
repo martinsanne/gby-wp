@@ -47,7 +47,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allWordpressPost(limit: 24, filter: { locale: { eq: $locale } }) {
+    allWordpressPost(limit: 40, filter: { locale: { eq: $locale } }) {
       edges {
         node {
           title
