@@ -1,16 +1,30 @@
-## Dev
+# Commands
 
-`npm run develop`
+### Install
 
-## Build
+```
+npm i
+```
 
-`npm run build`
+### Run dev
 
-## Clear Gatsby cache
+```
+npm start
+```
 
-`npm run clean`
+### Build
 
-# TODO
+```
+npm run build
+```
+
+### Clear Gatsby cache
+
+```
+npm run clean
+```
+
+# Todos
 
 ## Backend
 - [ ] Activate new CMS in prod
@@ -21,6 +35,10 @@
 - [ ] Global home url based on language (on main logo ie)
 - [ ] Add polyfills
 
+## Maybye later
+- [ ] Run images static
+
+## Backlog
 - [x] News article sorting and loading articles per language
 - [x] Add translations to categories in rest api
 - [x] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
@@ -28,7 +46,7 @@
 - [x] SEOHeaders not working
 - [x] Change permalink structure to /posts/
 - [x] Canonical urls
-- [x] Canonical is wrong for translatet pages
+- [x] Canonical is wrong for translated pages
 - [x] Add google analytics (and other trackers from todays site)
 - [x] Netlify lambda (newsletter form)
 - [x] Dates on posts must show actual date if more than X days ago
@@ -37,7 +55,3 @@
 - [x] Sitemap + robots
 - [x] Blacklist unused endpoints
 - [x] Search page
-
-### Later
-
-- [-] Run images static
