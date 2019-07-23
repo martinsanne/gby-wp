@@ -91,50 +91,45 @@ module.exports = {
         icon: `src/images/oyafestivalen-app-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-      options: {
-        // Fields to index
-        fields: [`title`, `excerpt`],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          wordpress__POST: {
-            title: node => node.title,
-            link: node => node.link,
-            locale: node => node.locale,
-            content: node => {
-              return striptags(node.content)
-            },
-            featured_image: node => {
-              return node.featured_image
-            },
-            excerpt: node => {
-              return striptags(node.excerpt)
-            },
-          },
-          wordpress__PAGE: {
-            title: node => node.title,
-            link: node => node.link,
-            locale: node => node.locale,
-            content: node => {
-              return striptags(node.content)
-            },
-            featured_image: node => {
-              return node.featured_image
-            },
-            excerpt: node => {
-              return striptags(node.excerpt)
-            },
-          },
-          // wordpress__wp_partner: {
-          //   title: node => node.title,
-          //   link: node => node.link,
-          //   filter: () => 'document',
-          // },
-        },
-      },
-    },
+    // {
+    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+    //   options: {
+    //     // Fields to index
+    //     fields: [`title`, `excerpt`],
+    //     // How to resolve each field`s value for a supported node type
+    //     resolvers: {
+    //       // For any node of type MarkdownRemark, list how to resolve the fields` values
+    //       wordpress__POST: {
+    //         title: node => node.title,
+    //         link: node => node.link,
+    //         locale: node => node.locale,
+    //         content: node => {
+    //           return striptags(node.content)
+    //         },
+    //         featured_image: node => {
+    //           return node.featured_image
+    //         },
+    //         excerpt: node => {
+    //           return striptags(node.excerpt)
+    //         },
+    //       },
+    //       wordpress__PAGE: {
+    //         title: node => node.title,
+    //         link: node => node.link,
+    //         locale: node => node.locale,
+    //         content: node => {
+    //           return striptags(node.content)
+    //         },
+    //         featured_image: node => {
+    //           return node.featured_image
+    //         },
+    //         excerpt: node => {
+    //           return striptags(node.excerpt)
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from Wordpress.
@@ -292,7 +287,7 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
-    "gatsby-plugin-offline",
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {

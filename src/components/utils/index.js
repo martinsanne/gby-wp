@@ -11,7 +11,7 @@ import VimeoWrapper from "./VimeoWrapper"
 import Section from "./Section"
 import Overlay from "./Overlay"
 import VisuallyHidden from "./VisuallyHidden"
-// import Loader from './Loader'
+import Loader from "./Loader"
 import { AppConsumer, AppProvider } from "./AppContext"
 import PostDate from "./PostDate"
 import ResponsiveEmbeds from "./ResponsiveEmbeds"
@@ -30,7 +30,7 @@ export {
   // ScrollToTop,
   SEOHeaders,
   // Badge,
-  // Loader,
+  Loader,
   // Marquee,
   // QuickLink,
   // CheckRenderTimes,

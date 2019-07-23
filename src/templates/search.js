@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Search from "../components/Search"
-// import { SEOHeaders } from "../components/utils"
+import SearchContainer from "../components/SearchContainer"
 
 export default ({ data, pageContext }) => {
   const { locale, translations } = pageContext
@@ -14,7 +13,7 @@ export default ({ data, pageContext }) => {
       settings={data.wordpressHeySettings}
     >
       <article className="Page">
-        <Search locale={locale} searchIndex={data.siteSearchIndex.index} />
+        <SearchContainer locale={locale} />
       </article>
     </Layout>
   )
@@ -22,10 +21,6 @@ export default ({ data, pageContext }) => {
 
 export const pageQuery = graphql`
   query($locale: String!) {
-    siteSearchIndex {
-      index
-    }
-
     wordpressHeyAcfoptions(locale: { eq: $locale }) {
       locale
       options {
