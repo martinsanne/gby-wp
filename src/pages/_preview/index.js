@@ -35,7 +35,7 @@ export default class Preview extends Component {
       const endpoint = endpoints[query.type]
 
       fetch(
-        `https://155538-www.web.tornado-node.net/wp-json/wp/v2/${endpoint}/${query.id}/revisions`,
+        `https://api.oyafestivalen.no/wp-json/wp/v2/${endpoint}/${query.id}/revisions`,
         {
           method: "get",
           credentials: "include",
