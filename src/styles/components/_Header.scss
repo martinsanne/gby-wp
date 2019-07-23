@@ -23,14 +23,13 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    // align-items: flex-start;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
     padding-left: spacing("sm", "sm");
     padding-right: spacing("sm", "sm");
 
     @include bp(md) {
-      align-items: center;
       padding-left: spacing("sm", "md");
       padding-right: spacing("sm", "md");
     }
@@ -50,10 +49,6 @@
       width: rem-calc(100);
     }
   }
-
-  // &__logo {
-  //   align-self: flex-end;
-  // }
 
   &__lang {
     text-align: right;

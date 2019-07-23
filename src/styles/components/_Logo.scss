@@ -3,10 +3,10 @@
     display: inline-block;
 
     .Logo__svg {
-      max-width: rem-calc(60);
-      max-height: rem-calc(25);
+      height: 100%;
+      width: auto;
+      max-height: rem-calc(30);
       @include bp(md) {
-        max-width: rem-calc(100);
         max-height: rem-calc(40);
       }
     }

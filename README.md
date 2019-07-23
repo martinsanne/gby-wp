@@ -31,7 +31,7 @@ npm run clean
 - [x] Close api.oyafestivalen.no/cms with htaccess
 - [x] Pull api.oyafestivalen into staging
 - [x] Netlify: Run build command to pull new data
-- [ ] Netlify: Point main domain to gby-oya
+- [x] Netlify: Point main domain to gby-oya
 
 #### When domain is transfered to gatsby version
 
