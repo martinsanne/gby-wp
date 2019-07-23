@@ -4,8 +4,14 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 // const createPaginatedPages = require("gatsby-paginate")
-const { staticPages } = require("./config/site")
+const {
+  staticPages,
+  archivePages,
+  getCategoryLink,
+  getArchiveLink,
+} = require("./config/site")
 const locales = require("./config/i18n")
+
 const getLocalizedSlug = (path, node) =>
   locales[node.locale].default
     ? `${path}${node.slug}`
@@ -15,6 +21,53 @@ const path = require("path")
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
+  // create category pages for each language
+  const createCategoryPages = new Promise((resolve, reject) => {
+    const query = graphql(`
+      {
+        allWordpressHeyCategories {
+          edges {
+            node {
+              term_id
+              locale
+              name
+              slug
+            }
+          }
+        }
+      }
+    `)
+
+    query.then(result => {
+      if (result.errors) {
+        console.error(results.errors)
+        reject(result.error)
+      }
+
+      const categoryEdges = result.data.allWordpressHeyCategories.edges
+
+      categoryEdges.forEach(edge => {
+        if (!edge.node.locale) {
+          console.log("Locale missing - not generating node", edge.node.name)
+          return false
+        }
+
+        createPage({
+          path: getCategoryLink(edge.node.locale, edge.node.slug),
+          component: path.resolve(
+            `./src/templates/${archivePages.category.template}.js`
+          ),
+          context: {
+            id: edge.node.term_id,
+            locale: edge.node.locale,
+          },
+        })
+      })
+
+      resolve()
+    })
+  })
+
   const createWpPosts = new Promise((resolve, reject) => {
     const query = graphql(`
       {
@@ -23,12 +76,11 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               link
               locale
-              type
               id
               slug
               title
               date
-              excerpt
+              year: date(formatString: "YYYY")
             }
           }
         }
@@ -63,12 +115,22 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })*/
 
+      let archiveYears = {}
+
       postEdges.forEach(edge => {
-        // slug = getLocalizedSlug("/posts/", edge.node)
         if (!edge.node.locale) {
           console.log("Locale missing - not generating node", edge.node.link)
           return false
         }
+
+        if (!archiveYears[edge.node.year]) {
+          archiveYears[edge.node.year] = {
+            ids: [],
+          }
+        }
+
+        // Push ids to template to query posts from this year
+        archiveYears[edge.node.year].ids.push(edge.node.id)
 
         createPage({
           path: `${edge.node.link}`,
@@ -77,6 +139,26 @@ exports.createPages = ({ graphql, actions }) => {
             id: edge.node.id,
             locale: edge.node.locale,
           },
+        })
+      })
+
+      /**
+       * Generate year archives
+       */
+      Object.keys(archivePages.year.translations).forEach(locale => {
+        Object.keys(archiveYears).forEach(year => {
+          const yearItem = archiveYears[year]
+          createPage({
+            path: getArchiveLink(locale, year),
+            component: path.resolve(
+              `./src/templates/${archivePages.year.template}.js`
+            ),
+            context: {
+              year,
+              locale,
+              ids: yearItem.ids,
+            },
+          })
         })
       })
 
@@ -95,7 +177,6 @@ exports.createPages = ({ graphql, actions }) => {
               slug
               title
               date
-              excerpt
               locale
               template
             }
@@ -121,7 +202,7 @@ exports.createPages = ({ graphql, actions }) => {
           console.log("Locale missing - not generating node", edge.node.link)
           return false
         }
-        // slug = getLocalizedSlug("/", edge.node)
+
         createPage({
           path: `${edge.node.link}`,
           component: path.resolve(`./src/templates/page.js`),
@@ -164,5 +245,10 @@ exports.createPages = ({ graphql, actions }) => {
     resolve()
   })
 
-  return Promise.all([createWpPosts, createWpPages, createStaticPages])
+  return Promise.all([
+    createWpPosts,
+    createWpPages,
+    createStaticPages,
+    createCategoryPages,
+  ])
 } // createPages

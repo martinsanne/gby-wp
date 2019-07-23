@@ -10,12 +10,8 @@
     display: block;
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
-    &--active {
+    &:hover, &--active {
       border-bottom: 2px solid black;
     }
-  }
-  select {
-    vertical-align: middle;
-    padding: 0 0 5px 0;
   }
 }

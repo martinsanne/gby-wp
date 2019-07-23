@@ -248,9 +248,46 @@ module.exports = {
         // "/yoast/**",
         // ],
         // use a custom normalizer which is applied after the built-in ones.
-        // normalizer: function({ entities }) {
-        //   return entities
-        // },
+        normalizer: function({ entities }) {
+          /**
+           * Set template names for front page and blog page to make them easy to query with graphql
+           */
+          let blogPageIds = []
+          let frontPageIds = []
+
+          // Get the IDs first
+          entities.forEach(entity => {
+            if (entity.__type === "wordpress__hey_settings") {
+              if (entity.page_for_posts && entity.page_for_posts.wordpress_id) {
+                blogPageIds.push(entity.page_for_posts.wordpress_id)
+              }
+              if (entity.page_on_front && entity.page_on_front.wordpress_id) {
+                frontPageIds.push(entity.page_on_front.wordpress_id)
+              }
+            }
+          })
+
+          // Add template names to the selected IDs
+          entities = entities.map(entity => {
+            if (entity.__type === "wordpress__PAGE") {
+              if (
+                blogPageIds.indexOf(entity.wordpress_id) !== -1 &&
+                !entity.template
+              ) {
+                entity.template = "blog"
+              }
+              if (
+                frontPageIds.indexOf(entity.wordpress_id) !== -1 &&
+                !entity.template
+              ) {
+                entity.template = "homepage"
+              }
+            }
+            return entity
+          })
+
+          return entities
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

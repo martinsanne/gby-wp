@@ -106,6 +106,7 @@ export const pageQuery = graphql`
     }
 
     wordpressPage(id: { eq: $id }) {
+      link
       seo_head
       template
       title

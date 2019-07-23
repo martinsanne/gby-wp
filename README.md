@@ -17,6 +17,7 @@
 - [-] Add build hook to WordPress
 - [-] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
 - [-] Replace potentially wrong urls (tornado-node, netlify etc)
+- [-] Add translations to categories in rest api
 
 - [-] Global home url based on language (on main logo ie)
 - [-] News article sorting and loading articles per language

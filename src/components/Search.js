@@ -86,7 +86,7 @@ export default class Search extends Component {
               <FormattedMessage id="search.submit" defaultMessage="Search" />
             </button> */}
           </form>
-          {results.length > 0 && (
+          {query.length > 0 && (
             <p>
               <FormattedMessage
                 id="search.results"
