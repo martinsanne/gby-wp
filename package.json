@@ -27,7 +27,7 @@
     "gatsby-plugin-sharp": "^2.2.8",
     "gatsby-plugin-sitemap": "^2.2.3",
     "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-source-wordpress": "^3.1.10",
+    "gatsby-source-wordpress": "^3.1.11",
     "gatsby-transformer-sharp": "^2.2.4",
     "html-react-parser": "^0.7.1",
     "lazysizes": "^5.1.0",
