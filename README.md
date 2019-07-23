@@ -26,6 +26,18 @@ npm run clean
 
 # Todos
 
+### Launch
+
+- [x] Close api.oyafestivalen.no/cms with htaccess
+- [x] Pull api.oyafestivalen into staging
+- [x] Netlify: Run build command to pull new data
+- [ ] Netlify: Point main domain to gby-oya
+
+#### When domain is transfered to gatsby version
+
+- [ ] Point api.oyafestivalen to www server
+- [ ]
+
 ### Backend
 - [ ] Activate new CMS in prod
 - [ ] Add build hook to WordPress

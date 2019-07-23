@@ -146,7 +146,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "155538-www.web.tornado-node.net", // 155538-www.web.tornado-node.net
+        baseUrl: "api.oyafestivalen.no", // 155538-www.web.tornado-node.net
         // The protocol. This can be http or https.
         protocol: "https",
         // Indicates whether the site is hosted on wordpress.com.
