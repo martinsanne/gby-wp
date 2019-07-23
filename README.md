@@ -39,6 +39,7 @@ npm run clean
 - [ ] Run images static
 
 ### Backlog
+- [x] Rename repository to gby-oya
 - [x] News article sorting and loading articles per language
 - [x] Add translations to categories in rest api
 - [x] Replace all http:// with https:// in backend (remember to re-activate remove permalinks)
