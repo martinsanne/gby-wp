@@ -110,6 +110,7 @@ export default class Hero6 extends Component {
                         }}
                       >
                         <FeaturedImage
+                          key={`image-${this.state.images[i].id}${i}`}
                           {...this.state.images[i].featured_image}
                         />
                       </div>
