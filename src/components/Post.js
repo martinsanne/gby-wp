@@ -36,7 +36,7 @@ const Post = ({ post, posts }) => {
           <Html content={content} />
         </ResponsiveEmbeds>
       </div>
-      {/* <footer className="Post__footer">
+      <footer className="Post__footer">
         <div className="NewsCards NewsCards--footer">
           {posts &&
             posts
@@ -46,7 +46,7 @@ const Post = ({ post, posts }) => {
                 <NewsCard key={`NewsCard-${post.wordpress_id}`} post={post} />
               ))}
         </div>
-      </footer> */}
+      </footer>
     </article>
   )
 }
