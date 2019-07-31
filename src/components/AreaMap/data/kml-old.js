@@ -1,5 +1,4 @@
-export default `
-<?xml version="1.0" encoding="UTF-8"?>
+export default `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
     <name>oya</name>
@@ -278,6 +277,40 @@ export default `
         <styleUrl>#icon-1558-FBC02D-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
+    <Style id="icon-1577-0F9D58-normal">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1577-0F9D58-highlight">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1577-0F9D58">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1577-0F9D58-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1577-0F9D58-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
     <Style id="icon-1577-0F9D58-nodesc-normal">
       <IconStyle>
         <color>ff589d0f</color>
@@ -316,6 +349,46 @@ export default `
       <Pair>
         <key>highlight</key>
         <styleUrl>#icon-1577-0F9D58-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1607-C2185B-nodesc-normal">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1607-C2185B-nodesc-highlight">
+      <IconStyle>
+        <color>ff5b18c2</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1607-C2185B-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1607-C2185B-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1607-C2185B-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
     <Style id="icon-1608-FBC02D-nodesc-normal">
@@ -398,9 +471,9 @@ export default `
         <styleUrl>#icon-1657-0288D1-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
-    <Style id="icon-1703-01579B-nodesc-normal">
+    <Style id="icon-1680-FBC02D-nodesc-normal">
       <IconStyle>
-        <color>ff9b5701</color>
+        <color>ff2dc0fb</color>
         <scale>1</scale>
         <Icon>
           <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -413,9 +486,9 @@ export default `
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <Style id="icon-1703-01579B-nodesc-highlight">
+    <Style id="icon-1680-FBC02D-nodesc-highlight">
       <IconStyle>
-        <color>ff9b5701</color>
+        <color>ff2dc0fb</color>
         <scale>1</scale>
         <Icon>
           <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
@@ -428,14 +501,54 @@ export default `
         <text><![CDATA[<h3>$[name]</h3>]]></text>
       </BalloonStyle>
     </Style>
-    <StyleMap id="icon-1703-01579B-nodesc">
+    <StyleMap id="icon-1680-FBC02D-nodesc">
       <Pair>
         <key>normal</key>
-        <styleUrl>#icon-1703-01579B-nodesc-normal</styleUrl>
+        <styleUrl>#icon-1680-FBC02D-nodesc-normal</styleUrl>
       </Pair>
       <Pair>
         <key>highlight</key>
-        <styleUrl>#icon-1703-01579B-nodesc-highlight</styleUrl>
+        <styleUrl>#icon-1680-FBC02D-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1703-FBC02D-nodesc-normal">
+      <IconStyle>
+        <color>ff2dc0fb</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1703-FBC02D-nodesc-highlight">
+      <IconStyle>
+        <color>ff2dc0fb</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1703-FBC02D-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1703-FBC02D-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1703-FBC02D-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
     <Style id="icon-1709-0288D1-normal">
@@ -470,6 +583,46 @@ export default `
       <Pair>
         <key>highlight</key>
         <styleUrl>#icon-1709-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1709-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1709-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1709-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1709-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1709-0288D1-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
     <Style id="icon-1732-757575-nodesc-normal">
@@ -958,7 +1111,7 @@ export default `
       </Placemark>
       <Placemark>
         <name>Amfiet</name>
-        <description><![CDATA[Onsdag<br>15.05: Thea Hjelmeland<br>16.45: Hollywood<br>18.30: James Blake<br>20.45: The Cure<br><br>Torsdag<br>15.05: I Was A King<br>16.50: Protoje & The Indiggnation<br>18.45: Sigrid<br>21.30: Tame Impala<br><br>Fredag<br>15.05: KOKOROKO<br>16.55: Erlend Ropstad<br>18.45: Christine and the Queens<br>21.30: Robyn<br><br>Lørdag<br>13.00: Hellbillies<br>14.25: Parcels<br>15.55: HYUKOH<br>17.30: Jonathan Wilson<br>19.10: Stefflon Don<br>21.30: Karpe]]></description>
+        <description><![CDATA[Onsdag<br>15.05: Virkelig<br>16.50: Jenny Lewis<br>18.40: Arcade Fire<br>21.30: Arctic Monkeys<br><br>Torsdag<br>15.05: Thea & The Wild<br>16.50: Wolf Alice<br>18.45: 6LACK<br>21.30: Kendrick Lamar<br><br>Fredag<br>15.05: Rohey<br>16.55: Tønes<br>18.45: Charlotte Gainsbourg<br>21.30: Lykke Li<br><br>Lørdag<br>13.00: No. 4<br>14.25: Young Dreams<br>15.55: Curtis Harding<br>17.30: J Hus<br>19.10: Bendik<br>21.30: Cezinando]]></description>
         <styleUrl>#icon-1709-0288D1</styleUrl>
         <Point>
           <coordinates>
@@ -986,7 +1139,7 @@ export default `
       </Placemark>
       <Placemark>
         <name>Vindfruen</name>
-        <description><![CDATA[Onsdag<br>14.15: Silvana Imam<br>15.55: Julien Baker<br>17.40: ELIZA<br>19.35: IDLES<br><br>Torsdag<br>14.15: Kommode<br>15.55: Earl Sweatshirt<br>17.45: Mitski<br>19.50: Erykah Badu<br><br>Fredag<br>14.15: The Needs<br>15.55: Big Thief<br>17.50: girl in red<br>19.50: Razika<br><br>Lørdag<br>13.50: Moyka<br>15.10: Lil Halima<br>16.40: slowthai<br>18.20: Ezra Collective<br>20.00: Pom Poko]]></description>
+        <description><![CDATA[Onsdag<br>14.15: Dig Deeper<br>15.55: Band of Gold<br>17.45: Great News<br>20.00: Brockhampton<br><br>Torsdag<br>14.15: Fieh<br>15.55: Noname<br>17.45: Sleaford Mods<br>19.50: Emir<br><br>Fredag<br>14.15: Susanna<br>15.55: ...Trail of Dead<br>17.50: Steamdome<br>19.50: deLillos<br><br>Lørdag<br>13.50: Myra<br>15.10: boy pablo<br>16.40: Jorja Smith<br>18.20: Sløtface<br>20.00: Converge]]></description>
         <styleUrl>#icon-1709-0288D1</styleUrl>
         <Point>
           <coordinates>
@@ -1014,7 +1167,7 @@ export default `
       </Placemark>
       <Placemark>
         <name>Sirkus</name>
-        <description><![CDATA[Onsdag<br>15.55: André Bratten<br>17.40: Fay Wildhagen<br>19.30: Rex Orange County<br>21.45: Blood Orange<br><br>Torsdag<br>15.50: Farao<br>17.45: Sushi x Kobe<br>19.50: Hot Snakes<br>21.50: Ricochets<br><br>Fredag<br>15.55: Safario<br>17.50: Sâver<br>19.45: Cult of Luna<br>21.45: Unge Ferrari<br><br>Lørdag<br>15.05: Spurv<br>16.40: Ora The Molecule<br>18.15: The Ocean<br>19.50: Stereolab<br>21.45: Motorpsycho med venner]]></description>
+        <description><![CDATA[Onsdag<br>15.55: SASSY 009<br>17.45: Store P<br>20.00: Grizzly Bear<br>21.55: Gundelach<br><br>Torsdag<br>15.50: King Gizzard...<br>17.45: Smerz<br>19.35: Fever Ray<br>21.50: Behemoth<br><br>Fredag<br>15.55: Superorganism<br>17.50: Chelsea Wolfe<br>19.50: St. Vincent<br>21.45: Tangerine Dream<br><br>Lørdag<br>15.00: Dungen<br>16.40: Neneh Cherry<br>18.15: Deathprod<br>19.50: Lindstrøm<br>21.45: Patti Smith]]></description>
         <styleUrl>#icon-1709-0288D1</styleUrl>
         <Point>
           <coordinates>
@@ -1023,7 +1176,7 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Klubben</name>
+        <name>HiFi Klubben</name>
         <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
         <Polygon>
           <outerBoundaryIs>
@@ -1041,9 +1194,8 @@ export default `
         </Polygon>
       </Placemark>
       <Placemark>
-        <name>Klubben</name>
-        <description><![CDATA[Onsdag<br>15.55: Adipop (DJ-sett)<br>17.35: Tirzah<br>19.30: Todd Edwards (DJ-sett)<br><br>Torsdag<br>15.55: Bendik HK<br>17.45: Saoirse (DJ-sett)<br>19.50: Baba Stiltz (DJ-sett)<br><br>Fredag<br>15.55: Fakethias<br>17.45: Yves Tumor<br>19.50: Laurel Halo (DJ-sett)<br><br>Lørdag<br>16.40: Fredfades (DJ-sett)<br>18.20: Off The Meds<br>20.00: Lena Willikens (DJ-sett)]]></description>
-        <styleUrl>#icon-1709-0288D1</styleUrl>
+        <name>HiFi Klubben</name>
+        <styleUrl>#icon-1709-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
             10.7773545,59.9162065,0
@@ -1051,35 +1203,7 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Biblioteket</name>
-        <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
-        <Polygon>
-          <outerBoundaryIs>
-            <LinearRing>
-              <tessellate>1</tessellate>
-              <coordinates>
-                10.7784736,59.9169861,0
-                10.7784736,59.9169538,0
-                10.7786024,59.9169511,0
-                10.7786024,59.9169861,0
-                10.7784736,59.9169861,0
-              </coordinates>
-            </LinearRing>
-          </outerBoundaryIs>
-        </Polygon>
-      </Placemark>
-      <Placemark>
-        <name>Biblioteket</name>
-        <description><![CDATA[Onsdag<br>19.35: From Scratch<br>20.15: Vegard & Ivar Band<br><br>Torsdag <br>14.00: Rekommandert<br>20.15: Golden Core<br><br>Fredag<br>20.15: Solå<br>21.00: Musti<br><br>Lørdag<br>20.05: KAMARA<br>20.45: Tone Bringsdal]]></description>
-        <styleUrl>#icon-1709-0288D1</styleUrl>
-        <Point>
-          <coordinates>
-            10.7784891,59.9169769,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Fortum</name>
+        <name>Hagen</name>
         <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
         <Polygon>
           <outerBoundaryIs>
@@ -1097,12 +1221,39 @@ export default `
         </Polygon>
       </Placemark>
       <Placemark>
-        <name>Fortum</name>
-        <description><![CDATA[Onsdag<br>15.05: brenn.<br>16.45: Connan Mockasin<br>18.40: Marja Mortensson<br>20.55: Jakob Ogawa<br><br>Torsdag<br>15.05: Penelope Isles<br>16.50: Pond<br>18.45: Fontaines D.C. <br>21.00: Nao<br><br>Fredag<br>15.05: Misty Coast<br>16.55: Soccer Mommy<br>18.55: Pen Gutt<br>20.50: Deathcrush<br><br>Lørdag<br>14.25: Shikoswe<br>15.55: Kadhja Bonet<br>17.30: MAE<br>19.05: Black Midi<br>20.55: Turnstile]]></description>
-        <styleUrl>#icon-1709-0288D1</styleUrl>
+        <name>Hagen</name>
+        <styleUrl>#icon-1709-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
             10.7753456,59.9190379,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Biblioteket</name>
+        <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <tessellate>1</tessellate>
+              <coordinates>
+                10.7738918,59.917559,0
+                10.7739106,59.9174811,0
+                10.7743102,59.9174905,0
+                10.7743029,59.9175335,0
+                10.7742914,59.9175751,0
+                10.7738918,59.917559,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Biblioteket</name>
+        <styleUrl>#icon-1709-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7740849,59.9175281,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1115,95 +1266,89 @@ export default `
             <LinearRing>
               <tessellate>1</tessellate>
               <coordinates>
-                10.7749674,59.9189692,0
-                10.7748682,59.919019,0
-                10.7747744,59.9191171,0
-                10.7747636,59.919222,0
-                10.7747475,59.9194343,0
-                10.7747046,59.9199021,0
-                10.7746188,59.9199345,0
-                10.7742808,59.9199694,0
-                10.7740394,59.9199863,0
-                10.7738624,59.9199493,0
-                10.7736371,59.9198754,0
-                10.7736316,59.9195312,0
-                10.7736854,59.9194129,0
-                10.7737014,59.9193134,0
-                10.7739214,59.9188617,0
-                10.7732294,59.9188671,0
-                10.7732186,59.9184691,0
-                10.7742379,59.9184369,0
-                10.774553,59.9184167,0
-                10.7745389,59.9183126,0
-                10.77438,59.9182514,0
-                10.7740447,59.9181547,0
-                10.77416,59.9179126,0
-                10.7742513,59.9177452,0
-                10.7747581,59.9179341,0
-                10.7749244,59.9179906,0
-                10.7751069,59.9177216,0
-                10.7756648,59.9178292,0
-                10.7759009,59.9175173,0
-                10.7758927,59.9173116,0
-                10.77599,59.9172917,0
-                10.7761731,59.9172665,0
-                10.7763246,59.9170144,0
-                10.7765231,59.9169042,0
-                10.7772956,59.9167751,0
-                10.7772862,59.9167291,0
-                10.7771802,59.9166938,0
-                10.7770823,59.9167109,0
-                10.7769469,59.9166864,0
-                10.7768449,59.9166252,0
-                10.7768369,59.9165224,0
-                10.7768906,59.916509,0
-                10.7769523,59.916517,0
-                10.7774458,59.9166998,0
-                10.77736,59.9166138,0
-                10.7770381,59.9160976,0
-                10.7777462,59.9159819,0
-                10.7780466,59.9165062,0
-                10.7778106,59.91656,0
-                10.7780359,59.9169204,0
-                10.7783095,59.9169553,0
-                10.7785911,59.9169244,0
-                10.7786649,59.9169371,0
-                10.7787387,59.9169499,0
-                10.7788996,59.916993,0
-                10.779039,59.9170521,0
-                10.7788754,59.9170992,0
-                10.7786784,59.9171543,0
-                10.7783457,59.9173183,0
-                10.7782009,59.9174272,0
-                10.7780761,59.9175409,0
-                10.7779742,59.9179569,0
-                10.7780546,59.9184813,0
-                10.7780727,59.9185825,0
-                10.7780935,59.9187011,0
-                10.7781351,59.9189222,0
-                10.7781539,59.9192811,0
-                10.7781754,59.9195823,0
-                10.7778964,59.9195608,0
-                10.777875,59.9193672,0
-                10.777816,59.919179,0
-                10.7777677,59.9191172,0
-                10.7777247,59.91905,0
-                10.7775799,59.9189612,0
-                10.777427,59.9189343,0
-                10.7772366,59.918929,0
-                10.7770371,59.9189492,0
-                10.7769288,59.918999,0
-                10.776901,59.9190287,0
-                10.7769054,59.9190745,0
-                10.7768829,59.9191203,0
-                10.7768765,59.9191634,0
-                10.776896,59.9192119,0
-                10.7768933,59.9192798,0
-                10.7761637,59.9192906,0
-                10.7753859,59.9193,0
-                10.7751981,59.9190983,0
-                10.7752249,59.9189666,0
-                10.7749674,59.9189692,0
+                10.7749915,59.9189827,0
+                10.7749594,59.9191602,0
+                10.7749701,59.9193135,0
+                10.7749808,59.9194613,0
+                10.7750452,59.9198565,0
+                10.7747448,59.9198646,0
+                10.7743156,59.9198969,0
+                10.7737363,59.9199292,0
+                10.7733071,59.9199399,0
+                10.7733071,59.9197033,0
+                10.7736505,59.9196065,0
+                10.7739669,59.9193565,0
+                10.7739455,59.9188752,0
+                10.7732535,59.9188806,0
+                10.7732427,59.9184826,0
+                10.7743371,59.918488,0
+                10.7741225,59.9182299,0
+                10.7738972,59.9178912,0
+                10.7735914,59.9174636,0
+                10.774026,59.9174589,0
+                10.7744765,59.9174555,0
+                10.7752704,59.9174609,0
+                10.775131,59.9177351,0
+                10.7756889,59.9178427,0
+                10.775925,59.9175308,0
+                10.7759168,59.9173251,0
+                10.7760141,59.9173052,0
+                10.7761972,59.91728,0
+                10.7763487,59.9170279,0
+                10.7765472,59.9169177,0
+                10.7773197,59.9167886,0
+                10.7773103,59.9167426,0
+                10.7772043,59.9167073,0
+                10.7771064,59.9167244,0
+                10.776971,59.9166999,0
+                10.776869,59.9166387,0
+                10.776861,59.9165359,0
+                10.7769147,59.9165225,0
+                10.7769764,59.9165305,0
+                10.7774699,59.9167133,0
+                10.7773841,59.9166273,0
+                10.7770622,59.9161111,0
+                10.7777703,59.9159954,0
+                10.7780707,59.9165197,0
+                10.7778347,59.9165735,0
+                10.77806,59.9169339,0
+                10.7783229,59.9170172,0
+                10.7787252,59.9170091,0
+                10.7789237,59.9170065,0
+                10.7790631,59.9170656,0
+                10.7788995,59.9171127,0
+                10.7787024,59.9171678,0
+                10.7783698,59.9173318,0
+                10.778225,59.9174407,0
+                10.7781002,59.9175544,0
+                10.7779983,59.9179704,0
+                10.7780787,59.9184948,0
+                10.7780968,59.918596,0
+                10.7781176,59.9187146,0
+                10.7781592,59.9189357,0
+                10.778178,59.9192946,0
+                10.7781995,59.9195958,0
+                10.7779205,59.9195743,0
+                10.7778991,59.9193807,0
+                10.7778401,59.9191925,0
+                10.7777918,59.9191307,0
+                10.7777488,59.9190635,0
+                10.777604,59.9189747,0
+                10.7774511,59.9189478,0
+                10.7772607,59.9189425,0
+                10.7770612,59.9189627,0
+                10.7769529,59.9190125,0
+                10.7769251,59.9190422,0
+                10.7769295,59.919088,0
+                10.776907,59.9191338,0
+                10.7769006,59.9191769,0
+                10.7769201,59.9192254,0
+                10.7769174,59.9192933,0
+                10.7761878,59.9193041,0
+                10.77541,59.9193135,0
+                10.7752222,59.9191118,0
+                10.775249,59.9189801,0
+                10.7749915,59.9189827,0
               </coordinates>
             </LinearRing>
           </outerBoundaryIs>
@@ -1217,7 +1362,7 @@ export default `
         <styleUrl>#icon-1783-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7741386,59.9179785,0
+            10.7743371,59.9195837,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1226,16 +1371,16 @@ export default `
         <styleUrl>#icon-1803-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7742405,59.9184678,0
+            10.7749593,59.9197181,0
           </coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Utgang</name>
-        <styleUrl>#icon-1803-FBC02D-nodesc</styleUrl>
+        <name>Utgang etter 22.00</name>
+        <styleUrl>#icon-1680-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7749379,59.9193901,0
+            10.7737041,59.9175106,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1276,15 +1421,6 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Toaletter</name>
-        <styleUrl>#icon-1733-FBC02D-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7748203,59.9189653,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
         <name>Infobod</name>
         <styleUrl>#icon-1608-FBC02D-nodesc</styleUrl>
         <Point>
@@ -1294,7 +1430,7 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Barneområde</name>
+        <name>Miniøya på Øya</name>
         <styleUrl>#icon-1742-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
@@ -1307,7 +1443,7 @@ export default `
         <styleUrl>#icon-1522-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7745516,59.917637,0
+            10.7752812,59.9199547,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1325,43 +1461,16 @@ export default `
         <styleUrl>#icon-1549-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7744176,59.9184572,0
+            10.7745624,59.9190433,0
           </coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>Vannpunkt</name>
-        <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
+        <styleUrl>#icon-1703-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7743371,59.919054,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Vannpunkt</name>
-        <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7778846,59.918094,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Vannpunkt</name>
-        <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7772552,59.9168142,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Vannpunkt</name>
-        <styleUrl>#icon-1703-01579B-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7772552,59.9163571,0
+            10.7745731,59.9185862,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1369,7 +1478,7 @@ export default `
     <Folder>
       <name>Drikke og snacks</name>
       <Placemark>
-        <name>Bar</name>
+        <name>Hovedbar</name>
         <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
@@ -1378,11 +1487,11 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Bar</name>
+        <name>Sirkusbar</name>
         <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7739829,59.918927,0
+            10.7743262,59.9184941,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1391,7 +1500,7 @@ export default `
         <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.777848,59.9165245,0
+            10.7749056,59.9175692,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1400,21 +1509,30 @@ export default `
         <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7779419,59.9174783,0
+            10.7779634,59.9174622,0
           </coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Bar</name>
+        <name>Amfiet bar</name>
         <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.777765,59.9165843,0
+            10.7777435,59.9165413,0
           </coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Vinbar</name>
+        <name>Kjøkkenfesten (bar)</name>
+        <styleUrl>#icon-1518-C2185B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7776845,59.9160505,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lykkeboden vinbar</name>
         <styleUrl>#icon-1517-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
@@ -1432,7 +1550,7 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
-        <name>Bar</name>
+        <name>Bacardi bar</name>
         <styleUrl>#icon-1517-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
@@ -1455,7 +1573,16 @@ export default `
         <styleUrl>#icon-1534-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7738838,59.9191004,0
+            10.7779097,59.9183334,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Solberg & Hansen]]></name>
+        <styleUrl>#icon-1534-C2185B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7748226,59.9182454,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1464,7 +1591,7 @@ export default `
         <styleUrl>#icon-1517-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7739186,59.9190076,0
+            10.774337,59.918408,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1482,7 +1609,7 @@ export default `
         <styleUrl>#icon-1886-C2185B-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7778292,59.9167497,0
+            10.7775342,59.9160479,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1495,159 +1622,24 @@ export default `
           </coordinates>
         </Point>
       </Placemark>
+      <Placemark>
+        <name>Isrosa</name>
+        <styleUrl>#icon-1607-C2185B-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7772124,59.9183684,0
+          </coordinates>
+        </Point>
+      </Placemark>
     </Folder>
     <Folder>
       <name>Mat og miljø</name>
       <Placemark>
-        <name>Godt Brød</name>
+        <name>UNA Autorizzeria</name>
         <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7779232,59.9184141,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Der Peppern Gror</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7779486,59.9184948,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Taco República</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7739294,59.9199083,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>ASIA</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.774687,59.9196085,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Nordvegan</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7738369,59.9191919,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Gammelgården Lysklæt</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7738007,59.9192719,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Fiskeriet</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7737309,59.9194451,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Aleppo Bahebek</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.773763,59.9193565,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Aymara Peru</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7736825,59.9197786,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Smalhans</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7777126,59.916035,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Hitchhiker</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7746388,59.919782,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>The Golden Chimp</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7746668,59.91969,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>TUNCO</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7746575,59.9193645,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Bokbacka</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7736757,59.9196045,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Lulu</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7736906,59.91953,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Coop Burgerbar</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7741854,59.9199185,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Kompassmat</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7744484,59.9199016,0
+            10.7779956,59.9164808,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1656,7 +1648,197 @@ export default `
         <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.774632,59.9191905,0
+            10.7779849,59.9164297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Annis pølsemakeri</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7779232,59.9184141,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Go'Grilla]]></name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7779419,59.9185163,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Der Peppern Gror</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7742311,59.918277,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Taco República</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7741815,59.918209,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ASIA</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7741184,59.9181297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MELT Grilled Cheese</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7740676,59.9180518,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Gammelgården Lysklæt</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7740045,59.9179705,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fiskeriet</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7739562,59.917891,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Aleppo Bahebek</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7738971,59.9178212,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Aymara Peru</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7738274,59.9177459,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Breheimen Elgbab</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7737764,59.9176787,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Smalhans</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7750787,59.9176914,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hitchhiker</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7750358,59.9177654,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Golden Chimp</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7749887,59.9178482,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>DAGENS</name>
+        <description><![CDATA[Onsdag: Mama Lee's Gyoza, Torsdag: TBC, Fredag: Ben Reddik, Lørdag: Lille Tøyen Kolonial ]]></description>
+        <styleUrl>#icon-1577-0F9D58</styleUrl>
+        <Point>
+          <coordinates>
+            10.7749539,59.9179442,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>TUNCO</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7749043,59.918047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bokbacka</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.774872,59.9181176,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Funky Fresh Foods</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.774844,59.9181802,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Coop Burgerbar</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7747916,59.9183079,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kompassmat</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7747649,59.9183771,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sandwich Brothers</name>
+        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7747339,59.918443,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1670,74 +1852,38 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
+        <name>Pantebod</name>
+        <styleUrl>#icon-1850-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7737335,59.9176027,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pantebod</name>
+        <styleUrl>#icon-1850-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7756541,59.9180685,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pantebod</name>
+        <styleUrl>#icon-1850-0F9D58-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7779044,59.9168115,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>Munchløkka</name>
         <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7741546,59.9196442,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Silk Road</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7736718,59.9196892,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Ben Reddik</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7737898,59.919866,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Hrímnir Ramen</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.774586,59.9198646,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>LOKAL</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7746746,59.9195302,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Åkern</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7746692,59.9194468,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Seafood Rolls</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.77464,59.9192739,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Breheimen</name>
-        <styleUrl>#icon-1577-0F9D58-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7775702,59.9160486,0
+            10.7744765,59.9177459,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1754,11 +1900,20 @@ export default `
         </Point>
       </Placemark>
       <Placemark>
+        <name>Samsung</name>
+        <styleUrl>#icon-1753-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7763004,59.9181613,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
         <name>Carlings/Øyamerch</name>
         <styleUrl>#icon-1657-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7778829,59.9181506,0
+            10.7779044,59.9182205,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1767,12 +1922,12 @@ export default `
         <styleUrl>#icon-1753-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7741949,59.9199171,0
+            10.7745087,59.9182635,0
           </coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Framtiden i våre hender</name>
+        <name>Oslo Røde Kors</name>
         <description>Årets humanitærpartner</description>
         <styleUrl>#icon-1753-0288D1</styleUrl>
         <Point>
@@ -1805,7 +1960,7 @@ export default `
         <styleUrl>#icon-1753-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7786434,59.916989,0
+            10.7743438,59.9175254,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1814,7 +1969,7 @@ export default `
         <styleUrl>#icon-1753-0288D1-nodesc</styleUrl>
         <Point>
           <coordinates>
-            10.7787936,59.9170011,0
+            10.7745235,59.9175295,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1851,6 +2006,15 @@ export default `
         <Point>
           <coordinates>
             10.7757586,59.9178575,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dapper</name>
+        <styleUrl>#icon-1753-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            10.7754153,59.9198526,0
           </coordinates>
         </Point>
       </Placemark>
@@ -1920,26 +2084,6 @@ export default `
           </coordinates>
         </Point>
       </Placemark>
-      <Placemark>
-        <name>Handikaptoalett</name>
-        <styleUrl>#icon-1732-757575-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7770868,59.9177715,0
-          </coordinates>
-        </Point>
-      </Placemark>
-      <Placemark>
-        <name>Handikaptoalett</name>
-        <styleUrl>#icon-1732-757575-nodesc</styleUrl>
-        <Point>
-          <coordinates>
-            10.7779839,59.9191843,0
-          </coordinates>
-        </Point>
-      </Placemark>
     </Folder>
   </Document>
-</kml>
-
-`
+</kml>`
