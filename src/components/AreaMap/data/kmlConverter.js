@@ -40,6 +40,7 @@ export const getData = () => {
                 }
                 // if (c.Polygon && c.name[0] !== 'Publikumsområde') {
                 if (c.Polygon) {
+                  console.log(`I'm polygon: ${c.name}`)
                   const modal = modalContent.filter(
                     m => m.title.rendered === c.name[0]
                   )[0]

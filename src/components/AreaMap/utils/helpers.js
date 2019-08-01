@@ -24,9 +24,10 @@ const bar = `../assets/icons/bar.svg`
 const coffee = `../assets/icons/coffee.svg`
 const drinks = `../assets/icons/drinks.svg`
 const bike = `../assets/icons/bike.svg`
-const entrance = `../assets/icons/exit-down.svg`
+const entrance = `../assets/icons/entrance.svg`
 const exitUp = `../assets/icons/exit-up.svg`
 const exitDown = `../assets/icons/exit-down.svg`
+const exitDownLeft = `../assets/icons/exit-left-down.svg`
 const firstaid = `../assets/icons/firstaid.svg`
 const handicap = `../assets/icons/handicap.svg`
 const food = `../assets/icons/food.svg`
@@ -64,6 +65,7 @@ Icon codes:
 1782 = inngang
 1803 = exit (icon door)
 1680 = exit after 22 (icon running man)
+1785 = exit down left
 1709 = stage (icon masks theatre)
 1886 = popcorn (icon Tree (Deciduous))
 1607 = ice cream
@@ -131,6 +133,9 @@ export function getIcon(icon, name) {
     case 1783:
       res = entrance
       break
+    case 1785:
+      res = exitDownLeft
+      break
     case 1803:
       res = exitUp
       break
@@ -172,4 +177,18 @@ export function getIconSize(google, icon) {
   }
   // return new google.maps.Size(size[0], size[1])
   return size
+}
+
+export const getPolygonColor = name => {
+  const colors = {
+    Amfiet: "#127BBF",
+    Vindfruen: "#18A676",
+    Sirkus: "#D41684",
+    Klubben: "#D09293",
+    Biblioteket: "#F3E143",
+    Fortum: "#E88154",
+    Publikumsområde: "#27A75C",
+  }
+
+  return colors[name] || "#ff0000"
 }
