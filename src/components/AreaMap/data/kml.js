@@ -746,6 +746,46 @@ export default `
         <styleUrl>#icon-1783-FBC02D-nodesc-highlight</styleUrl>
       </Pair>
     </StyleMap>
+    <Style id="icon-1785-FBC02D-nodesc-normal">
+      <IconStyle>
+        <color>ff2dc0fb</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1785-FBC02D-nodesc-highlight">
+      <IconStyle>
+        <color>ff2dc0fb</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1785-FBC02D-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1785-FBC02D-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1785-FBC02D-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
     <Style id="icon-1803-FBC02D-nodesc-normal">
       <IconStyle>
         <color>ff2dc0fb</color>
@@ -1223,7 +1263,7 @@ export default `
       </Placemark>
       <Placemark>
         <name>Utgang</name>
-        <styleUrl>#icon-1803-FBC02D-nodesc</styleUrl>
+        <styleUrl>#icon-1785-FBC02D-nodesc</styleUrl>
         <Point>
           <coordinates>
             10.7742405,59.9184678,0
@@ -1941,5 +1981,4 @@ export default `
     </Folder>
   </Document>
 </kml>
-
 `

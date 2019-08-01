@@ -15,7 +15,7 @@ import {
 } from "react-google-maps"
 
 import mapStyling from "./data/mapStyling"
-import { getIcon } from "./utils/helpers"
+import { getIcon, getPolygonColor } from "./utils/helpers"
 
 const {
   MarkerWithLabel,
@@ -167,10 +167,10 @@ class AreaMap extends Component {
               key={`${m.name}${m.coords.lat}${m.coords.lng}`}
               path={m.coords}
               options={{
-                fillColor: m.name !== "Publikumsområde" ? "#E25155" : "#4FA463",
-                fillOpacity: m.name !== "Publikumsområde" ? 1 : 0.5,
-                strokeWeight: 0,
-                strokeColor: "white",
+                fillColor: getPolygonColor(m.name),
+                fillOpacity: m.name !== "Publikumsområde" ? 1 : 1,
+                strokeWeight: m.name === "Publikumsområde" ? 1.5 : 1,
+                strokeColor: "black",
                 zIndex: m.name !== "Publikumsområde" && 2,
               }}
               visible={
