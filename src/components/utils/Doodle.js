@@ -26,17 +26,22 @@
 import React, { Component } from "react"
 import cc from "classcat"
 
-// import { emptyGif } from '../../utils/lazysizes'
+import { emptyGif } from "../../utils/lazysizes"
 import { getDoodleByType } from "../../utils/doodles"
 
 export default class Doodle extends Component {
   state = {
     style: {},
-    src: getDoodleByType(this.props.type || "random"),
+    src: emptyGif,
     lastWindowWidth: null,
   }
   componentDidMount = () => {
     if (this.props.children) {
+      if (typeof window !== `undefined`) {
+        this.setState({
+          src: getDoodleByType(this.props.type || "random"),
+        })
+      }
       this.generatePosition()
     }
   }
@@ -54,6 +59,7 @@ export default class Doodle extends Component {
   render() {
     const { onDark, children } = this.props
     const { style, src } = this.state
+
     return (
       <div
         className={cc({
@@ -64,19 +70,7 @@ export default class Doodle extends Component {
         ref={this.container}
       >
         <div className="Doodle__item" style={style}>
-          {onDark ? (
-            <img
-              className="Doodle__img lazyload"
-              src={src}
-              alt="Doodle drawing for illustration"
-            />
-          ) : (
-            <img
-              className="Doodle__img lazyload"
-              src={src}
-              alt="Doodle drawing for illustration"
-            />
-          )}
+          <img className="Doodle__img lazyload" src={src} alt="" />
         </div>
         {children}
       </div>
