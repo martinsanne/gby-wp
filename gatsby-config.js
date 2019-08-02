@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `https://oyafestivalen.no`,
   },
   plugins: [
+    `gatsby-plugin-remove-fingerprints`,
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
