@@ -94,7 +94,7 @@ export default class Hero6 extends Component {
                     new Array(this.state.columns).fill("x").map((x, i) => (
                       <div
                         className="Hero7__image"
-                        key={`${this.state.images[i].id}${i}`}
+                        key={`${this.state.images[i].wordpress_id}${i}`}
                         style={{
                           ...this.state.images[i].style,
                           zIndex: randomIntFromRange(-1, 1),
@@ -110,7 +110,7 @@ export default class Hero6 extends Component {
                         }}
                       >
                         <FeaturedImage
-                          key={`image-${this.state.images[i].id}${i}`}
+                          key={`image-${this.state.images[i].wordpress_id}${i}`}
                           {...this.state.images[i].featured_image}
                         />
                       </div>
