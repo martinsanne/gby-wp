@@ -37,15 +37,17 @@ const Post = ({ post, posts }) => {
         </ResponsiveEmbeds>
       </div>
       <footer className="Post__footer">
-        <div className="NewsCards NewsCards--footer">
-          {posts &&
-            posts
-              .filter(post => post.wordpress_id !== wordpress_id)
-              .slice(0, 4)
-              .map(post => (
-                <NewsCard key={`NewsCard-${post.wordpress_id}`} post={post} />
-              ))}
-        </div>
+        {typeof window !== "undefined" && (
+          <div className="NewsCards NewsCards--footer">
+            {posts &&
+              posts
+                .filter(post => post.wordpress_id !== wordpress_id)
+                .slice(0, 4)
+                .map(post => (
+                  <NewsCard key={`NewsCard-${post.wordpress_id}`} post={post} />
+                ))}
+          </div>
+        )}
       </footer>
     </article>
   )
