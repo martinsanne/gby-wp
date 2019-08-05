@@ -62,6 +62,14 @@ export const acfImageToSrcArray = (image, maxSize = 99999) => {
         build[value] = sizes[width]
       }
     }
+    // For api calls that use underscore
+    if (key.indexOf("-width") !== -1) {
+      const value = sizes[key]
+      if (value <= maxSize) {
+        const width = key.replace("-width", "")
+        build[value] = sizes[width]
+      }
+    }
     return build
   }, {})
 
