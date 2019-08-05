@@ -13,6 +13,7 @@ export default class NewsCard extends Component {
             <div className="NewsCards__image">
               <Overlay i={i}>
                 <FeaturedImageAspect
+                  key={post.id}
                   {...post.featured_image}
                   className="aspect-sm--landscape"
                   maxWidth={1000}
@@ -27,7 +28,10 @@ export default class NewsCard extends Component {
               <PostDate className="NewsCards__date" date={post.date} />
             </small>
             <h3 className="NewsCards__title">
-              <Html stripTags={true} content={post.title} />
+              <Html
+                stripTags={true}
+                content={post.title.rendered || post.title} // client rendering needs post.title.rendered (See: LatestPosts.js)
+              />
             </h3>
             {/* <div className="NewsCards__excerpt">
               <Html stripTags={true} content={post.excerpt} />

@@ -1,9 +1,9 @@
 import React from "react"
 import { Html, FeaturedImage, PostDate, ResponsiveEmbeds } from "./utils"
-import NewsCard from "./NewsCard"
+import LatestPosts from "./LatestPosts"
 
-const Post = ({ post, posts }) => {
-  const { title, wordpress_id, content, featured_image, date, excerpt } = post
+const Post = ({ post }) => {
+  const { title, content, wordpress_id, featured_image, date, excerpt } = post
 
   return (
     <article className="Post">
@@ -37,17 +37,11 @@ const Post = ({ post, posts }) => {
         </ResponsiveEmbeds>
       </div>
       <footer className="Post__footer">
-        {typeof window !== "undefined" && (
-          <div className="NewsCards NewsCards--footer">
-            {posts &&
-              posts
-                .filter(post => post.wordpress_id !== wordpress_id)
-                .slice(0, 4)
-                .map(post => (
-                  <NewsCard key={`NewsCard-${post.wordpress_id}`} post={post} />
-                ))}
-          </div>
-        )}
+        <div className="NewsCards NewsCards--footer">
+          {typeof window !== "undefined" && (
+            <LatestPosts wordpress_id={wordpress_id} />
+          )}
+        </div>
       </footer>
     </article>
   )
