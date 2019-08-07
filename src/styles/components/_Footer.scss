@@ -1,10 +1,11 @@
 .Footer {
+  overflow: hidden;
   .Doodle__item {
     z-index: 3;
   }
   &__wrapper {
     position: relative;
-    @include spacing('md', 'padding-bottom');
+    @include spacing("md", "padding-bottom");
     background: black;
     color: white;
     z-index: 2;
@@ -17,12 +18,12 @@
   &__doodles {
     display: flex;
     justify-content: space-around;
-    @include spacing('lg', 'margin-top');
+    @include spacing("lg", "margin-top");
   }
 
   &__decor {
     @extend .container;
-    @include spacing('section', ('padding-bottom', padding-top));
+    @include spacing("section", ("padding-bottom", padding-top));
 
     @include bp(lg) {
       display: flex;
@@ -32,7 +33,7 @@
 
     &-logo {
       width: 100%;
-      @include spacing('xs', 'margin-bottom');
+      @include spacing("xs", "margin-bottom");
       max-width: rem-calc(200);
 
       @include bp(md) {
@@ -40,14 +41,14 @@
       }
     }
     &-item {
-      @include spacing('xs', 'margin-bottom');
+      @include spacing("xs", "margin-bottom");
       text-align: center;
     }
   }
 
   &__left,
   &__right {
-    margin-bottom: spacing('section', sm);
+    margin-bottom: spacing("section", sm);
     @include bp(md) {
       margin-bottom: 0;
     }
@@ -106,7 +107,7 @@
   }
 
   &__item {
-    margin-bottom: spacing('xs', 'sm');
+    margin-bottom: spacing("xs", "sm");
 
     @include bp(xl) {
       margin-bottom: 0;
@@ -116,7 +117,7 @@
   &__credits {
     font-family: $f-serif;
     text-align: center;
-    margin-bottom: spacing('md', 'sm');
+    margin-bottom: spacing("md", "sm");
 
     @include bp(md) {
       margin-bottom: 0;
