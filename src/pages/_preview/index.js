@@ -1,7 +1,12 @@
 import React, { Component } from "react"
-import TemplateResolver from "../../components/TemplateResolver"
-import Layout from "../../components/layout"
+
+// Utils
 import parse from "url-parse"
+
+// Components
+import Layout from "../../components/layout"
+import TemplateResolver from "../../components/TemplateResolver"
+import Post from "../../components/Post"
 
 const normalizePageData = page => {
   const newData = { ...page }
@@ -80,7 +85,11 @@ export default class Preview extends Component {
             This is a preview. Some things might not work entirely as expected.
           </p>
           <div className="Preview__content">
-            <TemplateResolver page={page} locale={locale} />
+            {page.type === "post" ? (
+              <Post post={page} />
+            ) : (
+              <TemplateResolver page={page} locale={locale} />
+            )}
           </div>
         </div>
       </Layout>
