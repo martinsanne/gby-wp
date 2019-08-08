@@ -125,7 +125,7 @@ export default props => {
 
 const galleryQuery = graphql`
   query {
-    wordpressWpGallery(slug: { eq: "2018" }) {
+    wordpressWpGallery(slug: { eq: "2019" }) {
       title
       content
       link
