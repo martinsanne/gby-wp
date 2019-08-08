@@ -134,6 +134,53 @@ const galleryQuery = graphql`
         flickr_url
         video_header {
           video
+          image {
+            wordpress_id
+            title
+            filename
+            filesize
+            url
+            link
+            alt
+            author
+            description
+            caption
+            name
+            status
+            uploaded_to
+            date
+            modified
+            menu_order
+            mime_type
+            type
+            subtype
+            icon
+            width
+            height
+            sizes {
+              thumbnail
+              thumbnail_width
+              thumbnail_height
+              medium
+              medium_width
+              medium_height
+              medium_large
+              medium_large_width
+              medium_large_height
+              large
+              large_width
+              large_height
+              small
+              small_width
+              small_height
+              medium_small
+              medium_small_width
+              medium_small_height
+              xlarge
+              xlarge_width
+              xlarge_height
+            }
+          }
         }
         gallery {
           image {

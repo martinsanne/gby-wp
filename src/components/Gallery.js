@@ -11,11 +11,20 @@ const Gallery = props => {
         <>
           <div className="Gallery__main">
             <Overlay hoverable>
-              <VimeoWrapper
-                video={gallery.acf.video_header.video}
-                autoplay
-                loop
-              />
+              {gallery.acf.video_header.video && (
+                <VimeoWrapper
+                  video={gallery.acf.video_header.video}
+                  autoplay
+                  loop
+                />
+              )}
+              {gallery.acf.video_header.image && (
+                <FeaturedImageAspect
+                  {...gallery.acf.video_header.image}
+                  className="aspect-sm--landscape"
+                  maxWidth={1000}
+                />
+              )}
             </Overlay>
           </div>
           <div className="Gallery__list">
