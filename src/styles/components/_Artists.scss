@@ -1,6 +1,6 @@
 .Artists {
   $gutter: 0.75em;
-  @include spacing('lg', 'padding-top');
+  @include spacing("lg", "padding-top");
 
   &--show {
     .Artists__wrapper {

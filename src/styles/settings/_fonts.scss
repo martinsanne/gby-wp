@@ -1,17 +1,8 @@
 @font-face {
   /* Roman reg */
-  font-family: 'Swiss';
-  src: url('../../static/assets/fonts/debae208-0c7b-4232-ba62-313e2d9d14c7.eot?#iefix');
-  src: url('../../static/assets/fonts/debae208-0c7b-4232-ba62-313e2d9d14c7.eot?#iefix')
-      format('embedded-opentype'),
-    url('../../static/assets/fonts/c01ba868-3eaf-4bf4-b173-216c1156d174.woff2')
-      format('woff2'),
-    url('../../static/assets/fonts/19c307d6-6fd8-47d3-a56d-fa998322491a.woff')
-      format('woff'),
-    url('../../static/assets/fonts/61571c7a-d78e-4d50-822d-194e2b92a1f1.ttf')
-      format('truetype'),
-    url('../../static/assets/fonts/eafecdd5-35c6-4dc5-bc71-9b81010c7fa4.svg#eafecdd5-35c6-4dc5-bc71-9b81010c7fa4')
-      format('svg');
+  font-family: "Swiss";
+  src: url("../../static/assets/fonts/swiss-regular.woff2") format("woff2"),
+    url("../../static/assets/fonts/swiss-regular.woff") format("woff");
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
@@ -38,38 +29,38 @@
 } */
 
 @font-face {
-  /* Expanded reg */
-  font-family: 'Swiss';
-  src: url('../../static/assets/fonts/7c78f7cd-458a-4c95-9405-02e8c70a53d0.eot?#iefix');
-  src: url('../../static/assets/fonts/7c78f7cd-458a-4c95-9405-02e8c70a53d0.eot?#iefix')
-      format('embedded-opentype'),
-    url('../../static/assets/fonts/8b60e990-0094-48cf-93c5-f258ed3ce87a.woff2')
-      format('woff2'),
-    url('../../static/assets/fonts/c97d6d8b-c9b8-4792-9c5d-2cd017dc9d06.woff')
-      format('woff'),
-    url('../../static/assets/fonts/f8faf30e-6940-4ad6-bd94-7ebef532aae5.ttf')
-      format('truetype'),
-    url('../../static/assets/fonts/235b21c3-0f4b-4c05-8298-c66d23376f10.svg#235b21c3-0f4b-4c05-8298-c66d23376f10')
-      format('svg');
+  font-family: "Swiss";
+  src: url("../../static/assets/fonts/swiss-expanded.woff2") format("woff2"),
+    url("../../static/assets/fonts/swiss-expanded.woff") format("woff");
+  font-style: normal;
+  font-stretch: expanded;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Swiss";
+  src: url("../../static/assets/fonts/swiss-italic.woff2") format("woff2"),
+    url("../../static/assets/fonts/swiss-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Swiss";
+  src: url("../../static/assets/fonts/swiss-expanded.woff2") format("woff2"),
+    url("../../static/assets/fonts/swiss-expanded.woff") format("woff");
   font-style: normal;
   font-stretch: expanded;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  /* Expanded bold */
-  font-family: 'Swiss';
-  src: url('../../static/assets/fonts/c3e600db-4b91-49b3-be13-7527a8b96102.eot?#iefix');
-  src: url('../../static/assets/fonts/c3e600db-4b91-49b3-be13-7527a8b96102.eot?#iefix')
-      format('embedded-opentype'),
-    url('../../static/assets/fonts/ac12f38b-c2b6-40b8-9aff-01b0c4ac57ab.woff2')
-      format('woff2'),
-    url('../../static/assets/fonts/f4026334-ad61-402b-b3b6-5e475e8aa4a1.woff')
-      format('woff'),
-    url('../../static/assets/fonts/b157919f-ff0a-4a7b-9121-4897c0def087.ttf')
-      format('truetype'),
-    url('../../static/assets/fonts/18b4960b-6035-4ac8-9567-3a61879bba3e.svg#18b4960b-6035-4ac8-9567-3a61879bba3e')
-      format('svg');
+  font-family: "Swiss";
+  src: url("../../static/assets/fonts/swiss-expanded-bold.woff2")
+      format("woff2"),
+    url("../../static/assets/fonts/swiss-expanded-bold.woff") format("woff");
   font-style: normal;
   font-stretch: expanded;
   font-weight: 700;
@@ -80,13 +71,44 @@
 Traulha
 */
 
+// @font-face {
+//   font-family: "Traulha";
+//   src: url("../../static/assets/fonts/traulha/Traulha_WEB-Jornau.eot");
+//   src: url("../../static/assets/fonts/traulha/Traulha_WEB-Jornau.eot?#iefix")
+//       format("embedded-opentype"),
+//     url("../../static/assets/fonts/traulha/Traulha_WEB-Jornau.woff")
+//       format("woff"),
+//     url("../../static/assets/fonts/traulha/Traulha_WEB-Jornau.woff2")
+//       format("woff2");
+//   font-weight: 400;
+//   font-display: swap;
+// }
+
+/*
+Century
+*/
+
+@import url("https://use.typekit.net/waa7hci.css");
+
+// @font-face {
+//   font-family: "Century";
+//   src: url("../../static/assets/fonts/century/CenturyOldStyleStd-Regular.otf")
+//     format("opentype");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+/*
+Neue Pixel
+*/
+
 @font-face {
-  font-family: 'Traulha';
-  src: url('../../static/assets/fonts/traulha/Traulha_WEB-Jornau.eot');
-  src: url('../../static/assets/fonts/traulha/Traulha_WEB-Jornau.eot?#iefix')
-      format('embedded-opentype'),
-    url('../../static/assets/fonts/traulha/Traulha_WEB-Jornau.woff') format('woff'),
-    url('../../static/assets/fonts/traulha/Traulha_WEB-Jornau.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
+  font-family: "Neue Pixel";
+  src: url("../../static/assets/fonts/neuepixel/neuepixelgrotesk.woff2")
+      format("woff2"),
+    url("../../static/assets/fonts/neuepixel/neuepixelgrotesk.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
