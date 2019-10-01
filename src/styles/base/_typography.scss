@@ -48,7 +48,7 @@ h3,
 small,
 .small {
   font-family: $f-serif;
-  @include font-size('small');
+  @include font-size("small");
 }
 
 strong,
@@ -58,6 +58,19 @@ strong,
 
 *:focus {
   outline-color: black;
+}
+
+.f-swiss-italic {
+  font-family: "Swiss";
+  font-style: italic;
+}
+
+.f-pixel {
+  font-family: "Neue Pixel";
+}
+
+.f-pixel-italic {
+  font-family: "swiss italic";
 }
 
 a {
