@@ -145,7 +145,9 @@ module.exports = {
         baseUrl:
           process.env.NODE_ENV === "development"
             ? "oya.test"
-            : "api.oyafestivalen.no", // 155538-www.web.tornado-node.net
+            : process.env.TYPE && process.env.TYPE === "staging"
+            ? "stagingapi.oyafestivalen.no"
+            : "api.oyafestivalen.no",
         // The protocol. This can be http or https.
         protocol: process.env.NODE_ENV === "development" ? "http" : "https",
         // Indicates whether the site is hosted on wordpress.com.
