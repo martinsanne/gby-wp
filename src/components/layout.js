@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { AppProvider } from "../components/utils"
+import cc from "classcat"
 
 /**
  * React intl setup
@@ -26,7 +27,12 @@ const Layout = ({ children, locale, translations, options, settings }) => {
         options={options}
         settings={settings}
       >
-        <div className="App">
+        <div
+          className={cc({
+            App: true,
+            "App--development": process.env.NODE_ENV === "development",
+          })}
+        >
           <div className="App__routes">
             <Header />
             <main>{children}</main>

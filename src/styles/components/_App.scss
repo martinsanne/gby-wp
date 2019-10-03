@@ -1,8 +1,22 @@
 .App {
   @include headerHeight;
-  @include spacing('md', 'margin-top');
+  @include spacing("md", "margin-top");
 
   &__routes {
     min-height: 100vh;
+  }
+
+  &--development {
+    &:after {
+      position: fixed;
+      @include font-size(h2);
+      color: teal;
+      @include spacing(md, (bottom, left));
+      @each $key, $bp in $breakpoints {
+        @include bp($key) {
+          content: "#{$key}";
+        }
+      }
+    }
   }
 }

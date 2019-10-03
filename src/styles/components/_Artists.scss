@@ -1,140 +1,65 @@
 .Artists {
-  $gutter: 0.75em;
-  @include spacing("lg", "padding-top");
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  @include spacing(lg, margin-top);
+  position: relative;
 
-  &--show {
-    .Artists__wrapper {
-      &:after {
-        opacity: 0;
-      }
-    }
-    .Artists__button {
-      padding-top: rem-calc(28);
-    }
-  }
-
-  &__wrapper {
-    position: relative;
-    @include font-size(h2);
-
-    @include bp(md) {
-      margin-top: rem-calc(20);
-    }
-  }
-
-  &__list {
+  &__layout {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align-last: left;
+    flex-direction: column;
+    .Artists {
+      @include bp(lg) {
+        width: 65%;
+      }
 
-    @include bp(md) {
-      text-align: center;
+      &:nth-of-type(2) {
+        align-self: flex-end;
+      }
     }
   }
 
   &__item {
-    width: 100%;
     position: relative;
-    margin-right: $gutter;
-    line-height: 1.25;
-    padding-top: 0.135em;
-    padding-bottom: 0.135em;
-
-    @include bp(md) {
-      padding-left: 0.125em;
-      padding-right: 0.125em;
-      white-space: nowrap;
-      width: auto;
-    }
-
-    &--hero-headliner {
-      @include font-size(h1);
-      line-height: 1.05;
-      padding-top: 0.125em;
-      padding-bottom: 0.125em;
-    }
-
-    &--headliner {
-      @include font-size(h2);
-    }
+    margin-bottom: 0;
   }
 
-  &__link {
-    display: inline-block;
-    line-height: 1;
-    &:focus,
+  &__group {
     &:hover {
-      outline: none;
+      position: relative;
+      z-index: 99;
     }
-    &:focus {
-      color: $c-main;
-      text-decoration: underline;
-    }
-  }
-
-  &__button {
-    position: relative;
-    display: inline-block;
-    @include font-size(h3);
-    text-align: center;
-    width: 100%;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &__divider {
-    position: absolute;
-    right: -$gutter;
-    width: $gutter;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  &__name,
-  &__country {
-    transition: $trans--fast;
   }
 
   &__name {
     display: inline-block;
-    line-height: 1.25;
-
-    @include bp(md) {
-      line-height: 0;
-    }
+    margin-bottom: 0;
   }
 
   &__country {
-    @extend body;
-    font-family: $f-serif;
+    display: inline-block;
   }
 
-  &__image {
-    display: none;
-    @include bp(md) {
-      display: block;
-      position: fixed;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      max-width: rem-calc(200);
-      max-height: rem-calc(200);
-      animation: image-enter $trans both;
-    }
-  }
+  &__divider {
+    display: inline-block;
+    padding: 0 rem-calc(10);
 
-  @keyframes image-enter {
-    0% {
+    &--hide {
       opacity: 0;
-      transform: translateY(50px);
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
+  }
+
+  &__overlay-image {
+    position: fixed;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade-in 0.3s ease both;
+
+    img {
+      width: auto;
+      max-width: rem-calc(300);
     }
   }
 }

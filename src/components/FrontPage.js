@@ -3,7 +3,7 @@ import { graphql, Link, StaticQuery } from "gatsby"
 
 import Section from "./Section"
 import Artists from "./Artists"
-import Hero7 from "./Hero7"
+import Hero from "./Hero"
 import ArtistsToggle from "./ArtistsToggle"
 import NewsCard from "./NewsCard"
 import FestivalInfoMarquee from "./FestivalInfoMarquee"
@@ -20,18 +20,18 @@ export default props => {
   return (
     <div>
       {acf.hero.headliners && acf.hero.headliners.length > 0 && (
-        <Hero7 hero={acf.hero} />
+        <Hero hero={acf.hero} />
       )}
       <div className="container">
         {acf.artists && (
           <Section>
             <ArtistsToggle>
-              <>
+              <div className="Artists__layout">
                 {headliners && headliners.length > 0 && (
                   <Artists artists={headliners} />
                 )}
                 {artists && artists.length > 0 && <Artists artists={artists} />}
-              </>
+              </div>
             </ArtistsToggle>
           </Section>
         )}
@@ -269,6 +269,10 @@ export const query = graphql`
             country_code
             greencopper_url
             headliner
+            name_graphic {
+              url
+              alt
+            }
           }
           featured_image {
             wordpress_id

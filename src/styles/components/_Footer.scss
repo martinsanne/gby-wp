@@ -11,7 +11,9 @@
     z-index: 2;
 
     a {
-      color: $c-main;
+      // color: $c-main;
+      text-decoration: underline;
+      font-family: $f-sans;
     }
   }
 

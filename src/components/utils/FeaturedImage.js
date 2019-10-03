@@ -17,6 +17,7 @@ export default class FeaturedImage extends Component {
       url,
       alt,
       title,
+      style,
     } = this.props
     const aspect = height / width
     const srcset = acfImageToSrcset(this.props, maxWidth)
@@ -31,6 +32,7 @@ export default class FeaturedImage extends Component {
         className={cc({
           [className]: className,
         })}
+        style={style}
       >
         <img
           key={srcset}

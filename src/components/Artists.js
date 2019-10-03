@@ -1,120 +1,88 @@
-import React, { Component, createRef } from "react"
-import cc from "classcat"
+import React, { useEffect, useRef, useState } from "react"
+import { Link } from "gatsby"
 
-import ArtistsItem from "./ArtistsItem"
-import { Doodle, Mouse } from "./utils"
+import addDivider from "../utils/addDivider"
+import useTimeout from "./hooks/useTimeout"
+import useWindowSize from "./hooks/useWindowSize"
 
-const initMaxHeight = "300px"
+import { Html, Mouse } from "./utils"
+import FontToggle from "./utils/FontToggle"
 
-export default class Artists extends Component {
-  list = createRef()
-  state = {
-    showArtists: false,
-    maxHeight: initMaxHeight,
-    transition: 0,
-    currentArtist: null,
-  }
-  componentDidMount = () => {
-    setTimeout(() => {
-      this.addDots(this.list)
-    }, 200)
-    window.addEventListener("resize", this.addDots)
-  }
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps !== this.props) {
-      this.addDots(this.list)
+const Artists = ({ artists }) => {
+  const wrapper = useRef()
+  const windowSize = useWindowSize({ debounce: 400 })
+  const [currentArtist, setCurrentArtist] = useState(null)
+
+  // Need time out for first render
+  useTimeout(() => {
+    const items = [...wrapper.current.querySelectorAll(".Artists__item")]
+    if (items) {
+      addDivider(items, "Artists")
     }
-  }
+  }, 400)
 
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.addDots)
-  }
-  addDots = () => {
-    const items = [...this.list.current.querySelectorAll("li")]
-    items.map((item, i) => {
-      // Remove existing dividers
-      if (item.querySelector(".Artists__divider"))
-        item.removeChild(item.querySelector(".Artists__divider"))
-
-      const nextItem = items[i + 1]
-      // Check if they're on the same line
-      if (
-        nextItem &&
-        item.getBoundingClientRect().top ===
-          nextItem.getBoundingClientRect().top
-      ) {
-        // add divider if they're on the same line
-        const bullet = document.createElement("span")
-        bullet.classList.add("Artists__divider")
-        bullet.innerHTML = "&bull;"
-        item.appendChild(bullet)
-      }
-      return null
-    })
-  }
-  handleClick = () => {
-    const height = this.list.current.getBoundingClientRect().height
-    this.setState(prevState => ({
-      showArtists: !prevState.showArtists && height > initMaxHeight,
-      maxHeight: !prevState.showArtists ? height : initMaxHeight,
-      transition: `${height / 3000}s ease`,
-    }))
-  }
-  setCurrentArtist = currentArtist => {
-    this.setState({
-      currentArtist,
-    })
-  }
-
-  render() {
-    const { artists } = this.props
-    const { showArtists, currentArtist } = this.state
-    const style = {}
-    return (
-      <Doodle>
-        <div
-          className={cc({
-            Artists: true,
-            "Artists--show": showArtists,
-          })}
+  useEffect(() => {
+    const items = [...wrapper.current.querySelectorAll(".Artists__item")]
+    if (items) {
+      addDivider(items, "Artists")
+    }
+  }, [windowSize])
+  return (
+    <div className="Artists" ref={wrapper}>
+      {artists?.map((artist, i) => (
+        <Link
+          key={artist.wordpress_id}
+          className="Artists__link"
+          to={`${artist?.acf?.greencopper_url[0] !== "/" ? "/" : ""}${
+            artist?.acf?.greencopper_url
+          }`}
         >
-          <div className="Artists__wrapper" style={style}>
-            <ul className="Artists__list" ref={this.list}>
-              {artists
-                .filter(a => a.status === "publish")
-                .map(artist => (
-                  <ArtistsItem
-                    key={`ArtistsItem-${artist.wordpress_id}`}
-                    artist={artist}
-                    setCurrentArtist={this.setCurrentArtist}
-                    hero={this.props.hero}
-                  />
-                ))}
-            </ul>
-          </div>
-          <Mouse>
-            {({ x, y }) =>
-              currentArtist &&
-              currentArtist.featured_image &&
-              x &&
-              y && (
-                <div
-                  className="Artists__image"
-                  style={{
-                    top: `${y}px`,
-                    left: `${x}px`,
-                  }}
-                >
-                  <img
-                    src={currentArtist.featured_image.sizes.thumbnail}
-                    alt={currentArtist.title.rendered}
-                  />
-                </div>
-              )
-            }
-          </Mouse>
-        </div>
-      </Doodle>
-    )
-  }
+          <h2 className="Artists__item">
+            <span
+              className="Artists__group"
+              onMouseEnter={() => {
+                setCurrentArtist(artist)
+              }}
+              onMouseLeave={() => setCurrentArtist(null)}
+            >
+              <FontToggle i={i}>
+                <span className="Artists__name">
+                  <Html content={artist?.title?.rendered} />
+                </span>
+              </FontToggle>
+              {artist?.acf?.country_code && (
+                <small className="Artists__country">
+                  &nbsp;({artist?.acf?.country_code})
+                </small>
+              )}
+            </span>
+            <span className="Artists__divider">·</span>
+          </h2>
+        </Link>
+      ))}
+      <Mouse>
+        {({ x, y }) =>
+          currentArtist &&
+          currentArtist.featured_image &&
+          x &&
+          y && (
+            <div
+              className="Artists__overlay-image"
+              style={{
+                top: `${y}px`,
+                left: `${x}px`,
+              }}
+            >
+              <img
+                src={currentArtist.featured_image.sizes.thumbnail}
+                alt={currentArtist.title.rendered}
+              />
+            </div>
+          )
+        }
+      </Mouse>
+    </div>
+  )
 }
+
+export default Artists

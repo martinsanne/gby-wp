@@ -1,11 +1,11 @@
-input[type='text'],
-input[type='password'],
-input[type='email'],
-input[type='tel'],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
 textarea {
   @include font-size(body);
-  @include spacing('sm', ('padding-left', 'padding-right'));
-  @include spacing('xs', ('padding-top', 'padding-bottom'));
+  @include spacing("sm", ("padding-left", "padding-right"));
+  @include spacing("xs", ("padding-top", "padding-bottom"));
 
   appearance: none;
   border: none;
@@ -15,7 +15,7 @@ textarea {
   width: 100%;
 
   &::placeholder {
-    color: $dark-gray;
+    color: $c-inactive;
   }
 
   &:focus,

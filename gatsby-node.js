@@ -4,6 +4,13 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 // const createPaginatedPages = require("gatsby-paginate")
+// Add optional chaining
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: require.resolve("@babel/plugin-proposal-optional-chaining"),
+  })
+}
+
 const {
   staticPages,
   archivePages,

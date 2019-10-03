@@ -12,7 +12,11 @@
 
   &--light {
     .Menu__item {
-      color: white;
+      color: $c-white;
+    }
+
+    .Menu__link {
+      color: $c-white;
     }
   }
 
@@ -26,10 +30,10 @@
     @include bp(md) {
       width: auto;
       @include bp(md) {
-        @include spacing('xs', (padding-left, padding-right));
+        @include spacing("xs", (padding-left, padding-right));
       }
       @include bp(xl) {
-        @include spacing('sm', (padding-left, padding-right));
+        @include spacing("sm", (padding-left, padding-right));
       }
     }
 
@@ -44,7 +48,7 @@
 
   &__link {
     &:hover {
-      color: $c-main;
+      color: $c-interactive;
     }
     &:focus {
       outline: none;

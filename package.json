@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Heydays <studio@heydays.no>",
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@u-wave/react-vimeo": "^0.6.0",
     "classcat": "^3.2.5",
