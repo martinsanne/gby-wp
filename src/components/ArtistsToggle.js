@@ -12,6 +12,7 @@ const ArtistsToggle = ({ children }) => {
       {({ on, toggle }) => (
         <div className="ArtistsToggle">
           <SlideDown>{on ? children : null}</SlideDown>
+
           <div
             className={cc({
               ArtistsToggle__toggle: true,

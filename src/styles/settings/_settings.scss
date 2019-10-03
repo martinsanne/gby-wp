@@ -6,31 +6,25 @@ $f-pixel: "Neue Pixel", Times, "Times New Roman", serif;
 $f-bold: 700;
 
 // Colors
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #000000;
-$white: #fefefe;
+$c-gray: #f4f3f3;
+$c-black: #000000;
+$c-white: #fefefe;
 
-$blue: #007dbf;
-$red: #d52784;
-$green: #00a67a;
-$pink: #f0b8cf;
-$yellow: #ffe349;
-
-$c-main: $green;
-$c-secondary: $pink;
-$c-text: $black;
-$c-border: $black;
-$c-background: $white;
-$c-alert: $pink;
-$c-error: $red;
+$c-main: $c-black;
+$c-secondary: $c-black;
+$c-interactive: #5f97d1;
+$c-text: $c-black;
+$c-border: $c-black;
+$c-background: $c-gray;
+$c-inactive: $c-gray;
+$c-alert: $c-black;
+$c-error: $c-black;
 
 $breakpoints: (
   sm: 0,
   md: 550,
-  lg: 870,
-  xl: 1200,
+  lg: 1200,
+  xl: 1400,
   xxl: 1600,
 );
 
@@ -117,6 +111,14 @@ $typography: (
   ),
 );
 
+$headlinerSizes: (
+  sm: 30,
+  md: 50,
+  lg: 60,
+  xl: 70,
+  xxl: 80,
+);
+
 // Border
 $s-border__width: 1px;
 $border: $s-border__width solid $c-border;
@@ -127,3 +129,4 @@ $border--large: $s-border__width--large solid $c-border;
 // Trans
 $trans: 0.3s ease;
 $trans--fast: 0.12s ease;
+$trans--slow: 0.5s ease;

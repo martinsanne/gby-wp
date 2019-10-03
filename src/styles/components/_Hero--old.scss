@@ -1,5 +1,5 @@
 .Hero {
-  @include spacing('lg', 'margin-bottom');
+  @include spacing("lg", "margin-bottom");
 
   &--is-hovering {
     .Hero__media .VimeoWrapper iframe {
@@ -43,7 +43,7 @@
     &:hover {
       .Hero__name {
         transform: translateX(0.25em);
-        color: $blue;
+        // color: $blue;
       }
     }
   }
@@ -59,7 +59,7 @@
   }
 
   &__country {
-    font-family: 'Traulha';
+    font-family: "Traulha";
     font-size: rem-calc(20);
   }
 

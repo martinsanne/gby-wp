@@ -24,56 +24,61 @@
  */
 
 import React, { Component } from "react"
-import cc from "classcat"
+// import cc from "classcat"
 
-import { emptyGif } from "../../utils/lazysizes"
-import { getDoodleByType } from "../../utils/doodles"
+// import { emptyGif } from "../../utils/lazysizes"
+// import { getDoodleByType } from "../../utils/doodles"
 
 export default class Doodle extends Component {
-  state = {
-    style: {},
-    src: emptyGif,
-    lastWindowWidth: null,
-  }
-  componentDidMount = () => {
-    if (this.props.children) {
-      if (typeof window !== `undefined`) {
-        this.setState({
-          src: getDoodleByType(this.props.type || "random"),
-        })
-      }
-      this.generatePosition()
-    }
-  }
+  // state = {
+  //   style: {},
+  //   src: emptyGif,
+  //   lastWindowWidth: null,
+  // }
+  // componentDidMount = () => {
+  //   if (this.props.children) {
+  //     if (typeof window !== `undefined`) {
+  //       this.setState({
+  //         src: getDoodleByType(this.props.type || "random"),
+  //       })
+  //     }
+  //     this.generatePosition()
+  //   }
+  // }
 
-  generatePosition = () => {
-    this.setState({
-      style: {
-        left: `${Math.floor(Math.random() * 80)}%`,
-        top: `${Math.floor(Math.random() * 100)}%`,
-      },
-    })
-    this.setState({ lastWindowWidth: window.innerWidth })
-  }
+  // generatePosition = () => {
+  //   this.setState({
+  //     style: {
+  //       left: `${Math.floor(Math.random() * 80)}%`,
+  //       top: `${Math.floor(Math.random() * 100)}%`,
+  //     },
+  //   })
+  //   this.setState({ lastWindowWidth: window.innerWidth })
+  // }
 
   render() {
-    const { onDark, children } = this.props
-    const { style, src } = this.state
+    const {
+      // onDark,
+      children,
+    } = this.props
+    // const { style, src } = this.state
 
-    return (
-      <div
-        className={cc({
-          Doodle: true,
-          "Doodle--is-relative": !children,
-          "Doodle--onDark": onDark,
-        })}
-        ref={this.container}
-      >
-        <div className="Doodle__item" style={style}>
-          <img className="Doodle__img lazyload" src={src} alt="" />
-        </div>
-        {children}
-      </div>
-    )
+    return <div>{children}</div>
+
+    // return (
+    //   <div
+    //     className={cc({
+    //       Doodle: true,
+    //       "Doodle--is-relative": !children,
+    //       "Doodle--onDark": onDark,
+    //     })}
+    //     ref={this.container}
+    //   >
+    //     <div className="Doodle__item" style={style}>
+    //       <img className="Doodle__img lazyload" src={src} alt="" />
+    //     </div>
+    //     {children}
+    //   </div>
+    // )
   }
 }
