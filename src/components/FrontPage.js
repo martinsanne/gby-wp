@@ -9,6 +9,7 @@ import NewsCard from "./NewsCard"
 import FestivalInfoMarquee from "./FestivalInfoMarquee"
 import Fact from "./Fact"
 import Gallery from "./Gallery"
+import AnimatedBanner from "./AnimatedBanner"
 
 export default props => {
   const { page } = props
@@ -19,23 +20,28 @@ export default props => {
   const posts = props.latestPosts.slice(0, 6)
   return (
     <div>
+      <div style={{ position: "absolute" }}>
+        <AnimatedBanner illustration="bie" reverse />
+      </div>
       {acf.hero.headliners && acf.hero.headliners.length > 0 && (
         <Hero hero={acf.hero} />
       )}
       <div className="container">
         {acf.artists && (
-          <Section>
-            <ArtistsToggle>
-              <div className="Artists__layout">
-                {headliners && headliners.length > 0 && (
-                  <Artists artists={headliners} />
-                )}
-                {artists && artists.length > 0 && <Artists artists={artists} />}
-              </div>
-            </ArtistsToggle>
-          </Section>
+          <ArtistsToggle>
+            <div className="Artists__layout">
+              {headliners && headliners.length > 0 && (
+                <Artists artists={headliners} />
+              )}
+              {artists && artists.length > 0 && <Artists artists={artists} />}
+            </div>
+          </ArtistsToggle>
         )}
       </div>
+      <AnimatedBanner
+        illustration="snegle"
+        text="Tøyenparken, Oslo. 11.-15. august"
+      />
       <div className="container">
         {posts && acf && acf.news && (
           <Section

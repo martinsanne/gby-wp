@@ -1,0 +1,74 @@
+.AnimatedBanner {
+  &--pause {
+    .AnimatedBanner__wrapper {
+      animation-play-state: paused;
+    }
+  }
+
+  &--reverse {
+    .AnimatedBanner__wrapper {
+      animation-direction: reverse;
+      flex-direction: row-reverse;
+    }
+    .AnimatedBanner__illustration {
+      animation: snail--reverse linear 1s infinite both;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    animation: banner 10s linear infinite both;
+
+    @include bp(lg) {
+      animation-duration: 20s;
+    }
+    @include bp(xxl) {
+      animation-duration: 30s;
+    }
+  }
+
+  &__illustration {
+    max-height: rem-calc(200);
+    animation: snail linear 1s infinite both;
+  }
+  &__banner {
+    background: white;
+    border: $border--large;
+    @include spacing(sm, (padding-top, padding-bottom));
+    @include spacing(lg, (padding-left, padding-right));
+    white-space: nowrap;
+  }
+
+  @keyframes banner {
+    from {
+      transform: translateX(100vw);
+    }
+    to {
+      transform: translateX(-100vw);
+    }
+  }
+
+  @keyframes snail {
+    0% {
+      transform: translateY(2px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-2px) rotate(-1deg);
+    }
+    100% {
+      transform: translateY(2px) rotate(1deg);
+    }
+  }
+  @keyframes snail--reverse {
+    0% {
+      transform: translateY(2px) rotate(1deg) scaleX(-1);
+    }
+    50% {
+      transform: translateY(-2px) rotate(-1deg) scaleX(-1);
+    }
+    100% {
+      transform: translateY(2px) rotate(1deg) scaleX(-1);
+    }
+  }
+}
