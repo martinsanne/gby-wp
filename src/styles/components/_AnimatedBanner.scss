@@ -1,4 +1,8 @@
 .AnimatedBanner {
+  position: relative;
+  z-index: 9;
+  pointer-events: none;
+
   &--pause {
     .AnimatedBanner__wrapper {
       animation-play-state: paused;

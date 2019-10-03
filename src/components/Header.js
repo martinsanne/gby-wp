@@ -21,21 +21,19 @@ export default class Header extends Component {
                 "Header--dark": ctx.state.showMenu,
               })}
             >
-              <Doodle type="blubb">
-                <div className="Header__top">
-                  <Link
-                    className="Header__logo"
-                    to={"/"}
-                    onClick={ctx.actions.closeMenu}
-                  >
-                    <Logo type="hor" />
-                  </Link>
-                  <Menu />
-                  <div className="Header__lang">
-                    <LanguageSwitcher />
-                  </div>
+              <div className="Header__top">
+                <Link
+                  className="Header__logo"
+                  to={"/"}
+                  onClick={ctx.actions.closeMenu}
+                >
+                  <Logo type="hor" />
+                </Link>
+                <Menu />
+                <div className="Header__lang">
+                  <LanguageSwitcher />
                 </div>
-              </Doodle>
+              </div>
               {options && options.options && options.options.tickets_url && (
                 <a
                   className="Header__buy shake"

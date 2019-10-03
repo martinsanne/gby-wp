@@ -24,6 +24,7 @@ import Icon from "./Icon"
 import StaticPageLink from "./StaticPageLink"
 import MarqueeString from "./MarqueeString"
 import Mouse from "./Mouse"
+import FontToggle from "./FontToggle"
 import Illustration from "./Illustration"
 
 export {
@@ -55,4 +56,5 @@ export {
   MarqueeString,
   Mouse,
   Illustration,
+  FontToggle,
 }
