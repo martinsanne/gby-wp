@@ -5,7 +5,13 @@ import { FormattedMessage } from "react-intl"
 import { listToTree } from "../utils/functions"
 import NavMenuLink from "./NavMenuLink"
 import MenuModal from "./MenuModal"
-import { AppConsumer, Portal, VisuallyHidden, StaticPageLink } from "./utils"
+import {
+  AppConsumer,
+  Portal,
+  VisuallyHidden,
+  StaticPageLink,
+  FontToggle,
+} from "./utils"
 
 const MenuItem = ({ item, child, closeMenu }) => {
   return (
@@ -83,11 +89,13 @@ const Menu = () => {
                     onClick={actions.toggleMenu}
                   >
                     {state.showMenu ? (
-                      <FormattedMessage id="modal.close">
-                        {text => text}
-                      </FormattedMessage>
+                      <FontToggle i={2}>
+                        <FormattedMessage id="modal.close">
+                          {text => text}
+                        </FormattedMessage>
+                      </FontToggle>
                     ) : (
-                      menu.title
+                      <FontToggle i={2}>{menu.title}</FontToggle>
                     )}
                   </button>
                 </li>

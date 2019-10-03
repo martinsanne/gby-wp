@@ -1,13 +1,14 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
+import { FormattedMessage } from "react-intl"
 
 import Section from "./Section"
 import Artists from "./Artists"
 import Hero from "./Hero"
 import ArtistsToggle from "./ArtistsToggle"
 import NewsCard from "./NewsCard"
-import FestivalInfoMarquee from "./FestivalInfoMarquee"
-import Fact from "./Fact"
+// import FestivalInfoMarquee from "./FestivalInfoMarquee"
+// import Fact from "./Fact"
 import Gallery from "./Gallery"
 import AnimatedBanner from "./AnimatedBanner"
 
@@ -20,9 +21,6 @@ export default props => {
   const posts = props.latestPosts.slice(0, 6)
   return (
     <div>
-      <div style={{ position: "absolute" }}>
-        <AnimatedBanner illustration="bie" reverse />
-      </div>
       {acf.hero.headliners && acf.hero.headliners.length > 0 && (
         <Hero hero={acf.hero} />
       )}
@@ -38,10 +36,12 @@ export default props => {
           </ArtistsToggle>
         )}
       </div>
-      <AnimatedBanner
-        illustration="snegle"
-        text="Tøyenparken, Oslo. 11.-15. august"
-      />
+      <FormattedMessage
+        id="global.dateAndPlace"
+        defaultMessage="6.–10. august, Tøyenparken, Oslo"
+      >
+        {string => <AnimatedBanner illustration="snegle" text={string} />}
+      </FormattedMessage>
       <div className="container">
         {posts && acf && acf.news && (
           <Section
@@ -67,16 +67,10 @@ export default props => {
           </Section>
         )}
       </div>
-      <Section>
-        <FestivalInfoMarquee />
-      </Section>
+      <div style={{ position: "absolute" }}>
+        <AnimatedBanner illustration="bie" reverse />
+      </div>
       <div className="container">
-        {acf.did_you_know && (
-          <Section>
-            <Fact data={acf.did_you_know} />
-          </Section>
-        )}
-
         {acf && acf.gallery && (
           <StaticQuery
             query={galleryQuery}
@@ -104,26 +98,6 @@ export default props => {
             }}
           />
         )}
-
-        {/* {acf && acf.gallery && (
-          <Section
-            title={acf.gallery.title || ""}
-            desc={acf.gallery.description || ""}
-          >
-            {acf.gallery.link && (
-              <Link to={acf.gallery.link.url}>
-                <Gallery gallery={gallery} />
-              </Link>
-            )}
-            <div className="Section__action">
-              {acf.gallery.link && (
-                <Link className="button" to={acf.gallery.link.url}>
-                  {acf.gallery.link.title}
-                </Link>
-              )}
-            </div>
-          </Section>
-        )} */}
       </div>
     </div>
   )
