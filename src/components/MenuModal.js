@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { FormattedMessage } from "react-intl"
-import { AppConsumer, Doodle, StaticPageLink } from "./utils"
+import { AppConsumer, Doodle, StaticPageLink, FontToggle } from "./utils"
 import LanguageSwitcher from "./LanguageSwitcher"
 
 export default class MenuModal extends Component {
@@ -59,16 +59,18 @@ export default class MenuModal extends Component {
                           {item.title}
                         </Link>
                       ))}
-                    {items.map(item => (
-                      <Link
-                        key={`MenuModalItem-${item.wordpress_id}`}
-                        className="MenuModal__link"
-                        to={item.url}
-                        onClick={() => Appactions.closeMenu()}
-                        tabIndex={this.props.tabIndex}
-                      >
-                        {item.title}
-                      </Link>
+                    {items.map((item, i) => (
+                      <FontToggle i={i}>
+                        <Link
+                          key={`MenuModalItem-${item.wordpress_id}`}
+                          className="MenuModal__link"
+                          to={item.url}
+                          onClick={() => Appactions.closeMenu()}
+                          tabIndex={this.props.tabIndex}
+                        >
+                          {item.title}
+                        </Link>
+                      </FontToggle>
                     ))}
                   </nav>
                 </Doodle>
