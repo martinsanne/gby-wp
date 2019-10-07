@@ -5,7 +5,7 @@ import cc from "classcat"
 import Logo from "./Logo"
 import Menu from "./Menu"
 import LanguageSwitcher from "./LanguageSwitcher"
-import { AppConsumer, Doodle } from "./utils"
+import { AppConsumer } from "./utils"
 import { FormattedMessage } from "react-intl"
 
 export default class Header extends Component {

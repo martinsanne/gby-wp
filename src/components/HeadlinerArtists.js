@@ -9,7 +9,6 @@ const HeadlinerArtists = ({ artists }) => {
   const wrapper = useRef()
   const windowSize = useWindowSize({ debounce: 200 })
   const [currentArtist, setCurrentArtist] = useState(null)
-  console.log(windowSize)
 
   // Need time out for first render
   useTimeout(() => {
