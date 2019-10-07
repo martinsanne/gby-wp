@@ -1,0 +1,94 @@
+.BuyTicket {
+  pointer-events: none;
+
+  &__illustration {
+    display: none;
+  }
+
+  &__bubble {
+    @extend .button;
+    pointer-events: all;
+  }
+
+  @include bp(lg) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__illustration {
+      display: inline-block;
+      width: 200px;
+      animation: spider-drop 1s 2s ease both;
+    }
+
+    &__bubble {
+      $size: 14px;
+
+      position: relative;
+      border: $border;
+      color: #333;
+      background: #fff;
+      border-radius: 50%;
+      @include spacing("md", ("padding-left", "padding-right"));
+      @include spacing("sm", ("padding-top", "padding-bottom"));
+      animation: bubble-appear 0.5s 3s ease both;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: -$size - $s-border__width; /* value = - border-top-width - border-bottom-width */
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 $size $size;
+        border-style: solid;
+        border-color: $c-border transparent;
+        /* reduce the damage in FF3.0 */
+        display: block;
+        width: 0;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: -$size + $s-border__width - 1; /* value = - border-top-width - border-bottom-width */
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 $size $size;
+        border-style: solid;
+        border-color: $c-white transparent;
+        /* reduce the damage in FF3.0 */
+        display: block;
+        width: 0;
+        transition: border-color $trans--fast;
+      }
+
+      &:hover {
+        &:after {
+          border-color: $c-black transparent;
+        }
+      }
+    }
+  }
+
+  @keyframes spider-drop {
+    0% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(-40px);
+    }
+  }
+  @keyframes bubble-appear {
+    from {
+      transform: scale(0.3) translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(-50%);
+      opacity: 1;
+    }
+  }
+}
