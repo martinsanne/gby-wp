@@ -1,5 +1,8 @@
 import React from "react"
-import { FeaturedImageAspect } from "./utils"
+import cc from "classcat"
+
+import { isBrowser } from "../utils/helpers"
+import { FeaturedImageAspect, Illustration } from "./utils"
 import Overlay from "./utils/Overlay"
 import VimeoWrapper from "./utils/VimeoWrapper"
 
@@ -21,7 +24,7 @@ const Gallery = props => {
               {gallery.acf.video_header.image && (
                 <FeaturedImageAspect
                   {...gallery.acf.video_header.image}
-                  className="aspect-sm--landscape"
+                  className="aspect-sm--square"
                   maxWidth={1000}
                 />
               )}
@@ -35,13 +38,22 @@ const Gallery = props => {
                     key={`GalleryItem-${item.video || item.image.wordpress_id}`}
                     className="Gallery__item"
                   >
+                    {isBrowser && Math.random() < 0.35 && (
+                      <Illustration
+                        className={cc({
+                          Gallery__illustration: true,
+                          "Gallery__illustration--right": Math.random() > 0.25,
+                        })}
+                        name="random"
+                      />
+                    )}
                     <Overlay hoverable>
                       {item.video ? (
                         <VimeoWrapper video={item.video} loop />
                       ) : (
                         <FeaturedImageAspect
                           {...item.image}
-                          className="aspect-sm--landscape"
+                          className="aspect-sm--square"
                           maxWidth={1000}
                         />
                       )}
