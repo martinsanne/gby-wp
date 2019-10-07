@@ -1,5 +1,4 @@
 .editor {
-
   ul {
     list-style: disc;
     padding-left: 1em;
@@ -8,8 +7,9 @@
     }
   }
 
-  p, ul {
-    @include spacing('sm', ('margin-bottom','margin-top'));
+  p,
+  ul {
+    @include spacing("sm", ("margin-bottom", "margin-top"));
   }
 
   a {

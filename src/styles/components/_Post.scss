@@ -3,38 +3,48 @@
 
   &__header {
     text-align: center;
-    @include spacing('lg', 'margin-bottom');
+    @include spacing("lg", "margin-bottom");
   }
 
   &__title {
     max-width: rem-calc(1200);
     margin-left: auto;
     margin-right: auto;
-    @include spacing('sm', 'padding-bottom');
+    @include spacing("lg", "padding-bottom");
   }
 
   &__date {
-    // @include spacing('sm', 'margin-bottom');
+    @include content-width("text");
     text-align: center;
+    @include spacing("sm", "margin-top");
+    @extend .small;
+    text-align: left;
   }
 
   &__lead {
     line-height: 1.35;
     @include font-size(h3);
-    @include spacing('sm', 'margin-top');
-    @include content-width('text');
+    @include content-width("text");
   }
 
   &__featured-image {
     display: block;
-    @include spacing('lg', 'margin-bottom');
-    @include content-width('image');
+    @include spacing("lg", "margin-bottom");
+    @include content-width("image");
     text-align: center;
   }
 
   &__content {
-    @include content-width('text');
-    @include spacing('section', 'margin-bottom');
+    @include content-width("text");
+    @include spacing("section", "margin-bottom");
     @extend .editor;
+  }
+
+  &__footer {
+    @include bp(xxl) {
+      .NewsCards__item:nth-of-type(4) {
+        display: none;
+      }
+    }
   }
 }
