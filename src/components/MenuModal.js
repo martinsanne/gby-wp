@@ -60,9 +60,11 @@ export default class MenuModal extends Component {
                         </Link>
                       ))}
                     {items.map((item, i) => (
-                      <FontToggle i={i}>
+                      <FontToggle
+                        i={i}
+                        key={`MenuModalItem-${item.wordpress_id}`}
+                      >
                         <Link
-                          key={`MenuModalItem-${item.wordpress_id}`}
                           className="MenuModal__link"
                           to={item.url}
                           onClick={() => Appactions.closeMenu()}
