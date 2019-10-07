@@ -10,7 +10,6 @@ const illustrations = {
   eple: "/assets/images/illustrations/eple.png",
   gulrot: "/assets/images/illustrations/gulrot.png",
   mark: "/assets/images/illustrations/mark_orm.png",
-  planet1: "/assets/images/illustrations/planet_1.png",
   planet2: "/assets/images/illustrations/planet_2.png",
   rakett2: "/assets/images/illustrations/rakett_2.png",
   snegle: "/assets/images/illustrations/snegle.png",
