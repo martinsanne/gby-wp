@@ -5,7 +5,7 @@ import addDivider from "../utils/addDivider"
 import useTimeout from "./hooks/useTimeout"
 import useWindowSize from "./hooks/useWindowSize"
 
-import { Html, Mouse } from "./utils"
+import { Html, Mouse, Overlay } from "./utils"
 import FontToggle from "./utils/FontToggle"
 
 const Artists = ({ artists }) => {
@@ -73,10 +73,12 @@ const Artists = ({ artists }) => {
                 left: `${x}px`,
               }}
             >
-              <img
-                src={currentArtist.featured_image.sizes.thumbnail}
-                alt={currentArtist.title.rendered}
-              />
+              <Overlay>
+                <img
+                  src={currentArtist.featured_image.sizes.thumbnail}
+                  alt={currentArtist.title.rendered}
+                />
+              </Overlay>
             </div>
           )
         }
