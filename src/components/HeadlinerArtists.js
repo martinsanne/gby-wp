@@ -3,7 +3,7 @@ import addDivider from "../utils/addDivider"
 import useWindowSize from "./hooks/useWindowSize"
 import useTimeout from "./hooks/useTimeout"
 import { Link } from "gatsby"
-import { FeaturedImage } from "./utils"
+import { FeaturedImage, Overlay } from "./utils"
 
 const HeadlinerArtists = ({ artists }) => {
   const wrapper = useRef()
@@ -66,10 +66,9 @@ const HeadlinerArtists = ({ artists }) => {
           )
       )}
       {currentArtist && (
-        <FeaturedImage
-          className="HeadlinerArtists__image"
-          {...currentArtist.featured_image}
-        />
+        <Overlay className="HeadlinerArtists__image">
+          <FeaturedImage {...currentArtist.featured_image} />
+        </Overlay>
       )}
     </div>
   )
