@@ -2,6 +2,8 @@
   position: relative;
   z-index: 9;
   pointer-events: none;
+  max-width: 100%;
+  overflow: hidden;
 
   &--pause {
     .AnimatedBanner__wrapper {
