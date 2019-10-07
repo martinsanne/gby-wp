@@ -1,6 +1,8 @@
 import React from "react"
 import { Html, FeaturedImage, PostDate, ResponsiveEmbeds } from "./utils"
 import LatestPosts from "./LatestPosts"
+import { FormattedMessage } from "react-intl"
+import { isBrowser } from "../utils/helpers"
 
 const Post = ({ post }) => {
   const { title, content, wordpress_id, featured_image, date, excerpt } = post
@@ -12,11 +14,6 @@ const Post = ({ post }) => {
           <h1 className="Post__title">
             <Html content={title} />
           </h1>
-          {date && (
-            <p className="Post__date">
-              <PostDate date={date} />
-            </p>
-          )}
           {excerpt && (
             <div className="Post__lead">
               <Html content={excerpt} />
@@ -31,6 +28,13 @@ const Post = ({ post }) => {
           showCaption={true}
         />
       )}
+      {date && (
+        <p className="Post__date">
+          <FormattedMessage id="post.datePrefix" defaultMessage="Publisert" />
+          &nbsp;
+          <PostDate date={date} />
+        </p>
+      )}
       <div className="Post__content editor">
         <ResponsiveEmbeds>
           <Html content={content} />
@@ -38,9 +42,7 @@ const Post = ({ post }) => {
       </div>
       <footer className="Post__footer">
         <div className="NewsCards NewsCards--footer">
-          {typeof window !== "undefined" && (
-            <LatestPosts wordpress_id={wordpress_id} />
-          )}
+          {isBrowser && <LatestPosts wordpress_id={wordpress_id} />}
         </div>
       </footer>
     </article>

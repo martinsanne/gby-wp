@@ -4,6 +4,8 @@ html {
 
 body {
   font-family: $f-sans;
+  font-stretch: expanded;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @include font-size(body);

@@ -36,5 +36,6 @@
   "search.submit": "Search",
   "search.title": "Search",
   "string.newsletter": "Newsletter",
-  "downloads.title": "Download the app"
+  "downloads.title": "Download the app",
+  "post.datePrefix": "Published"
 }
