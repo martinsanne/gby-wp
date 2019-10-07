@@ -16,9 +16,21 @@ const illustrations = {
   snegle: "/assets/images/illustrations/snegle.png",
 }
 
+const getRandom = () => {
+  const arr = Object.keys(illustrations)
+  return illustrations[arr[Math.floor(Math.random() * arr.length)]]
+}
+
 const Illustration = ({ name, ...props }) => {
-  if (!illustrations[name]) return null
-  return <img src={illustrations[name]} alt={name} {...props} />
+  if (!illustrations[name] && name !== "random") return null
+
+  return (
+    <img
+      src={name === "random" ? getRandom() : illustrations[name]}
+      alt={name}
+      {...props}
+    />
+  )
 }
 
 export default Illustration
