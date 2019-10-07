@@ -42,6 +42,10 @@
     @include spacing(sm, (padding-top, padding-bottom));
     @include spacing(lg, (padding-left, padding-right));
     white-space: nowrap;
+
+    h2 {
+      font-family: $f-sans;
+    }
   }
 
   @keyframes banner {
