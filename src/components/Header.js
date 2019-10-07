@@ -6,14 +6,13 @@ import Logo from "./Logo"
 import Menu from "./Menu"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { AppConsumer } from "./utils"
-import { FormattedMessage } from "react-intl"
+import BuyTicket from "./BuyTicket"
 
 export default class Header extends Component {
   render() {
     return (
       <AppConsumer>
         {ctx => {
-          const { options } = ctx.state
           return (
             <header
               className={cc({
@@ -29,26 +28,12 @@ export default class Header extends Component {
                 >
                   <Logo type="hor" />
                 </Link>
+                <BuyTicket className="Header__buy" />
                 <Menu />
                 <div className="Header__lang">
                   <LanguageSwitcher />
                 </div>
               </div>
-              {options && options.options && options.options.tickets_url && (
-                <a
-                  className="Header__buy shake"
-                  href={options.options.tickets_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {options.options.tickets_button_text || (
-                    <FormattedMessage
-                      id="header.buyButton"
-                      defaultMessage="Buy tickets"
-                    />
-                  )}
-                </a>
-              )}
             </header>
           )
         }}

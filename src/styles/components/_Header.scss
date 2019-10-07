@@ -15,6 +15,15 @@
     .LanguageSwitcher {
       color: black;
     }
+
+    .Header__buy {
+      .BuyTicket {
+        &__bubble {
+          border-color: $c-white;
+          color: $c-white;
+        }
+      }
+    }
   }
 
   &__top {
@@ -46,7 +55,7 @@
   &__lang,
   &__logo {
     @include bp(md) {
-      width: rem-calc(100);
+      width: auto;
     }
   }
 
@@ -60,24 +69,20 @@
   }
 
   &__buy {
-    position: fixed;
-    z-index: 9;
-    white-space: nowrap;
-    top: 80%;
-    right: 200px;
-    display: inline-block;
-    background: white;
-    width: auto;
-    color: black;
-    transition: background-color $trans--fast;
-    border: $border;
-    border-radius: 50%;
-    padding: 1em;
-    transform: rotate(-15deg);
-
-    @include bp(md) {
-      top: 30%;
+    flex-grow: 1;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    @include bp(lg) {
+      position: absolute;
+      z-index: 9;
+      white-space: nowrap;
+      top: 0;
       right: 10%;
+    }
+
+    @include bp(xxl) {
+      right: 15%;
     }
   }
 }
