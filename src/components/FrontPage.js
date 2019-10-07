@@ -36,12 +36,14 @@ export default props => {
           </ArtistsToggle>
         )}
       </div>
-      <FormattedMessage
-        id="global.dateAndPlace"
-        defaultMessage="6.–10. august, Tøyenparken, Oslo"
-      >
-        {string => <AnimatedBanner illustration="snegle" text={string} />}
-      </FormattedMessage>
+      <Section>
+        <FormattedMessage
+          id="global.dateAndPlace"
+          defaultMessage="6.–10. august, Tøyenparken, Oslo"
+        >
+          {string => <AnimatedBanner illustration="snegle" text={string} />}
+        </FormattedMessage>
+      </Section>
       <div className="container">
         {posts && acf && acf.news && (
           <Section
