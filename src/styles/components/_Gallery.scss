@@ -4,7 +4,7 @@
     display: flex;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       bottom: 0;
@@ -33,5 +33,19 @@
 
   &__item {
     width: 50%;
+  }
+
+  &__illustration {
+    position: absolute;
+    width: rem-calc(200);
+    height: rem-calc(200);
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+
+    &--right {
+      left: auto;
+      right: 0;
+    }
   }
 }
