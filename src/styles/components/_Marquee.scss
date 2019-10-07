@@ -4,6 +4,7 @@
   overflow-x: hidden;
   @extend h2;
   will-change: transform;
+  font-family: $f-serif;
 
   &--is-paused {
     .Marquee__list,
@@ -23,13 +24,13 @@
     --duration: 30s;
     display: flex;
     white-space: nowrap;
-    @include spacing('xs', ('padding-top', 'padding-bottom'));
+    @include spacing("xs", ("padding-top", "padding-bottom"));
   }
 
   &__item {
     &:after {
-      content: '\2022';
-      @include spacing('xs', ('padding-left', 'padding-right'));
+      content: "\2022";
+      @include spacing("xs", ("padding-left", "padding-right"));
     }
 
     &:last-of-type {

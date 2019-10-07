@@ -1,13 +1,14 @@
 .Section {
-  @include spacing('halfsection', 'margin-bottom');
+  @include spacing("halfsection", "margin-bottom");
 
   &__header {
     text-align: center;
-    @include spacing('md', 'margin-bottom');
+    @include spacing("md", "margin-bottom");
   }
 
   &__title {
-    @include spacing('xs', 'margin-bottom');
+    @include spacing("xs", "margin-bottom");
+    font-family: $f-serif;
   }
 
   &__desc {
@@ -15,13 +16,13 @@
   }
 
   &__action {
-    @include spacing('md', 'margin-top');
-    @include content-width('text');
+    @include spacing("md", "margin-top");
+    @include content-width("text");
     text-align: center;
   }
 
   &__divider {
-    @include spacing('halfsection', 'margin-top');
+    @include spacing("halfsection", "margin-top");
     display: flex;
     justify-content: center;
   }
