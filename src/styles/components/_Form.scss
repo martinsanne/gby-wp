@@ -2,13 +2,20 @@
   &--onDark {
     .Form__input {
       background: none;
-      border-color: white;
-      color: white;
+      border-color: $c-white;
+      color: $c-white;
+      background: transparent;
     }
 
     .Form__submit {
-      border-color: white;
-      color: white;
+      background: transparent;
+      border-color: $c-white;
+      color: $c-white;
+
+      &:hover {
+        background-color: $c-white;
+        color: $c-text;
+      }
     }
 
     button {
@@ -34,7 +41,7 @@
   }
 
   &__block {
-    @include spacing('sm', 'margin-bottom');
+    @include spacing("sm", "margin-bottom");
 
     &--flex {
       display: flex;
@@ -47,7 +54,7 @@
 
   &__label {
     display: block;
-    @include spacing('sm', 'margin-bottom');
+    @include spacing("sm", "margin-bottom");
   }
 
   &__input {
@@ -60,7 +67,7 @@
   }
 
   &__checkbox {
-    @include spacing('xs', 'margin-right');
+    @include spacing("xs", "margin-right");
     width: 1.5em;
     height: 1.5em;
     transition: box-shadow $trans--fast;
