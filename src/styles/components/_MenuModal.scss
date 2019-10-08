@@ -24,7 +24,7 @@
   &__list {
     @include headerHeight;
     margin-top: rem-calc(30);
-    @include spacing('lg', 'padding-bottom');
+    @include spacing("lg", "padding-bottom");
     @extend .container;
     max-width: 1000px;
     text-align: left;
@@ -74,7 +74,7 @@
     }
 
     &:hover {
-      color: $c-main;
+      color: $c-interactive;
     }
 
     // @include bp(md) {
@@ -85,7 +85,7 @@
   &__lang {
     width: 100%;
     @include font-size(h2);
-    @include spacing('md', margin-bottom);
+    @include spacing("md", margin-bottom);
     @include bp(lg) {
       display: none;
     }
