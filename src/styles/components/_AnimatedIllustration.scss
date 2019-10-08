@@ -1,0 +1,55 @@
+.AnimatedIllustration {
+  position: relative;
+
+  &__illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateX(94vw);
+    pointer-events: none;
+    max-height: rem-calc(200);
+    // animation: snail linear 1s infinite both;
+  }
+
+  &--reverse {
+    .AnimatedIllustration__wrapper {
+      animation-direction: reverse;
+      flex-direction: row-reverse;
+    }
+    .AnimatedIllustration__illustration {
+      animation: snail--reverse linear 1s infinite both;
+    }
+  }
+
+  @keyframes animated-snegle {
+    @for $i from 1 through 100 {
+      #{$i*1%} {
+        transform: translateX(100 - ($i * 1vw))
+          rotate($i % 3 * 1deg)
+          translateY($i % 4 * 1px);
+      }
+    }
+  }
+  $animated-bie-size: 200px;
+  @keyframes animated-bie {
+    0% {
+      transform: translateY(0px) translateX(105vw) rotate(-10deg);
+    }
+    10% {
+      transform: translateY($animated-bie-size * 0.8) translateX(95vw)
+        rotate(0deg);
+    }
+    50% {
+      transform: translateY($animated-bie-size * 0.6) translateX(60vw)
+        rotate(0deg);
+    }
+    70% {
+      transform: translateY($animated-bie-size * 0.2) translateX(30vw)
+        rotate(10deg);
+    }
+    100% {
+      transform: translateY($animated-bie-size) translateX(-5vw) rotate(0deg);
+    }
+  }
+}
