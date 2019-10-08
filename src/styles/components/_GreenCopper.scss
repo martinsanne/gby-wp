@@ -3,6 +3,20 @@
   position: relative;
   min-height: 50vh;
   font-family: $f-sans !important;
+  background: white;
+  padding: spacing(md, sm);
+
+  @include bp(md) {
+    background: none;
+    padding: 0;
+  }
+
+  #goevent-web {
+    @include bp(md) {
+      border: $border;
+    }
+    @include spacing(md, padding);
+  }
 
   #goevent-web .gc-single-component gc-single-schedule > ul .gc-date > * {
     font-weight: normal;
@@ -29,19 +43,15 @@
   }
 
   #goevent-web {
-
     .gc-main-menu {
       .gc-menu-title {
         border-bottom: 2px solid transparent;
         padding-bottom: 5px;
-        &:hover, &.gc-active {
+        &:hover,
+        &.gc-active {
           border-bottom: 2px solid #000;
         }
       }
     }
-    
-
   }
-  
-
 }
