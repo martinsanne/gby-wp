@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+// Original loader: https://codepen.io/martinsanne/pen/aPpjQm
+
 export default class Loader extends Component {
   render() {
     return (
