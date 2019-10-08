@@ -75,8 +75,6 @@
 
   &__buy {
     flex-grow: 1;
-    align-self: center;
-    justify-self: center;
     text-align: center;
     @include bp(lg) {
       position: absolute;
