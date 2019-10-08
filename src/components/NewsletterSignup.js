@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl"
 import cc from "classcat"
 
 import messages from "./NewsletterSignup.messages"
+import Button from "./utils/Button"
 
 export default class NewsletterSignup extends Component {
   mainInput = React.createRef()
@@ -145,13 +146,14 @@ export default class NewsletterSignup extends Component {
                 />
               )}
             </FormattedMessage>
-            <button
+            <Button
+              noClass
               disabled={!consent || submitting}
               className="Form__submit button"
               type="submit"
             >
               <FormattedMessage {...messages.buttonSubmit} />
-            </button>
+            </Button>
           </label>
           {submitting && (
             <div className="Form__submitting">

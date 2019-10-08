@@ -1,6 +1,6 @@
 .button {
-  @include spacing('sm', ('padding-left', 'padding-right'));
-  @include spacing('xs', ('padding-top', 'padding-bottom'));
+  @include spacing("sm", ("padding-left", "padding-right"));
+  @include spacing("xs", ("padding-top", "padding-bottom"));
 
   background-color: transparent;
   color: white;
@@ -10,17 +10,18 @@
   display: inline-block;
   margin: 0 auto;
   position: relative;
+  background-color: $c-white;
 
   &--md {
-    @include spacing('sm', 'padding');
+    @include spacing("sm", "padding");
   }
 
   &--lg {
-    @include spacing('md', 'padding');
+    @include spacing("md", "padding");
   }
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: 0;
     border-top: $border;
@@ -58,13 +59,5 @@
     &:after {
       transform: scaleX(1);
     }
-  }
-
-  &:focus {
-    outline: none;
-    // background-color: $c-text;
-    // color: white;
-    // border-bottom: 3px solid $c-text;
-    //    outline-color: currentColor;
   }
 }

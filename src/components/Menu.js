@@ -12,6 +12,7 @@ import {
   StaticPageLink,
   FontToggle,
 } from "./utils"
+import Button from "./utils/Button"
 
 const MenuItem = ({ item, child, closeMenu }) => {
   return (
@@ -81,7 +82,8 @@ const Menu = () => {
                 ))}
               {menu && (
                 <li className="Menu__item">
-                  <button
+                  <Button
+                    noClass
                     className={cc({
                       Menu__link: true,
                       "Menu__link--is-active": state.showMenu,
@@ -97,7 +99,7 @@ const Menu = () => {
                     ) : (
                       <FontToggle i={2}>{menu.title}</FontToggle>
                     )}
-                  </button>
+                  </Button>
                 </li>
               )}
               <li className="Menu__item Menu__search">

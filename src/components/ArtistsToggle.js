@@ -5,6 +5,7 @@ import cc from "classcat"
 import { FormattedMessage } from "react-intl"
 
 import { Toggle } from "./utils"
+import Button from "./utils/Button"
 
 const ArtistsToggle = ({ children }) => {
   return (
@@ -19,7 +20,7 @@ const ArtistsToggle = ({ children }) => {
               "ArtistsToggle__toggle--is-open": on,
             })}
           >
-            <button className="ArtistsToggle__button" onClick={toggle}>
+            <Button noClass className="ArtistsToggle__button" onClick={toggle}>
               {on ? (
                 <FormattedMessage
                   id="artists.hideButton"
@@ -31,7 +32,7 @@ const ArtistsToggle = ({ children }) => {
                   defaultMessage="Se flere"
                 />
               )}
-            </button>
+            </Button>
           </div>
         </div>
       )}

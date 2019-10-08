@@ -11,6 +11,7 @@ import NewsCard from "./NewsCard"
 // import Fact from "./Fact"
 import Gallery from "./Gallery"
 import AnimatedBanner from "./AnimatedBanner"
+import AnimatedIllustration from "./AnimatedIllustration"
 
 export default props => {
   const { page } = props
@@ -44,63 +45,64 @@ export default props => {
           {string => <AnimatedBanner illustration="snegle" text={string} />}
         </FormattedMessage>
       </Section>
-      <div className="container">
-        {posts && acf && acf.news && (
-          <Section
-            title={acf.news.title || ""}
-            desc={acf.news.description || ""}
-          >
-            <div className="NewsCards NewsCards--frontpage">
-              {posts.map((post, i) => (
-                <NewsCard
-                  key={`NewsCard-${post.wordpress_id}`}
-                  post={post}
-                  i={i}
-                />
-              ))}
-            </div>
-            <div className="Section__action">
-              {acf.news.link && (
-                <Link className="button" to={acf.news.link.url}>
-                  {acf.news.link.title}
-                </Link>
-              )}
-            </div>
-          </Section>
-        )}
-      </div>
-      <div style={{ position: "absolute" }}>
-        <AnimatedBanner illustration="bie" reverse />
-      </div>
-      <div className="container">
-        {acf && acf.gallery && (
-          <StaticQuery
-            query={galleryQuery}
-            render={data => {
-              const gallery = data.wordpressWpGallery
-              return (
-                <Section
-                  title={acf.gallery.title || ""}
-                  desc={acf.gallery.description || ""}
-                >
-                  {acf.gallery.link && (
-                    <Link to={acf.gallery.link.url}>
-                      <Gallery gallery={gallery} />
-                    </Link>
-                  )}
-                  <div className="Section__action">
+      <AnimatedIllustration name="snegle" reverse>
+        <div className="container">
+          {posts && acf && acf.news && (
+            <Section
+              title={acf.news.title || ""}
+              desc={acf.news.description || ""}
+            >
+              <div className="NewsCards NewsCards--frontpage">
+                {posts.map((post, i) => (
+                  <NewsCard
+                    key={`NewsCard-${post.wordpress_id}`}
+                    post={post}
+                    i={i}
+                  />
+                ))}
+              </div>
+              <div className="Section__action">
+                {acf.news.link && (
+                  <Link className="button" to={acf.news.link.url}>
+                    {acf.news.link.title}
+                  </Link>
+                )}
+              </div>
+            </Section>
+          )}
+        </div>
+      </AnimatedIllustration>
+      <AnimatedIllustration name="bie" reverse>
+        <div className="container">
+          {acf && acf.gallery && (
+            <StaticQuery
+              query={galleryQuery}
+              render={data => {
+                const gallery = data.wordpressWpGallery
+                return (
+                  <Section
+                    title={acf.gallery.title || ""}
+                    desc={acf.gallery.description || ""}
+                  >
                     {acf.gallery.link && (
-                      <Link className="button" to={acf.gallery.link.url}>
-                        {acf.gallery.link.title}
+                      <Link to={acf.gallery.link.url}>
+                        <Gallery gallery={gallery} />
                       </Link>
                     )}
-                  </div>
-                </Section>
-              )
-            }}
-          />
-        )}
-      </div>
+                    <div className="Section__action">
+                      {acf.gallery.link && (
+                        <Link className="button" to={acf.gallery.link.url}>
+                          {acf.gallery.link.title}
+                        </Link>
+                      )}
+                    </div>
+                  </Section>
+                )
+              }}
+            />
+          )}
+        </div>
+      </AnimatedIllustration>
     </div>
   )
 }

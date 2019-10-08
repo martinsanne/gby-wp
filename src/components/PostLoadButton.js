@@ -1,11 +1,12 @@
 import React, { Component } from "react"
 import { FormattedMessage } from "react-intl"
+import Button from "./utils/Button"
 
 export default class PostLoadButton extends Component {
   render() {
     return (
       <div className="BlogPage__action">
-        <button
+        <Button
           disabled={this.props.loading}
           className="button"
           onClick={this.props.loadMore}
@@ -15,7 +16,7 @@ export default class PostLoadButton extends Component {
           ) : (
             <FormattedMessage id="button.loadMore" defaultMessage="Load more" />
           )}
-        </button>
+        </Button>
       </div>
     )
   }

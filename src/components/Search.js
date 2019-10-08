@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { FeaturedImageAspect, Overlay, Html, Loader } from "./utils"
 import PostLoadButton from "./PostLoadButton"
 import { FormattedMessage } from "react-intl"
+import Button from "./utils/Button"
 
 export default class Search extends Component {
   render() {
@@ -24,13 +25,14 @@ export default class Search extends Component {
           <form className="Search__form" onSubmit={actions.submitHandler}>
             <div className="Search__input-wrapper">
               {query && (
-                <button
+                <Button
+                  noClass
                   className="Search__clear"
                   type="button"
                   onClick={actions.clearSearch}
                 >
                   &times;
-                </button>
+                </Button>
               )}
               <FormattedMessage
                 id="search.placeholder"
@@ -50,9 +52,14 @@ export default class Search extends Component {
               </FormattedMessage>
             </div>
             {/* the submit button enables native submitting on enter */}
-            <button className="Search__submit button" type="submit" value="">
+            <Button
+              noClass
+              className="Search__submit button"
+              type="submit"
+              value=""
+            >
               <FormattedMessage id="search.submit" defaultMessage="Search" />
-            </button>
+            </Button>
           </form>
           {loading && (
             <div>
@@ -117,12 +124,12 @@ export default class Search extends Component {
                 values={{ queryString: submitted }}
               />
             </h2>
-            <button className="button" onClick={actions.clearSearch}>
+            <Button onClick={actions.clearSearch}>
               <FormattedMessage
                 id="search.noresultsMessage"
                 defaultMessage={`Prøv en annen søketerm`}
               />
-            </button>
+            </Button>
           </div>
         )}
       </div>

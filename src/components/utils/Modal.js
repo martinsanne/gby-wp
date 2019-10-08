@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { FormattedMessage } from "react-intl"
 import messages from "./Modal.messages"
 import Portal from "./Portal"
+import Button from "./Button"
 
 export default class Modal extends Component {
   render() {
@@ -12,9 +13,13 @@ export default class Modal extends Component {
           <div className="Modal__container">
             <div className="Modal__content">
               <div className="Modal__header">
-                <button className="Modal__close" onClick={this.props.close}>
+                <Button
+                  noClass
+                  className="Modal__close"
+                  onClick={this.props.close}
+                >
                   <FormattedMessage {...messages.close} />
-                </button>
+                </Button>
               </div>
               <div className="Modal__body">{this.props.children}</div>
             </div>

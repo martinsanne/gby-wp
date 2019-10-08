@@ -1,5 +1,6 @@
 import React from "react"
 import { Html } from "../utils"
+import Button from "../utils/Button"
 
 const Modal = props => {
   const { content, closeModal } = props
@@ -11,12 +12,13 @@ const Modal = props => {
           <h2 className="MapModal__title">
             <span>{content.title.rendered}</span>
           </h2>
-          <button
+          <Button
+            noClass
             className="MapModal__button MapModal__button--close"
             onClick={closeModal}
           >
             Lukk
-          </button>
+          </Button>
         </header>
         <div className="MapModal__content">
           <Html content={content.content.rendered} />

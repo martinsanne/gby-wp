@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl"
 import cc from "classcat"
 
 import { AppConsumer, Illustration } from "./utils"
+import Button from "./utils/Button"
 
 const BuyTicket = ({ className }) => {
   return (
@@ -21,7 +22,9 @@ const BuyTicket = ({ className }) => {
               name="edderkopp"
             />
             {options && options.options && options.options.tickets_url && (
-              <a
+              <Button
+                asLink
+                noClass
                 className="BuyTicket__bubble"
                 href={options.options.tickets_url}
                 target="_blank"
@@ -33,7 +36,7 @@ const BuyTicket = ({ className }) => {
                     defaultMessage="Buy tickets"
                   />
                 )}
-              </a>
+              </Button>
             )}
           </div>
         )

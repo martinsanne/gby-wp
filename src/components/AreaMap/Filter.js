@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import cc from "classcat"
+import Button from "../utils/Button"
 
 class Filter extends Component {
   state = {
@@ -21,7 +22,8 @@ class Filter extends Component {
       <div className="MapFilter">
         <div className="MapFilter__desktop">
           {layers.map(key => (
-            <button
+            <Button
+              noClass
               className={cc({
                 MapFilter__item: true,
                 "MapFilter__item--is-selected": key === currentKey,
@@ -33,7 +35,7 @@ class Filter extends Component {
               {key === currentKey && (
                 <span className="MapFilter__close">(x)</span>
               )}
-            </button>
+            </Button>
           ))}
         </div>
         <div
@@ -42,11 +44,16 @@ class Filter extends Component {
             "MapFilter__mobile--is-open": isOpen,
           })}
         >
-          <button className="MapFilter__toggle" onClick={this.handleToggle}>
+          <Button
+            noClass
+            className="MapFilter__toggle"
+            onClick={this.handleToggle}
+          >
             {isOpen ? "Lukk" : currentKey || "Filter"}
-          </button>
+          </Button>
           {layers.map(key => (
-            <button
+            <Button
+              noClass
               className={cc({
                 MapFilter__item: true,
                 "MapFilter__item--is-selected": key === currentKey,
@@ -58,7 +65,7 @@ class Filter extends Component {
               {key === currentKey && (
                 <span className="MapFilter__close">(x)</span>
               )}
-            </button>
+            </Button>
           ))}
         </div>
       </div>
