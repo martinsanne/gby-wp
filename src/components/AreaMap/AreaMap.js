@@ -34,17 +34,21 @@ class AreaMap extends Component {
     this.setCenterAndZoom(this.state.markers)
   }
 
-  componentWillReceiveProps(nextProps) {
-    const festivalMarkers = nextProps.markers.filter(m => m.type !== "me")
-    const myCurrentPosition = nextProps.markers.filter(m => m.type === "me")[0]
-    this.setState({
-      markers: festivalMarkers,
-      myCurrentPosition,
-    })
-    if (this.state.zoom > 15 && !myCurrentPosition) {
-      this.panToBounds(nextProps.markers)
-    } else {
-      this.setCenterAndZoom(nextProps.markers)
+  componentDidUpdate(prevProps) {
+    if (this.props.markers !== prevProps.markers) {
+      const festivalMarkers = this.props.markers.filter(m => m.type !== "me")
+      const myCurrentPosition = this.props.markers.filter(
+        m => m.type === "me"
+      )[0]
+      this.setState({
+        markers: festivalMarkers,
+        myCurrentPosition,
+      })
+      if (this.state.zoom > 15 && !myCurrentPosition) {
+        this.panToBounds(this.props.markers)
+      } else {
+        this.setCenterAndZoom(this.props.markers)
+      }
     }
   }
   setCenterAndZoom = markers => {
