@@ -1,6 +1,21 @@
 .BuyTicket {
   pointer-events: none;
 
+  &--no-animation {
+    .BuyTicket {
+      @include bp(lg) {
+        &__illustration {
+          animation: none;
+          transform: translateY(-40px); // End state animation
+        }
+        &__bubble {
+          animation: none;
+          transform: translateY(-50%); // End state animation
+        }
+      }
+    }
+  }
+
   &__illustration {
     display: none;
   }

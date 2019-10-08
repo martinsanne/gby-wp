@@ -7,6 +7,8 @@
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "@rooks/use-sessionstorage": "^3.3.0",
+    "@rooks/use-timeout": "^3.3.0",
     "@u-wave/react-vimeo": "^0.6.0",
     "classcat": "^3.2.5",
     "date-fns": "^1.30.1",
