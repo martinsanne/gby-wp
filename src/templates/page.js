@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import { SEOHeaders } from "../components/utils"
 import TemplateResolver from "../components/TemplateResolver"
 
-export default ({ data, pageContext }) => {
+export default ({ data, pageContext, location }) => {
   const page = data.wordpressPage
   const { locale } = pageContext
   const latestPosts = data.allWordpressPost.edges.map(item => item.node)
@@ -17,7 +17,12 @@ export default ({ data, pageContext }) => {
       settings={data.wordpressHeySettings}
     >
       <SEOHeaders data={page} />
-      <TemplateResolver page={page} locale={locale} latestPosts={latestPosts} />
+      <TemplateResolver
+        page={page}
+        locale={locale}
+        latestPosts={latestPosts}
+        location={location}
+      />
     </Layout>
   )
 }
