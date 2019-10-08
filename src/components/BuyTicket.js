@@ -16,7 +16,7 @@ const BuyTicket = ({ className }) => {
 
   useEffect(() => {
     start()
-  }, [])
+  }, [start])
 
   return (
     <AppConsumer>
