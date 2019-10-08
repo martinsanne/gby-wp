@@ -31,6 +31,7 @@
   }
 
   &__top {
+    width: 100%;
     @include spacing("xs", ("margin-top", "padding-bottom"));
     @include content-width("image");
     display: flex;

@@ -23,6 +23,18 @@
   &__bubble {
     @extend .button;
     pointer-events: all;
+    height: 100%;
+    max-height: rem-calc(30);
+    line-height: 100%;
+
+    @include bp(md) {
+      max-height: rem-calc(40);
+    }
+
+    @include bp(lg) {
+      max-height: 9999px;
+      height: auto;
+    }
   }
 
   @include bp(lg) {
