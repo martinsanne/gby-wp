@@ -29,7 +29,7 @@ const AnimatedIllustration = ({
         className="AnimatedIllustration__illustration"
         style={{
           animation: `animated-${name} ${duration} ${delay} linear infinite both`,
-          // top: top,
+          top: top,
         }}
       />
       <div className="AnimatedIllustration__content">{children}</div>
