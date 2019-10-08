@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import { Loader } from "./utils"
+
 /**
  * Docs: https://greencopper.atlassian.net/wiki/spaces/GE/pages/14581905/Greencopper+Web+Embed
  */
@@ -66,7 +68,9 @@ export default class GreenCopper extends Component {
           data-default-url={view}
           project-hash="1fe3f334382c4f118d5c7bf53335fcc5"
           data-language="nor"
-        />
+        >
+          <Loader />
+        </goevent-web>
       </div>
     )
   }

@@ -11,6 +11,10 @@
     transform: translate(-50%, -50%);
     max-width: rem-calc(100);
 
+    img {
+      mix-blend-mode: multiply;
+    }
+
     @include bp(md) {
       max-width: rem-calc(150);
     }
