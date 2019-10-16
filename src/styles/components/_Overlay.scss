@@ -3,11 +3,9 @@
   position: relative;
   overflow: hidden;
   transform: translateZ(0);
-  width: 100%;
-  height: 100%;
 
   &:after {
-    content: '';
+    content: "";
     display: inline-block;
     position: absolute;
     top: 0;
@@ -20,7 +18,7 @@
 
   &--hoverable {
     &:after,
-    div[role='img'],
+    div[role="img"],
     img {
       transition: $trans;
     }
@@ -36,7 +34,7 @@
   //   transform: scale(1.2);
   // }
 
-  div[role='img'],
+  div[role="img"],
   img {
     transition: transform $trans;
     filter: grayscale(1);

@@ -13,7 +13,7 @@ const Gallery = props => {
       {gallery && gallery.acf.video_header && (
         <>
           <div className="Gallery__main">
-            <Overlay hoverable>
+            <Overlay hoverable style={{ width: "100%", height: "100%" }}>
               {gallery.acf.video_header.video && (
                 <VimeoWrapper
                   video={gallery.acf.video_header.video}
