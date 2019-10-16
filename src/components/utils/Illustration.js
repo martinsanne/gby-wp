@@ -15,9 +15,31 @@ const illustrations = {
   snegle: "/assets/images/illustrations/snegle.png",
 }
 
+const {
+  blomst1,
+  blomst2,
+  blomst3,
+  blomst4,
+  eple,
+  mark,
+  planet2,
+  rakett3,
+} = illustrations
+
+const randomIllustrations = {
+  blomst1,
+  blomst2,
+  blomst3,
+  blomst4,
+  eple,
+  mark,
+  planet2,
+  rakett3,
+}
+
 const getRandom = () => {
-  const arr = Object.keys(illustrations)
-  return illustrations[arr[Math.floor(Math.random() * arr.length)]]
+  const arr = Object.keys(randomIllustrations)
+  return randomIllustrations[arr[Math.floor(Math.random() * arr.length)]]
 }
 
 const Illustration = ({ name, ...props }) => {
