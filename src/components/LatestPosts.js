@@ -4,6 +4,7 @@ import NewsCard from "./NewsCard"
 const LatestPosts = ({ wordpress_id }) => {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     fetch("https://api.oyafestivalen.no/wp-json/wp/v2/posts?per_page=5")
@@ -12,10 +13,14 @@ const LatestPosts = ({ wordpress_id }) => {
         setPosts(res)
         setLoading(false)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        setError(err)
+      })
   }, [])
 
   if (loading) return null
+  if (error) return null
 
   return posts
     .filter(post => post.id !== wordpress_id)
