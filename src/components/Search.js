@@ -71,7 +71,7 @@ export default class Search extends Component {
               <Loader />
             </div>
           )}
-          {results.length > 0 && (
+          {results && results.length > 0 && (
             <p>
               <FormattedMessage
                 id="search.results"
@@ -81,7 +81,7 @@ export default class Search extends Component {
             </p>
           )}
         </header>
-        {results.length > 0 && (
+        {results && results.length > 0 && (
           <div className="SearchResults">
             {results.map(item => (
               <div className="SearchResults__item" key={item.id}>
@@ -102,7 +102,7 @@ export default class Search extends Component {
                         <FeaturedImageAspect
                           className="SearchResults__image aspect-sm--square"
                           {...item.featured_image}
-                          maxWidth={300}
+                          maxWidth={400}
                         />
                       </Overlay>
                     </div>
@@ -115,7 +115,7 @@ export default class Search extends Component {
             )}
           </div>
         )}
-        {query && results && results.length === 0 && !loading && submitted && (
+        {query && (!results || results.length === 0) && !loading && submitted && (
           <div className="Search__no-hits">
             <h2 className="Search__title">
               <FormattedMessage
