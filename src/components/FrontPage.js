@@ -12,6 +12,7 @@ import NewsCard from "./NewsCard"
 import Gallery from "./Gallery"
 import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
+import Fact from "./Fact"
 
 export default props => {
   const { page } = props
@@ -72,6 +73,13 @@ export default props => {
           )}
         </div>
       </AnimatedIllustration>
+      <div className="container">
+        {acf.did_you_know && (
+          <Section>
+            <Fact data={acf.did_you_know} />
+          </Section>
+        )}
+      </div>
       <AnimatedIllustration name="bie" reverse>
         <div className="container">
           {acf && acf.gallery && (

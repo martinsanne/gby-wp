@@ -1,36 +1,30 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
-import cc from "classcat"
 
-import { Html, FeaturedImage, Overlay } from "./utils"
+import { Html, Icon } from "./utils"
 
 export default class Fact extends Component {
   render() {
     const {
-      data: { title, fact, image, link },
+      data: { first_paragraph, second_paragraph },
     } = this.props
-    const Component = link ? Link : "div"
     return (
-      <Component
-        to={link}
-        className={cc({ Fact: true, "Fact--with-image": image })}
-      >
-        {image && (
-          <div className="Fact__image">
-            <Overlay hoverable>
-              <FeaturedImage {...image} />
-            </Overlay>
-          </div>
-        )}
-        <div className="Fact__content">
-          {title && (
-            <h2 className="Fact__title">
-              <Html content={title} />
-            </h2>
-          )}
-          {fact && <Html content={fact} />}
+      <div className="Fact">
+        <div className="Fact__logo">
+          <Icon name="logo2020" />
         </div>
-      </Component>
+        <div className="Fact__columns">
+          {first_paragraph && (
+            <div className="Fact__col">
+              <Html className="editor" content={first_paragraph} />
+            </div>
+          )}
+          {second_paragraph && (
+            <div className="Fact__col">
+              <Html className="editor" content={second_paragraph} />
+            </div>
+          )}
+        </div>
+      </div>
     )
   }
 }

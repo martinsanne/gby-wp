@@ -3,11 +3,11 @@ import cc from "classcat"
 
 import useInterval from "./hooks/useInterval"
 import { Illustration } from "./utils"
+import { randomIntFromRange } from "./Hero2019"
 
 const AnimatedIllustration = ({
   name = "random",
   duration = "10s",
-  delay = "0s",
   className,
   children,
 }) => {
@@ -16,6 +16,10 @@ const AnimatedIllustration = ({
   useInterval(() => {
     setTop(`${Math.floor(Math.random() * 100)}%`)
   }, 10000)
+
+  if (typeof window === "undefined") return children
+
+  const delay = `${randomIntFromRange(0, 5)}s`
 
   return (
     <div
@@ -28,7 +32,9 @@ const AnimatedIllustration = ({
         name={name}
         className="AnimatedIllustration__illustration"
         style={{
-          animation: `animated-${name} ${duration} ${delay} linear infinite both`,
+          animationName: `animated-${name}`,
+          animationDuration: duration,
+          animationDelay: delay,
           top: top,
         }}
       />

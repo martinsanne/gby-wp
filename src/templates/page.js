@@ -161,6 +161,8 @@ export const pageQuery = graphql`
           title
           fact
           link
+          first_paragraph
+          second_paragraph
           image {
             wordpress_id
             title

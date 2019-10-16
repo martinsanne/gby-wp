@@ -2,32 +2,6 @@
   display: flex;
   flex-flow: row wrap;
 
-  &--frontpage {
-    // .NewsCards__item {
-    //   &:nth-of-type(5),
-    //   &:nth-of-type(6) {
-    //     display: none;
-    //   }
-    //   @include bp(lg) {
-    //     &:first-of-type,
-    //     &:nth-of-type(2) {
-    //       width: 50%;
-    //     }
-    //     &:nth-of-type(5) {
-    //       display: block;
-    //     }
-    //     &:last-of-type {
-    //       display: none;
-    //     }
-    //   }
-    //   @include bp(xxl) {
-    //     &:last-of-type {
-    //       display: block;
-    //     }
-    //   }
-    // }
-  }
-
   &--footer {
     .NewsCards__item {
       @include bp(lg) {
@@ -80,6 +54,7 @@
     position: relative;
     transition: $trans;
     @include spacing("xs", "margin-bottom");
+    border: $s-border__width--large solid $c-white;
 
     .Overlay {
       &:after,

@@ -9,17 +9,9 @@
     transform: translateX(94vw);
     pointer-events: none;
     max-height: rem-calc(200);
-    // animation: snail linear 1s infinite both;
-  }
-
-  &--reverse {
-    .AnimatedIllustration__wrapper {
-      animation-direction: reverse;
-      flex-direction: row-reverse;
-    }
-    .AnimatedIllustration__illustration {
-      animation: snail--reverse linear 1s infinite both;
-    }
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
   }
 
   @keyframes animated-snegle {
