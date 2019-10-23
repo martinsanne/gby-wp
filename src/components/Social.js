@@ -3,7 +3,8 @@ import cc from "classcat"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { createSocialLinksFromYOAST } from "../utils/wpHelpers"
-import { Icon } from "./utils"
+import { Icon, AppConsumer } from "./utils"
+import { Link } from "@reach/router"
 
 const Social = props => {
   const data = useStaticQuery(graphql`
@@ -50,7 +51,7 @@ const Social = props => {
           </a>
         )
       })}
-      <a
+      {/* <a
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Tilgjengelighetsmerket"
@@ -63,7 +64,25 @@ const Social = props => {
           name="accesibility"
           aria-label="Tilgjengelighetsmerket icon"
         />
-      </a>
+      </a> */}
+      <AppConsumer>
+        {({ state }) =>
+          state.locale === "nb" && (
+            <Link
+              to="/info/tilgjengelighet"
+              aria-label="Tilgjengelighetsmerket"
+              className="Social__item"
+            >
+              <Icon
+                className="Social__icon"
+                color="white"
+                name="accesibility"
+                aria-label="Tilgjengelighetsmerket icon"
+              />
+            </Link>
+          )
+        }
+      </AppConsumer>
     </div>
   )
 }
