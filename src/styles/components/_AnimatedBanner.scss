@@ -1,4 +1,7 @@
 .AnimatedBanner {
+
+  @include spacing(lg,(margin-bottom));
+
   position: relative;
   z-index: 9;
   pointer-events: none;

@@ -18,22 +18,30 @@ import AsyncArtistLoader from "./AsyncArtistLoader"
 export default props => {
   const { page } = props
   const acf = page.acf
-  // const { posts, gallery, acf, title } = page
   const posts = props.latestPosts.slice(0, 6)
   return (
     <div>
       <AsyncArtistLoader pageId={page.wordpress_id}>
         {({ loaded, asyncArtists, asyncHero }) => {
-          let headliners, artists, hero, allArtists
+          let headliners = [],
+            artists = [],
+            hero,
+            allArtists = []
           if (loaded) {
             allArtists = asyncArtists
             hero = asyncHero
+            headliners = allArtists.filter(artist => artist.acf.headliner)
+            artists = allArtists.filter(artist => !artist.acf.headliner)
           } else {
-            allArtists = acf.artists
-            hero = acf.hero
+            if (acf.artists && acf.artists.length) {
+              allArtists = acf.artists
+              headliners = acf.artists.filter(artist => artist.acf.headliner)
+              artists = acf.artists.filter(artist => !artist.acf.headliner)
+            }
+            if (acf.hero) {
+              hero = acf.hero
+            }
           }
-          headliners = allArtists.filter(artist => artist.acf.headliner)
-          artists = allArtists.filter(artist => !artist.acf.headliner)
           return (
             <>
               {hero && hero.headliners && hero.headliners.length > 0 && (
