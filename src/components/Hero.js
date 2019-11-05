@@ -31,9 +31,7 @@ const Hero = ({ hero }) => {
             </>
           )}
         </div>
-        <p className="Hero__payoff">
-          Årets første artistslipp. Følg med for flere slipp snart!
-        </p>
+        {hero.tagline && <p className="Hero__payoff">{hero.tagline}</p>}
       </div>
     </div>
   )

@@ -42,12 +42,13 @@ const HeadlinerArtists = ({ artists }) => {
         (artist, i) =>
           artist?.acf?.name_graphic?.url && (
             <Link
-              key={artist.wordpress_id}
+              key={`HeadlinerArtistsItem-${artist.wordpress_id || artist.id}`}
               className="HeadlinerArtists__link"
               to={`${artist?.acf?.greencopper_url[0] !== "/" ? "/" : ""}${
                 artist?.acf?.greencopper_url
               }`}
             >
+              {console.log(artist)}
               <div className="HeadlinerArtists__item">
                 <span className="HeadlinerArtists__group">
                   <img

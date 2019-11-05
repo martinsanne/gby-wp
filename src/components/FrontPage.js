@@ -288,6 +288,7 @@ export const query = graphql`
         }
       }
       hero {
+        tagline
         headliners {
           wordpress_id
           status
