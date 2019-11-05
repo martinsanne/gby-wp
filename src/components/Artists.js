@@ -80,16 +80,17 @@ export default class Artists extends Component {
         >
           <div className="Artists__wrapper" style={style}>
             <ul className="Artists__list" ref={this.list}>
-              {artists
-                .filter(a => a.status === "publish")
-                .map(artist => (
-                  <ArtistsItem
-                    key={`ArtistsItem-${artist.wordpress_id}`}
-                    artist={artist}
-                    setCurrentArtist={this.setCurrentArtist}
-                    hero={this.props.hero}
-                  />
-                ))}
+              {artists &&
+                artists
+                  .filter(a => a.status === "publish")
+                  .map(artist => (
+                    <ArtistsItem
+                      key={`ArtistsItem-${artist.wordpress_id}`}
+                      artist={artist}
+                      setCurrentArtist={this.setCurrentArtist}
+                      hero={this.props.hero}
+                    />
+                  ))}
             </ul>
           </div>
           <Mouse>
