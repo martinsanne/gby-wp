@@ -1,5 +1,5 @@
 .Hero {
-  @include spacing(lg,(margin-top, margin-bottom));
+  @include spacing(lg, (margin-top, margin-bottom));
 
   &__payoff {
     @include spacing(sm, margin-top);
@@ -7,20 +7,44 @@
     font-family: $f-serif;
   }
 
-  &__container {
+  &__content {
     position: relative;
   }
 
   &__rocket {
     position: absolute;
-    top: -5%;
-    left: 5%;
+    left: -50px;
+    top: -30px;
+    @include bp(md) {
+      top: -50px;
+      left: -100px;
+    }
+    @include bp(lg) {
+      top: -50px;
+      left: 0;
+    }
+    @include bp(xl) {
+      top: -75px;
+      left: 5%;
+    }
   }
 
   &__hand {
     position: absolute;
-    bottom: -5%;
-    right: 5%;
+    bottom: -30px;
+    right: -50px;
+    @include bp(md) {
+      bottom: -50px;
+      right: -110px;
+    }
+    @include bp(lg) {
+      bottom: -100px;
+      right: 0;
+    }
+    @include bp(xl) {
+      bottom: -125px;
+      right: 5%;
+    }
   }
 
   &__illustration {

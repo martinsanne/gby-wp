@@ -76,17 +76,17 @@
     width: 100%;
     display: flex;
     flex-flow: column;
-    // align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
   
+  &--launch &__link {
+    display: inline-block;
+    text-align: center;
+  }
+
   &--launch &__divider {
     display: none !important;
-  }
-  
-  &--launch &__link {
-    text-align: center;
   }
   
   &--launch &__item {
