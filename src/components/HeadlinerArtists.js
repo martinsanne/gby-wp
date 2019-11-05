@@ -4,6 +4,7 @@ import useWindowSize from "./hooks/useWindowSize"
 import useTimeout from "./hooks/useTimeout"
 import { Link } from "gatsby"
 import { FeaturedImage, Overlay } from "./utils"
+import cc from "classcat"
 
 const HeadlinerArtists = ({ artists }) => {
   const wrapper = useRef()
@@ -30,7 +31,13 @@ const HeadlinerArtists = ({ artists }) => {
   }, [windowSize])
 
   return (
-    <div className="HeadlinerArtists" ref={wrapper}>
+    <div
+      className={cc({
+        HeadlinerArtists: true,
+        "HeadlinerArtists--launch": artists.length <= 2,
+      })}
+      ref={wrapper}
+    >
       {artists.map(
         (artist, i) =>
           artist?.acf?.name_graphic?.url && (
@@ -65,7 +72,7 @@ const HeadlinerArtists = ({ artists }) => {
             </Link>
           )
       )}
-      {currentArtist && (
+      {currentArtist && currentArtist.featured_image && (
         <Overlay className="HeadlinerArtists__image">
           <FeaturedImage {...currentArtist.featured_image} />
         </Overlay>

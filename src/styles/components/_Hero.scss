@@ -1,6 +1,12 @@
 .Hero {
   @include spacing(lg, margin-top);
 
+  &__payoff {
+    @include spacing(sm, margin-top);
+    text-align: center;
+    font-family: $f-serif;
+  }
+
   &__illustration {
     display: none;
     position: relative;

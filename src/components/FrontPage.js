@@ -13,31 +13,51 @@ import Gallery from "./Gallery"
 import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
+import AsyncArtistLoader from "./AsyncArtistLoader"
 
 export default props => {
   const { page } = props
   const acf = page.acf
-  const headliners = acf.artists.filter(artist => artist.acf.headliner)
-  const artists = acf.artists.filter(artist => !artist.acf.headliner)
   // const { posts, gallery, acf, title } = page
   const posts = props.latestPosts.slice(0, 6)
   return (
     <div>
-      {acf.hero.headliners && acf.hero.headliners.length > 0 && (
-        <Hero hero={acf.hero} />
-      )}
-      <div className="container">
-        {acf.artists && (
-          <ArtistsToggle>
-            <div className="Artists__layout">
-              {headliners && headliners.length > 0 && (
-                <Artists artists={headliners} />
+      <AsyncArtistLoader pageId={page.wordpress_id}>
+        {({ loaded, asyncArtists, asyncHero }) => {
+          let headliners, artists, hero
+          if (loaded && asyncArtists.length) {
+            hero = asyncHero
+            headliners = asyncArtists.filter(artist => artist.acf.headliner)
+            artists = asyncArtists.filter(artist => !artist.acf.headliner)
+          } else {
+            hero = acf.hero
+            headliners = acf.artists.filter(artist => artist.acf.headliner)
+            artists = acf.artists.filter(artist => !artist.acf.headliner)
+          }
+          return (
+            <>
+              {hero && hero.headliners && hero.headliners.length > 0 && (
+                <Hero hero={hero} />
               )}
-              {artists && artists.length > 0 && <Artists artists={artists} />}
-            </div>
-          </ArtistsToggle>
-        )}
-      </div>
+              <div className="container">
+                {((artists && artists.length) ||
+                  (headliners && headliners.length)) && (
+                  <ArtistsToggle>
+                    <div className="Artists__layout">
+                      {headliners && headliners.length > 0 && (
+                        <Artists artists={headliners} />
+                      )}
+                      {artists && artists.length > 0 && (
+                        <Artists artists={artists} />
+                      )}
+                    </div>
+                  </ArtistsToggle>
+                )}
+              </div>
+            </>
+          )
+        }}
+      </AsyncArtistLoader>
       <Section>
         <FormattedMessage
           id="global.dateAndPlace"

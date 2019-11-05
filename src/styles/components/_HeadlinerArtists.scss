@@ -65,4 +65,48 @@
       opacity: 0;
     }
   }
+
+
+  /*
+
+  LAUNCH HEADER DSIGN
+
+  */
+  &--launch {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    // align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  &--launch &__divider {
+    display: none !important;
+  }
+  
+  &--launch &__link {
+    text-align: center;
+  }
+  
+  &--launch &__item {
+    position: relative;
+    margin-bottom: 0.5em;
+  }
+
+  &--launch &__graphic {
+    @include bp(md) {
+      height: 72px;
+    }
+    @include bp(lg) {
+      height: 100px;
+    }
+  }
+
+  &--launch &__country {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+  }
+
 }
