@@ -144,12 +144,12 @@ module.exports = {
          */
         baseUrl:
           process.env.NODE_ENV === "development"
-            ? "oya.test"
+            ? "stagingapi.oyafestivalen.no"
             : process.env.TYPE && process.env.TYPE === "staging"
             ? "stagingapi.oyafestivalen.no"
             : "api.oyafestivalen.no",
         // The protocol. This can be http or https.
-        protocol: process.env.NODE_ENV === "development" ? "http" : "https",
+        protocol: process.env.NODE_ENV === "development" ? "https" : "https",
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
