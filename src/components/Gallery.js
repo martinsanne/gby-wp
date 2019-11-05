@@ -44,7 +44,7 @@ const Gallery = props => {
                           Gallery__illustration: true,
                           "Gallery__illustration--right": Math.random() > 0.25,
                         })}
-                        name="random"
+                        src="random"
                       />
                     )}
                     <Overlay hoverable>

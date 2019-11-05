@@ -21,7 +21,11 @@ export default function StaticImage({ src, aspect, className, children }) {
   const data = useStaticQuery(query)
   let image
 
-  if (src) {
+  if (src === "random") {
+    image = [
+      data.allFile.edges[Math.floor(Math.random() * data.allFile.edges.length)],
+    ]
+  } else if (src) {
     image = data.allFile.edges.filter(item => {
       return item.node.relativePath === src
     })

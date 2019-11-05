@@ -14,6 +14,7 @@ import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
+import StaticImage from "./StaticImage"
 
 export default props => {
   const { page } = props

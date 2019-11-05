@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import cc from "classcat"
-
 import { isBrowser } from "../utils/helpers"
 
 import {
@@ -25,7 +24,7 @@ export default class NewsCard extends Component {
                   NewsCards__illustration: true,
                   "NewsCards__illustration--right": Math.random() > 0.25,
                 })}
-                name="random"
+                src="random"
               />
             )}
             <Overlay i={i}>
