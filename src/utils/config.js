@@ -17,7 +17,7 @@ export const pictureOverlayColors = {
 const endpoints = {
   development: "https://stagingapi.oyafestivalen.no", //http://oya.test", //"http://oya.test",
   staging: "https://stagingapi.oyafestivalen.no",
-  production: "https://api.oyafestivalen.no",
+  production: "https://stagingapi.oyafestivalen.no",
 }
 
 export const getApiURL = () => {
