@@ -84,7 +84,7 @@ export default class Hero6 extends Component {
                 <h3 className="Hero7__tagline">
                   <FormattedMessage
                     id="global.dateAndPlace"
-                    defaultMessage="6.–10. august, Tøyenparken, Oslo"
+                    defaultMessage="11.–15. august, Tøyenparken, Oslo"
                   />
                 </h3>
               </header>
