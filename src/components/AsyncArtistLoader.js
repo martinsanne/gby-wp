@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { getApiURL } from "../utils/config"
 
 export default function AsyncArtistLoader({ pageId, children }) {
   const [artists, setArtists] = useState([])
@@ -7,7 +8,7 @@ export default function AsyncArtistLoader({ pageId, children }) {
   const [loaded, setLoaded] = useState(false)
 
   async function fetchData() {
-    const res = await fetch(`http://oya.test/wp-json/wp/v2/pages/${pageId}`)
+    const res = await fetch(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`)
     res
       .json()
       .then(res => {

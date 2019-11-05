@@ -14,6 +14,24 @@ export const pictureOverlayColors = {
   red: "#EC6358",
 }
 
+const endpoints = {
+  development: "http://oya.test",
+  staging: "https://stagingapi.oyafestivalen.no",
+  production: "https://api.oyafestivalen.no",
+}
+
+export const getApiURL = () => {
+  let env = process.env.NODE_ENV || "development"
+  if (process.env.TYPE) {
+    env = process.env.TYPE
+  }
+  if (endpoints[env]) {
+    return endpoints[env]
+  } else {
+    return endpoints.production
+  }
+}
+
 /*
 
 export const defaultLang = 'nb' // YES! It's "nb" and not "no"
