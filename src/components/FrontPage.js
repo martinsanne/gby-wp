@@ -13,8 +13,12 @@ import Gallery from "./Gallery"
 export default props => {
   const { page } = props
   const acf = page.acf
-  const headliners = acf.artists.filter(artist => artist.acf.headliner)
-  const artists = acf.artists.filter(artist => !artist.acf.headliner)
+  const headliners = acf.artists
+    ? acf.artists.filter(artist => artist.acf.headliner)
+    : []
+  const artists = acf.artists
+    ? acf.artists.filter(artist => !artist.acf.headliner)
+    : []
   // const { posts, gallery, acf, title } = page
   const posts = props.latestPosts.slice(0, 6)
   return (
