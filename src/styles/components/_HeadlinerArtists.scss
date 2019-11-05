@@ -95,6 +95,7 @@
   }
 
   &--launch &__graphic {
+    height: 42px;
     @include bp(md) {
       height: 72px;
     }

@@ -1,5 +1,5 @@
 .Hero {
-  @include spacing(lg, margin-top);
+  @include spacing(lg,(margin-top, margin-bottom));
 
   &__payoff {
     @include spacing(sm, margin-top);

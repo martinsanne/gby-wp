@@ -24,24 +24,23 @@ export default props => {
     <div>
       <AsyncArtistLoader pageId={page.wordpress_id}>
         {({ loaded, asyncArtists, asyncHero }) => {
-          let headliners, artists, hero
-          if (loaded && asyncArtists.length) {
+          let headliners, artists, hero, allArtists
+          if (loaded) {
+            allArtists = asyncArtists
             hero = asyncHero
-            headliners = asyncArtists.filter(artist => artist.acf.headliner)
-            artists = asyncArtists.filter(artist => !artist.acf.headliner)
           } else {
+            allArtists = acf.artists
             hero = acf.hero
-            headliners = acf.artists.filter(artist => artist.acf.headliner)
-            artists = acf.artists.filter(artist => !artist.acf.headliner)
           }
+          headliners = allArtists.filter(artist => artist.acf.headliner)
+          artists = allArtists.filter(artist => !artist.acf.headliner)
           return (
             <>
               {hero && hero.headliners && hero.headliners.length > 0 && (
                 <Hero hero={hero} />
               )}
-              <div className="container">
-                {((artists && artists.length) ||
-                  (headliners && headliners.length)) && (
+              {allArtists && allArtists.length > 0 && (
+                <div className="container">
                   <ArtistsToggle>
                     <div className="Artists__layout">
                       {headliners && headliners.length > 0 && (
@@ -52,20 +51,18 @@ export default props => {
                       )}
                     </div>
                   </ArtistsToggle>
-                )}
-              </div>
+                </div>
+              )}
             </>
           )
         }}
       </AsyncArtistLoader>
-      <Section>
-        <FormattedMessage
-          id="global.dateAndPlace"
-          defaultMessage="6.–10. august, Tøyenparken, Oslo"
-        >
-          {string => <AnimatedBanner illustration="snegle" text={string} />}
-        </FormattedMessage>
-      </Section>
+      <FormattedMessage
+        id="global.dateAndPlace"
+        defaultMessage="6.–10. august, Tøyenparken, Oslo"
+      >
+        {string => <AnimatedBanner illustration="snegle" text={string} />}
+      </FormattedMessage>
       <AnimatedIllustration name="snegle" reverse>
         <div className="container">
           {posts && acf && acf.news && (

@@ -7,16 +7,17 @@ export default function AsyncArtistLoader({ pageId, children }) {
   const [loaded, setLoaded] = useState(false)
 
   async function fetchData() {
-    console.log(fetchData)
     const res = await fetch(`http://oya.test/wp-json/wp/v2/pages/${pageId}`)
     res
       .json()
       .then(res => {
         if (res.acf && res.acf.artists) {
           setArtists(res.acf.artists)
-          setHero(res.acf.hero)
-          setLoaded(true)
         }
+        if (res.acf && res.acf.hero) {
+          setHero(res.acf.hero)
+        }
+        setLoaded(true)
       })
       .catch(err => console.log(err))
   }
