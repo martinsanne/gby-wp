@@ -26,7 +26,7 @@ const Hero = ({ hero }) => {
             <>
               <Illustration
                 className="Hero__hand"
-                src="illustrations/hero-shrooms.png"
+                src="graphics/hero-shrooms.png"
               />
             </>
           )}
