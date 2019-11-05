@@ -91,7 +91,13 @@
   
   &--launch &__item {
     position: relative;
-    margin-bottom: 0.5em;
+    margin-bottom: 1rem;
+    @include bp(md) {
+      margin-bottom: 2rem;
+    }
+    @include bp(lg) {
+      margin-bottom: 2.5rem;
+    }
   }
 
   &--launch &__graphic {

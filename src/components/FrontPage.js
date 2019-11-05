@@ -109,13 +109,15 @@ export default props => {
           )}
         </div>
       </AnimatedIllustration>
-      <div className="container">
-        {acf.did_you_know && (
+
+      {acf.did_you_know && acf.did_you_know.first_paragraph && (
+        <div className="container">
           <Section>
             <Fact data={acf.did_you_know} />
           </Section>
-        )}
-      </div>
+        </div>
+      )}
+
       <AnimatedIllustration name="bie" src="illustrations/bee-left.png" reverse>
         <div className="container">
           {acf && acf.gallery && (

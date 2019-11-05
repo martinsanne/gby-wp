@@ -1,3 +1,24 @@
+$illu-sizes:(
+  sm: 120,
+  md: 200,
+  lg: 250,
+);
+
+@function get-illu-size($bp) {
+  @return map-get($illu-sizes , $bp);
+}
+
+@mixin illu-size($props, $multiplier:1) {
+  @each $bp, $size in $illu-sizes {
+    @include bp($bp) {
+      @each $prop in $props {
+        #{$prop}: rem-calc($size*$multiplier);
+      }
+    }
+  }
+}
+
+
 @mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
   $dimension: if(unit($responsive) == 'vh', 'height', 'width');

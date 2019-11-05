@@ -1,19 +1,5 @@
-$illu-sizes:(
-  sm: 120,
-  md: 200,
-  lg: 250,
-);
-
 .Illustration {
   pointer-events: none;
   height: auto;
-  @each $bp, $size in $illu-sizes {
-    @include bp($bp) {
-      width: rem-calc($size);
-    }
-  }
-}
-
-@function get-illu-size($bp) {
-  @return map-get($illu-sizes , $bp);
+  @include illu-size(width);
 }

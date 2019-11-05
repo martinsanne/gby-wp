@@ -83,13 +83,14 @@
     position: absolute;
     width: rem-calc(200);
     height: rem-calc(200);
-    z-index: 9;
+    z-index: 9999;
     bottom: 0;
-    left: 0;
+    @include illu-size(left, -0.5);
 
     &--right {
-      left: auto;
-      right: 0;
+      left: auto !important;
+      // right: 0;
+      @include illu-size(right, -0.5);
     }
   }
 }

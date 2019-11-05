@@ -18,6 +18,14 @@ export default class NewsCard extends Component {
       <Link to={post.link} className="NewsCards__item">
         {post.featured_image ? (
           <div className="NewsCards__image">
+            <Overlay i={i}>
+              <FeaturedImageAspect
+                key={post.id}
+                {...post.featured_image}
+                className="aspect-sm--landscape"
+                maxWidth={1000}
+              />
+            </Overlay>
             {isBrowser && Math.random() < 0.35 && (
               <Illustration
                 className={cc({
@@ -27,14 +35,6 @@ export default class NewsCard extends Component {
                 src="random"
               />
             )}
-            <Overlay i={i}>
-              <FeaturedImageAspect
-                key={post.id}
-                {...post.featured_image}
-                className="aspect-sm--landscape"
-                maxWidth={1000}
-              />
-            </Overlay>
           </div>
         ) : (
           <div className="NewsCards__placeholder aspect aspect-sm--landscape" />

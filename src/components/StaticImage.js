@@ -22,9 +22,10 @@ export default function StaticImage({ src, aspect, className, children }) {
   let image
 
   if (src === "random") {
-    image = [
-      data.allFile.edges[Math.floor(Math.random() * data.allFile.edges.length)],
-    ]
+    const illusOnly = data.allFile.edges.filter(item => {
+      return item.node.relativePath.includes("illustrations")
+    })
+    image = [illusOnly[Math.floor(Math.random() * illusOnly.length)]]
   } else if (src) {
     image = data.allFile.edges.filter(item => {
       return item.node.relativePath === src
