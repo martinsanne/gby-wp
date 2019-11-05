@@ -93,7 +93,7 @@ class AreaMapContainer extends Component {
     }
   }
   closeModal = () => {
-    console.log("close modal")
+    // console.log("close modal")
     // document.querySelector("body").classList.remove("oh")
     this.setState({
       currentSelected: null,

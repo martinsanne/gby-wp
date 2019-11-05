@@ -15,7 +15,7 @@ export const pictureOverlayColors = {
 }
 
 const endpoints = {
-  development: "http://oya.test", //"http://oya.test",
+  development: "https://stagingapi.oyafestivalen.no", //http://oya.test", //"http://oya.test",
   staging: "https://stagingapi.oyafestivalen.no",
   production: "https://api.oyafestivalen.no",
 }
@@ -26,7 +26,6 @@ export const getApiURL = () => {
     env = process.env.TYPE
   }
   const ep = endpoints[env] ? endpoints[env] : endpoints.production
-  console.log("endpoint", ep)
   return ep
 }
 

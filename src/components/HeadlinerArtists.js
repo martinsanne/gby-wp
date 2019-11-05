@@ -48,7 +48,6 @@ const HeadlinerArtists = ({ artists }) => {
                 artist?.acf?.greencopper_url
               }`}
             >
-              {console.log(artist)}
               <div className="HeadlinerArtists__item">
                 <span className="HeadlinerArtists__group">
                   <img

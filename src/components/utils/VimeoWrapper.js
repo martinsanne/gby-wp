@@ -40,7 +40,7 @@ const VimeoWrapper = ({ video, className, loop, autoplay, children }) => {
         width:
           wrapper.current.getBoundingClientRect().height * origVideoSize.ratio,
       })
-      console.log(wrapper.current.getBoundingClientRect().height)
+      // console.log(wrapper.current.getBoundingClientRect().height)
     }
   }
 
