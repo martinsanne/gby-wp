@@ -27,6 +27,7 @@ export default props => {
             artists = [],
             hero,
             allArtists = []
+
           if (loaded) {
             allArtists = asyncArtists
             hero = asyncHero
@@ -42,6 +43,7 @@ export default props => {
               hero = acf.hero
             }
           }
+
           return (
             <>
               {hero && hero.headliners && hero.headliners.length > 0 && (
@@ -69,9 +71,18 @@ export default props => {
         id="global.dateAndPlace"
         defaultMessage="6.–10. august, Tøyenparken, Oslo"
       >
-        {string => <AnimatedBanner illustration="snegle" text={string} />}
+        {string => (
+          <AnimatedBanner
+            illustration="illustrations/snail2.png"
+            text={string}
+          />
+        )}
       </FormattedMessage>
-      <AnimatedIllustration name="snegle" reverse>
+      <AnimatedIllustration
+        name="snegle"
+        src="illustrations/snail2.png"
+        reverse
+      >
         <div className="container">
           {posts && acf && acf.news && (
             <Section
@@ -105,7 +116,7 @@ export default props => {
           </Section>
         )}
       </div>
-      <AnimatedIllustration name="bie" reverse>
+      <AnimatedIllustration name="bie" src="illustrations/bee-left.png" reverse>
         <div className="container">
           {acf && acf.gallery && (
             <StaticQuery

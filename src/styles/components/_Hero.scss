@@ -7,6 +7,22 @@
     font-family: $f-serif;
   }
 
+  &__container {
+    position: relative;
+  }
+
+  &__rocket {
+    position: absolute;
+    top: -5%;
+    left: 5%;
+  }
+
+  &__hand {
+    position: absolute;
+    bottom: -5%;
+    right: 5%;
+  }
+
   &__illustration {
     display: none;
     position: relative;

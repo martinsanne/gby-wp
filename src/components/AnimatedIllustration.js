@@ -6,6 +6,7 @@ import { Illustration } from "./utils"
 import { randomIntFromRange } from "./Hero2019"
 
 const AnimatedIllustration = ({
+  src,
   name = "random",
   duration = "10s",
   className,
@@ -29,7 +30,7 @@ const AnimatedIllustration = ({
       })}
     >
       <Illustration
-        name={name}
+        src={src}
         className="AnimatedIllustration__illustration"
         style={{
           animationName: `animated-${name}`,

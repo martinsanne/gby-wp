@@ -32,7 +32,7 @@ const BuyTicket = ({ className }) => {
           >
             <Illustration
               className="BuyTicket__illustration"
-              name="edderkopp"
+              src="illustrations/spider.png"
             />
             {options && options.options && options.options.tickets_url && (
               <Button

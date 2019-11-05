@@ -16,7 +16,7 @@ const AnimatedBanner = ({ illustration, text, reverse = false }) => {
         >
           <div className="AnimatedBanner__wrapper">
             <Illustration
-              name={illustration}
+              src={illustration}
               className="AnimatedBanner__illustration"
             />
             {text && (
