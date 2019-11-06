@@ -3,35 +3,25 @@ import axios from "axios"
 import { getApiURL } from "../utils/config"
 
 export default function AsyncArtistLoader({ pageId, children }) {
-  const [artists, setArtists] = useState([])
-  const [hero, setHero] = useState([])
-  // const [hasError, setErrors] = useState(false)
-  const [loaded, setLoaded] = useState(false)
+  const [artists, setArtists] = useState(null)
+  const [hero, setHero] = useState(null)
 
   const fetchData = () => {
-    console.log(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`)
     axios.get(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`).then(res => {
-      console.log("res", res)
-      if (res.acf && res.acf.artists) {
-        setArtists(res.acf.artists)
+      if (res.data && res.data.acf) {
+        if (res.data.acf.artists) {
+          setArtists(res.data.acf.artists)
+        }
+        if (res.data.acf.hero) {
+          setHero(res.data.acf.hero)
+        }
       }
-      if (res.acf && res.acf.hero) {
-        setHero(res.acf.hero)
-      }
-      setLoaded(true)
     })
-    // const res = await fetch(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`)
-    // res
-    //   .json()
-    //   .then(res => {
-
-    //   })
-    //   .catch(err => console.log(err))
   }
 
   useEffect(() => {
     fetchData()
   }, [])
 
-  return children({ asyncHero: hero, asyncArtists: artists, loaded })
+  return children({ asyncHero: hero, asyncArtists: artists })
 }

@@ -22,13 +22,13 @@ export default props => {
   return (
     <div>
       <AsyncArtistLoader pageId={page.wordpress_id}>
-        {({ loaded, asyncArtists, asyncHero }) => {
+        {({ asyncArtists, asyncHero }) => {
           let headliners = [],
             artists = [],
             hero,
             allArtists = []
 
-          if (loaded) {
+          if (asyncArtists && asyncHero) {
             allArtists = asyncArtists
             hero = asyncHero
             headliners = allArtists.filter(artist => artist.acf.headliner)
