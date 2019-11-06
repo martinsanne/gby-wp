@@ -25,8 +25,9 @@
   }
 
   &__wrapper {
-    display: flex;
-    align-items: center;
+    position: relative;
+    // display: flex;
+    // align-items: center;
     animation: banner 10s linear infinite both;
 
     @include bp(lg) {
@@ -40,6 +41,9 @@
   &__illustration {
     max-height: rem-calc(200);
     animation: snail linear 1s infinite both;
+    position: absolute;
+    right: 100%;
+    top: -50%;
   }
   
   &__banner {
@@ -48,7 +52,7 @@
     @include spacing(sm, (padding-top, padding-bottom));
     @include spacing(lg, (padding-left, padding-right));
     white-space: nowrap;
-
+    display: inline-block;
     h2 {
       font-family: $f-sans;
     }

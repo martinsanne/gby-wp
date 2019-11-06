@@ -43,11 +43,11 @@
     height: rem-calc(200);
     z-index: 9;
     bottom: 0;
-    left: 0;
+    left: -100px;
 
     &--right {
       left: auto;
-      right: 0;
+      right: -100px;
     }
   }
 }
