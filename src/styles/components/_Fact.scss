@@ -2,22 +2,18 @@
   max-width: rem-calc(1000);
   margin: 0 auto;
 
-  &__logo {
-    width: rem-calc(200);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   &__columns {
     display: flex;
   }
 
+  &__illu {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
   &__col {
+    text-align: center;
     width: 50%;
     @include content-width(text);
-
-    &:nth-of-type(2) {
-      @include spacing(lg, margin-top);
-    }
   }
 }
