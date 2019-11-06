@@ -20,7 +20,7 @@ export default class GreenCopper extends Component {
 
   loadScripts = () => {
     var src =
-      "https://s3.amazonaws.com/goeventweb-static.greencopper.com/7.6.0/public/scripts/endpoint.min.gz.js"
+      "https://s3.amazonaws.com/goeventweb-static.greencopper.com/7.7.1/public/scripts/endpoint.min.gz.js"
     var script = document.createElement("script")
     script.type = "text/javascript"
     script.async = true
@@ -64,9 +64,8 @@ export default class GreenCopper extends Component {
       <div className="GreenCopper">
         <goevent-web
           id="goevent-web"
-          project-tag="oyafestival-2019"
-          data-default-url={view}
-          project-hash="1fe3f334382c4f118d5c7bf53335fcc5"
+          project-tag="oyafestival-2020"
+          project-hash="8f9de195bcef4de0af325df3f772fdcc"
           data-language="nor"
         >
           <Loader />

@@ -147,7 +147,7 @@ module.exports = {
             ? "oya.test"
             : process.env.TYPE && process.env.TYPE === "staging"
             ? "stagingapi.oyafestivalen.no"
-            : "stagingapi.oyafestivalen.no",
+            : "api.oyafestivalen.no",
         // The protocol. This can be http or https.
         protocol: process.env.NODE_ENV === "development" ? "http" : "https",
         // Indicates whether the site is hosted on wordpress.com.
