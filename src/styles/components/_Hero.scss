@@ -1,6 +1,14 @@
 .Hero {
   @include spacing(lg, (margin-top, margin-bottom));
 
+  &__logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @include spacing(lg, (margin-top, margin-bottom));
+  }
+
   &__payoff {
     @include spacing(sm, margin-top);
     text-align: center;

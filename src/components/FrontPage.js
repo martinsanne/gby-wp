@@ -7,13 +7,12 @@ import Artists from "./Artists"
 import Hero from "./Hero"
 import ArtistsToggle from "./ArtistsToggle"
 import NewsCard from "./NewsCard"
-// import FestivalInfoMarquee from "./FestivalInfoMarquee"
-// import Fact from "./Fact"
 import Gallery from "./Gallery"
 import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
+import Logo from "./Logo"
 
 export default props => {
   const { page } = props
@@ -46,9 +45,12 @@ export default props => {
 
           return (
             <>
-              {hero && hero.headliners && hero.headliners.length > 0 && (
-                <Hero hero={hero} />
+              {allArtists.length <= 0 && hero?.headliners?.length <= 0 && (
+                <div className="Hero__logo">
+                  <Logo />
+                </div>
               )}
+              {hero?.headliners?.length > 0 && <Hero hero={hero} />}
               {allArtists && allArtists.length > 0 && (
                 <div className="container">
                   <ArtistsToggle>
