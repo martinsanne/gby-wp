@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { getRandomColor } from "../utils/colors"
+// import { getRandomColor } from "../utils/colors"
 
 export default class Logo extends Component {
   state = {
@@ -7,7 +7,7 @@ export default class Logo extends Component {
   }
   handleMouseOver = () => {
     this.setState({
-      fill: getRandomColor(),
+      fill: "#5f97d1",
     })
   }
   handleMouseOut = () => {

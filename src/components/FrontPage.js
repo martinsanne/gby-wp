@@ -49,7 +49,7 @@ export default props => {
               {hero && hero.headliners && hero.headliners.length > 0 && (
                 <Hero hero={hero} />
               )}
-              {allArtists && allArtists.length > 2 && (
+              {allArtists && allArtists.length > 0 && (
                 <div className="container">
                   <ArtistsToggle>
                     <div className="Artists__layout">
