@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { getApiURL } from "../../utils/config"
 
 // Utils
 import parse from "url-parse"
@@ -39,13 +40,10 @@ export default class Preview extends Component {
 
       const endpoint = endpoints[query.type]
 
-      fetch(
-        `https://api.oyafestivalen.no/wp-json/wp/v2/${endpoint}/${query.id}/revisions`,
-        {
-          method: "get",
-          credentials: "include",
-        }
-      )
+      fetch(`${getApiURL()}/wp-json/wp/v2/${endpoint}/${query.id}/revisions`, {
+        method: "get",
+        credentials: "include",
+      })
         .then(response => response.json())
         .then(data => {
           this.setState({
