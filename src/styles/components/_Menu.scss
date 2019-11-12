@@ -44,6 +44,11 @@
         display: block;
       }
     }
+
+    &:first-child {
+      font-family: $f-serif;
+    }
+
   }
 
   &__link {
