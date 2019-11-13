@@ -59,7 +59,7 @@ export default class GreenCopper extends Component {
   }
 
   render() {
-    const { view } = this.props
+    // const { view } = this.props
     return (
       <div className="GreenCopper">
         <goevent-web
