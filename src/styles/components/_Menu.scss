@@ -48,7 +48,6 @@
     &:first-child {
       font-family: $f-serif;
     }
-
   }
 
   &__link {
@@ -57,10 +56,10 @@
     }
     &:focus {
       outline: none;
-      text-decoration: underline;
+      border-bottom: 2px solid currentColor;
     }
     &--is-active {
-      text-decoration: underline;
+      border-bottom: 2px solid currentColor;
     }
   }
 
