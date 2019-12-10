@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 
-import { Loader } from "./utils"
-
 /**
  * Docs: https://greencopper.atlassian.net/wiki/spaces/GE/pages/14581905/Greencopper+Web+Embed
  */
@@ -67,9 +65,7 @@ export default class GreenCopper extends Component {
           project-tag="oyafestival-2020"
           project-hash="8f9de195bcef4de0af325df3f772fdcc"
           data-language="nor"
-        >
-          <Loader />
-        </goevent-web>
+        ></goevent-web>
       </div>
     )
   }
