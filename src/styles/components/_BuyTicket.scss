@@ -25,16 +25,22 @@
     pointer-events: all;
     height: 100%;
     max-height: rem-calc(30);
-    line-height: 100%;
-    
+    line-height: 0;
+    font-family: $f-serif;
+    padding-top: rem-calc(15);
+    padding-bottom: rem-calc(15);
 
     @include bp(md) {
       max-height: rem-calc(40);
+      font-size: 1.2rem;
+      padding-top: rem-calc(20);
+      padding-bottom: rem-calc(20);
     }
 
     @include bp(lg) {
       max-height: 9999px;
       height: auto;
+      font-size: 1.4rem;
     }
   }
 
@@ -60,6 +66,7 @@
       border-radius: 50%;
       @include spacing("md", ("padding-left", "padding-right"));
       @include spacing("sm", ("padding-top", "padding-bottom"));
+      line-height: 1;
       animation: bubble-appear 0.5s 3s ease both;
       margin-top: -35px;
 
