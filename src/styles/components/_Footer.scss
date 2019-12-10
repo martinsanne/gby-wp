@@ -1,6 +1,6 @@
 .Footer {
   overflow: hidden;
-  
+
   &__wrapper {
     position: relative;
     @include spacing(md, padding-bottom);
@@ -16,12 +16,13 @@
 
   &__decor {
     @extend .container;
-    @include spacing(lg, (padding-top, padding-bottom));
+    @include spacing(lg, (padding-top));
 
     @include bp(lg) {
       display: flex;
       margin-bottom: 0;
       align-items: center;
+      justify-content: center;
     }
 
     &-item {
@@ -50,10 +51,11 @@
     text-align: center;
     margin-bottom: spacing(section, sm);
     @include bp(lg) {
+      @include spacing(xs, margin-bottom);
       width: 50%;
     }
   }
-  
+
   &__content {
     @extend .container;
     text-align: center;
