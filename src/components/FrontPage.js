@@ -291,7 +291,7 @@ export const query = graphql`
         }
       }
       hero {
-        tagline
+        # tagline
         headliners {
           wordpress_id
           status
