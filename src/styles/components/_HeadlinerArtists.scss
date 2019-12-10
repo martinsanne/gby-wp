@@ -23,6 +23,9 @@
     &:hover {
       position: relative;
       z-index: 99;
+      .HeadlinerArtists__graphic {
+        -webkit-filter: drop-shadow(2px 2px 1px $c-background);
+      }
     }
   }
 
