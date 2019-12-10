@@ -34,17 +34,17 @@
     }
     @include bp(xl) {
       top: -75px;
-      left: 5%;
+      left: 0;
     }
   }
 
   &__hand {
     position: absolute;
-    bottom: -30px;
-    right: -50px;
+    display: none;
     @include bp(md) {
+      display: block;
       bottom: -50px;
-      right: -110px;
+      right: -50px;
     }
     @include bp(lg) {
       bottom: -100px;

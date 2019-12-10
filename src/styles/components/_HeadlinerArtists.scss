@@ -1,5 +1,7 @@
 .HeadlinerArtists {
-  display: inline;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   &__image {
     position: absolute;
@@ -65,7 +67,6 @@
     }
   }
 
-
   /*
 
   LAUNCH HEADER DSIGN
@@ -78,7 +79,7 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   &--launch &__link {
     display: inline-block;
     text-align: center;
@@ -87,7 +88,7 @@
   &--launch &__divider {
     display: none !important;
   }
-  
+
   &--launch &__item {
     position: relative;
     margin-bottom: 1rem;
@@ -114,5 +115,4 @@
     bottom: 0;
     left: 100%;
   }
-
 }

@@ -7,22 +7,16 @@ const Hero = ({ hero }) => {
     <div className="Hero">
       <div className="Hero__container container">
         <div className="Hero__content">
-          {hero.headliners && hero.headliners.length <= 2 && (
+          {hero.headliners && (
             <Illustration
               className="Hero__rocket"
               src="illustrations/rocket-left-speed.png"
             />
           )}
-          {hero.headliners && hero.headliners.length > 2 && (
-            <Illustration
-              className="Hero__illustration"
-              src="illustrations/carrot.png"
-            />
-          )}
           {hero?.headliners && (
             <HeadlinerArtists artists={hero.headliners} hero />
           )}
-          {hero.headliners && hero.headliners.length <= 2 && (
+          {hero.headliners && (
             <>
               <Illustration
                 className="Hero__hand"
