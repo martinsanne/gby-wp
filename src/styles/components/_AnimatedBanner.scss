@@ -1,6 +1,5 @@
 .AnimatedBanner {
-
-  @include spacing(lg,(margin-bottom));
+  @include spacing(lg, (margin-bottom));
 
   position: relative;
   z-index: 9;
@@ -26,8 +25,8 @@
 
   &__wrapper {
     position: relative;
-    // display: flex;
-    // align-items: center;
+    display: flex;
+    align-items: center;
     animation: banner 10s linear infinite both;
 
     @include bp(lg) {
@@ -41,14 +40,11 @@
   &__illustration {
     max-height: rem-calc(200);
     animation: snail linear 1s infinite both;
-    position: absolute;
-    right: 100%;
-    top: -50%;
   }
-  
+
   &__banner {
     background: white;
-    border: $border--large;
+    border: $border;
     @include spacing(sm, (padding-top, padding-bottom));
     @include spacing(lg, (padding-left, padding-right));
     white-space: nowrap;
