@@ -24,17 +24,22 @@
     position: absolute;
     left: -50px;
     top: -30px;
+    display: none;
     @include bp(md) {
-      top: -50px;
-      left: -100px;
+      display: block;
+      top: 0px;
+      left: -75px;
     }
     @include bp(lg) {
       top: -50px;
-      left: 0;
+      left: -100px;
     }
     @include bp(xl) {
       top: -75px;
-      left: 0;
+      left: -50px;
+    }
+    @include bp(xxl) {
+      left: 0px;
     }
   }
 
