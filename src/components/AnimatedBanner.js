@@ -21,7 +21,7 @@ const AnimatedBanner = ({ illustration, text, reverse = false }) => {
             />
             {text && (
               <div className="AnimatedBanner__banner">
-                <h2>{text}</h2>
+                <h3>{text}</h3>
               </div>
             )}
           </div>
