@@ -22,6 +22,7 @@
   }
 
   &__lead {
+    font-family: $f-serif;
     line-height: 1.35;
     @include font-size(h3);
     @include content-width("text");
