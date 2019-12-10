@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  @include spacing(lg, margin-top);
+  @include spacing(sm, margin-top);
   position: relative;
 
   &__layout {
