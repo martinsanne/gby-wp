@@ -1,22 +1,26 @@
 .Artists {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: baseline;
   @include spacing(sm, (margin-top, margin-bottom));
   position: relative;
 
+  &--headliners {
+    @include spacing(md, margin-bottom);
+    .Artists__item {
+      @include font-size(h1);
+
+      @include bp(xxl) {
+        // Clamp max size
+        font-size: rem-calc(65);
+      }
+    }
+  }
+
   &__layout {
     display: flex;
     flex-direction: column;
-    .Artists {
-      @include bp(lg) {
-        width: 65%;
-      }
-
-      &:nth-of-type(2) {
-        align-self: flex-end;
-      }
-    }
   }
 
   &__item {

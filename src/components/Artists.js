@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Link } from "gatsby"
+import cc from "classcat"
 
 import addDivider from "../utils/addDivider"
 import useTimeout from "./hooks/useTimeout"
@@ -8,7 +9,7 @@ import useWindowSize from "./hooks/useWindowSize"
 import { Html, Mouse, Overlay } from "./utils"
 import FontToggle from "./utils/FontToggle"
 
-const Artists = ({ artists }) => {
+const Artists = ({ artists, headliners }) => {
   const wrapper = useRef()
   const windowSize = useWindowSize({ debounce: 400 })
   const [currentArtist, setCurrentArtist] = useState(null)
@@ -28,10 +29,13 @@ const Artists = ({ artists }) => {
     }
   }, [windowSize])
   return (
-    <div className="Artists" ref={wrapper}>
+    <div
+      className={cc({ Artists: true, "Artists--headliners": headliners })}
+      ref={wrapper}
+    >
       {artists?.map((artist, i) => (
         <Link
-          key={artist.wordpress_id}
+          key={artist.id}
           className="Artists__link"
           to={`${artist?.acf?.greencopper_url[0] !== "/" ? "/" : ""}${
             artist?.acf?.greencopper_url
