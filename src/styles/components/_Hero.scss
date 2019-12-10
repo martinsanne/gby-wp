@@ -1,5 +1,6 @@
 .Hero {
-  @include spacing(lg, (margin-top, margin-bottom));
+  @include spacing(lg, (margin-top));
+  // @include spacing(sm, (margin-bottom));
 
   &__logo {
     display: block;
