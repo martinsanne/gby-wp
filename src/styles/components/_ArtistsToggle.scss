@@ -4,7 +4,7 @@
   &__toggle {
     position: relative;
     // text-align: center;
-    @include spacing(sm, margin-top);
+    @include spacing(sm, (margin-top, margin-bottom));
 
     &--is-open {
       &:before {
