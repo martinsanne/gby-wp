@@ -39,6 +39,7 @@
 
   &__illustration {
     max-height: rem-calc(200);
+    min-width: rem-calc(150);
     animation: snail linear 1s infinite both;
   }
 
@@ -49,6 +50,11 @@
     @include spacing(lg, (padding-left, padding-right));
     white-space: nowrap;
     display: inline-block;
+
+    @include bp(lg) {
+      margin-left: -25px;
+      margin-bottom: -25px;
+    }
     h2 {
       font-family: $f-sans;
     }
