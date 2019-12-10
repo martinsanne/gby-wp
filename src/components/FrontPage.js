@@ -56,7 +56,7 @@ export default props => {
                   <ArtistsToggle>
                     <div className="Artists__layout">
                       {headliners && headliners.length > 0 && (
-                        <Artists artists={headliners} />
+                        <Artists artists={headliners} headliners />
                       )}
                       {artists && artists.length > 0 && (
                         <Artists artists={artists} />
