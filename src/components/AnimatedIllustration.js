@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import cc from "classcat"
 
-import useInterval from "./hooks/useInterval"
 import { Illustration } from "./utils"
 import { randomIntFromRange } from "./Hero2019"
 
@@ -14,9 +13,9 @@ const AnimatedIllustration = ({
 }) => {
   const [top, setTop] = useState(`${Math.floor(Math.random() * 100)}%`)
 
-  useInterval(() => {
+  useEffect(() => {
     setTop(`${Math.floor(Math.random() * 100)}%`)
-  }, 10000)
+  }, [])
 
   if (typeof window === "undefined") return children
 
