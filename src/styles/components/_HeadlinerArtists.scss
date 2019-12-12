@@ -1,7 +1,12 @@
 .HeadlinerArtists {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  @include bp(md) {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   &__image {
     position: absolute;
@@ -17,20 +22,10 @@
     }
   }
 
-  &__group {
-    display: inline-flex;
-
-    &:hover {
-      position: relative;
-      z-index: 99;
-      .HeadlinerArtists__graphic {
-        filter: drop-shadow(2px 2px 1px $c-background);
-      }
-    }
-  }
-
   &__item {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
     @each $bp, $size in $headlinerSizes {
       @include bp($bp) {
         margin-bottom: rem-calc($size * 0.65);
@@ -38,10 +33,23 @@
     }
   }
 
+  &__group {
+    display: inline-flex;
+    max-width: 100%;
+
+    &:hover {
+      position: relative;
+      z-index: 99;
+    }
+  }
+
   &__graphic {
     height: rem-calc(30);
     width: auto;
-    max-width: calc(100vw - 50px);
+    max-width: 100%;
+    @include bp(lg) {
+      max-width: calc(100vw - 50px);
+    }
 
     @each $bp, $size in $headlinerSizes {
       @include bp($bp) {
@@ -53,16 +61,19 @@
   &__country {
     @extend .small;
     align-self: flex-end;
-    // transform: translateY(0.15em);
   }
 
   &__divider {
-    display: inline-block;
+    display: none;
     @each $bp, $size in $headlinerSizes {
       @include bp($bp) {
         height: rem-calc($size);
         width: rem-calc($size);
       }
+    }
+
+    @include bp(md) {
+      display: inline-block;
     }
 
     &--hide {

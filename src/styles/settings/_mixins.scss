@@ -1,27 +1,26 @@
-$illu-sizes:(
+$illu-sizes: (
   sm: 120,
   md: 200,
   lg: 250,
 );
 
 @function get-illu-size($bp) {
-  @return map-get($illu-sizes , $bp);
+  @return map-get($illu-sizes, $bp);
 }
 
-@mixin illu-size($props, $multiplier:1) {
+@mixin illu-size($props, $multiplier: 1) {
   @each $bp, $size in $illu-sizes {
     @include bp($bp) {
       @each $prop in $props {
-        #{$prop}: rem-calc($size*$multiplier);
+        #{$prop}: rem-calc($size * $multiplier);
       }
     }
   }
 }
 
-
 @mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
-  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $dimension: if(unit($responsive) == "vh", "height", "width");
   $min-breakpoint: $min / $responsive-unitless * 100;
   @media (max-#{$dimension}: #{$min-breakpoint}) {
     font-size: $min;
@@ -43,7 +42,7 @@ $illu-sizes:(
     position: fixed;
     background: white;
     z-index: 9999999;
-    @include spacing('md', ('left', 'bottom'));
+    @include spacing("md", ("left", "bottom"));
     background: white;
     padding: 0.5em;
     border-radius: 50%;
@@ -51,7 +50,7 @@ $illu-sizes:(
   @each $bp, $val in $breakpoints {
     @include bp($bp) {
       &:after {
-        content: '#{$bp}';
+        content: "#{$bp}";
       }
     }
   }
@@ -73,21 +72,22 @@ $illu-sizes:(
 }
 
 @mixin container {
-  @include content-width('image');
+  @include content-width("image");
   position: relative;
   width: 100%;
+  overflow-x: hidden;
   margin: 0 auto;
-  padding-left: spacing('sm', 'sm');
-  padding-right: spacing('sm', 'sm');
+  padding-left: spacing("sm", "sm");
+  padding-right: spacing("sm", "sm");
 
   @include bp(md) {
-    padding-left: spacing('sm', 'md');
-    padding-right: spacing('sm', 'md');
+    padding-left: spacing("sm", "md");
+    padding-right: spacing("sm", "md");
   }
 
   @include bp(lg) {
-    padding-left: spacing('md', 'lg');
-    padding-right: spacing('md', 'lg');
+    padding-left: spacing("md", "lg");
+    padding-right: spacing("md", "lg");
   }
 }
 

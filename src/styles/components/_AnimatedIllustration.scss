@@ -1,5 +1,7 @@
 .AnimatedIllustration {
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
 
   &__illustration {
     position: absolute;

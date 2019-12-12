@@ -5,7 +5,7 @@ import Illustration from "./utils/Illustration"
 const Hero = ({ hero }) => {
   return (
     <div className="Hero">
-      <div className="Hero__container container">
+      <div className="Hero__container">
         <div className="Hero__content">
           {hero.headliners && (
             <Illustration

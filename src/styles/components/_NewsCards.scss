@@ -54,7 +54,7 @@
     transition: $trans;
     @include spacing(xs, margin-bottom);
     border: $s-border__width--large solid $c-white;
-    background: #FFF;
+    background: #fff;
   }
 
   &__content {
