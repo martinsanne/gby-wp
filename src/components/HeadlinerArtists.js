@@ -49,7 +49,7 @@ const HeadlinerArtists = ({ artists }) => {
               }`}
             >
               <div className="HeadlinerArtists__item">
-                <span className="HeadlinerArtists__group">
+                <div className="HeadlinerArtists__group">
                   <img
                     className="HeadlinerArtists__graphic"
                     src={artist?.acf?.name_graphic?.url}
@@ -58,16 +58,16 @@ const HeadlinerArtists = ({ artists }) => {
                     onMouseLeave={() => setCurrentArtist(null)}
                   />
                   {artist.acf.country_code && (
-                    <span className="HeadlinerArtists__country">
+                    <div className="HeadlinerArtists__country">
                       &nbsp;({artist.acf.country_code})
-                    </span>
+                    </div>
                   )}
-                </span>
-                <span className="HeadlinerArtists__divider">
+                </div>
+                <div className="HeadlinerArtists__divider">
                   <svg viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="8" fill="black" />
                   </svg>
-                </span>
+                </div>
               </div>
             </Link>
           )

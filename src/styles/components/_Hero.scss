@@ -53,6 +53,7 @@
   &__hand {
     position: absolute;
     display: none;
+    z-index: 99999;
     @include bp(md) {
       display: block;
       bottom: -50px;
