@@ -33,8 +33,13 @@
     }
   }
 
+  &__link {
+    display: block;
+  }
+
   &__group {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     max-width: 100%;
 
     &:hover {
@@ -46,7 +51,7 @@
   &__graphic {
     height: rem-calc(30);
     width: auto;
-    max-width: 100%;
+    max-width: 90%;
 
     @include bp(lg) {
       max-width: calc(100vw - 50px);
@@ -62,7 +67,6 @@
   &__country {
     @extend .small;
     align-self: flex-end;
-    // transform: translateY(0.15em);
   }
 
   &__divider {
