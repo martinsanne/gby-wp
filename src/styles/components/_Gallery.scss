@@ -50,4 +50,9 @@
       right: -100px;
     }
   }
+
+  // Remove black stripes on top and bottom of vimeo embed in gallery.
+  .VimeoWrapper {
+    transform: scale(1.2);
+  }
 }
