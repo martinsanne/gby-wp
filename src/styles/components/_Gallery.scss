@@ -53,6 +53,7 @@
 
   // Remove black stripes on top and bottom of vimeo embed in gallery.
   .VimeoWrapper {
+    min-height: 420px;
     transform: scale(1.2);
   }
 }
