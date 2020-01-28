@@ -21,6 +21,7 @@ export default class FooterCredits extends Component {
           >
             Heydays
           </a>
+          .
         </p>
         <p>
           Utvikling av{" "}
@@ -31,6 +32,7 @@ export default class FooterCredits extends Component {
           >
             Heydays
           </a>
+          .
         </p>
       </div>
     )
