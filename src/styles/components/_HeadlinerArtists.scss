@@ -51,7 +51,11 @@
   &__graphic {
     height: rem-calc(30);
     width: auto;
-    max-width: 90%;
+
+    // Fix for long artist name on iphone 5
+    @media (max-width: em-calc(321)) {
+      height: rem-calc(22);
+    }
 
     @include bp(lg) {
       max-width: calc(100vw - 50px);
@@ -66,7 +70,8 @@
 
   &__country {
     @extend .small;
-    align-self: flex-end;
+    align-self: center;
+    line-height: 1;
   }
 
   &__divider {
