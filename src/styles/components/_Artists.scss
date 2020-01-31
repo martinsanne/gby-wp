@@ -37,6 +37,9 @@
   }
 
   &__group {
+    // display: inline-flex;
+    // flex-wrap: nowrap;
+
     &:hover {
       position: relative;
       z-index: 99;
@@ -44,16 +47,17 @@
   }
 
   &__name {
-    display: inline-block;
+    display: inline;
     margin-bottom: 0;
   }
 
   &__country {
-    display: inline-block;
+    display: inline;
   }
 
   &__divider {
     display: none;
+
     @include bp(md) {
       display: inline-block;
       padding: 0 rem-calc(10);
