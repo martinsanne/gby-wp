@@ -70,7 +70,7 @@
 
   &__country {
     @extend .small;
-    align-self: center;
+    align-self: flex-end;
     line-height: 1;
   }
 
