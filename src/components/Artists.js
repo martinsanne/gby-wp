@@ -51,7 +51,7 @@ const Artists = ({ artists, headliners }) => {
             >
               <FontToggle i={i}>
                 <span className="Artists__name">
-                  <Html content={artist?.title?.rendered} />
+                  <Html El="span" content={artist?.title?.rendered} />
                 </span>
               </FontToggle>
               {artist?.acf?.country_code && (
