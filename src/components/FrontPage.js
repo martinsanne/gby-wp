@@ -85,8 +85,8 @@ export default props => {
         src="illustrations/snail2.png"
         reverse
       >
-        <div className="container">
-          {posts && acf && acf.news && (
+        {posts && acf && acf.news && (
+          <div className="container">
             <Section
               title={acf.news.title || ""}
               desc={acf.news.description || ""}
@@ -108,8 +108,8 @@ export default props => {
                 )}
               </div>
             </Section>
-          )}
-        </div>
+          </div>
+        )}
       </AnimatedIllustration>
 
       {acf.did_you_know && acf.did_you_know.first_paragraph && (
