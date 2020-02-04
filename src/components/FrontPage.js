@@ -120,14 +120,18 @@ export default props => {
         </Section>
       )}
 
-      <AnimatedIllustration name="bie" src="illustrations/bee-left.png" reverse>
-        <div className="container">
-          {acf && acf.gallery && (
-            <StaticQuery
-              query={galleryQuery}
-              render={data => {
-                const gallery = data.wordpressWpGallery
-                return (
+      {acf && acf.gallery && (
+        <StaticQuery
+          query={galleryQuery}
+          render={data => {
+            const gallery = data.wordpressWpGallery
+            return (
+              <AnimatedIllustration
+                name="bie"
+                src="illustrations/bee-left.png"
+                reverse
+              >
+                <div className="container">
                   <Section
                     title={acf.gallery.title || ""}
                     desc={acf.gallery.description || ""}
@@ -145,12 +149,12 @@ export default props => {
                       )}
                     </div>
                   </Section>
-                )
-              }}
-            />
-          )}
-        </div>
-      </AnimatedIllustration>
+                </div>
+              </AnimatedIllustration>
+            )
+          }}
+        />
+      )}
     </div>
   )
 }
