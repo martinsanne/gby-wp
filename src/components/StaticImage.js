@@ -23,7 +23,11 @@ export default function StaticImage({ src, aspect, className, children }) {
 
   if (src === "random") {
     const illusOnly = data.allFile.edges.filter(item => {
-      return item.node.relativePath.includes("illustrations")
+      const blacklisted = ["bee-left", "bee-right", "snail2"]
+      return (
+        item.node.relativePath.includes("illustrations") &&
+        !blacklisted.includes(item.node.name)
+      )
     })
     image = [illusOnly[Math.floor(Math.random() * illusOnly.length)]]
   } else if (src) {
@@ -53,6 +57,7 @@ const query = graphql`
     allFile {
       edges {
         node {
+          name
           relativePath
           default: childImageSharp {
             fluid(maxWidth: 500) {
