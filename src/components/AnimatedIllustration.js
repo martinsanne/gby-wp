@@ -11,10 +11,10 @@ const AnimatedIllustration = ({
   className,
   children,
 }) => {
-  const [top, setTop] = useState(`${Math.floor(Math.random() * 100)}%`)
+  const [top, setTop] = useState(`${Math.floor(Math.random() * 70)}%`)
 
   useEffect(() => {
-    setTop(`${Math.floor(Math.random() * 100)}%`)
+    setTop(`${Math.floor(Math.random() * 70)}%`)
   }, [])
 
   if (typeof window === "undefined") return children
