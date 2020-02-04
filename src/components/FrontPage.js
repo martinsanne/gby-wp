@@ -52,8 +52,8 @@ export default props => {
               )}
               {hero?.headliners?.length > 0 && <Hero hero={hero} />}
               {allArtists && allArtists.length > 0 && (
-                <div className="container">
-                  <ArtistsToggle>
+                <ArtistsToggle>
+                  <div className="container">
                     <div className="Artists__layout">
                       {headliners && headliners.length > 0 && (
                         <Artists artists={headliners} headliners />
@@ -62,8 +62,8 @@ export default props => {
                         <Artists artists={artists} />
                       )}
                     </div>
-                  </ArtistsToggle>
-                </div>
+                  </div>
+                </ArtistsToggle>
               )}
             </>
           )
@@ -86,11 +86,11 @@ export default props => {
         reverse
       >
         {posts && acf && acf.news && (
-          <div className="container">
-            <Section
-              title={acf.news.title || ""}
-              desc={acf.news.description || ""}
-            >
+          <Section
+            title={acf.news.title || ""}
+            desc={acf.news.description || ""}
+          >
+            <div className="container">
               <div className="NewsCards NewsCards--frontpage">
                 {posts.map((post, i) => (
                   <NewsCard
@@ -107,17 +107,17 @@ export default props => {
                   </Link>
                 )}
               </div>
-            </Section>
-          </div>
+            </div>
+          </Section>
         )}
       </AnimatedIllustration>
 
       {acf.did_you_know && acf.did_you_know.first_paragraph && (
-        <div className="container">
-          <Section>
+        <Section>
+          <div className="container">
             <Fact data={acf.did_you_know} />
-          </Section>
-        </div>
+          </div>
+        </Section>
       )}
 
       <AnimatedIllustration name="bie" src="illustrations/bee-left.png" reverse>
