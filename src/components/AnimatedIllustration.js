@@ -25,7 +25,7 @@ const AnimatedIllustration = ({
     <div
       className={cc({
         AnimatedIllustration: true,
-        [className]: AnimatedIllustration,
+        [className]: className,
       })}
     >
       <Illustration
