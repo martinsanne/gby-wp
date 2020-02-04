@@ -1,10 +1,13 @@
 .Artists {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: baseline;
   @include spacing(sm, (margin-top, margin-bottom));
   position: relative;
+
+  @include bp(md) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
 
   &--headliners {
     @include spacing(md, margin-bottom);
@@ -19,16 +22,24 @@
   }
 
   &__layout {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    @include bp(md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__item {
+    display: block;
     position: relative;
     margin-bottom: 0;
   }
 
   &__group {
+    // display: inline-flex;
+    // flex-wrap: nowrap;
+
     &:hover {
       position: relative;
       z-index: 99;
@@ -36,17 +47,21 @@
   }
 
   &__name {
-    display: inline-block;
+    display: inline;
     margin-bottom: 0;
   }
 
   &__country {
-    display: inline-block;
+    display: inline;
   }
 
   &__divider {
-    display: inline-block;
-    padding: 0 rem-calc(10);
+    display: none;
+
+    @include bp(md) {
+      display: inline-block;
+      padding: 0 rem-calc(10);
+    }
 
     &--hide {
       opacity: 0;

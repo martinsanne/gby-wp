@@ -49,10 +49,8 @@ const Artists = ({ artists, headliners }) => {
               }}
               onMouseLeave={() => setCurrentArtist(null)}
             >
-              <FontToggle i={i}>
-                <span className="Artists__name">
-                  <Html content={artist?.title?.rendered} />
-                </span>
+              <FontToggle i={i} className="Artists__name">
+                <Html El="span" content={artist?.title?.rendered} />
               </FontToggle>
               {artist?.acf?.country_code && (
                 <small className="Artists__country">

@@ -17,9 +17,9 @@
   }
 
   @keyframes animated-snegle {
-    @for $i from 1 through 100 {
+    @for $i from 0 through 100 {
       #{$i*1%} {
-        transform: translateX(100 - ($i * 1vw))
+        transform: translateX(100 - ($i * 1.16vw))
           rotate($i % 3 * 1deg)
           translateY($i % 4 * 1px);
       }
