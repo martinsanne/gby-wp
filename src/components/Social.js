@@ -1,6 +1,6 @@
 import React from "react"
 import cc from "classcat"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import { createSocialLinksFromYOAST } from "../utils/wpHelpers"
 import { Icon } from "./utils"
@@ -50,12 +50,10 @@ const Social = props => {
           </a>
         )
       })}
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
         aria-label="Tilgjengelighetsmerket"
         className="Social__item"
-        href="https://www.tilgjengelighetsmerket.no"
+        to="/info/tilgjengelighet/"
       >
         <Icon
           className="Social__icon"
@@ -63,7 +61,7 @@ const Social = props => {
           name="accesibility"
           aria-label="Tilgjengelighetsmerket icon"
         />
-      </a>
+      </Link>
     </div>
   )
 }
