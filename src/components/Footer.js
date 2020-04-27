@@ -19,12 +19,12 @@ const Footer = () => {
         <div className="Footer__decor">
           <div className="Footer__left">
             <div className="Footer__logo">
-              <Logo fill="#FFFFFF" />
+              <Logo type="footer" fill="#FFFFFF" />
             </div>
             <p className="Footer__decor-item">
               <FormattedMessage
                 id="global.dateAndPlace"
-                defaultMessage="11.–15. august, Tøyenparken, Oslo"
+                defaultMessage="10.–14. august, Tøyenparken, Oslo"
               />
             </p>
           </div>

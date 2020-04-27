@@ -8,7 +8,7 @@ export default class FestivalInfoMarquee extends Component {
     return (
       <FormattedMessage
         id="global.dateAndPlace"
-        defaultMessage="11.–15. august, Tøyenparken, Oslo"
+        defaultMessage="10.–14. august, Tøyenparken, Oslo"
       >
         {string => {
           string = string + " • "

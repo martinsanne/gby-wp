@@ -26,7 +26,7 @@ export default class Header extends Component {
                   to={"/"}
                   onClick={ctx.actions.closeMenu}
                 >
-                  <Logo type="hor" />
+                  <Logo type="main" />
                 </Link>
                 <BuyTicket className="Header__buy" />
                 <Menu />

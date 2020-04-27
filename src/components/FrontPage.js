@@ -70,8 +70,8 @@ export default props => {
         }}
       </AsyncArtistLoader>
       <FormattedMessage
-        id="global.dateAndPlace"
-        defaultMessage="11.–15. august, Tøyenparken, Oslo"
+        id="global.nextYear"
+        defaultMessage="Vi sees til neste år!"
       >
         {string => (
           <AnimatedBanner

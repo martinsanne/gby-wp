@@ -144,7 +144,7 @@ module.exports = {
          */
         baseUrl:
           process.env.NODE_ENV === "development"
-            ? "oya.test"
+            ? "api.oyafestivalen.no"
             : process.env.TYPE && process.env.TYPE === "staging"
             ? "stagingapi.oyafestivalen.no"
             : "api.oyafestivalen.no",
