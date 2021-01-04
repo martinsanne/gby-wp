@@ -6,14 +6,10 @@ import cc from "classcat"
 /**
  * React intl setup
  */
-import { IntlProvider, addLocaleData } from "react-intl"
-import en from "react-intl/locale-data/en"
-import nb from "react-intl/locale-data/nb"
+import { IntlProvider } from "react-intl"
 import intlTranslations from "../intl"
 import Header from "./Header"
 import Footer from "./Footer"
-
-addLocaleData([...en, ...nb])
 
 const Layout = ({ children, locale, translations, options, settings }) => {
   if (!locale) {

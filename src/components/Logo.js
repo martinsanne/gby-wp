@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import { getRandomColor } from "../utils/colors"
 
 export default class Logo extends Component {
   state = {

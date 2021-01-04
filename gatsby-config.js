@@ -1,5 +1,4 @@
-var striptags = require("striptags")
-var proxy = require("http-proxy-middleware")
+const proxy = require("http-proxy-middleware")
 
 module.exports = {
   siteMetadata: {
@@ -92,45 +91,6 @@ module.exports = {
         icon: `src/images/oyafestivalen-app-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
-    //   options: {
-    //     // Fields to index
-    //     fields: [`title`, `excerpt`],
-    //     // How to resolve each field`s value for a supported node type
-    //     resolvers: {
-    //       // For any node of type MarkdownRemark, list how to resolve the fields` values
-    //       wordpress__POST: {
-    //         title: node => node.title,
-    //         link: node => node.link,
-    //         locale: node => node.locale,
-    //         content: node => {
-    //           return striptags(node.content)
-    //         },
-    //         featured_image: node => {
-    //           return node.featured_image
-    //         },
-    //         excerpt: node => {
-    //           return striptags(node.excerpt)
-    //         },
-    //       },
-    //       wordpress__PAGE: {
-    //         title: node => node.title,
-    //         link: node => node.link,
-    //         locale: node => node.locale,
-    //         content: node => {
-    //           return striptags(node.content)
-    //         },
-    //         featured_image: node => {
-    //           return node.featured_image
-    //         },
-    //         excerpt: node => {
-    //           return striptags(node.excerpt)
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from Wordpress.
@@ -138,6 +98,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
+        minimizeDeprecationNotice: true,
         /*
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
