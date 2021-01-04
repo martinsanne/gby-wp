@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 
   @include bp(md) {
     justify-content: center;
@@ -27,12 +30,12 @@
     justify-content: center;
     max-width: 100%;
 
-    @each $bp,
-    $size in $headlinerSizes {
-      @include bp($bp) {
-        margin-bottom: rem-calc($size * 0.65);
-      }
-    }
+    margin-bottom: 34px;
+    // @each $bp, $size in $headlinerSizes {
+    //   @include bp($bp) {
+    //     margin-bottom: rem-calc($size * 0.65);
+    //   }
+    // }
   }
 
   &__link {
@@ -63,8 +66,7 @@
       max-width: calc(100vw - 50px);
     }
 
-    @each $bp,
-    $size in $headlinerSizes {
+    @each $bp, $size in $headlinerSizes {
       @include bp($bp) {
         height: rem-calc($size);
       }
@@ -80,8 +82,7 @@
   &__divider {
     display: none;
 
-    @each $bp,
-    $size in $headlinerSizes {
+    @each $bp, $size in $headlinerSizes {
       @include bp($bp) {
         height: rem-calc($size);
         width: rem-calc($size);

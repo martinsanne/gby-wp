@@ -10,6 +10,8 @@ import { IntlProvider } from "react-intl"
 import intlTranslations from "../intl"
 import Header from "./Header"
 import Footer from "./Footer"
+import { ThemeProvider } from "styled-components"
+import baseTheme from "../styles/baseTheme"
 
 const Layout = ({ children, locale, translations, options, settings }) => {
   if (!locale) {
@@ -23,18 +25,20 @@ const Layout = ({ children, locale, translations, options, settings }) => {
         options={options}
         settings={settings}
       >
-        <div
-          className={cc({
-            App: true,
-            "App--development": process.env.NODE_ENV === "development",
-          })}
-        >
-          <div className="App__routes">
-            <Header />
-            <main>{children}</main>
-            <Footer />
+        <ThemeProvider theme={baseTheme}>
+          <div
+            className={cc({
+              App: true,
+              "App--development": process.env.NODE_ENV === "development",
+            })}
+          >
+            <div className="App__routes">
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </AppProvider>
     </IntlProvider>
   )

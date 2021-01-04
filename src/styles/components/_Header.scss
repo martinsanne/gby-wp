@@ -7,23 +7,8 @@
   background: $c-background;
 
   &--dark {
-    background: black;
-    // transition: $trans;
-    .Logo__svg {
-      fill: white;
-    }
-    .LanguageSwitcher {
-      color: black;
-    }
-
-    .Header__buy {
-      .BuyTicket {
-        &__bubble {
-          border-color: $c-white;
-          color: $c-white;
-        }
-      }
-    }
+    color: $c-white;
+    background: $c-black;
 
     .BuyTicket {
       display: none;
@@ -42,6 +27,7 @@
     margin-right: auto;
     padding-left: spacing("sm", "sm");
     padding-right: spacing("sm", "sm");
+    position: relative;
 
     @include bp(md) {
       padding-left: spacing("sm", "md");
@@ -81,11 +67,11 @@
       z-index: 9;
       white-space: nowrap;
       top: 0;
-      right: 10%;
+      right: 100px;
     }
 
-    @include bp(xxl) {
-      right: 15%;
-    }
+    // @include bp(xxl) {
+    //   right: 120px;
+    // }
   }
 }

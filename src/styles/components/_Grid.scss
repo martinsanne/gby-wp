@@ -1,0 +1,5 @@
+.Grid {
+  &__item {
+    @include spacing(xs, (padding-left, padding-right));
+  }
+}

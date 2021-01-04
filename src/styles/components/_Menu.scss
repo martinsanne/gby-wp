@@ -1,7 +1,5 @@
 .Menu {
-  // flex-grow: 1;
   text-align: right;
-  // @include negative-spacing('xs', ('margin-left', 'margin-right'));
 
   @include bp(lg) {
     display: flex;
@@ -21,10 +19,7 @@
   }
 
   &__item {
-    // display: inline-block;
-    // font-size: rem-calc(22);
-    // width: calc(100% / 3);
-    @include font-size(h2);
+    @include font-size(h3);
     width: auto;
 
     @include bp(md) {

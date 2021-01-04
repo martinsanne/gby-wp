@@ -41,9 +41,7 @@ const Post = ({ post }) => {
         </ResponsiveEmbeds>
       </div>
       <footer className="Post__footer">
-        <div className="NewsCards NewsCards--footer">
-          {isBrowser && <LatestPosts wordpress_id={wordpress_id} />}
-        </div>
+        {isBrowser && <LatestPosts wordpress_id={wordpress_id} />}
       </footer>
     </article>
   )

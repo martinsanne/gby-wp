@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
-import { FormattedMessage } from "react-intl"
+import Grid from "styled-components-grid"
 
 import Section from "./Section"
 import Artists from "./Artists"
@@ -8,11 +8,12 @@ import Hero from "./Hero"
 import ArtistsToggle from "./ArtistsToggle"
 import NewsCard from "./NewsCard"
 import Gallery from "./Gallery"
-import AnimatedBanner from "./AnimatedBanner"
+// import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
 import Logo from "./Logo"
+import SocialBox from "./SocialBox"
 
 export default props => {
   const { page } = props
@@ -69,7 +70,7 @@ export default props => {
           )
         }}
       </AsyncArtistLoader>
-      <FormattedMessage
+      {/* <FormattedMessage
         id="global.dateAndPlace"
         defaultMessage="10—14 August 2021, Oslo, Norway"
       >
@@ -79,27 +80,36 @@ export default props => {
             text={string}
           />
         )}
-      </FormattedMessage>
-      <AnimatedIllustration
-        name="snegle"
-        src="illustrations/snail2.png"
-        reverse
-      >
-        {posts && acf && acf.news && (
+      </FormattedMessage> */}
+
+      {posts && acf && acf.news && (
+        <AnimatedIllustration
+          name="snegle"
+          src="illustrations/snail2.png"
+          reverse
+        >
           <Section
-            title={acf.news.title || ""}
+            // title={acf.news.title || ""}
             desc={acf.news.description || ""}
           >
             <div className="container">
-              <div className="NewsCards NewsCards--frontpage">
+              <Grid className="Grid NewsCards NewsCards--frontpage">
+                <Grid.Unit
+                  className="Grid__item"
+                  size={{ sm: 1 / 2, lg: 1 / 3 }}
+                >
+                  <SocialBox />
+                </Grid.Unit>
                 {posts.map((post, i) => (
-                  <NewsCard
+                  <Grid.Unit
+                    className="Grid__item"
+                    size={{ sm: 1 / 2, lg: 1 / 3 }}
                     key={`NewsCard-${post.wordpress_id}`}
-                    post={post}
-                    i={i}
-                  />
+                  >
+                    <NewsCard post={post} i={i} />
+                  </Grid.Unit>
                 ))}
-              </div>
+              </Grid>
               <div className="Section__action">
                 {acf.news.link && (
                   <Link className="button" to={acf.news.link.url}>
@@ -109,8 +119,8 @@ export default props => {
               </div>
             </div>
           </Section>
-        )}
-      </AnimatedIllustration>
+        </AnimatedIllustration>
+      )}
 
       {acf.did_you_know && acf.did_you_know.first_paragraph && (
         <Section>

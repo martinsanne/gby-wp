@@ -70,6 +70,7 @@ module.exports = {
     //     redirect: false,
     //   },
     // },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

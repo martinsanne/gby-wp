@@ -1,4 +1,6 @@
 import React from "react"
+import Grid from "styled-components-grid"
+
 import { Html } from "./utils/"
 import NewsCard from "./NewsCard"
 import PostCategoryNav from "./PostCategoryNav"
@@ -21,11 +23,17 @@ const BlogPage = ({ posts, page, year }) => {
         </div>
       </header>
       <div className="BlogPage__content">
-        <div className="NewsCards">
+        <Grid className="Grid NewsCards">
           {posts.map((post, i) => (
-            <NewsCard key={`NewsCard-${post.wordpress_id}`} post={post} i={i} />
+            <Grid.Unit
+              className="Grid__item"
+              size={{ sm: 1 / 2, lg: 1 / 3 }}
+              key={`NewsCard-${post.wordpress_id}`}
+            >
+              <NewsCard post={post} i={i} />
+            </Grid.Unit>
           ))}
-        </div>
+        </Grid>
       </div>
     </article>
   )

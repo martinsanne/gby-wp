@@ -10,6 +10,7 @@
     "@rooks/use-timeout": "^3.3.0",
     "@u-wave/react-vimeo": "^0.6.0",
     "axios": "^0.21.1",
+    "babel-plugin-styled-components": "^1.12.0",
     "classcat": "^4.1.0",
     "date-fns": "^2.16.1",
     "gatsby": "^2.29.3",
@@ -30,6 +31,7 @@
     "gatsby-plugin-sass": "^2.8.0",
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-sitemap": "^2.9.0",
+    "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-source-wordpress": "^3.8.1",
     "gatsby-transformer-sharp": "^2.9.0",
@@ -49,6 +51,7 @@
     "recompose": "^0.30.0",
     "sass": "^1.32.0",
     "styled-components": "^5.2.1",
+    "styled-components-grid": "^2.2.2",
     "url-parse": "^1.4.7"
   },
   "devDependencies": {

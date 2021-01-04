@@ -1,5 +1,6 @@
 .Section {
-  @include spacing("halfsection", "margin-bottom");
+  @include spacing(halfsection, (margin-top));
+  // @include spacing("halfsection", "margin-bottom");
 
   &__header {
     text-align: center;

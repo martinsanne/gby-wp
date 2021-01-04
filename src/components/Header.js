@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import cc from "classcat"
 
-import Logo from "./Logo"
+import OyaLogo2021 from "./OyaLogo2021"
 import Menu from "./Menu"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { AppConsumer } from "./utils"
@@ -26,9 +26,12 @@ export default class Header extends Component {
                   to={"/"}
                   onClick={ctx.actions.closeMenu}
                 >
-                  <Logo type="main" />
+                  <OyaLogo2021 />
+                  {/* <Logo type="main" /> */}
                 </Link>
-                <BuyTicket className="Header__buy" />
+                <div className="Header__buy">
+                  <BuyTicket />
+                </div>
                 <Menu />
                 <div className="Header__lang">
                   <LanguageSwitcher />
