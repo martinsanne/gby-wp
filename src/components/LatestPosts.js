@@ -7,7 +7,7 @@ const LatestPosts = ({ wordpress_id }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  useEffect(() => {
+  const getLatestPosts = () => {
     fetch("https://api.oyafestivalen.no/wp-json/wp/v2/posts?per_page=5")
       .then(res => res.json())
       .then(res => {
@@ -19,7 +19,9 @@ const LatestPosts = ({ wordpress_id }) => {
         console.log(err)
         setError(err)
       })
-  }, [])
+  }
+
+  useEffect(getLatestPosts, [])
 
   if (loading) return null
   if (error) return null

@@ -1,13 +1,12 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 
-import Logo from "./Logo"
-
 import { getData } from "./AreaMap/data/kmlConverter"
 
 import AreaMap from "./AreaMap/AreaMap"
 import Filter from "./AreaMap/Filter"
 import Modal from "./AreaMap/Modal"
+import Logo2021 from "./Logo2021"
 
 class AreaMapContainer extends Component {
   state = {
@@ -104,7 +103,7 @@ class AreaMapContainer extends Component {
     return (
       <div className="Map">
         <Link className="Map__logo" to={"/"}>
-          <Logo type="hor" />
+          <Logo2021 />
         </Link>
         {currentMarkers && (
           <AreaMap

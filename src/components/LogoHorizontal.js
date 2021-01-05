@@ -1,8 +1,8 @@
 import React from "react"
 
-const Logo = () => {
+const LogoHorizontal = () => {
   return (
-    <span className="Logo Logo--diagonal">
+    <span className="Logo Logo--horizontal">
       <svg
         className="Logo__svg"
         version="1.1"
@@ -36,4 +36,4 @@ const Logo = () => {
   )
 }
 
-export default Logo
+export default LogoHorizontal

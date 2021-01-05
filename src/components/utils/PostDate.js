@@ -30,9 +30,7 @@ export default class PostDate extends Component {
             value={dateObject}
           />
         ) : (
-          <>
-            <FormattedRelativeTime value={daysSince} unit="day" style="long" />
-          </>
+          <FormattedRelativeTime value={daysSince} unit="day" />
         )}
       </time>
     )

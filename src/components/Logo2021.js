@@ -1,21 +1,19 @@
 import React from "react"
-import styled, { css } from "styled-components"
 
-const OyaLogo2021 = ({ className }) => {
+const Logo2021 = ({ className }) => {
   return (
-    <Wrapper>
-      <svg
-        className={className}
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        width="197.05"
-        height="68.94"
-        viewBox="0 0 197.05 68.94"
-      >
-        <title>Øyafestivalen 2021</title>
-        <path
-          fill="currentColor"
-          d="M174.94,8.18h-2.49l2.51-6.64h3.31L174.94,8.18z M180.14,18.12c0.49-0.58,0.95-1.11,1.41-1.62
+    <svg
+      className={className}
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      width="197.05"
+      height="68.94"
+      viewBox="0 0 197.05 68.94"
+      fill="currentColor"
+    >
+      <title>Øyafestivalen 2021</title>
+      <path
+        d="M174.94,8.18h-2.49l2.51-6.64h3.31L174.94,8.18z M180.14,18.12c0.49-0.58,0.95-1.11,1.41-1.62
 	c0.95-1.07,1.77-1.99,2.43-2.97c1.11-1.62,2.01-3.36,2.82-5.48c1.77-4.58,1.34-7.1-1.21-7.1c-2.73,0-4.94,2.58-7.17,8.37
 	c-0.05,0.14-0.1,0.27-0.16,0.42l0,0.01c-0.03,0.09-0.13,0.35-0.2,0.54h2.72c0.12-0.36,0.29-0.8,0.41-1.11
 	c1.09-2.83,1.95-4.01,2.74-4.01c0.75,0,0.72,0.92-0.12,3.11c-0.6,1.57-1.22,2.74-1.98,3.79c-0.62,0.84-1.36,1.65-2.14,2.51
@@ -28,34 +26,9 @@ const OyaLogo2021 = ({ className }) => {
 	c0-6.58-1.33-11.95-3.76-16.03l-31.53,34.6c3.52,4.2,8.59,6.44,14.86,6.44C44.24,59.48,52.02,50.38,52.02,34.47z M71.53,32.6h8.61
 	V1.55h-8.61V32.6z M114.58,1.54h-8.61v31.05h-8.52v8.61h-8.7v-8.61h-8.61v8.61h8.61V67.4h8.7V41.2h8.61v-8.61h8.52V1.54z
 	 M194.69,1.54l-0.06,0.14c-1.35,3.05-2.64,4.14-4.74,4.25l-0.15,0l-1.3,3.43h2.66l-7.25,19.27h3.05l10.15-27.09H194.69z"
-        />
-      </svg>
-      <div className="Logo__date">
-        Tøyenparken
-        <br />
-        10.-14. august
-      </div>
-    </Wrapper>
+      />
+    </svg>
   )
 }
 
-const Wrapper = styled.div(
-  ({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    svg {
-      height: 35px;
-      width: auto;
-      margin-right: 1rem;
-    }
-    .Logo__date {
-      font-size: 18px;
-      line-height: 1.2;
-      font-family: ${theme.fontFamily.serif};
-    }
-  `
-)
-
-export default OyaLogo2021
+export default Logo2021

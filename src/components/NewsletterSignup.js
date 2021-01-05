@@ -1,172 +1,139 @@
-import React, { Component } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { FormattedMessage } from "react-intl"
 import cc from "classcat"
 
 import messages from "./NewsletterSignup.messages"
 import Button from "./utils/Button"
 
-export default class NewsletterSignup extends Component {
-  mainInput = React.createRef()
+const NewsletterSignup = ({ className, focusOnMount, onDark }) => {
+  const timerRef = useRef(null)
+  const mainInput = useRef(null)
+  const [status, setStatus] = useState("initial")
+  const [email, setEmail] = useState("")
+  const [consent, setConsent] = useState(false)
 
-  state = {
-    consent: false,
-    email: "",
-    submitting: false,
-    success: false,
-    error: false,
-    isTrident: false,
-  }
-
-  componentDidMount = () => {
-    if (this.props.focusOnMount && this.mainInput && this.mainInput.current) {
-      this.setFocusTimer = setTimeout(() => {
-        this.mainInput.current.focus()
+  const componentDidMount = () => {
+    if (focusOnMount && mainInput && mainInput.current) {
+      timerRef.current = setTimeout(() => {
+        mainInput.current.focus()
       }, 300)
     }
-
-    if (window && window.navigator.userAgent.includes("Trident/")) {
-      this.setState({
-        isTrident: true,
-      })
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
     }
   }
 
-  componentWillUnmount = () => {
-    if (this.setFocusTimer) {
-      clearTimeout(this.setFocusTimer)
-    }
-  }
-
-  submitHandler = e => {
+  const submitHandler = e => {
     e.preventDefault()
-
-    this.setState({
-      submitting: true,
-      error: false,
-      success: false,
-    })
-    // Validate email first!
+    setStatus("submitting")
     fetch("/.netlify/functions/makeNewsletterSignup", {
       method: "POST",
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({ email, consent }),
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({
-          submitting: false,
-          success: true,
-          email: "",
-          consent: false,
-        })
+        setStatus("success")
+        setEmail("")
+        setConsent(false)
       })
       .catch(err => {
-        this.setState({
-          submitting: false,
-          error: true,
-        })
+        setStatus("error")
       })
   }
 
-  onInputChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
+  const onEmailChange = e => {
+    setEmail(e.target.value)
   }
 
-  onCheckboxChange = e => {
-    // if (e.target.checked) {
-    //   trackEvent({ event: 'Step 2' })
-    // }
-    this.setState({
-      [e.target.name]: e.target.checked,
-    })
+  const onConsentChange = e => {
+    setConsent(Boolean(e.target.checked))
   }
 
-  render() {
-    const { onDark } = this.props
-    const { consent, email, success, submitting, isTrident, error } = this.state
-    if (success) {
-      return (
-        <div className="NewsletterSignup NewsletterSignup--success">
-          <h3>
-            <FormattedMessage {...messages.successTitle} />
-          </h3>
-          <p>
-            <FormattedMessage {...messages.success} />
-          </p>
-        </div>
-      )
-    }
+  useEffect(componentDidMount, [focusOnMount])
+
+  if (status === "success") {
     return (
-      <div className="NewsletterSignup">
-        <h3 className="NewsletterSignup__title">
-          <FormattedMessage {...messages.title} />
+      <div className={className}>
+        <h3>
+          <FormattedMessage {...messages.successTitle} />
         </h3>
-        {!isTrident ? (
-          <details className="NewsletterSignup__desc">
-            <summary>
-              <FormattedMessage {...messages.read} />
-            </summary>
-            <FormattedMessage {...messages.consent} />
-          </details>
-        ) : (
-          <div className="NewsletterSignup__desc">
-            <FormattedMessage {...messages.consent} />
-          </div>
-        )}
-        <form
-          className={cc({
-            Form: true,
-            "Form--newsletter": true,
-            "Form--onDark": onDark,
-          })}
-          onSubmit={this.submitHandler}
-        >
-          <label className="Form__label">
-            <input
-              className="Form__checkbox"
-              name="consent"
-              onChange={this.onCheckboxChange}
-              type="checkbox"
-            />
-            <FormattedMessage {...messages.consentLabel} />
-          </label>
-          <label htmlFor="newsletter" className="Form__block Form__block--flex">
-            <FormattedMessage {...messages.inputPlaceholder}>
-              {text => (
-                <input
-                  ref={this.mainInput}
-                  onChange={this.onInputChange}
-                  className="Form__input Form__input--email"
-                  type="email"
-                  name="email"
-                  id="newsletter"
-                  placeholder={text}
-                  value={email}
-                />
-              )}
-            </FormattedMessage>
-            <Button
-              noClass
-              disabled={!consent || submitting}
-              className="Form__submit button"
-              type="submit"
-            >
-              <FormattedMessage {...messages.buttonSubmit} />
-            </Button>
-          </label>
-          {submitting && (
-            <div className="Form__submitting">
-              <FormattedMessage {...messages.sending} />
-            </div>
-          )}
-          {!submitting && error && (
-            <div className="Form__submitting">
-              <FormattedMessage {...messages.error} />
-            </div>
-          )}
-        </form>
+        <p>
+          <FormattedMessage {...messages.success} />
+        </p>
       </div>
     )
   }
+
+  return (
+    <div className={className}>
+      <h4 className="NewsletterSignup__title">
+        <FormattedMessage {...messages.title} />
+      </h4>
+      <div className="NewsletterSignup__desc">
+        Ikke gå glipp av nyheter og annet eksklusivt innhold. Abbonner på
+        nyhetsbrevet vårt.
+        <details className="NewsletterSignup__details">
+          <summary>
+            <FormattedMessage {...messages.read} />
+          </summary>
+          <FormattedMessage {...messages.consent} />
+        </details>
+      </div>
+      <form
+        className={cc({
+          Form: true,
+          "Form--onDark": onDark,
+        })}
+        onSubmit={submitHandler}
+      >
+        <label className="Form__label Form__label--checkbox">
+          <input
+            className="Form__checkbox"
+            name="consent"
+            onChange={onConsentChange}
+            type="checkbox"
+          />
+          <FormattedMessage {...messages.consentLabel} />
+        </label>
+        <label htmlFor="newsletter" className="Form__inputs">
+          <FormattedMessage {...messages.inputPlaceholder}>
+            {text => (
+              <input
+                ref={mainInput}
+                onChange={onEmailChange}
+                className="Form__input Form__input--email"
+                type="email"
+                name="email"
+                id="newsletter"
+                placeholder={text}
+                value={email}
+              />
+            )}
+          </FormattedMessage>
+          <Button
+            noClass
+            disabled={!consent || status === "submitting"}
+            className="Form__submit button"
+            type="submit"
+          >
+            <FormattedMessage {...messages.buttonSubmit} />
+          </Button>
+        </label>
+        {status === "submitting" && (
+          <div className="Form__submitting">
+            <FormattedMessage {...messages.sending} />
+          </div>
+        )}
+        {status === "error" && (
+          <div className="Form__submitting">
+            <FormattedMessage {...messages.error} />
+          </div>
+        )}
+      </form>
+    </div>
+  )
 }
+
+export default NewsletterSignup

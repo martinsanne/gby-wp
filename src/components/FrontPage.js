@@ -12,7 +12,6 @@ import Gallery from "./Gallery"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
-import Logo from "./Logo"
 import SocialBox from "./SocialBox"
 
 export default props => {
@@ -46,11 +45,6 @@ export default props => {
 
           return (
             <>
-              {allArtists.length <= 0 && hero?.headliners?.length <= 0 && (
-                <div className="Hero__logo">
-                  <Logo />
-                </div>
-              )}
               {hero?.headliners?.length > 0 && <Hero hero={hero} />}
               {allArtists && allArtists.length > 0 && (
                 <ArtistsToggle>
@@ -93,22 +87,26 @@ export default props => {
             desc={acf.news.description || ""}
           >
             <div className="container">
-              <Grid className="Grid NewsCards NewsCards--frontpage">
-                <Grid.Unit
-                  className="Grid__item"
-                  size={{ sm: 1 / 2, lg: 1 / 3 }}
-                >
-                  <SocialBox />
+              <Grid className="Grid">
+                <Grid.Unit className="Grid__item" size={{ sm: 1, lg: 1 }}>
+                  <Grid className="Grid NewsCards NewsCards--frontpage">
+                    {posts.map((post, i) => (
+                      <Grid.Unit
+                        className="NewsCards__unit Grid__item"
+                        size={{ sm: 1 / 2, lg: 1 / 3 }}
+                        key={`NewsCard-${post.wordpress_id}`}
+                      >
+                        <NewsCard post={post} i={i} />
+                      </Grid.Unit>
+                    ))}
+                    <Grid.Unit
+                      className="Grid__item NewsCards__unit NewsCards__unit--socialbox"
+                      size={{ sm: 1, lg: 1 / 3 }}
+                    >
+                      <SocialBox />
+                    </Grid.Unit>
+                  </Grid>
                 </Grid.Unit>
-                {posts.map((post, i) => (
-                  <Grid.Unit
-                    className="Grid__item"
-                    size={{ sm: 1 / 2, lg: 1 / 3 }}
-                    key={`NewsCard-${post.wordpress_id}`}
-                  >
-                    <NewsCard post={post} i={i} />
-                  </Grid.Unit>
-                ))}
               </Grid>
               <div className="Section__action">
                 {acf.news.link && (
@@ -321,92 +319,8 @@ export const query = graphql`
               alt
             }
           }
-          # featured_image {
-          #   wordpress_id
-          #   title
-          #   url
-          #   alt
-          #   description
-          #   caption
-          #   name
-          #   mime_type
-          #   subtype
-          #   width
-          #   height
-          #   sizes {
-          #     thumbnail
-          #     thumbnail_width
-          #     thumbnail_height
-          #     medium
-          #     medium_width
-          #     medium_height
-          #     medium_large
-          #     medium_large_width
-          #     medium_large_height
-          #     large
-          #     large_width
-          #     large_height
-          #     small
-          #     small_width
-          #     small_height
-          #     medium_small
-          #     medium_small_width
-          #     medium_small_height
-          #     xlarge
-          #     xlarge_width
-          #     xlarge_height
-          #   }
-          # }
         }
       }
-      # artists {
-      #   wordpress_id
-      #   status
-      #   title {
-      #     rendered
-      #   }
-      #   featured_image {
-      #     wordpress_id
-      #     title
-      #     url
-      #     alt
-      #     description
-      #     caption
-      #     name
-      #     mime_type
-      #     subtype
-      #     width
-      #     height
-      #     sizes {
-      #       thumbnail
-      #       thumbnail_width
-      #       thumbnail_height
-      #       medium
-      #       medium_width
-      #       medium_height
-      #       medium_large
-      #       medium_large_width
-      #       medium_large_height
-      #       large
-      #       large_width
-      #       large_height
-      #       small
-      #       small_width
-      #       small_height
-      #       medium_small
-      #       medium_small_width
-      #       medium_small_height
-      #       xlarge
-      #       xlarge_width
-      #       xlarge_height
-      #     }
-      #   }
-      #   acf {
-      #     country_code
-      #     greencopper_url
-      #     headliner
-      #   }
-      # }
     }
   }
 `

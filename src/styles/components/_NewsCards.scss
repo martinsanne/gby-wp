@@ -1,4 +1,17 @@
 .NewsCards {
+  @include bp(lg) {
+    &__unit {
+      order: 3;
+      &:first-child,
+      &:nth-child(2) {
+        order: 1;
+      }
+      &--socialbox {
+        order: 2;
+      }
+    }
+  }
+
   &--latest {
     .Grid__item {
       @include bp(lg) {
