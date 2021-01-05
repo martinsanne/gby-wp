@@ -14,6 +14,7 @@ import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
 import SocialBox from "./SocialBox"
 import { FormattedMessage } from "gatsby-plugin-intl"
+import { Illustration } from "./utils"
 
 export default props => {
   const { page } = props
@@ -65,6 +66,11 @@ export default props => {
           )
         }}
       </AsyncArtistLoader>
+
+      <Illustration
+        className="BuyTicket__illustration"
+        src="illustrations/spider.png"
+      />
       {/* <FormattedMessage
         id="global.dateAndPlace"
         defaultMessage="10—14 August 2021, Oslo, Norway"

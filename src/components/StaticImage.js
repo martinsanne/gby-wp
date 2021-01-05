@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -19,27 +19,22 @@ Usage:
 
 const StaticImage = ({ src, aspect, children }) => {
   const data = useStaticQuery(query)
-  const [image, setImage] = useState(null)
+  let image
 
-  const setRandomImage = () => {
-    if (src === "random") {
-      const blacklisted = ["bee-left", "bee-right", "snail2"]
-      const illusOnly = [...data.allFile.edges].filter(item => {
-        return (
-          item.node.relativePath.includes("illustrations") &&
-          !blacklisted.includes(item.node.name)
-        )
-      })
-      const img = [illusOnly[Math.floor(Math.random() * illusOnly.length)]]
-      setImage(img)
-    } else {
-      const img = [...data.allFile.edges].filter(item => {
-        return item.node.relativePath === src
-      })
-      setImage(img)
-    }
+  if (src === "random") {
+    const blacklisted = ["bee-left", "bee-right", "snail2"]
+    const illusOnly = [...data.allFile.edges].filter(item => {
+      return (
+        item.node.relativePath.includes("illustrations") &&
+        !blacklisted.includes(item.node.name)
+      )
+    })
+    image = [illusOnly[Math.floor(Math.random() * illusOnly.length)]]
+  } else {
+    image = [...data.allFile.edges].filter(item => {
+      return item.node.relativePath === src
+    })
   }
-  useEffect(setRandomImage, [])
 
   if (image && image[0] && image[0].node) {
     const img =

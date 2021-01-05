@@ -22,6 +22,7 @@ const NewsCard = ({ post, className }) => {
 
   return (
     <Wrapper
+      as={Link}
       to={post.link}
       illuPos={illuRight ? "right" : "left"}
       className={className}
@@ -58,7 +59,7 @@ const NewsCard = ({ post, className }) => {
   )
 }
 
-const Wrapper = styled(Link)(
+const Wrapper = styled.div(
   ({ theme, illuPos }) => css`
     display: block;
     padding-left: 0;

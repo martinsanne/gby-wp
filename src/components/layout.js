@@ -13,23 +13,26 @@ import Footer from "./Footer"
 import { ThemeProvider } from "styled-components"
 import baseTheme from "../styles/baseTheme"
 
-const Layout = ({ children, locale, translations, options, settings }) => {
-  if (!locale) {
-    locale = "nb"
-  }
+const Layout = ({
+  children,
+  locale = "nb",
+  translations,
+  options,
+  settings,
+}) => {
   return (
-    <IntlProvider
-      messages={intlTranslations[locale]}
+    <AppProvider
+      translations={translations}
       locale={locale}
-      defaultLocale={locale}
+      options={options}
+      settings={settings}
     >
-      <AppProvider
-        translations={translations}
-        locale={locale}
-        options={options}
-        settings={settings}
-      >
-        <ThemeProvider theme={baseTheme}>
+      <ThemeProvider theme={baseTheme}>
+        <IntlProvider
+          messages={intlTranslations[locale]}
+          locale={locale}
+          defaultLocale={locale}
+        >
           <div
             className={cc({
               App: true,
@@ -42,9 +45,9 @@ const Layout = ({ children, locale, translations, options, settings }) => {
               <Footer />
             </div>
           </div>
-        </ThemeProvider>
-      </AppProvider>
-    </IntlProvider>
+        </IntlProvider>
+      </ThemeProvider>
+    </AppProvider>
   )
 }
 
