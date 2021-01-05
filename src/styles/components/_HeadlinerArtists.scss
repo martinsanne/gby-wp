@@ -29,13 +29,10 @@
     display: flex;
     justify-content: center;
     max-width: 100%;
-
-    margin-bottom: 34px;
-    // @each $bp, $size in $headlinerSizes {
-    //   @include bp($bp) {
-    //     margin-bottom: rem-calc($size * 0.65);
-    //   }
-    // }
+    margin-bottom: 20px;
+    @include bp(lg) {
+      margin-bottom: 34px;
+    }
   }
 
   &__link {
@@ -58,7 +55,7 @@
     width: auto;
 
     // Fix for long artist name on iphone 5
-    @media (max-width: em-calc(321)) {
+    @media (max-width: em-calc(420)) {
       height: rem-calc(22);
     }
 

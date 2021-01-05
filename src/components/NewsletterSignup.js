@@ -56,21 +56,23 @@ const NewsletterSignup = ({ className, focusOnMount, onDark }) => {
   if (status === "success") {
     return (
       <div className={className}>
-        <h3>
-          <FormattedMessage {...messages.successTitle} />
-        </h3>
-        <p>
-          <FormattedMessage {...messages.success} />
-        </p>
+        <div className="Form__status">
+          <h3>
+            <FormattedMessage {...messages.successTitle} />
+          </h3>
+          <p>
+            <FormattedMessage {...messages.success} />
+          </p>
+        </div>
       </div>
     )
   }
 
   return (
     <div className={className}>
-      <h4 className="NewsletterSignup__title">
+      <h3 className="NewsletterSignup__title">
         <FormattedMessage {...messages.title} />
-      </h4>
+      </h3>
       <div className="NewsletterSignup__desc">
         Ikke gå glipp av nyheter og annet eksklusivt innhold. Abbonner på
         nyhetsbrevet vårt.
@@ -122,12 +124,12 @@ const NewsletterSignup = ({ className, focusOnMount, onDark }) => {
           </Button>
         </label>
         {status === "submitting" && (
-          <div className="Form__submitting">
+          <div className="Form__status">
             <FormattedMessage {...messages.sending} />
           </div>
         )}
         {status === "error" && (
-          <div className="Form__submitting">
+          <div className="Form__status">
             <FormattedMessage {...messages.error} />
           </div>
         )}

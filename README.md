@@ -36,21 +36,24 @@ npm run clean
 #### When domain is transfered to gatsby version
 
 - [ ] Point api.oyafestivalen to www server
-- [ ]
 
 ### Backend
+
 - [ ] Activate new CMS in prod
 - [ ] Add build hook to WordPress
 - [ ] Replace potentially wrong urls (tornado-node, netlify etc)
 
 ### Frontend
+
 - [ ] Global home url based on language (on main logo ie)
 - [ ] Add polyfills
 
 ### Maybye later
+
 - [ ] Run images static
 
 ### Backlog
+
 - [x] Rename repository to gby-oya
 - [x] News article sorting and loading articles per language
 - [x] Add translations to categories in rest api

@@ -24,13 +24,13 @@ const BlogPage = ({ posts, page, year }) => {
       </header>
       <div className="BlogPage__content">
         <Grid className="Grid NewsCards">
-          {posts.map((post, i) => (
+          {posts.map(post => (
             <Grid.Unit
               className="Grid__item"
               size={{ sm: 1 / 2, lg: 1 / 3 }}
               key={`NewsCard-${post.wordpress_id}`}
             >
-              <NewsCard post={post} i={i} />
+              <NewsCard post={post} />
             </Grid.Unit>
           ))}
         </Grid>

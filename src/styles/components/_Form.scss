@@ -3,20 +3,12 @@
     display: block;
     &--checkbox {
       @include spacing(sm, (margin-bottom, margin-top));
+      @include font-size(small);
     }
   }
 
   &__inputs {
     display: flex;
-  }
-
-  &__input {
-    transition: $trans--fast;
-    &:hover,
-    &:focus {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 0 -3px $c-text;
-    }
   }
 
   &__checkbox {
@@ -34,35 +26,64 @@
     }
   }
 
+  input[type="email"] {
+    border-color: $c-white;
+    color: $c-text;
+    transition: $trans--fast;
+    background: transparent;
+  }
+
   &__submit {
     white-space: nowrap;
     min-width: 130px;
     margin-left: -2px;
+    border-color: $c-white;
+    background: transparent;
     &:hover,
     &:focus {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 0 -3px $c-text;
+      background: $c-white;
+      color: $c-text;
     }
+    // &:hover,
+    // &:focus {
+    //   transform: translateY(-3px);
+    //   box-shadow: 0 6px 0 -3px $c-text;
+    // }
+  }
+
+  &__status {
+    @include spacing(xs, (padding-top));
+    @include font-size(small);
   }
 
   &--onDark {
-    .Form__input {
-      background: none;
+    input[type="email"] {
       border-color: $c-white;
       color: $c-white;
       background: transparent;
     }
 
     .Form__submit {
-      background: transparent;
-      border-color: $c-white;
       color: $c-white;
-
-      &:hover {
-        background-color: $c-white;
+      &:hover,
+      &:focus {
         color: $c-text;
       }
+      &:disabled {
+        color: $c-white;
+      }
     }
+
+    // .Form__submit {
+    //   background: transparent;
+    //   border-color: $c-white;
+    //   color: $c-white;
+
+    //   &:hover {
+    //     background-color: $c-white;
+    //     color: $c-text;
+    //   }
+    // }
 
     button {
       &:after {

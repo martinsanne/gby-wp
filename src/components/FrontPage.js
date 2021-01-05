@@ -8,11 +8,12 @@ import Hero from "./Hero"
 import ArtistsToggle from "./ArtistsToggle"
 import NewsCard from "./NewsCard"
 import Gallery from "./Gallery"
-// import AnimatedBanner from "./AnimatedBanner"
+import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
 import SocialBox from "./SocialBox"
+import { FormattedMessage } from "gatsby-plugin-intl"
 
 export default props => {
   const { page } = props
@@ -77,47 +78,56 @@ export default props => {
       </FormattedMessage> */}
 
       {posts && acf && acf.news && (
-        <AnimatedIllustration
-          name="snegle"
-          src="illustrations/snail2.png"
-          reverse
+        <Section
+          // title={acf.news.title || ""}
+          desc={acf.news.description || ""}
         >
-          <Section
-            // title={acf.news.title || ""}
-            desc={acf.news.description || ""}
-          >
-            <div className="container">
-              <Grid className="Grid">
-                <Grid.Unit className="Grid__item" size={{ sm: 1, lg: 1 }}>
-                  <Grid className="Grid NewsCards NewsCards--frontpage">
-                    {posts.map((post, i) => (
-                      <Grid.Unit
-                        className="NewsCards__unit Grid__item"
-                        size={{ sm: 1 / 2, lg: 1 / 3 }}
-                        key={`NewsCard-${post.wordpress_id}`}
-                      >
-                        <NewsCard post={post} i={i} />
-                      </Grid.Unit>
-                    ))}
+          <div className="container">
+            <Grid className="Grid">
+              <Grid.Unit className="Grid__item" size={{ sm: 1, lg: 1 }}>
+                <Grid className="Grid NewsCards NewsCards--frontpage">
+                  {posts.map(post => (
                     <Grid.Unit
-                      className="Grid__item NewsCards__unit NewsCards__unit--socialbox"
-                      size={{ sm: 1, lg: 1 / 3 }}
+                      className="NewsCards__unit Grid__item"
+                      size={{ sm: 1 / 2, lg: 1 / 3 }}
+                      key={`NewsCard-${post.wordpress_id}`}
                     >
-                      <SocialBox />
+                      <NewsCard post={post} />
                     </Grid.Unit>
-                  </Grid>
-                </Grid.Unit>
-              </Grid>
-              <div className="Section__action">
-                {acf.news.link && (
-                  <Link className="button" to={acf.news.link.url}>
-                    {acf.news.link.title}
-                  </Link>
-                )}
-              </div>
+                  ))}
+                  {/* <Grid.Unit className="NewsCards__unit NewsCards__unit--banner">
+                    <div className="BannerInner">
+                      <FormattedMessage
+                        id="global.dateAndPlace"
+                        defaultMessage="10—14 August 2021, Oslo, Norway"
+                      >
+                        {string => (
+                          <AnimatedBanner
+                            illustration="illustrations/snail2.png"
+                            text={string}
+                          />
+                        )}
+                      </FormattedMessage>
+                    </div>
+                  </Grid.Unit> */}
+                  <Grid.Unit
+                    className="Grid__item NewsCards__unit NewsCards__unit--socialbox"
+                    size={{ sm: 1, lg: 1 / 3 }}
+                  >
+                    <SocialBox />
+                  </Grid.Unit>
+                </Grid>
+              </Grid.Unit>
+            </Grid>
+            <div className="Section__action">
+              {acf.news.link && (
+                <Link className="button" to={acf.news.link.url}>
+                  {acf.news.link.title}
+                </Link>
+              )}
             </div>
-          </Section>
-        </AnimatedIllustration>
+          </div>
+        </Section>
       )}
 
       {acf.did_you_know && acf.did_you_know.first_paragraph && (

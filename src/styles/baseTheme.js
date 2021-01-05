@@ -9,6 +9,7 @@ const brandColors = {
   black: "#000000",
   white: "#FEFEFE",
   blue: "#5f97d1",
+  mediumGray: "#ababab",
 }
 
 const colors = {
@@ -19,8 +20,51 @@ const colors = {
   text: brandColors.black,
   border: brandColors.black,
   background: brandColors.gray,
-  // alert: brandColors.black,
-  // error: brandColors.black,
+}
+
+const spacing = {
+  0: 0,
+  1: "6px",
+  2: "12px",
+}
+
+const responsiveSpacing = {
+  xs: {
+    xs: "6px",
+    sm: "12px",
+  },
+  sm: {
+    xs: "12px",
+    sm: "24px",
+  },
+  md: {
+    xs: "24px",
+    sm: "48px",
+  },
+  lg: {
+    xs: "30px",
+    sm: "60px",
+  },
+  section: {
+    xs: "80px",
+    sm: "120px",
+    md: "200px",
+  },
+  halfsection: {
+    xs: "40px",
+    sm: "60px",
+    md: "100px",
+  },
+  container: {
+    xs: "10px",
+    sm: "1.5rem",
+    lg: "48px",
+  },
+  header: {
+    xs: "10px",
+    sm: "20px",
+    // lg: "48px",
+  },
 }
 
 const breakpoints = {
@@ -36,4 +80,6 @@ export default {
   fontFamily,
   colors,
   breakpoints,
+  spacing,
+  responsiveSpacing,
 }

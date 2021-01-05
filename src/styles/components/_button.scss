@@ -43,21 +43,17 @@
     color: white;
   }
 
-  &:active {
-    // transform: translateY(0);
-    // box-shadow: none;
-    // border-bottom-width: 1px;
-  }
-
   &:disabled {
     color: $c-text;
-    border-color: $c-text;
+    border-color: $c-white;
     background: transparent;
     box-shadow: none;
-    // border-bottom-width: 1px;
     transform: translateY(0);
     &:after {
       transform: scaleX(1);
+    }
+    &:hover {
+      background: transparent;
     }
   }
 }

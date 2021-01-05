@@ -1,11 +1,11 @@
 .AnimatedBanner {
-  @include spacing(lg, (margin-bottom));
-
   position: relative;
   z-index: 9;
   pointer-events: none;
   max-width: 100%;
-  overflow: hidden;
+  width: 100%;
+  // background: rgba(0, 0, 0, 0.25);
+  height: 50px;
 
   &--pause {
     .AnimatedBanner__wrapper {
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     animation: banner 10s linear infinite both;
-
+    height: 1px;
     @include bp(lg) {
       animation-duration: 20s;
     }
@@ -44,12 +44,13 @@
   }
 
   &__banner {
-    background: white;
+    background: $c-white;
     border: $border;
-    @include spacing(sm, (padding-top, padding-bottom));
-    @include spacing(lg, (padding-left, padding-right));
+    padding: 5px 10px;
     white-space: nowrap;
     display: inline-block;
+    position: relative;
+    top: 12px;
 
     @include bp(lg) {
       margin-left: -25px;
@@ -80,6 +81,7 @@
       transform: translateY(2px) rotate(1deg);
     }
   }
+
   @keyframes snail--reverse {
     0% {
       transform: translateY(2px) rotate(1deg) scaleX(-1);

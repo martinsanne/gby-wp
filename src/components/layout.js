@@ -18,7 +18,11 @@ const Layout = ({ children, locale, translations, options, settings }) => {
     locale = "nb"
   }
   return (
-    <IntlProvider messages={intlTranslations[locale]} locale={locale}>
+    <IntlProvider
+      messages={intlTranslations[locale]}
+      locale={locale}
+      defaultLocale={locale}
+    >
       <AppProvider
         translations={translations}
         locale={locale}

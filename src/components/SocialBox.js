@@ -52,7 +52,7 @@ const SocialBox = () => {
   return (
     <Wrapper>
       <Block>
-        <h4 className="SocialBox__title">Følg Øyafestivalen</h4>
+        <h3 className="SocialBox__title">Følg Øyafestivalen</h3>
         {socialLinks && (
           <ul>
             {socialLinks.map(item => {
@@ -99,9 +99,17 @@ const NewsletterForm = styled(NewsletterSignup)(
       padding-right: ${pad};
       font-family: ${theme.fontFamily.serif};
     }
+    .Form__status {
+      padding: ${pad};
+    }
     .Form__label--checkbox {
       padding-left: ${pad};
       padding-right: ${pad};
+    }
+    .Form__inputs {
+      margin-left: -2px;
+      margin-right: -2px;
+      margin-bottom: -2px;
     }
   `
 )
@@ -115,15 +123,19 @@ const Wrapper = styled.div(
   ({ theme }) => css`
     margin-bottom: 30px;
     border: 2px solid white;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
     .SocialBox__title {
       margin-bottom: 0.25em;
     }
     ul {
+      justify-content: flex-start;
       display: flex;
       flex-wrap: wrap;
       font-family: ${theme.fontFamily.serif};
       li {
-        width: 33.333%;
+        flex: 0 0 50%;
         margin-top: 0.25em;
         .Social__item {
           display: flex;

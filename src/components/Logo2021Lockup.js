@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import Logo2021 from "./Logo2021"
+import { bp } from "../styled/utils/breakpoints"
 
 const Logo2021Lockup = ({ className }) => {
   return (
@@ -22,15 +23,27 @@ const Wrapper = styled.div(
     justify-content: flex-start;
     flex-wrap: nowrap;
     svg {
-      height: 35px;
       width: auto;
-      margin-right: 1rem;
+      margin-right: 8px;
+      height: 25px;
     }
     .Logo__date {
-      font-size: 18px;
       line-height: 1.2;
       font-family: ${theme.fontFamily.serif};
+      font-size: 12px;
     }
+    ${bp({
+      sm: css`
+        svg {
+          height: 35px;
+          margin-right: 1rem;
+        }
+        .Logo__date {
+          display: block;
+          font-size: 18px;
+        }
+      `,
+    })}
   `
 )
 

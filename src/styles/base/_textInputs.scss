@@ -18,10 +18,8 @@ textarea {
     color: $c-inactive;
   }
 
-  &:focus,
-  &:hover {
+  &:focus {
     outline: none;
-    // transform: translateY(-3px);
     box-shadow: 0 6px 0 -3px $c-text;
   }
 }
