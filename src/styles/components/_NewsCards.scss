@@ -3,12 +3,16 @@
     order: 10;
 
     &--banner {
+      pointer-events: none;
       position: relative;
       .BannerInner {
+        overflow: hidden;
         width: 100vw;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        height: 120px;
+        padding-top: 30px;
       }
     }
 

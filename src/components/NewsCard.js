@@ -100,12 +100,14 @@ const Wrapper = styled(Link)(
       z-index: 9999;
       bottom: 0;
       transform: translateZ(0);
+      display: none;
 
       ${bp({
         xs: css`
           ${illuPos}: -60px;
         `,
         sm: css`
+          display: block;
           ${illuPos}: -100px;
         `,
         md: css`

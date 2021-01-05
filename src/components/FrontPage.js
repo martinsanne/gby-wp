@@ -95,7 +95,7 @@ export default props => {
                       <NewsCard post={post} />
                     </Grid.Unit>
                   ))}
-                  {/* <Grid.Unit className="NewsCards__unit NewsCards__unit--banner">
+                  <Grid.Unit className="NewsCards__unit NewsCards__unit--banner">
                     <div className="BannerInner">
                       <FormattedMessage
                         id="global.dateAndPlace"
@@ -109,7 +109,7 @@ export default props => {
                         )}
                       </FormattedMessage>
                     </div>
-                  </Grid.Unit> */}
+                  </Grid.Unit>
                   <Grid.Unit
                     className="Grid__item NewsCards__unit NewsCards__unit--socialbox"
                     size={{ sm: 1, lg: 1 / 3 }}
