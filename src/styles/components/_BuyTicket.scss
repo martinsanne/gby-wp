@@ -21,6 +21,7 @@
   }
 
   &__bubble {
+    transition: opacity 0.5s ease;
     @extend .button;
     pointer-events: all;
     height: 100%;
@@ -105,6 +106,13 @@
         }
       }
     }
+
+    // If requested to hide bubble on hover
+    // Uncomment this code
+    // transition: transform 0.5s ease;
+    // &--hide-bubble {
+    //   transform: translateX(400px);
+    // }
   }
 
   @keyframes spider-drop {

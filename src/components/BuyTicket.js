@@ -20,14 +20,15 @@ const BuyTicket = ({ className }) => {
 
   return (
     <AppConsumer>
-      {ctx => {
-        const { options } = ctx.state
+      {({ state }) => {
+        const { options } = state
         return (
           <div
             className={cc({
               BuyTicket: true,
               "BuyTicket--no-animation": value === 1,
               [className]: className,
+              "BuyTicket--hide-bubble": state.artistHover,
             })}
           >
             <Illustration
