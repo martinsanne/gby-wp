@@ -1,6 +1,4 @@
 .Hero {
-  @include spacing(halfsection, (margin-top));
-
   &__container {
     @include container;
     @include bp(md) {
