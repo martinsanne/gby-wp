@@ -1,11 +1,12 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import Grid from "styled-components-grid"
 import NewsletterSignup from "./NewsletterSignup"
 import { useStaticQuery, graphql } from "gatsby"
 import { createSocialLinksFromYOAST } from "../utils/wpHelpers"
 import { Icon } from "./utils"
 
-const extraSocialLinks = [
+const musicLinks = [
   // {
   //   url:
   //     "https://tidal.com/browse/playlist/53b5cf66-0969-4cd4-80a5-22fbf74da119",
@@ -13,8 +14,7 @@ const extraSocialLinks = [
   //   icon: "podcast",
   // },
   {
-    url:
-      "https://open.spotify.com/playlist/3KBJl061Xg5pd0wTp2K7ST?si=m702XjobSeqGOKfhqWqTwg",
+    url: "https://open.spotify.com/user/%C3%B8yafestivalen",
     title: "Spotify",
     icon: "spotify",
   },
@@ -25,6 +25,38 @@ const extraSocialLinks = [
     icon: "tidal",
   },
 ]
+
+const LinkColumn = ({ links }) => {
+  return (
+    <Grid.Unit className="Grid__item" size={{ xs: 1 / 2 }}>
+      {links && (
+        <ul>
+          {links.map(item => {
+            return (
+              <li key={`SocialLink-${item.icon}`}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.icon}
+                  className="Social__item"
+                  href={item.url}
+                >
+                  <Icon
+                    className="Social__icon"
+                    color="white"
+                    name={item.icon}
+                    aria-label={`${item.icon} icon`}
+                  />
+                  <span>{item.title}</span>
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </Grid.Unit>
+  )
+}
 
 const SocialBox = () => {
   const data = useStaticQuery(graphql`
@@ -46,38 +78,16 @@ const SocialBox = () => {
   `)
 
   const settings = data.wordpressHeySettings
-  const yoastSocialLinks = createSocialLinksFromYOAST(settings.wpseo.social)
-  const socialLinks = [...yoastSocialLinks, ...extraSocialLinks]
+  const socialLinks = createSocialLinksFromYOAST(settings.wpseo.social)
 
   return (
     <Wrapper>
       <Block>
-        <h3 className="SocialBox__title">Følg Øyafestivalen</h3>
-        {socialLinks && (
-          <ul>
-            {socialLinks.map(item => {
-              return (
-                <li key={`SocialLink-${item.icon}`}>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={item.icon}
-                    className="Social__item"
-                    href={item.url}
-                  >
-                    <Icon
-                      className="Social__icon"
-                      color="white"
-                      name={item.icon}
-                      aria-label={`${item.icon} icon`}
-                    />
-                    <span>{item.title}</span>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        )}
+        <h4 className="SocialBox__title">Følg Øyafestivalen</h4>
+        <Grid className="Grid">
+          <LinkColumn links={socialLinks} />
+          <LinkColumn links={musicLinks} />
+        </Grid>
       </Block>
       <NewsletterForm />
     </Wrapper>
@@ -130,9 +140,6 @@ const Wrapper = styled.div(
       margin-bottom: 0.25em;
     }
     ul {
-      justify-content: flex-start;
-      display: flex;
-      flex-wrap: wrap;
       font-family: ${theme.fontFamily.serif};
       li {
         flex: 0 0 50%;

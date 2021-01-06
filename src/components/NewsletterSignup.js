@@ -70,9 +70,9 @@ const NewsletterSignup = ({ className, focusOnMount, onDark }) => {
 
   return (
     <div className={className}>
-      <h3 className="NewsletterSignup__title">
+      <h4 className="NewsletterSignup__title">
         <FormattedMessage {...messages.title} />
-      </h3>
+      </h4>
       <div className="NewsletterSignup__desc">
         Ikke gå glipp av nyheter og annet eksklusivt innhold. Abbonner på
         nyhetsbrevet vårt.

@@ -140,7 +140,6 @@ const Icon = ({ name, className }) => {
         <svg
           className={className}
           viewBox="0 0 424 175"
-          fill="none"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
         >

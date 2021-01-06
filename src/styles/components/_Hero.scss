@@ -1,5 +1,5 @@
 .Hero {
-  @include spacing(lg, (margin-top));
+  @include spacing(halfsection, (margin-top));
 
   &__container {
     @include container;
@@ -41,13 +41,13 @@
       left: -100px;
       transform: scale(1.1);
     }
-    @include bp(xl) {
-      top: -75px;
-      left: -50px;
-    }
-    @include bp(xxl) {
-      left: 0px;
-    }
+    // @include bp(xl) {
+    //   top: -75px;
+    //   left: -50px;
+    // }
+    // @include bp(xxl) {
+    //   left: 0px;
+    // }
   }
 
   &__hand {

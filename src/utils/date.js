@@ -1,7 +1,3 @@
-// import subDays from "date-fns/subDays"
-// import isWithinInterval from "date-fns/isWithinInterval"
-// import parseISO from "date-fns/parseISO"
-
 export function daysFromNow(date) {
   if (!date) {
     return false

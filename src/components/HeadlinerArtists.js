@@ -56,6 +56,7 @@ const HeadlinerArtists = ({ artists }) => {
                     alt={artist.title.rendered}
                     onMouseEnter={() => setCurrentArtist(artist)}
                     onMouseLeave={() => setCurrentArtist(null)}
+                    role="presentation"
                   />
                   {artist.acf.country_code && (
                     <div className="HeadlinerArtists__country">

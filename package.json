@@ -6,6 +6,7 @@
   "author": "Heydays <studio@heydays.no>",
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@formatjs/intl-utils": "^3.8.4",
     "@rooks/use-sessionstorage": "^3.3.0",
     "@rooks/use-timeout": "^3.3.0",
     "@u-wave/react-vimeo": "^0.6.0",

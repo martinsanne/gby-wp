@@ -29,8 +29,11 @@
     display: flex;
     justify-content: center;
     max-width: 100%;
-    margin-bottom: 20px;
-    @include bp(lg) {
+    margin-bottom: 15px;
+    @include bp(md) {
+      margin-bottom: 20px;
+    }
+    @include bp(xxl) {
       margin-bottom: 34px;
     }
   }

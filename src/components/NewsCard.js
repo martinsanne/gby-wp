@@ -6,7 +6,13 @@ import { isBrowser } from "../utils/helpers"
 import { bp } from "../styled/utils/breakpoints"
 import { spacing } from "../styled/utils/spacing"
 
-import { FeaturedImageAspect, PostDate, Html, Illustration } from "./utils"
+import {
+  FeaturedImageAspect,
+  PostDate,
+  Html,
+  Illustration,
+  Overlay,
+} from "./utils"
 
 const NewsCard = ({ post, className }) => {
   const [illuRight, setIlluRight] = useState(false)
@@ -24,19 +30,19 @@ const NewsCard = ({ post, className }) => {
     <Wrapper
       as={Link}
       to={post.link}
-      illuPos={illuRight ? "right" : "left"}
+      $illuPos={illuRight ? "right" : "left"}
       className={className}
     >
       {post.featured_image ? (
         <div className="NewsCard__image">
-          <div className="NewsCard__overlay">
+          <Overlay className="NewsCard__overlay">
             <FeaturedImageAspect
               key={post.id}
               {...post.featured_image}
               className="aspect-sm--landscape"
               maxWidth={1000}
             />
-          </div>
+          </Overlay>
           {showIllu && (
             <Illustration className="NewsCard__illustration" src="random" />
           )}
@@ -60,7 +66,7 @@ const NewsCard = ({ post, className }) => {
 }
 
 const Wrapper = styled.div(
-  ({ theme, illuPos }) => css`
+  ({ theme, $illuPos }) => css`
     display: block;
     padding-left: 0;
     padding-right: 0;
@@ -105,14 +111,14 @@ const Wrapper = styled.div(
 
       ${bp({
         xs: css`
-          ${illuPos}: -60px;
+          ${$illuPos}: -60px;
         `,
         sm: css`
           display: block;
-          ${illuPos}: -100px;
+          ${$illuPos}: -100px;
         `,
         md: css`
-          ${illuPos}: -125px;
+          ${$illuPos}: -125px;
         `,
       })}
     }
