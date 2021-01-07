@@ -13,11 +13,6 @@ import Footer from "./Footer"
 import { ThemeProvider } from "styled-components"
 import baseTheme from "../styles/baseTheme"
 
-import "lazysizes"
-import "lazysizes/plugins/aspectratio/ls.aspectratio"
-import "lazysizes/plugins/respimg/ls.respimg"
-import "lazysizes/plugins/bgset/ls.bgset"
-
 const Layout = ({
   children,
   locale = "nb",

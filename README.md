@@ -1,28 +1,46 @@
 # Commands
 
-### Install
+### Installation
 
 ```
-npm i
+yarn
 ```
 
-### Run dev
+### Run development server
 
 ```
-npm start
+yarn start
 ```
 
 ### Build
 
 ```
-npm run build
+yarn build
+```
+
+### Serve the build
+
+```
+yarn serve
 ```
 
 ### Clear Gatsby cache
 
 ```
-npm run clean
+yarn clean
 ```
+
+## Known issues
+
+### White screen of death
+
+After running `yarn build && yarn serve` you might get a white screen when running `yarn start`. Clear gatsby cache with `yarn clean` and then run `yarn start` again to resolve.
+
+### Dev server failing
+
+`TypeError: Cannot read property 'allWordpressPost' of undefined`
+
+If you see the error above it is most likely a problem with the WordPress server timeout. This unfortunately happens on occasion, take a small break and try again :(
 
 # Todos
 
