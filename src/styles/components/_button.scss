@@ -1,7 +1,4 @@
 .button {
-  @include spacing("sm", ("padding-left", "padding-right"));
-  @include spacing("xs", ("padding-top", "padding-bottom"));
-
   background-color: transparent;
   color: white;
   transition: background-color $trans--fast, transform $trans--fast;
@@ -11,6 +8,10 @@
   margin: 0 auto;
   position: relative;
   background-color: $c-white;
+
+  padding: 10px 15px;
+  // @include spacing("sm", ("padding-left", "padding-right"));
+  // @include spacing("xs", ("padding-top", "padding-bottom"));
 
   &--md {
     @include spacing("sm", "padding");

@@ -89,7 +89,8 @@ const Wrapper = styled.div(
     .NewsCard__date {
       transition: 0.3s ease;
       display: inline-block;
-      ${spacing("xs", ["margin-bottom"])};
+      margin-bottom: 4px;
+      /* ${spacing("xs", ["margin-bottom"])}; */
     }
 
     .NewsCard__title {

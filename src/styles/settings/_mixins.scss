@@ -2,6 +2,7 @@ $illu-sizes: (
   sm: 120,
   md: 200,
   lg: 250,
+  xl: 280,
 );
 
 @function get-illu-size($bp) {
