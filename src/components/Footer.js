@@ -5,9 +5,9 @@ import Partners from "./Partners"
 import FestivalInfoMarquee from "./FestivalInfoMarquee"
 import Social from "./Social"
 import Downloads from "./Downloads"
-import NewsletterSignup from "./NewsletterSignup"
+// import NewsletterSignup from "./NewsletterSignup"
 import FooterCredits from "./FooterCredits"
-import styled from "styled-components"
+// import styled from "styled-components"
 // import LogoFooter from "./LogoFooter"
 
 const Footer = () => {

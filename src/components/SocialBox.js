@@ -86,7 +86,7 @@ const SocialBox = () => {
       <Block>
         <h4 className="SocialBox__title">
           <FormattedMessage
-            id="socialBox.title"
+            id="socialbox.title"
             defaultMessage="Følg Øyafestivalen"
           />
         </h4>
