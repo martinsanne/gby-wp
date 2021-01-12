@@ -10,7 +10,7 @@ const Post = ({ post }) => {
   return (
     <article className="Post Section">
       {title && (
-        <header className="Post__header">
+        <header className="Post__header Section">
           <h1 className="Post__title">
             <Html content={title} />
           </h1>

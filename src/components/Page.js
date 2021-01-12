@@ -6,7 +6,7 @@ const Page = ({ page }) => {
   return (
     <article className="Page">
       {title && (
-        <header className="Page__header">
+        <header className="Page__header Section">
           <h1 className="Page__title">
             <Html content={title} />
           </h1>

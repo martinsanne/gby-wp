@@ -21,7 +21,7 @@ const GalleryPage = props => {
   return (
     <div className="GalleryPage Page">
       {title && (
-        <header className="Page__header">
+        <header className="Page__header Section">
           <h1 className="Page__title">
             <Html content={title} />
           </h1>

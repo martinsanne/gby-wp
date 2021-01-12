@@ -21,7 +21,7 @@ export default class Search extends Component {
     } = this.props
     return (
       <div className="Search">
-        <header className="Search__header">
+        <header className="Search__header Section">
           <form className="Search__form" onSubmit={actions.submitHandler}>
             <div className="Search__input-wrapper">
               {query && (
