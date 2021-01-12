@@ -2,15 +2,20 @@ import React from "react"
 import styled, { css } from "styled-components"
 import Logo2021 from "./Logo2021"
 import { bp } from "../styled/utils/breakpoints"
+import { FormattedMessage } from "react-intl"
 
 const Logo2021Lockup = ({ className }) => {
   return (
     <Wrapper className={className}>
       <Logo2021 />
       <div className="Logo__date">
-        Tøyenparken
-        <br />
-        10.-14. august
+        <FormattedMessage
+          id="logo.dateAndPlace"
+          default="Tøyenparken {linebreak}10.—14. august"
+          values={{
+            linebreak: <br />,
+          }}
+        />
       </div>
     </Wrapper>
   )

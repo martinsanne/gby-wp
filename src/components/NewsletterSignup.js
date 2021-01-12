@@ -74,8 +74,10 @@ const NewsletterSignup = ({ className, focusOnMount, onDark }) => {
         <FormattedMessage {...messages.title} />
       </h4>
       <div className="NewsletterSignup__desc">
-        Ikke gå glipp av nyheter og annet eksklusivt innhold. Abbonner på
-        nyhetsbrevet vårt.
+        <FormattedMessage
+          id="newsletter.intro"
+          defaultMessage="Ikke gå glipp av nyheter og annet eksklusivt innhold. Abbonner på nyhetsbrevet vårt."
+        />
         <details className="NewsletterSignup__details">
           <summary>
             <FormattedMessage {...messages.read} />

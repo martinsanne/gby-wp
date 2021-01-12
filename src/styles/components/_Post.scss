@@ -3,7 +3,6 @@
 
   &__header {
     text-align: center;
-    @include spacing("lg", "margin-top");
     @include spacing("lg", "margin-bottom");
   }
 

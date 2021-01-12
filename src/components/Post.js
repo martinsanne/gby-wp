@@ -8,7 +8,7 @@ const Post = ({ post }) => {
   const { title, content, wordpress_id, featured_image, date, excerpt } = post
 
   return (
-    <article className="Post">
+    <article className="Post Section">
       {title && (
         <header className="Post__header">
           <h1 className="Post__title">

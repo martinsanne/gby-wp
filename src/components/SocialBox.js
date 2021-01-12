@@ -5,6 +5,7 @@ import NewsletterSignup from "./NewsletterSignup"
 import { useStaticQuery, graphql } from "gatsby"
 import { createSocialLinksFromYOAST } from "../utils/wpHelpers"
 import { Icon } from "./utils"
+import { FormattedMessage } from "gatsby-plugin-intl"
 
 const musicLinks = [
   // {
@@ -83,7 +84,12 @@ const SocialBox = () => {
   return (
     <Wrapper>
       <Block>
-        <h4 className="SocialBox__title">Følg Øyafestivalen</h4>
+        <h4 className="SocialBox__title">
+          <FormattedMessage
+            id="socialBox.title"
+            defaultMessage="Følg Øyafestivalen"
+          />
+        </h4>
         <Grid className="Grid">
           <LinkColumn links={socialLinks} />
           <LinkColumn links={musicLinks} />

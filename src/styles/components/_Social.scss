@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: spacing('md', 'sm');
+  margin-bottom: spacing("md", "sm");
 
   @include bp(md) {
     justify-content: flex-start;
@@ -10,15 +10,9 @@
 
   &__item {
     display: inline-block;
-    @include spacing('xs', 'margin-right');
-
+    @include spacing("xs", "margin-right");
     &:hover {
-      .Social__icon {
-        path,
-        circle {
-          fill: $c-main;
-        }
-      }
+      color: $c-main;
     }
   }
 
