@@ -110,9 +110,9 @@
     // If requested to hide bubble on hover
     // Uncomment this code
     // transition: transform 0.5s ease;
-    // &--hide-bubble {
-    //   transform: translateX(400px);
-    // }
+    &--hidden {
+      display: none;
+    }
   }
 
   @keyframes spider-drop {

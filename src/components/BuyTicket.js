@@ -28,7 +28,7 @@ const BuyTicket = ({ className }) => {
               BuyTicket: true,
               "BuyTicket--no-animation": value === 1,
               [className]: className,
-              "BuyTicket--hide-bubble": state.artistHover,
+              "BuyTicket--hidden": state.hideSpider,
             })}
           >
             <Illustration

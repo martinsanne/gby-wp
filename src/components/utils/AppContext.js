@@ -4,7 +4,7 @@ export const AppContext = createContext()
 
 export class AppProvider extends Component {
   state = {
-    artistHover: false,
+    hideSpider: false,
     showMenu: false,
     locale: this.props.locale,
     translations: this.props.translations,
@@ -45,8 +45,8 @@ export class AppProvider extends Component {
           actions: {
             toggleMenu: this.toggleMenu,
             closeMenu: this.closeMenu,
-            setArtistHover: artistHover => {
-              this.setState(prevState => ({ artistHover }))
+            setHideSpider: hideSpider => {
+              this.setState(() => ({ hideSpider }))
             },
           },
         }}

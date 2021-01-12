@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
  */
 import FrontPage from "../components/FrontPage"
 import Page from "../components/Page"
-import GreenCopper from "../components/GreenCopper"
+import GreenCopperPage from "../components/GreenCopperPage"
 import PartnerPageContainer from "../components/PartnerPageContainer"
 import GalleryPageContainer from "../components/GalleryPageContainer"
 import BlogPageContainer from "../components/BlogPageContainer"
@@ -14,7 +14,7 @@ import AreaMapContainer from "../components/AreaMapContainer"
 
 const pageTemplates = {
   homepage: FrontPage,
-  greencopper: GreenCopper,
+  greencopper: GreenCopperPage,
   partners: PartnerPageContainer,
   gallery: GalleryPageContainer,
   blog: BlogPageContainer,
