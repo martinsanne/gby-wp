@@ -17,7 +17,6 @@ const Header = () => {
       {ctx => {
         return (
           <StyledHeader dark={Boolean(ctx.state.showMenu)}>
-            <DateBanner>10.—14. august 2021, Tøyenparken</DateBanner>
             <Container>
               <div className="Header__content">
                 <Link
@@ -44,22 +43,6 @@ const Header = () => {
     </AppConsumer>
   )
 }
-
-const DateBanner = styled.div(
-  ({ theme }) => css`
-    padding: 2px;
-    background: ${theme.colors.mediumGray};
-    font-size: 12px;
-    text-align: center;
-    color: ${theme.colors.text};
-    display: none;
-    /* ${bp({
-      md: css`
-        display: none;
-      `,
-    })} */
-  `
-)
 
 const StyledHeader = styled.header(
   ({ theme, dark }) => css`

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
 import Grid from "styled-components-grid"
+import { FormattedMessage } from "react-intl"
 
 import Section from "./Section"
 import Artists from "./Artists"
@@ -13,14 +14,12 @@ import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
 import SocialBox from "./SocialBox"
-import { FormattedMessage } from "gatsby-plugin-intl"
 
-export default props => {
-  const { page } = props
-  const acf = page.acf
-  const posts = props.latestPosts.slice(0, 6)
+const FrontPage = ({ page, latestPosts = [] }) => {
+  const acf = page?.acf
+  const posts = latestPosts.slice(0, 6)
   return (
-    <div>
+    <article>
       <AsyncArtistLoader pageId={page.wordpress_id}>
         {({ asyncArtists, asyncHero }) => {
           let headliners = [],
@@ -174,9 +173,11 @@ export default props => {
           }}
         />
       )}
-    </div>
+    </article>
   )
 }
+
+export default FrontPage
 
 const galleryQuery = graphql`
   query {

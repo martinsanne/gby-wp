@@ -57,19 +57,6 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-portal`,
-    // {
-    //   resolve: `gatsby-plugin-intl`,
-    //   options: {
-    //     // language JSON resource path
-    //     path: `${__dirname}/src/intl`,
-    //     // supported language
-    //     languages: [`en`, `nb`],
-    //     // language file path
-    //     defaultLanguage: `nb`,
-    //     // option to redirect to `/nb` when connecting `/`
-    //     redirect: false,
-    //   },
-    // },
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

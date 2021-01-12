@@ -5,7 +5,7 @@ import NewsletterSignup from "./NewsletterSignup"
 import { useStaticQuery, graphql } from "gatsby"
 import { createSocialLinksFromYOAST } from "../utils/wpHelpers"
 import { Icon } from "./utils"
-import { FormattedMessage } from "gatsby-plugin-intl"
+import { FormattedMessage } from "react-intl"
 
 const musicLinks = [
   // {
@@ -86,7 +86,7 @@ const SocialBox = () => {
       <Block>
         <h4 className="SocialBox__title">
           <FormattedMessage
-            id="socialbox.title"
+            id="socialBox.title"
             defaultMessage="Følg Øyafestivalen"
           />
         </h4>
