@@ -2,6 +2,7 @@ $illu-sizes: (
   sm: 120,
   md: 200,
   lg: 250,
+  xl: 280,
 );
 
 @function get-illu-size($bp) {
@@ -75,7 +76,7 @@ $illu-sizes: (
   @include content-width("image");
   position: relative;
   width: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   margin: 0 auto;
   padding-left: spacing("sm", "sm");
   padding-right: spacing("sm", "sm");
@@ -109,15 +110,17 @@ $illu-sizes: (
 }
 
 @mixin headerHeight {
-  padding-top: rem-calc(44);
+  // padding-top: rem-calc(44);
+  padding-top: rem-calc(55);
 
   @include bp(md) {
-    padding-top: rem-calc(44);
+    // padding-top: rem-calc(44);
+    padding-top: rem-calc(65);
   }
 
-  @include bp(lg) {
-    padding-top: rem-calc(96);
-  }
+  // @include bp(lg) {
+  //   padding-top: rem-calc(96);
+  // }
 }
 
 @mixin is-ie {

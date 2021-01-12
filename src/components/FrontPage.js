@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
+import Grid from "styled-components-grid"
 import { FormattedMessage } from "react-intl"
 
 import Section from "./Section"
@@ -12,14 +13,13 @@ import AnimatedBanner from "./AnimatedBanner"
 import AnimatedIllustration from "./AnimatedIllustration"
 import Fact from "./Fact"
 import AsyncArtistLoader from "./AsyncArtistLoader"
-import Logo from "./Logo"
+import SocialBox from "./SocialBox"
 
-export default props => {
-  const { page } = props
-  const acf = page.acf
-  const posts = props.latestPosts.slice(0, 6)
+const FrontPage = ({ page, latestPosts = [] }) => {
+  const acf = page?.acf
+  const posts = latestPosts.slice(0, 6)
   return (
-    <div>
+    <article>
       <AsyncArtistLoader pageId={page.wordpress_id}>
         {({ asyncArtists, asyncHero }) => {
           let headliners = [],
@@ -45,11 +45,6 @@ export default props => {
 
           return (
             <>
-              {allArtists.length <= 0 && hero?.headliners?.length <= 0 && (
-                <div className="Hero__logo">
-                  <Logo />
-                </div>
-              )}
               {hero?.headliners?.length > 0 && <Hero hero={hero} />}
               {allArtists && allArtists.length > 0 && (
                 <ArtistsToggle>
@@ -69,7 +64,8 @@ export default props => {
           )
         }}
       </AsyncArtistLoader>
-      <FormattedMessage
+
+      {/* <FormattedMessage
         id="global.dateAndPlace"
         defaultMessage="10—14 August 2021, Oslo, Norway"
       >
@@ -79,38 +75,60 @@ export default props => {
             text={string}
           />
         )}
-      </FormattedMessage>
-      <AnimatedIllustration
-        name="snegle"
-        src="illustrations/snail2.png"
-        reverse
-      >
-        {posts && acf && acf.news && (
-          <Section
-            title={acf.news.title || ""}
-            desc={acf.news.description || ""}
-          >
-            <div className="container">
-              <div className="NewsCards NewsCards--frontpage">
-                {posts.map((post, i) => (
-                  <NewsCard
-                    key={`NewsCard-${post.wordpress_id}`}
-                    post={post}
-                    i={i}
-                  />
-                ))}
-              </div>
-              <div className="Section__action">
-                {acf.news.link && (
-                  <Link className="button" to={acf.news.link.url}>
-                    {acf.news.link.title}
-                  </Link>
-                )}
-              </div>
+      </FormattedMessage> */}
+
+      {posts && acf && acf.news && (
+        <Section
+          // title={acf.news.title || ""}
+          desc={acf.news.description || ""}
+        >
+          <div className="container">
+            <Grid className="Grid">
+              <Grid.Unit className="Grid__item" size={{ sm: 1, lg: 1 }}>
+                <Grid className="Grid NewsCards NewsCards--frontpage">
+                  {posts.map(post => (
+                    <Grid.Unit
+                      className="NewsCards__unit Grid__item"
+                      size={{ sm: 1 / 2, lg: 1 / 3 }}
+                      key={`NewsCard-${post.wordpress_id}`}
+                    >
+                      <NewsCard post={post} />
+                    </Grid.Unit>
+                  ))}
+                  <Grid.Unit className="NewsCards__unit NewsCards__unit--banner">
+                    <div className="BannerInner">
+                      <FormattedMessage
+                        id="global.dateAndPlace"
+                        defaultMessage="10—14 August 2021, Oslo, Norway"
+                      >
+                        {string => (
+                          <AnimatedBanner
+                            illustration="illustrations/snail2.png"
+                            text={string}
+                          />
+                        )}
+                      </FormattedMessage>
+                    </div>
+                  </Grid.Unit>
+                  <Grid.Unit
+                    className="Grid__item NewsCards__unit NewsCards__unit--socialbox"
+                    size={{ sm: 1, lg: 1 / 3 }}
+                  >
+                    <SocialBox />
+                  </Grid.Unit>
+                </Grid>
+              </Grid.Unit>
+            </Grid>
+            <div className="Section__action">
+              {acf.news.link && (
+                <Link className="button" to={acf.news.link.url}>
+                  {acf.news.link.title}
+                </Link>
+              )}
             </div>
-          </Section>
-        )}
-      </AnimatedIllustration>
+          </div>
+        </Section>
+      )}
 
       {acf.did_you_know && acf.did_you_know.first_paragraph && (
         <Section>
@@ -155,9 +173,11 @@ export default props => {
           }}
         />
       )}
-    </div>
+    </article>
   )
 }
+
+export default FrontPage
 
 const galleryQuery = graphql`
   query {
@@ -311,92 +331,8 @@ export const query = graphql`
               alt
             }
           }
-          # featured_image {
-          #   wordpress_id
-          #   title
-          #   url
-          #   alt
-          #   description
-          #   caption
-          #   name
-          #   mime_type
-          #   subtype
-          #   width
-          #   height
-          #   sizes {
-          #     thumbnail
-          #     thumbnail_width
-          #     thumbnail_height
-          #     medium
-          #     medium_width
-          #     medium_height
-          #     medium_large
-          #     medium_large_width
-          #     medium_large_height
-          #     large
-          #     large_width
-          #     large_height
-          #     small
-          #     small_width
-          #     small_height
-          #     medium_small
-          #     medium_small_width
-          #     medium_small_height
-          #     xlarge
-          #     xlarge_width
-          #     xlarge_height
-          #   }
-          # }
         }
       }
-      # artists {
-      #   wordpress_id
-      #   status
-      #   title {
-      #     rendered
-      #   }
-      #   featured_image {
-      #     wordpress_id
-      #     title
-      #     url
-      #     alt
-      #     description
-      #     caption
-      #     name
-      #     mime_type
-      #     subtype
-      #     width
-      #     height
-      #     sizes {
-      #       thumbnail
-      #       thumbnail_width
-      #       thumbnail_height
-      #       medium
-      #       medium_width
-      #       medium_height
-      #       medium_large
-      #       medium_large_width
-      #       medium_large_height
-      #       large
-      #       large_width
-      #       large_height
-      #       small
-      #       small_width
-      #       small_height
-      #       medium_small
-      #       medium_small_width
-      #       medium_small_height
-      #       xlarge
-      #       xlarge_width
-      #       xlarge_height
-      #     }
-      #   }
-      #   acf {
-      #     country_code
-      #     greencopper_url
-      #     headliner
-      #   }
-      # }
     }
   }
 `

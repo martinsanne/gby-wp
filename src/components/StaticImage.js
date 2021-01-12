@@ -17,21 +17,21 @@ Usage:
 
 */
 
-export default function StaticImage({ src, aspect, className, children }) {
+const StaticImage = ({ src, aspect, children }) => {
   const data = useStaticQuery(query)
   let image
 
   if (src === "random") {
-    const illusOnly = data.allFile.edges.filter(item => {
-      const blacklisted = ["bee-left", "bee-right", "snail2"]
+    const blacklisted = ["bee-left", "bee-right", "snail2"]
+    const illusOnly = [...data.allFile.edges].filter(item => {
       return (
         item.node.relativePath.includes("illustrations") &&
         !blacklisted.includes(item.node.name)
       )
     })
     image = [illusOnly[Math.floor(Math.random() * illusOnly.length)]]
-  } else if (src) {
-    image = data.allFile.edges.filter(item => {
+  } else {
+    image = [...data.allFile.edges].filter(item => {
       return item.node.relativePath === src
     })
   }
@@ -51,6 +51,8 @@ export default function StaticImage({ src, aspect, className, children }) {
     return null
   }
 }
+
+export default StaticImage
 
 const query = graphql`
   query {

@@ -9,7 +9,13 @@ export default class Modal extends Component {
     return (
       <Portal>
         <div className="Modal">
-          <div className="Modal__background" onClick={this.props.close} />
+          <div
+            className="Modal__background"
+            onClick={this.props.close}
+            role="button"
+            tabIndex="-1"
+            aria-label="Close"
+          />
           <div className="Modal__container">
             <div className="Modal__content">
               <div className="Modal__header">

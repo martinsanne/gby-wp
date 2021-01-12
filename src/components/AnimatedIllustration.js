@@ -14,8 +14,12 @@ const AnimatedIllustration = ({
   const [top, setTop] = useState(`${Math.floor(Math.random() * 70)}%`)
 
   useEffect(() => {
-    setTop(`${Math.floor(Math.random() * 70)}%`)
-  }, [])
+    if (name === "snegle") {
+      setTop(`40%`)
+    } else {
+      setTop(`${Math.floor(Math.random() * 70)}%`)
+    }
+  }, [name])
 
   if (typeof window === "undefined") return children
 

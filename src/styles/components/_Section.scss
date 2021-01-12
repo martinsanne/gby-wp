@@ -1,5 +1,10 @@
 .Section {
-  @include spacing("halfsection", "margin-bottom");
+  @include spacing(halfsection, (margin-top));
+
+  @media screen and (max-width: 720px), screen and (max-height: 700px) {
+    margin-top: 50px;
+  }
+  // @include spacing("halfsection", "margin-bottom");
 
   &__header {
     text-align: center;

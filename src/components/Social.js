@@ -14,6 +14,7 @@ const Social = props => {
             facebook_site
             instagram_url
             linkedin_url
+            twitter_site
           }
         }
       }

@@ -19,11 +19,7 @@ const AnimatedBanner = ({ illustration, text, reverse = false }) => {
               src={illustration}
               className="AnimatedBanner__illustration"
             />
-            {text && (
-              <div className="AnimatedBanner__banner">
-                <h3>{text}</h3>
-              </div>
-            )}
+            {text && <div className="AnimatedBanner__banner">{text}</div>}
           </div>
         </div>
       )}

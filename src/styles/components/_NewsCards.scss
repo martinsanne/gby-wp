@@ -1,9 +1,72 @@
 .NewsCards {
-  display: flex;
-  flex-flow: row wrap;
+  &__unit {
+    order: 10;
 
-  &--footer {
-    .NewsCards__item {
+    &--banner {
+      pointer-events: none;
+      position: relative;
+      .BannerInner {
+        overflow: hidden;
+        width: 100vw;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 120px;
+        padding-top: 30px;
+      }
+    }
+
+    &--socialbox {
+      margin-top: 20px;
+    }
+
+    // Two first news
+    &:first-child,
+    &:nth-child(2) {
+      order: 1;
+    }
+
+    // Add banner snail on top on mobile
+    &--banner {
+      order: -1;
+      height: 10px;
+    }
+
+    @include bp(md) {
+      &--socialbox {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        order: 2;
+      }
+      &--banner {
+        order: 3;
+        height: 10px;
+      }
+    }
+
+    @include bp(lg) {
+      // Prevent illu from overlapping socialbox
+      &:nth-child(2) {
+        .Illustration {
+          display: none;
+        }
+      }
+      &--socialbox {
+        order: 2;
+        margin-top: 0;
+      }
+      &--banner {
+        order: 3;
+        height: 30px;
+      }
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+  }
+
+  &--latest {
+    .Grid__item {
       @include bp(lg) {
         &:last-of-type {
           display: none;
@@ -17,60 +80,6 @@
     }
   }
 
-  &__placeholder {
-    background: black;
-  }
-
-  &__item {
-    width: 100%;
-    @include spacing(lg, margin-bottom);
-    @include spacing(xs, (padding-left, padding-right));
-    margin-bottom: spacing(lg, sm);
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-
-    @include bp(md) {
-      width: 50%;
-    }
-
-    @include bp(lg) {
-      width: 100/3 * 1%;
-    }
-
-    .Overlay {
-      transition: $trans;
-    }
-
-    &:hover {
-      .NewsCards__image .Overlay {
-        transform: translateY(-5px);
-      }
-    }
-  }
-
-  &__image {
-    position: relative;
-    transition: $trans;
-    @include spacing(xs, margin-bottom);
-    border: $s-border__width--large solid $c-white;
-    background: #fff;
-  }
-
-  &__content {
-    @include spacing(xs, (margin-bottom, margin-top));
-  }
-
-  &__date {
-    transition: $trans;
-    display: inline-block;
-    @include spacing(xs, margin-bottom);
-  }
-
-  &__title {
-    @include spacing(xs, margin-bottom);
-  }
-
   &__illustration {
     position: absolute;
     width: rem-calc(200);
@@ -81,7 +90,6 @@
     transform: translateZ(0);
     &--right {
       left: auto !important;
-      // right: 0;
       @include illu-size(right, -0.5);
     }
   }

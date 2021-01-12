@@ -15,7 +15,7 @@ const YearSelect = ({ year, locale, page }) => {
             "YearSelect--active": year ? true : false,
           })}
           value={year}
-          onChange={event => {
+          onBlur={event => {
             event.preventDefault()
             if (!event.target.value) {
               navigate(page.link)

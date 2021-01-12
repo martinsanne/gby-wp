@@ -1,6 +1,15 @@
 .Footer {
   overflow: hidden;
 
+  .Social {
+    .Social__item {
+      color: $c-inactive;
+      &:hover {
+        color: $c-white;
+      }
+    }
+  }
+
   &__wrapper {
     position: relative;
     @include spacing(md, padding-bottom);
@@ -8,9 +17,11 @@
     color: white;
     z-index: 2;
     a {
-      color: $c-interactive;
-      text-decoration: underline;
+      color: $c-inactive;
       font-family: $f-sans;
+      &:hover {
+        color: $c-white;
+      }
     }
   }
 
@@ -57,6 +68,7 @@
   }
 
   &__content {
+    @include spacing(sm, padding-top);
     @extend .container;
     text-align: center;
     @include bp(md) {

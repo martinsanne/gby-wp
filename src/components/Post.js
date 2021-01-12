@@ -8,7 +8,7 @@ const Post = ({ post }) => {
   const { title, content, wordpress_id, featured_image, date, excerpt } = post
 
   return (
-    <article className="Post">
+    <article className="Post Section">
       {title && (
         <header className="Post__header">
           <h1 className="Post__title">
@@ -41,9 +41,7 @@ const Post = ({ post }) => {
         </ResponsiveEmbeds>
       </div>
       <footer className="Post__footer">
-        <div className="NewsCards NewsCards--footer">
-          {isBrowser && <LatestPosts wordpress_id={wordpress_id} />}
-        </div>
+        {isBrowser && <LatestPosts wordpress_id={wordpress_id} />}
       </footer>
     </article>
   )

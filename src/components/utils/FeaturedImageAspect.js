@@ -1,27 +1,45 @@
-import React from "react"
+// import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { acfImageToSrcset } from "../../utils/wpHelpers"
 import cc from "classcat"
+import { nanoid } from "nanoid"
 
 const FeaturedImageAspect = props => {
-  const { className, alt, title, width, height, url } = props
-  let { maxWidth } = props
-  if (!maxWidth) {
-    maxWidth = 1024
+  const { className, alt, title, width, height, url, maxWidth } = props
+  const [srcset, setSrcset] = useState(
+    acfImageToSrcset(props, maxWidth || 1024)
+  )
+  const [classNames, setClassNames] = useState({
+    lazyload: true,
+    aspect: true,
+    [className]: className,
+  })
+
+  const calculateSrcset = () => {
+    const newSrcset = acfImageToSrcset(props, maxWidth || 1024)
+    console.log(newSrcset)
+    setSrcset(newSrcset)
   }
-  const srcset = acfImageToSrcset(props, maxWidth)
+  useEffect(calculateSrcset, [props])
+
+  // Reset classnames if srcset changes to ensure lazyloading
+  const resetClassnames = () => {
+    setClassNames({
+      lazyload: true,
+      aspect: true,
+      [className]: className,
+    })
+  }
+  useEffect(resetClassnames, [srcset])
 
   return (
     <>
       <div
-        key={srcset}
+        key={nanoid()}
         aria-label={alt || title}
         data-bgset={srcset}
         role="img"
-        className={cc({
-          lazyload: true,
-          aspect: true,
-          [className]: className,
-        })}
+        className={cc(classNames)}
       />
       <noscript>
         <img

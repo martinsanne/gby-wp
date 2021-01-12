@@ -1,6 +1,4 @@
 .Hero {
-  @include spacing(lg, (margin-top));
-
   &__container {
     @include container;
     @include bp(md) {
@@ -39,33 +37,33 @@
     @include bp(lg) {
       top: -50px;
       left: -100px;
-      transform: scale(1.1);
+      // transform: scale(1.1);
     }
-    @include bp(xl) {
-      top: -75px;
-      left: -50px;
-    }
-    @include bp(xxl) {
-      left: 0px;
-    }
+    // @include bp(xl) {
+    //   top: -75px;
+    //   left: -50px;
+    // }
+    // @include bp(xxl) {
+    //   left: 0px;
+    // }
   }
 
   &__hand {
     position: absolute;
     display: none;
-    z-index: 99999;
+    z-index: 99;
     @include bp(md) {
       display: block;
-      bottom: -50px;
+      bottom: -100px;
       right: -50px;
     }
     @include bp(lg) {
       bottom: -100px;
       right: 0;
-      transform: scale(1.1);
+      // transform: scale(1.1);
     }
     @include bp(xl) {
-      bottom: -125px;
+      bottom: -165px;
       right: 5%;
     }
   }

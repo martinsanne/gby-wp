@@ -6,41 +6,48 @@ import cc from "classcat"
 /**
  * React intl setup
  */
-import { IntlProvider, addLocaleData } from "react-intl"
-import en from "react-intl/locale-data/en"
-import nb from "react-intl/locale-data/nb"
+import { IntlProvider } from "react-intl"
 import intlTranslations from "../intl"
 import Header from "./Header"
 import Footer from "./Footer"
+import { ThemeProvider } from "styled-components"
+import baseTheme from "../styles/baseTheme"
 
-addLocaleData([...en, ...nb])
-
-const Layout = ({ children, locale, translations, options, settings }) => {
-  if (!locale) {
-    locale = "nb"
-  }
+const Layout = ({
+  children,
+  locale = "nb",
+  translations,
+  options,
+  settings,
+}) => {
   return (
-    <IntlProvider messages={intlTranslations[locale]} locale={locale}>
-      <AppProvider
-        translations={translations}
-        locale={locale}
-        options={options}
-        settings={settings}
-      >
-        <div
-          className={cc({
-            App: true,
-            "App--development": process.env.NODE_ENV === "development",
-          })}
+    <AppProvider
+      translations={translations}
+      locale={locale}
+      options={options}
+      settings={settings}
+    >
+      <ThemeProvider theme={baseTheme}>
+        <IntlProvider
+          messages={intlTranslations[locale]}
+          locale={locale}
+          defaultLocale={locale}
         >
-          <div className="App__routes">
-            <Header />
-            <main>{children}</main>
-            <Footer />
+          <div
+            className={cc({
+              App: true,
+              "App--development": process.env.NODE_ENV === "development",
+            })}
+          >
+            <div className="App__routes">
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </AppProvider>
-    </IntlProvider>
+        </IntlProvider>
+      </ThemeProvider>
+    </AppProvider>
   )
 }
 

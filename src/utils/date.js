@@ -1,14 +1,10 @@
-// import * as moment from 'moment'
-
-// export function daysFromNow(date, maxDays = 20) {
-//   const today = moment()
-//   const released = moment(date)
-//   const diff = today.diff(released, 'days')
-//   return diff < maxDays // number is amount of days
-// }
-import subDays from "date-fns/sub_days"
-import isWithinRange from "date-fns/is_within_range"
-
-export function daysFromNow(date, maxDays = 20) {
-  return isWithinRange(date, subDays(new Date(), maxDays), new Date())
+export function daysFromNow(date) {
+  if (!date) {
+    return false
+  }
+  const today = new Date()
+  const dayMilliseconds = 1000 * 60 * 60 * 24
+  const diffMilliseconds = date.getTime() - today.getTime()
+  const days = Math.round(diffMilliseconds / dayMilliseconds)
+  return days
 }

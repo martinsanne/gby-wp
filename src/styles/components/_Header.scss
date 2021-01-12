@@ -1,91 +1,60 @@
-.Header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background: $c-background;
+// .Header {
+// &__content {
+//   @include spacing("xs", ("margin-top", "padding-bottom"));
+//   @include content-width("image");
 
-  &--dark {
-    background: black;
-    // transition: $trans;
-    .Logo__svg {
-      fill: white;
-    }
-    .LanguageSwitcher {
-      color: black;
-    }
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: spacing("sm", "sm");
+//   padding-right: spacing("sm", "sm");
+//   position: relative;
 
-    .Header__buy {
-      .BuyTicket {
-        &__bubble {
-          border-color: $c-white;
-          color: $c-white;
-        }
-      }
-    }
+//   @include bp(md) {
+//     padding-left: spacing("sm", "md");
+//     padding-right: spacing("sm", "md");
+//   }
 
-    .BuyTicket {
-      display: none;
-    }
-  }
+//   @include bp(lg) {
+//     padding-left: spacing("md", "lg");
+//     padding-right: spacing("md", "lg");
+//   }
+//   // @include bp(xl) {
+//   //   align-items: baseline;
+//   // }
+// }
 
-  &__top {
-    width: 100%;
-    @include spacing("xs", ("margin-top", "padding-bottom"));
-    @include content-width("image");
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: spacing("sm", "sm");
-    padding-right: spacing("sm", "sm");
+// &__lang {
+//   text-align: right;
+//   display: none;
+//   @include bp(lg) {
+//     display: block;
+//   }
+// }
 
-    @include bp(md) {
-      padding-left: spacing("sm", "md");
-      padding-right: spacing("sm", "md");
-    }
+// &__buy {
+//   flex: 0 1 auto;
+//   @include bp(lg) {
+//     position: absolute;
+//     z-index: 99;
+//     white-space: nowrap;
+//     top: 0;
+//     right: 100px;
+//   }
+// }
 
-    @include bp(lg) {
-      padding-left: spacing("md", "lg");
-      padding-right: spacing("md", "lg");
-    }
-    // @include bp(xl) {
-    //   align-items: baseline;
-    // }
-  }
-
-  &__lang,
-  &__logo {
-    @include bp(md) {
-      width: auto;
-    }
-  }
-
-  &__lang {
-    text-align: right;
-    display: none;
-
-    @include bp(lg) {
-      display: block;
-    }
-  }
-
-  &__buy {
-    flex-grow: 1;
-    text-align: center;
-    @include bp(lg) {
-      position: absolute;
-      z-index: 9;
-      white-space: nowrap;
-      top: 0;
-      right: 10%;
-    }
-
-    @include bp(xxl) {
-      right: 15%;
-    }
-  }
-}
+// &__logo,
+// &__lang {
+//   flex: 0 1 auto;
+//   @include bp(lg) {
+//     flex: 1 0 240px;
+//   }
+// }
+// &__menu {
+//   flex: 0 1 auto;
+//   margin-left: 15px;
+//   @include bp(lg) {
+//     flex: 1 0 450px;
+//     max-width: 100%;
+//   }
+// }
+// }

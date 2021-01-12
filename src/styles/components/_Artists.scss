@@ -12,12 +12,7 @@
   &--headliners {
     @include spacing(md, margin-bottom);
     .Artists__item {
-      @include font-size(h1);
-
-      @include bp(xxl) {
-        // Clamp max size
-        font-size: rem-calc(65);
-      }
+      @include font-size(artist);
     }
   }
 

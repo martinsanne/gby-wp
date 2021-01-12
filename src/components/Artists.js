@@ -48,6 +48,7 @@ const Artists = ({ artists, headliners }) => {
                 setCurrentArtist(artist)
               }}
               onMouseLeave={() => setCurrentArtist(null)}
+              role="presentation"
             >
               <FontToggle i={i} className="Artists__name">
                 <Html El="span" content={artist?.title?.rendered} />

@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import addDivider from "../utils/addDivider"
 import useWindowSize from "./hooks/useWindowSize"
 import useTimeout from "./hooks/useTimeout"
 import { Link } from "gatsby"
 import { FeaturedImage, Overlay } from "./utils"
 import cc from "classcat"
+import { AppContext } from "./utils/AppContext"
 
 const HeadlinerArtists = ({ artists }) => {
+  const { actions } = useContext(AppContext)
   const wrapper = useRef()
   const windowSize = useWindowSize({ debounce: 200 })
   const [currentArtist, setCurrentArtist] = useState(null)
@@ -37,6 +39,12 @@ const HeadlinerArtists = ({ artists }) => {
         "HeadlinerArtists--launch": artists.length <= 2,
       })}
       ref={wrapper}
+      onMouseEnter={() => {
+        actions.setArtistHover(true)
+      }}
+      onMouseLeave={() => {
+        actions.setArtistHover(false)
+      }}
     >
       {artists.map(
         (artist, i) =>
@@ -54,8 +62,13 @@ const HeadlinerArtists = ({ artists }) => {
                     className="HeadlinerArtists__graphic"
                     src={artist?.acf?.name_graphic?.url}
                     alt={artist.title.rendered}
-                    onMouseEnter={() => setCurrentArtist(artist)}
-                    onMouseLeave={() => setCurrentArtist(null)}
+                    onMouseEnter={() => {
+                      setCurrentArtist(artist)
+                    }}
+                    onMouseLeave={() => {
+                      setCurrentArtist(null)
+                    }}
+                    role="presentation"
                   />
                   {artist.acf.country_code && (
                     <div className="HeadlinerArtists__country">

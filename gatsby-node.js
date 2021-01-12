@@ -47,7 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     query.then(result => {
       if (result.errors) {
-        console.error(results.errors)
+        console.error(result.errors)
         reject(result.error)
       }
 
@@ -96,7 +96,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     query.then(result => {
       if (result.errors) {
-        console.error(results.errors)
+        console.error(result.errors)
         reject(result.error)
       }
 

@@ -1,7 +1,4 @@
 .button {
-  @include spacing("sm", ("padding-left", "padding-right"));
-  @include spacing("xs", ("padding-top", "padding-bottom"));
-
   background-color: transparent;
   color: white;
   transition: background-color $trans--fast, transform $trans--fast;
@@ -12,6 +9,10 @@
   position: relative;
   background-color: $c-white;
 
+  padding: 10px 15px;
+  // @include spacing("sm", ("padding-left", "padding-right"));
+  // @include spacing("xs", ("padding-top", "padding-bottom"));
+
   &--md {
     @include spacing("sm", "padding");
   }
@@ -20,19 +21,20 @@
     @include spacing("md", "padding");
   }
 
-  &:after {
-    content: "";
-    display: block;
-    height: 0;
-    border-top: $border;
-    background: transparent;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transition: transform 0.2s ease;
-    transform: scaleX(0);
-  }
+  // Strek over disabled knapp. Erland vil ikke ha den
+  // &:after {
+  //   content: "";
+  //   display: block;
+  //   height: 0;
+  //   border-top: $border;
+  //   background: transparent;
+  //   width: 100%;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 0;
+  //   transition: transform 0.2s ease;
+  //   transform: scaleX(0);
+  // }
 
   &:hover,
   &:focus {
@@ -43,21 +45,18 @@
     color: white;
   }
 
-  &:active {
-    // transform: translateY(0);
-    // box-shadow: none;
-    // border-bottom-width: 1px;
-  }
-
   &:disabled {
-    color: $c-text;
-    border-color: $c-text;
+    color: $c-inactive;
+    border-color: $c-white;
     background: transparent;
     box-shadow: none;
-    // border-bottom-width: 1px;
     transform: translateY(0);
-    &:after {
-      transform: scaleX(1);
+    // &:after {
+    //   transform: scaleX(1);
+    // }
+    &:hover {
+      color: $c-inactive;
+      background: transparent;
     }
   }
 }

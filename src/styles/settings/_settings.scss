@@ -16,7 +16,7 @@ $c-interactive: #5f97d1;
 $c-text: $c-black;
 $c-border: $c-black;
 $c-background: $c-gray;
-$c-inactive: $c-gray;
+$c-inactive: #ababab;
 $c-alert: $c-black;
 $c-error: $c-black;
 
@@ -62,6 +62,14 @@ $spacing: (
     sm: 24,
     md: 48,
     lg: 60,
+    section: 160,
+    halfsection: 80,
+  ),
+  xxl: (
+    xs: 12,
+    sm: 24,
+    md: 48,
+    lg: 60,
     section: 200,
     halfsection: 100,
   ),
@@ -78,6 +86,7 @@ $typography: (
     h6: 16,
     body: 16,
     small: 14,
+    artist: 18,
   ),
   md: (
     h1: 46,
@@ -88,6 +97,7 @@ $typography: (
     h6: 18,
     body: 16,
     small: 14,
+    artist: 34,
   ),
   lg: (
     h1: 46,
@@ -98,6 +108,7 @@ $typography: (
     h6: 18,
     body: 18,
     small: 16,
+    artist: 46,
   ),
   xxl: (
     h1: 76,
@@ -108,16 +119,17 @@ $typography: (
     h6: 18,
     body: 18,
     small: 16,
+    artist: 46,
   ),
 );
 
 $headlinerSizes: (
   sm: 30,
   md: 50,
-  lg: 60,
-  xl: 70,
-  xxl: 80,
+  lg: 56,
 );
+// xl: 70,
+// xxl: 80
 
 // Border
 $s-border__width: 2px;

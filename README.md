@@ -1,28 +1,46 @@
 # Commands
 
-### Install
+### Installation
 
 ```
-npm i
+yarn
 ```
 
-### Run dev
+### Run development server
 
 ```
-npm start
+yarn start
 ```
 
 ### Build
 
 ```
-npm run build
+yarn build
+```
+
+### Serve the build
+
+```
+yarn serve
 ```
 
 ### Clear Gatsby cache
 
 ```
-npm run clean
+yarn clean
 ```
+
+## Known issues
+
+### White screen of death
+
+After running `yarn build && yarn serve` you might get a white screen when running `yarn start`. Clear gatsby cache with `yarn clean` and then run `yarn start` again to resolve.
+
+### Dev server failing
+
+`TypeError: Cannot read property 'allWordpressPost' of undefined`
+
+If you see the error above it is most likely a problem with the WordPress server timeout. This unfortunately happens on occasion, take a small break and try again :(
 
 # Todos
 
@@ -36,21 +54,24 @@ npm run clean
 #### When domain is transfered to gatsby version
 
 - [ ] Point api.oyafestivalen to www server
-- [ ]
 
 ### Backend
+
 - [ ] Activate new CMS in prod
 - [ ] Add build hook to WordPress
 - [ ] Replace potentially wrong urls (tornado-node, netlify etc)
 
 ### Frontend
+
 - [ ] Global home url based on language (on main logo ie)
 - [ ] Add polyfills
 
 ### Maybye later
+
 - [ ] Run images static
 
 ### Backlog
+
 - [x] Rename repository to gby-oya
 - [x] News article sorting and loading articles per language
 - [x] Add translations to categories in rest api

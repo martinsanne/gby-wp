@@ -1,5 +1,10 @@
+html,
 body {
   width: 100%;
+}
+
+body {
+  position: relative; // iOS fix
   overflow-x: hidden;
   background: $c-background;
 }
@@ -79,5 +84,6 @@ select {
 }
 
 summary {
+  font-style: italic;
   cursor: pointer;
 }

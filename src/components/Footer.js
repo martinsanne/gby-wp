@@ -1,14 +1,14 @@
 import React from "react"
-// import { Link, useStaticQuery, graphql } from "gatsby"
-import { FormattedMessage } from "react-intl"
+// import { FormattedMessage } from "react-intl"
 
 import Partners from "./Partners"
 import FestivalInfoMarquee from "./FestivalInfoMarquee"
 import Social from "./Social"
 import Downloads from "./Downloads"
-import NewsletterSignup from "./NewsletterSignup"
+// import NewsletterSignup from "./NewsletterSignup"
 import FooterCredits from "./FooterCredits"
-import Logo from "./Logo"
+// import styled from "styled-components"
+// import LogoFooter from "./LogoFooter"
 
 const Footer = () => {
   return (
@@ -16,10 +16,10 @@ const Footer = () => {
       <Partners className="Footer__partners" />
       <div className="Footer__wrapper">
         <FestivalInfoMarquee />
-        <div className="Footer__decor">
+        {/* <div className="Footer__decor">
           <div className="Footer__left">
             <div className="Footer__logo">
-              <Logo type="footer" fill="#FFFFFF" />
+              <LogoFooter />
             </div>
             <p className="Footer__decor-item">
               <FormattedMessage
@@ -29,9 +29,9 @@ const Footer = () => {
             </p>
           </div>
           <div className="Footer__right">
-            <NewsletterSignup onDark />
+            <StyledNewsletterSignup onDark />
           </div>
-        </div>
+        </div> */}
         <div className="Footer__content">
           <div className="Footer__item">
             <Social />
@@ -43,5 +43,10 @@ const Footer = () => {
     </footer>
   )
 }
+
+// const StyledNewsletterSignup = styled(NewsletterSignup)`
+//   max-width: 640px;
+//   margin: 0 auto;
+// `
 
 export default Footer
