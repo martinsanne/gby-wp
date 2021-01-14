@@ -6,7 +6,8 @@ import Logo2021Lockup from "./Logo2021Lockup"
 import Menu from "./Menu"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { AppConsumer } from "./utils"
-import BuyTicket from "./BuyTicket"
+import BuyTicketSpider from "./BuyTicketSpider"
+import BuyTicketButton from "./BuyTicketButton"
 import { bp } from "../styled/utils/breakpoints"
 import { spacing } from "../styled/utils/spacing"
 import Container from "./Container"
@@ -27,7 +28,12 @@ const Header = () => {
                   <Logo2021Lockup />
                 </Link>
                 <div className="Header__buy">
-                  <BuyTicket />
+                  <div className="Header__ticketSpider">
+                    <BuyTicketSpider />
+                  </div>
+                  <div className="Header__ticketButton">
+                    <BuyTicketButton />
+                  </div>
                 </div>
                 <div className="Header__menu">
                   <Menu />
@@ -75,8 +81,30 @@ const StyledHeader = styled.header(
 
     .Header__buy {
       justify-content: flex-end;
-      padding-right: 15px;
+      padding-right: 7px;
       margin-left: auto;
+      ${bp({
+        sm: css`
+          padding-right: 15px;
+        `,
+      })}
+    }
+
+    .Header__ticketButton {
+      ${bp({
+        lg: css`
+          display: none;
+        `,
+      })}
+    }
+
+    .Header__ticketSpider {
+      display: none;
+      ${bp({
+        lg: css`
+          display: block;
+        `,
+      })}
     }
 
     ${bp({

@@ -69,6 +69,7 @@ const responsiveSpacing = {
 
 const breakpoints = {
   xs: 0,
+  xssm: 400,
   sm: 550,
   md: 960,
   lg: 1200,
