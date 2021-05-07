@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import Logo2021 from "./Logo2021"
+import Logo2021 from "./Logo2022"
 import { bp } from "../styled/utils/breakpoints"
 import { FormattedMessage } from "react-intl"
 
