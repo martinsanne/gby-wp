@@ -73,16 +73,6 @@
     }
   }
 
-  // TODO FIX HEADLINERS ARTIST RELEASE REMOVE WHEN ARTISTS RESTORED
-
-  &__graphic {
-    width: 75%;
-  }
-  &__item {
-    display: block;
-  }
-  // END FIX HEADLINERS ARTIST
-
   &__country {
     @extend .small;
     align-self: flex-end;
