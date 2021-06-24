@@ -19,6 +19,10 @@ function SEO({ description, lang, meta, keywords, title }) {
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             meta={[
               {
+                name: "facebook-domain-verification",
+                content: "u2eju2b135jjaa0me4mn9jdrueryy6",
+              },
+              {
                 name: `description`,
                 content: metaDescription,
               },
