@@ -12,7 +12,7 @@ import Section from "./Section"
 import Overlay from "./Overlay"
 import VisuallyHidden from "./VisuallyHidden"
 import Loader from "./Loader"
-import { AppConsumer, AppProvider } from "./AppContext"
+import { AppContext, AppConsumer, AppProvider } from "./AppContext"
 import PostDate from "./PostDate"
 import ResponsiveEmbeds from "./ResponsiveEmbeds"
 // import Marquee from './Marquee'
@@ -46,6 +46,7 @@ export {
   Section,
   Overlay,
   VisuallyHidden,
+  AppContext,
   AppConsumer,
   AppProvider,
   PostDate,

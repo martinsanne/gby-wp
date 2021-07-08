@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 
 import Logo2021Lockup from "./Logo2021Lockup"
 import Menu from "./Menu"
 import LanguageSwitcher from "./LanguageSwitcher"
-import { AppConsumer } from "./utils"
+import { AppConsumer, AppContext } from "./utils"
 import BuyTicketSpider from "./BuyTicketSpider"
 import BuyTicketButton from "./BuyTicketButton"
 import { bp } from "../styled/utils/breakpoints"
@@ -13,40 +13,35 @@ import { spacing } from "../styled/utils/spacing"
 import Container from "./Container"
 
 const Header = () => {
+  const ctx = useContext(AppContext)
   return (
-    <AppConsumer>
-      {ctx => {
-        return (
-          <StyledHeader dark={Boolean(ctx.state.showMenu)}>
-            <Container>
-              <div className="Header__content">
-                <Link
-                  className="Header__logo"
-                  to={"/"}
-                  onClick={ctx.actions.closeMenu}
-                >
-                  <Logo2021Lockup />
-                </Link>
-                <div className="Header__buy">
-                  <div className="Header__ticketSpider">
-                    <BuyTicketSpider />
-                  </div>
-                  <div className="Header__ticketButton">
-                    <BuyTicketButton />
-                  </div>
-                </div>
-                <div className="Header__menu">
-                  <Menu />
-                </div>
-                <div className="Header__lang">
-                  <LanguageSwitcher />
-                </div>
-              </div>
-            </Container>
-          </StyledHeader>
-        )
-      }}
-    </AppConsumer>
+    <StyledHeader dark={Boolean(ctx.state.showMenu)}>
+      <Container>
+        <div className="Header__content">
+          <Link
+            className="Header__logo"
+            to={"/"}
+            onClick={ctx.actions.closeMenu}
+          >
+            <Logo2021Lockup />
+          </Link>
+          <div className="Header__buy">
+            <div className="Header__ticketSpider">
+              <BuyTicketSpider />
+            </div>
+            <div className="Header__ticketButton">
+              <BuyTicketButton />
+            </div>
+          </div>
+          <div className="Header__menu">
+            <Menu />
+          </div>
+          <div className="Header__lang">
+            <LanguageSwitcher />
+          </div>
+        </div>
+      </Container>
+    </StyledHeader>
   )
 }
 

@@ -17,7 +17,6 @@ const FeaturedImageAspect = props => {
 
   const calculateSrcset = () => {
     const newSrcset = acfImageToSrcset(props, maxWidth || 1024)
-    console.log(newSrcset)
     setSrcset(newSrcset)
   }
   useEffect(calculateSrcset, [props])

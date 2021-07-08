@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import { FormattedMessage } from "react-intl"
 import Button from "./styled/Button"
-import { AppConsumer } from "./utils"
+import { AppContext } from "./utils"
 
 const BuyTicketButton = () => {
-  const { state } = useContext(AppConsumer)
+  const { state } = useContext(AppContext)
   const ticketUrl = state?.options?.options?.tickets_url || undefined
   const ticketText = state?.options?.options?.tickets_button_text || undefined
 

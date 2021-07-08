@@ -3,10 +3,10 @@ import { FormattedMessage } from "react-intl"
 import cc from "classcat"
 import useSessionstorage from "@rooks/use-sessionstorage"
 import useTimeout from "@rooks/use-timeout"
-import { AppConsumer, Illustration } from "./utils"
+import { AppContext, Illustration } from "./utils"
 
 const BuyTicketSpider = ({ className }) => {
-  const { state } = useContext(AppConsumer)
+  const { state } = useContext(AppContext)
   const { options } = state
   const [hasAnimated, setHasAnimated] = useSessionstorage(
     "spider-has-animated",
