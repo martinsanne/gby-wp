@@ -8,7 +8,8 @@ export default function AsyncArtistLoader({ pageId, children }) {
 
   useEffect(() => {
     const fetchData = () => {
-      axios.get(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`).then(res => {
+      // axios.get(`${getApiURL()}/wp-json/wp/v2/pages/${pageId}`).then(res => {
+      axios.get(`${getApiURL()}/wp-json/wp/v2/pages/2`).then(res => {
         if (res.data && res.data.acf) {
           if (res.data.acf.artists) {
             setArtists(res.data.acf.artists)
